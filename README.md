@@ -1,5 +1,5 @@
-# CS2LikePanoramaForCSGO
-This small project that i did for unknown reasons brings the CS2 ui look into CS:GO
+# CS2 panorama look for csgos panorama.
+This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
 
 # There are some bugs here and there (Mostly in the pause menu for now as far as i'm aware) but overall is fully functional.
 
