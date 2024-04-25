@@ -1,0 +1,28 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/base.css" />
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/hud/hudmoney.css" />
+    <include src="file://{resources}/styles/buymenu.css" />
+	</styles>
+
+	<CSGOMoneyPanel class="money" hittest="false" force-no-composition-layer="true">
+	    <Panel id="MoneyBG" class="money-text-bg"/>
+	    <Panel class="money-text">
+			            
+			<Image id="SurvivalZoneMoneyExploreBonus" class="money-text-explorebonus-icon cl-hud-wash-color hidden" src="file://{images}/icons/ui/explorebonus.svg" texturewidth="48" textureheight="-1" />
+			<Image id="SurvivalZoneMoneyBombWaveBonus" class="money-text-bombwavebonus-icon cl-hud-wash-color hidden" src="file://{images}/icons/ui/bombwavebonus.svg" texturewidth="48" textureheight="-1" />
+			            
+			<Label class="money-text-label cl-hud-wash-color" text="#Hud_Money"/>
+			            
+			<CSGOSurvivalZoneMoneyProgress id="SurvivalZoneMoneyProgress" class="hidden"/>
+			            
+			<Image class="money-text-buy-icon cl-hud-wash-color" src="file://{images}/icons/ui/buyzone.svg"/>
+	        <CCSGOSteamInputAction class="money-text-buy-icon" actionset="BuyZoneLayer" action="buymenu" separatortext="/" controllernumber = "1"/> 
+	    </Panel>
+
+	    <CSGOMoneyAnimLabel id="Money-Add"      class="money-anim" text="#Hud_Money_Signed"/>
+	    <CSGOMoneyAnimLabel id="Money-AddFlash" class="money-anim" text="#Hud_Money_Signed"/>
+	    <CSGOMoneyAnimLabel id="Money-Remove"   class="money-anim" text="#Hud_Money_Signed"/>
+	</CSGOMoneyPanel>
+</root>

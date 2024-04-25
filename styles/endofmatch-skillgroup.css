@@ -1,0 +1,255 @@
+.eom-skillgroup
+{
+	flow-children: none;
+	horizontal-align: center;
+}
+
+                 
+#id-eom-skillgroup
+{
+	               
+	                
+	
+	horizontal-align: center;
+
+	flow-children: none;
+	margin-top: -70px;
+}
+
+.eom-skillgroup-icon
+{
+	width: 215px;
+	height: 215px;
+	border-radius: 50%;
+	border: 3px solid rgba(187, 199, 231, 0.05);
+	horizontal-align: center;
+	vertical-align: center;
+
+	background-color: gradient(radial, 50% 50%, 0px 0px, 50% 50%, from( #00000000 ),color-stop( 0.6, #00000000), to( #000000DD ) );
+}
+
+.eom-skillgroup-icon-bg
+{
+	wash-color: rgb(62, 148, 197);
+	-s2-mix-blend-mode: screen;
+
+	background-image: url( "file://{resources}/videos/acknowledge540p.webm" );
+	background-repeat: no-repeat;
+	background-size: 350% 350%;
+	background-position: 30% 35%;
+
+	                                             
+}
+
+.eom-skillgroup-new-label
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+
+	border-radius: 3px;
+	padding: 8px 16px;
+	margin-bottom: 8px;
+
+	background-color:blueColor;
+	box-shadow: rgb(6, 102, 139) 0px 0px 8px 0px;
+
+	                                             
+}
+
+.eom-skillgroup-bg-anim
+{
+	animation-name: eom-skillgroup-bg;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'eom-skillgroup-bg'
+{
+	0%
+	{
+		opacity: 0;
+		brightness: 1;
+	}
+
+	50%
+	{
+		opacity: 0;
+		brightness: 1;
+	}
+
+	90%
+	{
+		opacity: 1;
+		brightness: 20;
+	}
+	
+	100%
+	{
+		opacity: 1;
+		brightness: 1;
+	}
+}
+
+.eom-skillgroup__flare
+{
+	width: 300px;
+	height: 300px;
+
+	horizontal-align: center;
+	vertical-align: center;
+
+	wash-color: rgb(238, 234, 196);
+	opacity: 0;
+	-s2-mix-blend-mode: additive;
+}
+
+.eom-skillgroup-new-anim,
+.eom-skillgroup__flare.appear
+{
+	animation-name: eom-skillgroup-new;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+.eom-skillgroup__flare.appear
+{
+	animation-duration: .75s;
+}
+
+
+@keyframes 'eom-skillgroup-new'
+{
+	0%
+	{
+		transform:scale3d( 0, 0, 0 );
+		opacity: 0;
+	}
+
+	50%
+	{
+		transform:scale3d( 0, 0, 0 );
+		opacity: 0;
+	}
+
+	90%
+	{
+		transform:scale3d( 1.5, 1.5, 1.5 );
+		opacity: 1;
+	}
+	
+	100%
+	{
+		transform:scale3d( 0, 0, 0 );
+		opacity: 0;
+	}
+}
+
+.eom-skillgroup__image
+{
+	width: 180px;
+
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.eom-skillgroup__model
+{
+	width: 180px;
+	height: 180px;
+
+	vertical-align: center;
+	horizontal-align: center;
+	transform: scale3d(0, 0, 0);
+
+	transition-property: transform, opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.eom-skillgroup__model-reveal
+{
+	transform:scale3d(1, 1, 1);
+}
+
+.eom-skillgroup__particles
+{
+	width: 256px;
+	height: 256px;
+
+	vertical-align: center;
+	horizontal-align: center;
+	-s2-mix-blend-mode: additive;
+}
+
+.eom-skillgroup__info
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 512px;
+}
+
+.eom-skillgroup__info.right
+{
+	transform: translateX( 380px );
+}
+
+.eom-skillgroup__info.right .eom-skillgroup__info-label
+{
+	text-align: left;
+}
+
+.eom-skillgroup__info.left
+{
+	transform: translateX( -380px );
+}
+
+.eom-skillgroup__info.left .eom-skillgroup__info-label
+{
+	text-align: right;
+	horizontal-align: right;
+}
+
+.eom-skillgroup__info-label
+{
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-size: 28px;
+	font-weight: bold;
+
+	-s2-mix-blend-mode: SRGBadditive;
+	
+	text-shadow: 0px 0px 4px 4.0 rgba(122, 171, 180, 0.075);
+	color: gradient( linear, 0% 0%, 0% 100%, from( rgb(200, 200, 200) ), to( rgb(75, 75, 75)) );
+}
+
+.eom-skillgroup__trophy-icon
+{
+	-s2-mix-blend-mode: SRGBadditive;
+	wash-color: rgb(200, 200, 200);
+	
+	text-shadow: 0px 0px 1px 1.0 rgba(122, 171, 180, 0.075);
+}
+
+.eom-skillgroup__info-label.small
+{
+	font-size: 22px;
+}
+
+.eom-skillgroup__info-label-noglow
+{
+	text-shadow: none;
+	color: grey;
+	font-weight: medium;
+}
+
+.hidden {
+
+	visibility: collapse;
+}

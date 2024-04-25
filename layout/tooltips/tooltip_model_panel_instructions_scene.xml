@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_custom_test.css" />
+	</styles>
+
+	           
+
+		                       
+		 
+			                                                                            
+			                                                                           
+		 
+
+	           
+	
+	                                                                  
+	                                                                
+
+	<Panel class="TestContents">
+		<Label text="Scene Panel - Debug Scene Mode" />
+		<Label text="" />
+		<Label text="left-click + drag - orbit cam rotate" />
+		<Label text="right-click + drag - orbit cam in/out" />
+		<Label text="" />
+		<Label text="ctrl + left-click + drag - rotate scene context" />
+		<Label text="ctrl + middle-click + drag - move scene context" />
+		<Label text="" />
+		<Label text="[ - previous scene context" />
+		<Label text="] - next scene context" />
+		<Label text="" />
+		<Label text="ctrl + c - copy scene setup (as JS) to clipboard" />
+		<Label text="" />
+		<Label text="alt + left-click + drag - reposition debug panel" />
+	</Panel>
+
+</root>

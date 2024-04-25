@@ -1,0 +1,24 @@
+.animateanimate
+{
+    opacity: 1.0;
+    x: 0px;
+    y: 0px;
+	animation-name: slidein;
+	animation-duration: 6.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'slidein' {
+	0%
+	{
+        x: 0px;
+        wash-color: none; 
+    }
+    90% 
+	{
+        x: 0px;
+        wash-color: #FFFFFFE6;
+	}
+}
+

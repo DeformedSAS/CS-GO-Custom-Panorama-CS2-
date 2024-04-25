@@ -1,0 +1,1544 @@
+@define buy-icon-disabled: #4c4c4c;
+@define buywheel-height:600px;
+@define stat-display-width: 580px;
+@define player-container-width:634px;
+@define buywheel-plus-padding:612px;
+
+.hrTop { 
+	width: 100%;
+	height: 2px;
+  	                                                                                                                                                                                    
+	vertical-align: top;
+}
+
+.hrBot { 
+	width: 100%;
+	height: 2px;
+  	                                                                                                                                                                                    
+	vertical-align: bottom;
+}
+
+.buymenu 
+{
+	visibility: collapse;
+	flow-children: down;
+	vertical-align: center;
+	horizontal-align: center;
+	background-color: rgba(0, 0, 0, 0.85);
+	width: 100%;
+	height: 100%;
+}
+
+.WindowRoot_TripleMonitor .buymenu
+{
+	horizontal-align: center;
+	width: 33%;
+}
+
+.buymenu__fullscreen
+{
+	flow-children:none;
+	width:100%;
+	height:100%;
+}
+
+.buymenu__contents
+{
+	flow-children: right;
+	width:100%;
+	height:fill-parent-flow(1);
+	                    
+}
+
+
+
+.buymenu-info
+{
+	flow-children: right;
+	horizontal-align: center;
+	vertical-align: top;
+	width: buywheel-height;
+	margin-top: 10px;
+	height:80px;
+}
+
+
+
+.buymenu-money
+{
+	horizontal-align:left;
+	vertical-align:top;
+	padding-top: 356px;
+	margin: 0px 0px 0px 0px;
+	height: 500px;
+}
+
+
+.buymenu-timeleft
+{
+	horizontal-align: center;
+	vertical-align: center;
+	margin-left:12px;
+}
+
+
+
+.buymenu-timeleft Label
+{
+    font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+	font-size: 32px;
+	                                                                                        
+	margin-top: 3px;
+	text-shadow-fast:1px 1px #00000088;
+	color:white;
+	overflow:noclip;
+}
+
+.buymenu-timeleft-title
+{
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-size: 32px;
+	font-weight: bold;
+	margin-top: 3px;
+	                   
+	text-shadow-fast:1px 1px #00000088;
+	color:white;
+}
+
+.buymenu-navbar 
+{
+	width: 100%;
+	height: 96px;
+	padding: 0px 64px;
+	vertical-align: bottom;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+	background-color: #00000088;
+	visibility:visible;
+	
+
+}
+
+.SteamInputGlyphsActive .buymenu-navbar.pccontrols
+{
+	visibility:collapse;
+}
+
+.buymenu-navbar.consolecontrols
+{
+	visibility: collapse;	
+}
+
+.SteamInputGlyphsActive .buymenu-navbar.consolecontrols
+{
+	visibility: visible;
+}
+
+CCSGOSteamInputActionLabel
+{
+	vertical-align: middle;
+	margin-left: 4px;
+	margin-right: 8px;
+}
+
+CCSGOSteamInputAction
+{
+	vertical-align: middle;
+	margin-left: 8px;
+	margin-right: 4px;
+}
+
+.buymenu-topbar-btn 
+{
+    width: 220px;
+    height: 55px;
+    background-color:rgba(0,0,0,0.6);
+    border-radius: 10px;
+}
+
+.buymenu-topbar-btn__label
+{
+	text-shadow:2px 2px 2px #000000;
+	
+}
+.buymenu-topbar-btn:hover
+{
+    background-color:rgba(0,0,0,0.8);
+    text-shadow:4px 4px 4px #000000;
+}
+
+.buymenu-topbar-btn:hover Label 
+{
+    text-shadow:4px 4px 4px #000000;
+    transform: translate3d( -1px, -1px, 0px );
+}
+
+.buymenu-topbar-btn:selected 
+{
+    background-color:rgba( 0,0,0,0.9 );
+    transform: translate3d( 1px, 1px, 0px );
+}
+
+.buymenu-topbar-btn:selected Label 
+{
+    text-shadow:1px 1px 1px #000000;
+    transform: translate3d( 1px, 1px, 0px );
+}
+
+.buymenu-topbar-btn:active 
+{
+    background-color:rgba( 0,0,0,0.9 );
+}
+
+.buymenu-left
+{
+	vertical-align: top;
+	horizontal-align: right;
+	height: 100%;
+	width: 60%;
+	padding-left: 60px;
+  	                    
+	padding-top: 25px;
+}
+
+.buymenu__purchase-failure-container
+{
+	position: 0px 176px 0px;
+	horizontal-align: center;
+	vertical-align: center;
+	flow-children: down;
+	height: 68px;
+}
+
+
+.buymenu__purchase-failure
+{
+	font-family: notosans, Stratum2;
+	font-size: 18px;
+	color: warningColor;
+	text-shadow:2px 2px 2px #000000;
+	text-align: center;
+	height: 68px;
+	                          
+	width: buywheel-height;
+
+	animation-name: failure-pulse; 
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 2;
+
+	horizontal-align: center;
+	brightness: 1;
+
+	background-color: #33333300;
+
+	transition-property: height, opacity;
+	transition-duration: 0.1s;
+	transition-timing-function: ease-in-out;
+}
+
+.buymenu__purchase-failure--teammate
+{
+	color: warningColor;
+}
+
+.buymenu__purchase-failure.Hidden{
+
+	                           
+	height: 0px;
+	padding-bottom: 0px;
+	opacity: 0;
+}
+
+.buymenu__for-teammate{
+	font-family: notosans, Stratum2;
+	font-size: 18px;
+	font-weight: medium;
+	text-transform: uppercase;
+	color: rgb(161, 161, 161);
+	padding-right:16px;
+}
+
+.buymenu__for-teammate.active{
+	color: rgb(161, 161, 161);
+}
+
+#PurchaseFailureLabel {
+	animation-name: fadein; 
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+#HudBottomRight {
+	horizontal-align: right;
+	vertical-align: bottom;
+	flow-children: down;
+	height: 100%;
+	width: 100%;
+	padding-bottom: 96px;
+}
+
+.AspectRatio16x9 #HudBottomRight,
+.AspectRatio16x10 #HudBottomRight,
+{
+	z-index: -3;
+}
+
+@keyframes 'fadein'
+{
+	0%
+	{
+		opacity: 0;
+	}
+
+	100%
+	{
+		opacity: 1.0;
+	}
+}
+
+@keyframes 'failure-pulse'
+{
+	0%
+	{
+		saturation: 1.0;
+	}
+
+	50%
+	{
+		saturation: 0.0;
+	}
+
+	100%
+	{
+		saturation: 1.0;
+	}
+}
+
+.buymenu-body
+{
+	width:buywheel-plus-padding;
+	height:100%;
+	margin-top:44px;
+	margin-bottom:100px;
+	flow-children: none;
+	vertical-align: bottom;
+	horizontal-align: center;
+
+  	                     
+
+
+}
+
+.buy-wheel-background
+{
+	height: buywheel-plus-padding;
+	width:height-percentage(100%);
+	border-radius:50%;
+	background-color:gradient( radial, 50% 50%, 0% 0%, 50% 50%, from( rgb(66, 66, 66) ), to ( rgb(66, 66, 66) )  );
+	                                    
+	opacity: 0.35;
+	margin-top: 0px;
+	position: 0px 0px 0px;
+}
+
+                     
+.buy-wheel
+{
+	                                                                
+	height: buywheel-height; 
+	margin: 6px 6px 6px 6px;
+	horizontal-align: right;
+	position: 0px 0px 0px;
+}
+
+.buywheel-button
+{
+	vertical-align: top;
+	horizontal-align: left;
+	width: 50%;
+	height:50%;
+}
+
+.buywheel-category__contents
+{
+	flow-children:none;
+	horizontal-align: center;
+	vertical-align:center;
+	width:100%;
+	height:100%;
+}
+
+.buywheel-category__label
+{
+	font-weight: bold;
+	color: rgb(185, 183, 183);
+	font-size: 35px;
+	horizontal-align: center;
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.buywheel-category__label--UPPERCASE
+{
+	text-transform: uppercase;
+	text-overflow: shrink;
+	max-width: 210px;
+}
+
+.buywheel-category__title
+{
+	opacity: 1;
+	horizontal-align: center;
+	vertical-align:center;
+	color: white;
+	font-size: 24px;
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-weight: bold;
+}
+
+.buywheel-cant-afford .buywheel-category__title
+{
+	wash-color: darkgrey;
+	                                                          
+}
+
+.buywheel-button__key
+{
+	horizontal-align: center;
+	vertical-align:center;
+	opacity: 0.4;
+}
+
+.cl_buywheel_nonumberpurchasing .buywheel-button__key
+{
+	opacity: 0.0;
+}
+
+.buymenu-agent
+{
+	width: 1400px;
+	height: 100%;
+	horizontal-align:left;
+	margin-left: -400px;
+	margin-right: -400px;
+}
+
+@keyframes ping
+{
+	0%
+	{
+		brightness: 0.65;
+	}
+
+	100%
+	{
+		brightness: 1;
+	}
+}
+
+
+.highlit-agent {
+
+	animation-name: ping;
+	animation-duration: .1s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+
+	brightness: 1.0;
+}
+
+.category-preview
+{
+	width: stat-display-width;
+	height: 400px;
+	horizontal-align:center;
+  	                           
+	vertical-align: bottom;
+
+  	                       
+
+	flow-children:down;
+	
+  	                        
+	horizontal-align:center;
+
+	margin: 0px 32px 10px 32px;
+
+	background-color: contentPanelBackground;
+                                                                                                                                                                                          
+}
+
+.category-preview__label
+{
+	text-transform: uppercase;
+	vertical-align: top;
+	horizontal-align: center;
+	padding-top: 32px;
+	padding-bottom: 16px;
+	font-size: 32px;
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-weight: medium;
+    color: #AAAAAAFF;
+}
+
+
+#PreviewPanelContainer
+{
+	width: 800px;
+	height: 500px;
+	vertical-align:bottom;
+	horizontal-align:left;
+}
+
+.AspectRatio16x9 #PreviewPanelContainer,
+.AspectRatio16x10 #PreviewPanelContainer,
+{
+	margin-left: -100px;
+}
+
+.category-image-container
+{
+	vertical-align: center;
+	horizontal-align:center;
+  	            
+  	                        
+	flow-children:down;
+	height: 100%;
+
+
+}
+
+.category-wedge-image-container{
+
+	              
+	animation-name: fadein; 
+	transition-delay: 1.0s;
+	animation-duration: 0.1s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+}
+
+
+.w1 .category-wedge-image-container .wepicon_1{	position: -18% 56% 20%; }
+.w1 .category-wedge-image-container .wepicon_2{	position: -6% 44% 20%; }
+.w1 .category-wedge-image-container .wepicon_3{	position: 3% 31% 20%; }
+.w1 .category-wedge-image-container .wepicon_4{	position: 16% 19% 20%; }
+.w1 .category-wedge-image-container .wepicon_5{	position: 32% 10% 20%; }
+.w1 .category-wedge-image-container .wepicon_6{	position: 34% 0% 20%; }
+
+.w2 .category-wedge-image-container .wepicon_1{	position: -35% 6% 20%; }
+.w2 .category-wedge-image-container .wepicon_2{	position: -23% 14% 20%; }
+.w2 .category-wedge-image-container .wepicon_3{	position: -9% 23% 20%; }
+.w2 .category-wedge-image-container .wepicon_4{	position: 2% 34% 20%; }
+.w2 .category-wedge-image-container .wepicon_5{	position: 12% 47% 20%; }
+.w2 .category-wedge-image-container .wepicon_6{	position: 21% 59% 20%; }
+
+.w3 .category-wedge-image-container .wepicon_1{	position: 30% 20% 20%; }
+.w3 .category-wedge-image-container .wepicon_2{	position: 34% 34% 20%; }
+.w3 .category-wedge-image-container .wepicon_3{	position: 34% 48% 20%; }
+.w3 .category-wedge-image-container .wepicon_4{	position: 34% 62% 20%; }
+.w3 .category-wedge-image-container .wepicon_5{	position: 28% 76% 20%; }
+.w3 .category-wedge-image-container .wepicon_6{	position: 26% 90% 20%; }
+
+.w4 .category-wedge-image-container .wepicon_1{	position: 20% 47% 20%; }
+.w4 .category-wedge-image-container .wepicon_2{	position: 12% 55% 20%; }
+.w4 .category-wedge-image-container .wepicon_3{	position: 4% 62% 20%; }
+.w4 .category-wedge-image-container .wepicon_4{	position: -3% 70% 20%; }
+.w4 .category-wedge-image-container .wepicon_5{	position: -18% 77.5% 20%; }
+.w4 .category-wedge-image-container .wepicon_6{	position: -34% 84% 20%; }
+
+.w5 .category-wedge-image-container .wepicon_1{	position: -10% 59% 20%; }
+.w5 .category-wedge-image-container .wepicon_2{	position: 0% 68% 20%; }
+.w5 .category-wedge-image-container .wepicon_3{	position: 15.5% 76% 20%; }
+.w5 .category-wedge-image-container .wepicon_4{	position: 28% 82% 20%; }
+.w5 .category-wedge-image-container .wepicon_5{	position: 34% 86% 20%; }
+.w5 .category-wedge-image-container .wepicon_6{	position: 45% 92% 20%; }
+
+.w6 .category-wedge-image-container .wepicon_1{	position: -30% 20% 20%; }
+.w6 .category-wedge-image-container .wepicon_2{	position: -34% 34% 20%; }
+.w6 .category-wedge-image-container .wepicon_3{	position: -34% 48% 20%; }
+.w6 .category-wedge-image-container .wepicon_4{	position: -34% 62% 20%; }
+.w6 .category-wedge-image-container .wepicon_5{	position: -28% 76% 20%; }
+.w6 .category-wedge-image-container .wepicon_6{	position: -26% 90% 20%; }
+
+.weapon-icons__image
+{
+	wash-color:baseText;
+	margin-top:7px;
+	margin-bottom:7px;
+  	                
+	height: 29px;
+	width: fill-parent-flow( 1.0);
+	opacity: 0.8;
+	padding: 3px;
+}
+
+.buywheel-item__icon
+{
+	wash-color:baseText;
+	height:50px;
+	margin-top:10px;
+	margin-bottom:10px;
+	horizontal-align:center;
+	overflow:noclip;
+}
+
+.buymenu-right
+{
+	flow-children: none;
+	height: 100%;
+	width: 50%;
+	margin-top: 0px;
+	margin-right: 60px;
+	margin-bottom: 96px;
+	margin-left: -7%;
+	                                                                                                                
+  	                                                                                                                                                   
+  	                                                 
+	padding-top: 38px;
+
+	z-index: -1;
+}
+
+                         
+.stat-display
+{
+	flow-children: down;
+	width: stat-display-width;
+	horizontal-align:center;
+	                       
+	margin: 0px 32px 10px 32px;
+	vertical-align: bottom;
+	height: 230px;
+
+
+
+	background-color: contentPanelBackground;
+}
+
+.deathmatch .stat-display__kill-reward,
+.stat-display__points
+{
+	visibility: collapse;
+}
+
+.deathmatch .stat-display__points
+{
+	visibility: visible;
+}
+
+                                                
+.preview-container--hidden,
+.preview-container--details .category-preview,
+.preview-container--preview .stat-display
+{
+	                         
+	opacity: 0.0;
+}
+
+                                    
+.AspectRatio4x3 .embedded-weapons-overview--hidden,
+.AspectRatio5x4 .embedded-weapons-overview--hidden,
+.WindowRoot_TripleMonitor .embedded-weapons-overview--hidden,
+{
+	opacity: 0.0;
+}
+
+                      
+.preview-container--details > .stat-display
+{
+	opacity: 1;
+}
+
+                                                                                                            
+.preview-container--preview > .category-preview
+{
+	opacity: 1;
+}
+
+.stat-display__model
+{
+	flow-children: none;
+	height: 278px;
+	width:100%;
+	vertical-align: top;
+	background-color: rgba(0, 0, 0, 0.45);
+}
+
+.weapon-stats
+{
+	flow-children: down;
+	width: buywheel-height;
+	horizontal-align:left;
+}
+
+.stat-display__desc
+{
+	height: 100%;
+	width: buywheel-height;
+	horizontal-align:left;
+	font-size: 16px;
+	padding: 16px 32px 0px 32px;
+}
+
+.stat-display__item-name
+{
+	horizontal-align: left;
+	                            
+	font-family: Stratum2, 'Arial Unicode MS';
+	vertical-align: center;
+	margin-left: 12px;
+	font-weight: medium;
+	font-size: 22px;
+	text-shadow: 0px 0px 2px 2.5 #00000033;
+	color: white;
+}
+
+.stat-display ProgressBar
+{
+	border: 0px;
+	opacity: 0.5;
+	background-color: #00000033;
+}
+
+
+
+.stat-display .ProgressBarLeft
+{
+
+	                               
+	                            
+	                                        
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #379e99 ), to (#283837 ) );
+	opacity: 1;
+
+	border-right: 3px solid #57fbf330;
+}
+
+
+
+.stat-display .ProgressBarRight
+{
+	                         
+	               
+	background-color: #00000033;
+}
+
+.ProgressBarLeft,
+.ProgressBarRight{
+
+	transition-property: width;
+	transition-duration: 0.15s;
+	transition-timing-function: ease-in-out;
+}
+
+.rarity-bar
+{
+	vertical-align: top;
+	                                             
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( color-rarity-default ), to (rgba(128, 128, 128, 0) ) );
+	height: 32px;
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+                                           
+
+                                                                                                     
+
+                                                                 
+                                                                  
+                                                          
+                                                                  
+                                                                 
+                                                                    
+                                                                     
+
+.common.rarity-bar { background-color: gradient( linear, 0% 0%, 100% 0%, from( rgb(153, 153, 153) ), to (rgba(128, 128, 128, 0) ) );}
+.uncommon.rarity-bar { background-color: gradient( linear, 0% 0%, 100% 0%, from( color-rarity-uncommon ), to (rgba(128, 128, 128, 0) ) ); }
+.rare.rarity-bar { background-color: gradient( linear, 0% 0%, 100% 0%, from( color-rarity-rare ), to (rgba(128, 128, 128, 0) ) );}
+.mythical.rarity-bar { background-color:gradient( linear, 0% 0%, 100% 0%, from( color-rarity-mythical ), to (rgba(128, 128, 128, 0) ) );}
+.ancient.rarity-bar { background-color: gradient( linear, 0% 0%, 100% 0%, from( color-rarity-ancient ), to (rgba(128, 128, 128, 0) ) );} 
+.legendary.rarity-bar { background-color: gradient( linear, 0% 0%, 100% 0%, from( color-rarity-legendary ), to (rgba(128, 128, 128, 0) ) ); }
+.immortal.rarity-bar { background-color: gradient( linear, 0% 0%, 100% 0%, from( color-rarity-immortal ), to (rgba(128, 128, 128, 0) ) );}
+
+  
+                         
+                                    
+ 
+	                
+	                   
+	                  
+ 
+  
+
+.stat-display__row
+{
+	flow-children: right;
+	width: 100%;
+	background-color: #00000033;
+	margin-bottom: 4px;
+}
+
+.stat-display__name
+{
+	text-align: left;
+	horizontal-align: left;
+	font-size: 14px;
+	margin: 3px 0px 3px 0px;
+	padding-bottom: 2px;
+	padding: 0px 12px;
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-weight: medium;
+}
+
+.stat-display__value
+{
+	text-align: right;
+	horizontal-align: right;
+	padding-right: 12px;
+	font-size: 14px;
+	margin: 3px 0px 3px 0px;
+	padding-bottom: 2px;
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-weight: medium;
+}
+
+.team-equip-container--all
+{
+	flow-children: down;
+	vertical-align:bottom;
+	width:player-container-width;
+	horizontal-align:center;
+	padding: 8px 8px 8px 20px;
+	margin-bottom: 99px;
+}
+
+                                                  
+.team-equip-container
+{
+	flow-children: down;
+	overflow: squish scroll;
+	width: 100%;
+	vertical-align:bottom;
+	height:187px;
+  	                                         
+	margin-top: 4px;
+	opacity: 1;
+                          
+}
+
+.team-equip-container VerticalScrollBar
+{
+	margin-left: 0px;
+}
+
+.team-equip
+{
+	width: 100%;
+	flow-children: right;	
+	background-color: rgba(0, 0, 0, 0.45);
+  	            
+
+  	                                   
+	margin-bottom: 1px;
+	background-color: contentPanelBackground;
+}
+
+.team-equip-container .team-equip
+{
+	                         
+}
+
+.team-equip--self
+{
+	background-color: rgba(20, 20, 20, 0.8);
+	vertical-align:bottom;
+    padding-bottom: 0px;
+    padding-top: 2px;
+	padding-right: 0px;
+	padding-right: 0px;
+    box-shadow: #FFFFFF44 0px 0px 8px 0px;
+}
+
+.team-equip-padding
+{
+	width: fill-parent-flow( 1 );
+}
+
+.team-equip-other
+{
+	flow-children: right;
+	horizontal-align: right;
+}
+
+.team-equip__primary
+{
+	horizontal-align: center;
+	vertical-align: center;
+	margin-left: 24px;
+	margin-right: 15px;
+	height: 26px;
+}
+
+
+
+.team-equip--self .team-equip__primary
+{
+	height: 26px;
+    margin-left: 12px;
+}
+
+
+
+.team-equip__secondary
+{
+
+}
+
+.team-equip-gear
+{
+	flow-children: left;
+	horizontal-align: right;
+	vertical-align: middle;
+	padding-right: 8px;
+	overflow:squish;
+}
+
+.team-equip--self .team-equip-gear
+{
+	flow-children: left;
+	horizontal-align: right;
+	vertical-align: middle;
+	padding-right: 8px;
+	overflow:squish;
+}
+   
+	                    
+   
+
+
+.team-equip--self .team-equip__money
+{
+	width: 100px;
+	horizontal-align: right;
+	font-weight: bold;
+	font-size: 14px;
+	padding-top: 3px;
+	
+	padding-bottom: 2px;
+	text-align: right;
+    
+	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+}
+   
+	                
+	                        
+	                   
+	                    
+   
+
+.team-equip__money
+{
+	horizontal-align: right;
+	font-weight: bold;
+	font-size: 14px;
+	padding-top: 3px;
+	
+	padding-bottom: 2px;
+	text-align: right;
+    
+	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+}
+
+.team-equip-container .team-equip__money
+{
+	width: 100px;
+}
+
+
+.team-equip__items
+{
+	flow-children: right;
+	horizontal-align: right;
+	vertical-align: center;
+}
+
+#Defuser
+{
+	height: 100%;
+	padding: 0px -2px 0px -2px;
+}
+
+.team-equip__item-icon
+{
+	wash-color:baseText;
+  	                       
+	vertical-align:center;
+    height: 24px;
+    width: 24px;
+}
+
+
+
+.team-equip__items Image
+{
+	margin: 0px 4px 0px 4px;
+	vertical-align:center;
+                       
+}
+
+.team-equip__item-grenade
+{
+    height: 24px;
+}
+
+.team-equip__item-vest
+{
+    height: 20px;
+}
+
+.team-equip__flip
+{
+	transform:scaleX(-1);
+}
+
+.team-equip__avatar
+{
+    width:32px;
+	height:32px;
+	vertical-align: center;
+	margin: 2px;
+	margin-right: 4px;
+}
+
+.team-equip--self .team-equip__avatar
+{
+	width:32px;
+	height:32px;
+    margin-top: 0px;
+}
+
+.team-equip__avatar--skull
+{
+	horizontal-align: center;
+	vertical-align: center;
+	padding: 2px;
+}
+
+
+.player-color
+{
+	horizontal-align: center;
+	width: 90%;
+	margin-left: -1px;
+	img-shadow: 0px 0px 1px 1.0 #000000cc;
+}
+
+
+.radial-select-hover .buywheel-category__label
+{
+	color: white;
+}
+
+.buywheel-cant-buy .buywheel-item__price
+{
+	wash-color: darkgrey;
+}
+
+.radial-button:disabled .buywheel-item__price
+{
+	wash-color: darkgrey;
+}
+
+.buywheel-cant-afford #ItemPrice
+{
+	wash-color: red;
+}
+
+.buywheel-cant-buy .buywheel-item__icon
+{
+	wash-color: buy-icon-disabled;
+	opacity:0.7;
+	img-shadow: 0px 0px 1px #00000040;
+}
+
+.radial-button:disabled .buywheel-item__icon
+{
+	wash-color: buy-icon-disabled;
+	opacity:0.7;
+	img-shadow: 0px 0px 1px #00000040;
+}
+
+
+.buywheel-cant-afford.weapon-icons__image
+{
+  	                              
+	wash-color: buy-icon-disabled;
+	opacity:0.7;
+	img-shadow: 0px 0px 1px #00000040;
+}
+
+
+.buywheel-item__image
+{
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.team-equip__special
+{
+	border-right: 1px solid white;
+	margin-right: 4px;
+	padding-right: 8px;
+    height: 24px;
+}
+
+
+.buywheel-item__textbox
+{
+	vertical-align: center;
+	horizontal-align: center;
+	flow-children: down;
+	padding: 4px 4px 4px 4px;
+	min-width: 180px;
+	overflow:noclip;
+}
+
+.buywheel-item__textbox Label
+{
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.buywheel-item__name
+{
+	font-size: 18px;
+	overflow: squish squish;
+	text-overflow: shrink;
+	text-align: center;
+	horizontal-align: center;
+	width:180px;
+}
+
+.buywheel-item__price
+{
+	font-weight: bold;
+	wash-color: lightgreen;
+	font-size: 22px;
+	horizontal-align: center;
+}
+
+                                           
+.RadioBox 
+{
+    opacity: 0;
+}
+
+.RadioButton Label 
+{
+    margin-left: 0px;
+}
+
+
+
+.team-logo
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 90px;
+	height: 90px;
+	brightness: 1;
+	margin-top: -150px;
+	position: 0px 0px 0px;
+}
+
+                                                                               
+                   
+                                                                               
+
+
+
+.radial-selector
+{
+	width: height-percentage( 100% );
+	height: 100%;
+	flow-children: none;	
+
+    clip:radial(50% 50%, 0deg, 0deg);
+}
+
+.radial-button
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+}
+
+.wedge
+{
+	transform-origin: 0.1% 99.9%;
+	opacity: 0.75;
+	margin-left: 50%;
+	width: height-percentage( 86.72% );
+	height: 50%;
+	wash-color: black;
+}
+
+.w90
+{
+	transform-origin: 0% 100%;
+	margin-left: 50%;
+	height: 50%;
+	width: 50%;
+	wash-color: black;
+}
+
+.w1 > .wedge
+{
+	transform: rotateZ( -60deg );
+}
+
+.w2 > .wedge
+{
+	transform: rotateZ( 0deg );
+}
+
+.w3 > .wedge
+{
+	transform: rotateZ( 60deg );
+}
+
+.w4 > .wedge
+{
+	transform: rotateZ( 120deg );
+}
+
+.w5 > .wedge
+{
+	transform: rotateZ( 180deg );
+}
+
+.w6 > .wedge
+{
+	transform: rotateZ( 240deg );
+}
+
+                                      
+.w1 > .w90
+{
+	transform: rotateZ( -45deg );
+}
+
+.w2 > .w90
+{
+	transform: rotateZ( 45deg );
+}
+
+.w3 > .w90
+{
+	transform: rotateZ( 135deg );
+}
+
+.w4 > .w90
+{
+	transform: rotateZ( 225deg );
+}
+
+.radial-select-hover:not(.no-hover) > .wedge
+{
+	wash-color: #b0b0b0;
+}
+
+.radial-button:selected > .wedge
+{
+	wash-color: #ffffff;
+}
+
+                                                                                                         
+                                                     
+.w1 > .buywheel-item
+{
+	position: -20% -27% 0px;
+}
+
+.w2 > .buywheel-item
+{
+	position: 20% -27% 0px;
+}
+
+.w3 > .buywheel-item
+{
+	position: 30% 0% 0px;
+}
+
+.w4 > .buywheel-item
+{
+	position: 20% 27% 0px;
+}
+
+
+
+.w5 > .buywheel-item
+{
+	position: -20% 27% 0px;
+}
+
+
+
+.w6 > .buywheel-item
+{
+	position: -30% 0% 0px;
+}
+
+
+
+.w1 > .buywheel-button
+{
+	position: 0% 0% 0%;
+}
+
+
+
+.w2 > .buywheel-button
+{
+	position: 50% 0% 0%;
+}
+
+
+
+.w3 > .buywheel-button
+{
+	position: 50% 25% 0%;
+}
+
+
+
+.w4 > .buywheel-button
+{
+	position: 50% 50% 0%;
+}
+
+
+
+.w5 > .buywheel-button
+{
+	position: 0% 50% 0%;
+}
+
+
+
+.w6 > .buywheel-button
+{
+	position: 0% 25% 0%;
+}
+
+
+.w1 .buywheel-category__title
+{
+	position: 26% 7% 0%;
+	text-align: right;
+}
+
+
+
+.w1 .buywheel-button__key
+{
+	position: 38.7% 30.3% 0%;
+}
+
+
+
+.w1 .buywheel-item__textbox
+{
+	position: 19% -6.2% 0%;
+}
+
+
+.w2 .buywheel-category__title
+{
+	position: -25.8% 7% 0%;
+	text-align: left;
+}
+
+
+
+.w2 .buywheel-button__key
+{
+	position: -38.7% 30.3% 0%;
+}
+
+
+
+.w2 .buywheel-item__textbox
+{
+	position: -19% -6.2% 0%;
+}
+
+
+.w3 .buywheel-category__title
+{
+	position: -2.4% 0% 0%;
+	text-align: left;
+}
+
+
+
+.w3 .buywheel-button__key
+{
+	position: -26.9% 0% 0%;
+}
+
+
+
+.w3 .buywheel-item__textbox
+{
+	position: 12.5% 0% 0%;
+}
+
+
+.w4 .buywheel-category__title
+{
+	position: -25.8% -8% 0%;
+	text-align: left;
+}
+
+
+
+.w4 .buywheel-button__key
+{
+	position: -38.7% -30.3% 0%;
+}
+
+
+
+.w4 .buywheel-item__textbox
+{
+	position: -19% 6.2% 0%;
+}
+
+
+
+.w5 .buywheel-category__title
+{
+	position: 20% -8% 0%;
+	text-align: right;
+}
+
+
+
+.w5 .buywheel-button__key
+{
+	position: 38.7% -30.3% 0%;
+}
+
+
+
+.w5 .buywheel-item__textbox
+{
+	position: 19% 6.2% 0%;
+}
+
+
+.w6 .buywheel-category__title
+{
+	position: -3% 0% 0%;
+	text-align: right;
+}
+
+
+
+.w6 .buywheel-button__key
+{
+	position: 26.9% 0% 0%;
+}
+
+
+
+.w6 .buywheel-item__textbox
+{
+	position: -12.5% 0% 0%;
+}
+
+
+
+.w1 > .fourslot
+{
+	position: 25% 0% 0%;
+}
+
+
+
+.w2 > .fourslot
+{
+	position: 50% 25% 0px;
+}
+
+
+
+.w3 > .fourslot
+{
+	position: 25% 50% 0px;
+}
+
+
+
+.w4 > .fourslot
+{
+	position: 0% 25% 0px;
+}
+
+
+
+.w1 > .fourslot .buywheel-button__key 
+{
+	position: 0% 26.9% 0%;
+}
+
+
+
+.w1 > .fourslot .buywheel-item__textbox
+{
+	position: 0% -12% 0%;
+}
+
+
+
+.w2 > .fourslot .buywheel-button__key
+{
+	position: -26.9% 0% 0%;
+}
+
+
+
+.w2 > .fourslot .buywheel-item__textbox
+{
+	position: 12% 0% 0%;
+}
+
+
+
+.w3 > .fourslot .buywheel-button__key
+{
+	position: 0% -26.9% 0%;
+}
+
+
+
+.w3 > .fourslot .buywheel-item__textbox
+{
+	position: 0% 12% 0%;
+}
+
+
+
+.w4 > .fourslot .buywheel-button__key
+{
+	position: 26.9% 0% 0%;
+}
+
+
+
+.w4 > .fourslot .buywheel-item__textbox
+{
+	position: -19% 6.2% 0%;
+}

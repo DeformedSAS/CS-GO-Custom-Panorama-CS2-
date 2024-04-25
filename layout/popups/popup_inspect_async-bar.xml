@@ -1,0 +1,35 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/popups/popup_inventory_inspect.css" />
+		<include src="file://{resources}/styles/popups/popup_capability_shared.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+        <include src="file://{resources}/scripts/common/item_context_entries.js" />
+        <include src="file://{resources}/scripts/popups/popup_inspect_async-bar.js" />
+	</scripts>
+
+	<Panel class="popup-capability__button-row" useglobalcontext="true">
+		<Panel class="left-right-flow horizontal-align-right">
+			<ItemImage id="AsyncItemWorkDescImage" class="popup-capability__purchase__image" scaling="stretch-to-fit-x-preserve-aspect"/>
+			<Label id="AsyncItemWorkDesc" html="true" class="popup-capability__purchase__text stratum-font" text=""/>
+
+			<Panel id="NameableSpinner" class="Spinner vertical-center horizontal-center hidden"/>
+			<Panel class="spacer"/>
+			
+			<TextButton id="AsyncItemWorkAcceptConfirm" html="true"
+					class="PopupButton"
+					text="#SFUI_Accept"/>
+
+			<TextButton id="AsyncItemWorkCancelBtn" html="true"
+						class="PopupButton"
+						onactivate="InspectAsyncActionBar.OnEventToClose();"
+						text="#GameUI_Close" />
+		
+		</Panel>
+	</Panel>
+</root>

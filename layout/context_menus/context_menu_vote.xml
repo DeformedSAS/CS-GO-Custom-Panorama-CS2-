@@ -1,0 +1,24 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_vote.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/icon.js" />
+		<include src="file://{resources}/scripts/context_menus/context_menu_vote.js" />
+	</scripts>
+		
+	<snippets>
+		<snippet name="VoteOption" >
+			<Button class="vote-option">
+				<Image id="VoteOptionIcon" class="vote-option__icon"/>
+				<Label id="VoteOptionName" class="vote-option__label" text="XXXX XXXXXX XXXX" />
+				<Countdown id="VoteOptionTimeAvail" text="XXXXXXXX XX {t:d:timeleft}" />
+			</Button>
+		</snippet>
+	</snippets>
+
+	<Panel onload="ItemContextMenu.SetupContextMenu()" useglobalcontext="true" acceptsinput="true" acceptsfocus="true" class="top-bottom-flow ContextMenuItem">
+		                             
+	</Panel>
+</root>

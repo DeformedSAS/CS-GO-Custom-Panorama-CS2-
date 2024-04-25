@@ -1,0 +1,58 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_mainmenu_vanity_settings.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_mainmenu_vanity_settings.js" />
+		                                                                  
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel"
+						useglobalcontext="true"
+						popupbackground="dim"
+						onload="PopupVanitySettings.Init();">
+		<Label class="PopupTitle" text="#Vanity_Settings" />
+
+		<Panel class="popup-vanity-block">
+				<Panel class="popup-vanity-right popup-vanity-right--bg">
+					<ToggleButton id="VanityPlayIntroAnim" class="PopupButton" >
+						<Label id="" text="Play Intro Anim" />
+					</ToggleButton>
+				</Panel>
+				<Panel id="VanityDropdowns" class="popup-vanity-right"> 
+					<Panel class="popup_vanity_dropdown">
+						<Label id="" class="popup-vanity_dropdown__text" text="Faction" />
+						<DropDown id="VanityDropdownModels" class="PopupButton" menuclass="">
+							<Label text="SAS" id="models/player/custom_player/legacy/ctm_sas.mdl" data-team="ct" />
+							<Label text="FBI" id="models/player/custom_player/legacy/ctm_fbi.mdl" data-team="ct" />
+							<Label text="GIGN" id="models/player/custom_player/legacy/ctm_gign.mdl" data-team="ct" />
+							<Label text="GSG9" id="models/player/custom_player/legacy/ctm_gsg9.mdl" data-team="ct" />
+							<Label text="Elite Crew" id="models/player/custom_player/legacy/tm_leet_variantc.mdl" data-team="t" />
+							<Label text="Phoenix" id="models/player/custom_player/legacy/tm_phoenix.mdl" data-team="t" />
+							<Label text="Balkan" id="models/player/custom_player/legacy/tm_balkan_varianta.mdl" data-team="t" />
+						</DropDown>
+					</Panel>
+
+					<Panel class="popup_vanity_dropdown">
+						<Label id="" class="popup-vanity_dropdown__text" text="Loadout Slot" />
+						<DropDown id="VanityDropdownSubCatagories" class="PopupButton" menuclass="" >
+		
+						</DropDown>
+					</Panel>
+
+					<Panel id="VanityDropdownWeapons" class="popup_vanity_dropdown">
+						<Label id="" class="popup-vanity_dropdown__text" text="Weapon" />
+					</Panel>
+				</Panel>
+			
+			<Panel class="PopupButtonRow">
+				<TextButton class="PopupButton" text="Cancel" onactivate="UIPopupButtonClicked()" />
+			</Panel>
+		</Panel>
+
+	</PopupCustomLayout>
+</root>

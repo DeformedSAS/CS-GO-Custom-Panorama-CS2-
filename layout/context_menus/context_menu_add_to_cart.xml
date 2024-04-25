@@ -1,0 +1,42 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_add_to_cart.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+		<include src="file://{resources}/scripts/context_menus/context_menu_add_to_cart.js" />
+		
+	</scripts>
+	
+	<snippets>
+		<snippet name="Item">
+			<Panel class="item">
+				<ItemImage class="item__image" scaling="stretch-to-fit-x-preserve-aspect" id="ItemImage" >
+					<Image class="item__image__inspect horizontal-center vertical-center" texturewidth="64" textureheight="-1" src="file://{images}/icons/ui/find.svg"/>
+				</ItemImage>
+				<Label class="item__item-name" text="{s:name}"/>
+				<Panel class="cart-controls-row">
+					<Panel class="cart-controls">
+						<Button id="RemoveItem" class="PopupButton">
+							<Label text="-" class="item__remove-button"/>
+						</Button>
+						<Label text="#SFUI_InvUse_Get_Quantity" class="cart-controls__item_quantity"/>
+						<Button id="AddItem" class="PopupButton">
+							<Label text="+" class="item__add-button"/>
+						</Button>
+					</Panel>
+					<Panel class="top-bottom-flow horizontal-align-right vertical-center">
+						<Label id="ItemPrice" class="cart-controls__item_price" text="{s:price}"/>
+						<Label id="ItemPriceOriginal" class="cart-controls__item_price original-price" text="{s:originalprice}"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<ContextMenuCustomLayout class="add-to-cart" onload="ContextMenuAddToCart.Init()" acceptsfocus="true" useglobalcontext="false">
+		<Panel id="ItemContainer" class='item-container'/>
+	</ContextMenuCustomLayout>
+</root>

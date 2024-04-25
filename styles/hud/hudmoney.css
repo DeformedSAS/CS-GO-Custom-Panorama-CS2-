@@ -1,0 +1,416 @@
+                                         
+
+@define AddMoneyTime: 2.9s;
+@define RemoveMoneyTime: 2.9s;
+@define AddRemoveMoneyFlashTime: 0.5s;
+
+@define defaultColor: #ffffff;
+@define AddMoneyColor: #7CC213;
+@define FlashMoneyColor: #d3e798;
+@define RemoveMoneyColor: #fd2424;
+
+         
+                        
+@define AddMoneyTime--Survival: 0.7s;
+@define AddRemoveMoneyFlashTime--Survival: 0.5s;
+         
+
+                                                                          
+@define AddMoneyXPos: 25px;
+@define RemoveMoneyXPos: 30px;
+
+                    
+@define MoneyYPosAtMoney: 58px;
+@define MoneyYPosModified: 86px;
+@define MoneyYPosVanished: 86px;          
+@define MoneyYPosAddStart: 18px;
+
+                                                                               
+                                                                               
+                                                                               
+
+.money-text-label,
+.money-anim
+{
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-size: 32px;
+    font-weight: bold;
+}
+
+                                                                                                 
+                                                                         
+.Language_vietnamese .money-text-label,
+.Language_vietnamese .money-anim 
+{
+	font-family: ForceStratum2, 'Arial Unicode MS';
+}
+
+                                                                               
+   
+                                                                               
+
+.money 
+{
+    width: fit-children;
+            
+    height: 140px;
+    opacity: 1.0;
+    margin-top: -52px;
+    margin-bottom: -12px;
+    z-index: 1;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: 0.05s;
+}
+
+.buymenu CSGOHudMoney.money__in-buy-zone.money__in-buy-time CCSGOSteamInputAction,
+CSGOHudMoney CCSGOSteamInputAction 
+{
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    transition-duration: 0.05s;
+}
+
+.money-text-buy-icon
+{
+    margin-top: 5px;
+    margin-left: 6px;
+    margin-right: 6px;
+
+    width: 30px;
+    height: 30px;
+
+    -s2-mix-blend-mode: additive;
+
+    opacity: 0;
+    transition-property: opacity;
+	transition-timing-function: linear;
+    transition-duration: 0.05s;
+    img-shadow: 1px 1px 2px 1.0 #00000033;
+
+    wash-color-fast: lightgreen;
+}
+
+CCSGOSteamInputAction.money-text-buy-icon 
+{
+    wash-color-fast: white;
+    margin-left: 0px;
+}
+
+
+.money__in-buy-zone.money__in-buy-time .money-text-buy-icon 
+{
+    opacity: 1;
+}
+
+
+.buymenu .buymenu-money .money__in-buy-zone.money__in-buy-time .money-text-buy-icon 
+{
+    opacity: 0;
+}
+
+.money-text-explorebonus-icon
+{
+    margin-left: 20px;
+    margin-right: -16px;
+    width: 48px;
+    height: 48px;
+    -s2-mix-blend-mode: additive;
+    visibility: collapse;
+    img-shadow: 1px 1px 2px 1.0 #00000033;
+    wash-color-fast: lightgreen;
+}
+.money__has-explorebonus .money-text-explorebonus-icon
+{
+    visibility: visible;
+}
+
+.money-text-bombwavebonus-icon
+{
+    margin-left: 20px;
+    margin-right: -16px;
+    width: 48px;
+    height: 48px;
+    -s2-mix-blend-mode: additive;
+    visibility: collapse;
+    img-shadow: 1px 1px 2px 1.0 #00000033;
+    wash-color-fast: lightgreen;
+}
+.money__has-bombwavebonus .money-text-bombwavebonus-icon
+{
+    visibility: visible;
+}
+
+.money-text-bg
+{
+    width: 100%;
+    height: 48px;
+    vertical-align: middle;
+    margin-left: 12px;
+    background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.5, #000000CC ) , color-stop(0.6, #000000CC), color-stop( 0.9, #000000BB ), to( #00000000 ) );
+}
+
+.survival .money-text-bg
+{
+    height: 64px;
+}
+
+.money-text
+{
+    flow-children: right;
+    vertical-align: middle;
+}
+
+.money-text-label
+{
+   color: defaultColor;
+   text-shadow-fast: 1px 1px #00000088;
+   text-shadow: 0px 0px 3px 0.0 #000000DD;
+   margin-top: 3px;
+   margin-left: 31px;
+}
+
+.money-anim
+{
+    visibility: collapse;
+}
+
+.money-anim.money-anim__add
+{
+    visibility: visible;
+
+    color: AddMoneyColor;
+    x: AddMoneyXPos;    
+    y: MoneyYPosAtMoney;
+
+    -s2-mix-blend-mode: SRGBadditive; 
+
+    opacity: 0.0;
+    animation-name: money-anim__add;
+    animation-duration: AddMoneyTime;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes money-anim__add
+{
+	0%
+	{
+        opacity: 0.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosAddStart;
+        z: 0px;
+    }
+    8%
+    {
+        opacity: 1.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosAddStart;
+        z: 0px;
+    }
+    90%
+    {
+        opacity: 1.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosAddStart;
+        z: 0px;
+    }
+	100%
+	{
+        opacity: 0.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosAtMoney;
+        z: 0px;
+	}
+}
+
+.money-anim.money-anim__remove
+{
+    visibility: visible;
+
+    color: RemoveMoneyColor;    
+    x: RemoveMoneyXPos;
+    y: MoneyYPosAtMoney;
+
+    opacity: 0.0;
+    animation-name: money-anim__remove;
+	animation-duration: RemoveMoneyTime;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+
+
+
+@keyframes money-anim__remove
+{
+	0%
+	{
+        opacity: 0.0;
+        x: RemoveMoneyXPos;
+        y: MoneyYPosAtMoney;
+        z: 0px;
+    }
+    8%
+    {
+        opacity: 1.0;
+        x: RemoveMoneyXPos;
+        y: MoneyYPosModified;
+        z: 0px;
+    }
+    90%
+    {
+        opacity: 1.0;
+        x: RemoveMoneyXPos;
+        y: MoneyYPosModified;
+        z: 0px;
+    }
+	100%
+	{
+		opacity: 0.0;
+        x: RemoveMoneyXPos;
+        y: MoneyYPosVanished;
+        z: 0px;
+	}
+}
+
+.money-anim.money-anim__add-flash
+{
+    visibility: visible;
+
+    color: FlashMoneyColor;        
+    x: 36px;
+    y: MoneyYPosAddStart;         
+
+    -s2-mix-blend-mode: SRGBadditive; 
+
+    opacity: 0.0;
+    animation-name: money-anim__addflash;
+	animation-duration: AddRemoveMoneyFlashTime;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes money-anim__addflash
+{
+	0%
+	{
+		opacity: 1.0;
+        x: 36px;
+        y: 8px;
+        z: 0px;
+        transform: scale3d( 1, 1, 1 );
+    }
+    100%
+    {
+        opacity: 0.0;
+        transform: scale3d( 2, 2, 1 );
+        x: 36px;
+        y: 32px;
+        z: 0px;
+    }
+}
+
+         
+
+                              
+.money-anim.money-anim__add-survival
+{
+    visibility: visible;
+
+    color: AddMoneyColor;
+    x: 20px;
+    y: 8px;
+
+    opacity: 0.0;
+	animation-name: money-anim__add-survival;
+	animation-duration: AddMoneyTime--Survival;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'money-anim__add-survival'
+{
+	0%
+	{
+        opacity: 0.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosVanished;        
+        z: 0px;
+    }
+    13%
+    {
+        opacity: 1.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosModified;
+        z: 0px;
+    }
+    87%
+    {
+        opacity: 1.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosModified;
+        z: 0px;
+    }
+	100%
+	{
+        opacity: 0.0;
+        x: AddMoneyXPos;
+        y: MoneyYPosAtMoney;
+        z: 0px;
+	}
+}
+
+.money-anim.money-anim__add-flash-survival
+{
+    color: FlashMoneyColor;
+    x: 20px;
+    y: 140px;
+
+    opacity: 0.0;
+    animation-name: money-anim__add-flash-survival;
+	animation-duration: AddRemoveMoneyFlashTime--Survival;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes money-anim__add-flash-survival
+{
+	0%
+	{
+		opacity: 1.0;
+        transform: scale3d( 1, 1, 1 );
+        x: 36px;
+        y: 40px;
+        z: 0px;
+    }
+    100%
+    {
+        opacity: 0.0;
+        transform: scale3d( 2, 2, 1 );
+        x: 36px;
+        y: 40px;
+        z: 0px;
+    }
+}
+
+
+CSGOHudMoney CCSGOSteamInputAction
+{
+    visibility: collapse;
+}
+
+.SteamInputGlyphsActive CSGOHudMoney.money__in-buy-zone.money__in-buy-time CCSGOSteamInputAction.ControllerConnected {
+    visibility: visible;
+}
+
+CSGOHudMoney .steam-button-glyph
+{
+    width: 24px;
+    height: 24px;
+}
+
+         

@@ -1,0 +1,74 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/mainmenu_news.css" />
+		<include src="file://{resources}/styles/mainmenu_stream.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/mainmenu_stream.js" />
+	</scripts>
+	<snippets>
+		<snippet name="stream-panel">
+			<Panel class="width-fit-children height-fit-children top-bottom-flow">                               
+				<Panel class="news-panel-navbar">
+					<Label id="Title" class="news-panel-streamfeed-title" html="true" text="#CSGO_Watch_Info_live" />
+					                  
+					<Panel class="content-navbar__extra-buttons">
+						<Button id="id-close-btn" class="IconButton" >
+							<Image src="file://{images}/icons/ui/exit.svg" />
+						</Button>
+						<Button id="id-full-size-btn" class="IconButton" >
+							<Image src="file://{images}/icons/ui/expand_stream.svg"/>
+						</Button>
+						<Button id="id-minimize-btn" class="IconButton">
+							<Image src="file://{images}/icons/ui/minimize_stream.svg" />
+						</Button>
+					</Panel>
+				</Panel>
+				<HTML id="StreamHTML" acceptsinput="false" acceptsfocus="false" focusonhover="false"
+					mousetracking="false" url="about:blank" hittest="false"/>
+				<Panel class="news-panel-streamfeed__navbar">
+					<Button id="StreamVolumeMute" class="IconButton">
+						<Image id="VolumeImage" src = "file://{images}/icons/ui/unmuted.svg" />                                                    
+					</Button>
+					<Slider class="news-panel-streamfeed-volumeslider" direction="horizontal"
+						id="VolumeSlider"
+						/>                                                                  
+					<Panel class="news-panel-streamfeed-spacer"/>
+					                      
+					<Panel id="NavBarWatchExternalExtraButtons" class="content-navbar__extra-buttons">
+						<Button id="NavBarWatchExternalG" class="IconButton ExternalStreamButton" onactivate="EmbeddedStreamAPI.OpenStreamInExternalBrowser( 'XG' );" >            
+							<Image class="WideLogoStreamGOTV" src = "file://{images}/browser/streamgotv.svg" texturewidth="-1" textureheight="26"/>
+						</Button>
+						<Button id="NavBarWatchExternalY" class="IconButton ExternalStreamButton TextFullbright visible-if-not-perfectworld" onactivate="EmbeddedStreamAPI.OpenStreamInExternalBrowser( 'XY' );" >               
+							<Label html="true" text="#CSGO_Watch_External_YouTube"/>
+						</Button>
+						<Button id="NavBarWatchExternalF" class="IconButton ExternalStreamButton TextFullbright visible-if-not-perfectworld" onactivate="EmbeddedStreamAPI.OpenStreamInExternalBrowser( 'XF' );" >              
+							<Label html="true" text="#CSGO_Watch_External_FaceIT"/>
+						</Button>
+						<Button id="NavBarWatchExternalT" class="IconButton ExternalStreamButton visible-if-not-perfectworld" onactivate="EmbeddedStreamAPI.OpenStreamInExternalBrowser( 'XT' );" >              
+							<Image class="WideLogoTwitchTV" src = "file://{images}/browser/twitch.svg" texturewidth="-1" textureheight="18"/>
+						</Button>
+						<Button id="NavBarWatchExternalS" class="IconButton ExternalStreamButton visible-if-not-perfectworld" onactivate="SteamOverlayAPI.OpenExternalBrowserURL( 'https://steam.tv' );" >                
+							<Image class="WideLogoSteamTV" src = "file://{images}/browser/steamtv.svg" texturewidth="-1" textureheight="18"/>
+						</Button>
+						<Button id="NavBarWatchExternalB" class="IconButton ExternalStreamButton TextFullbright visible-if-perfectworld" onactivate="EmbeddedStreamAPI.OpenStreamInExternalBrowser( 'XB' );" >                
+							<Label html="true" text="#CSGO_Watch_External_Bilibili"/>
+						</Button>
+						<Button id="NavBarWatchExternal1btn" class="IconButton" >
+							<Image src = "file://{images}/icons/ui/link.svg" onactivate="EmbeddedStreamAPI.OpenStreamInExternalBrowser();"/>
+						</Button>
+						<Label id="NavBarWatchExternal1txt" html="true" text="#CSGO_Watch_External_Stream" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+	<Panel class="news-panel-streamfeed hidden MainMenuModeOnly" hittest="true">                           
+		                                          
+	</Panel>
+</root>

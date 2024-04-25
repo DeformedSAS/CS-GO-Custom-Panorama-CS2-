@@ -1,0 +1,154 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/teamselectmenu.css" />
+	
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/teamselectmenu.js" />
+		<include src="file://{resources}/scripts/common/teamcolor.js" />
+		<include src="file://{resources}/scripts/avatar.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/mock_adapter.js" />
+	</scripts>
+`
+	<snippets>
+
+		<snippet name="Teammate">
+			<Panel class="team-select-teammate hidden" hittest="false">
+				                                      
+				<Label id="TeamSelectTeammateName" class="team-select-teammate__name" text="" hittest="false"/>
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+	<CSGOTeamSelectMenu class="team-select">
+		<CSGOBlurTarget class="loading-screen-blur teamselect-blur" blurrects="loadingscreen__blur-target">
+			<Image id="BackgroundMapImage"
+					class="full-width full-height"
+					src=""
+					defaultsrc="file://{images}/map_icons/screenshots/1080p/default.png"
+					scaling="stretch-to-cover-preserve-aspect"/>
+		</CSGOBlurTarget>
+		
+		<Panel id="" class="mainmenu-content">
+			<Panel class="loading-screen-fade--teams"/>
+			<Panel id="loadingscreen__blur-target" class="teamselect-bg"/>
+				<Countdown id="AutojoinTimer" class="team-select__timer" update-interval="1.0" time-dialog-variable="duration">
+					<Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/clock.svg" />
+					<Label class="mono-spaced-font-bold" text="{t:d:t:duration}"/>
+				</Countdown>
+			                            
+			<Button id="BtnSelectTeam-TERRORIST" class="team-select-icon-title team-select-icon-title-t">
+				<Panel class="team-select-icon-title__labels">
+					<Label class="team-select-list__title fontSize-l team-select-list__title--t" text="#terrorists"/>
+					<Label id="PlayerBotCount" class="team-select-list__subtitle fontSize-m" text=""/>
+				</Panel>
+				<Image class="team-select-icon team-select-icon--t" texturewidth="-1" textureheight="512" src="file://{images}/icons/t_logo.svg"/>
+			</Button>
+			<Button id="BtnSelectTeam-CT" class="team-select-icon-title team-select-icon-title-ct">
+				<Panel class="team-select-icon-title__labels">
+					<Label class="team-select-list__title fontSize-l team-select-list__title--ct" text="#counter-terrorists"/>
+					<Label id="PlayerBotCount" class="team-select-list__subtitle fontSize-m" text=""/>
+				</Panel>
+				<Image class="team-select-icon team-select-icon--ct" texturewidth="-1" textureheight="512" src="file://{images}/icons/ct_logo.svg"/>
+			</Button>
+
+			                        
+			<Panel class="team-select-list-container" hittest="false">
+				<Panel id="List-TERRORIST" class="team-select-list team-select-list--t horizontal-align-left" hittest="false">
+					<Panel id="Teammates" class="team-select-list__teammates horizontal-align-left" hittest="false">
+						                          
+					</Panel>
+				</Panel>
+
+				<Panel class="team-select-vertical-separator"/>
+		
+				<Panel id="List-CT" class="team-select-list team-select-list--ct horizontal-align-right" hittest="false">
+					<Panel id="Teammates" class="team-select-list__teammates horizontal-align-right" hittest="false">
+						                          
+					</Panel>
+				</Panel>
+			</Panel>
+
+		</Panel >
+
+		<Panel id="" class="full-width full-height" hittest="false">
+			<Panel class="loading-screen-model loading-screen-model--right" hittest="false">
+				<ItemPreviewPanel id="TeamCharCT"
+								class="full-width full-height"
+								mouse_rotate="false"
+								hittest="false"
+								manifest="resource/ui/econ/ItemModelPanelCharTeamSelect.res"
+								item="models/player/custom_player/legacy/ctm_sas.mdl"
+								enable_floorshadow="true"
+								force-no-composition-layer="true">                                                                                   
+				</ItemPreviewPanel>
+			</Panel>
+
+			<Panel class="loading-screen-model loading-screen-model--left" hittest="false">
+				<ItemPreviewPanel id="TeamCharT"
+								class="full-width full-height"
+								mouse_rotate="false"
+								hittest="false"
+								manifest="resource/ui/econ/ItemModelPanelCharTeamSelect.res"
+								item="models/player/custom_player/legacy/ctm_sas.mdl"
+								enable_floorshadow="true"
+								force-no-composition-layer="true">                                                                                   
+				</ItemPreviewPanel>
+			</Panel>
+		</Panel>
+		
+		<Panel id="TeamSelectButtons" class="content-controls-actions-bar" hittest="false">
+			<Panel class="left-right-flow vertical-center horizontal-align-right">
+				<Button id="TeamSelectCancel" class="PopupButton White" onactivate="TeamSelectMenu.HidePanel();">
+					<Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/cancel.svg" />
+					<Label id="" text="#SFUI_TeamButtonCancel" />
+				</Button>
+				<Button id="TeamSelectSpectate" class="PopupButton White" >
+					<Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/camera.svg" />
+					<Label id="" text="#SFUI_TeamButtonSpectate" />
+				</Button>
+				<Button id="TeamSelectAuto" class="PopupButton White" >
+					<Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/refresh.svg" />
+					<Label id="" text="#SFUI_TeamButtonAuto" />
+				</Button>
+			</Panel>
+		</Panel>
+
+		<Panel id="TeamJoinError" class="team-select-error hidden" hittest="false">
+			<Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/warning.svg" />
+			<Label id="TeamJoinErrorLabel" class="team-select-error__label fontSize-m" text=""/>
+		</Panel>
+	</CSGOTeamSelectMenu>
+		
+	    
+	                                                     
+		                                                                                    			
+		                                                                        
+			                                
+		                 
+		                             
+			                                                                                                                                                    
+				                                                                                               
+				                                                                        
+			         
+			                                                                                                                                    
+				                                                                                                      
+				                                                                 
+			         
+		        
+		                                                                                                                
+			                                                               
+		         
+	        
+	                                                  
+		                                                                             
+	        
+	   
+
+</root>

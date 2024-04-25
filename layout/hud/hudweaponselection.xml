@@ -1,0 +1,105 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/hud/hudweaponselection.css" />
+  </styles>
+
+  <snippets>
+    <snippet name="WeaponRow">
+      <Panel class="weapon-row">
+        <Panel class="weapon-row-background" />
+        <Panel class="weapon-row-horiz-container" id="icon-container">
+          <Label class="weapon-row-number" text="{s:WeaponRow--binding}" />
+        
+                                                                       
+        </Panel>
+      </Panel>
+    </snippet>
+
+    <snippet name="WeaponIcon">
+      <Panel class="weapon-selection-item">
+        <Panel class="weapon-selection-item-icon">
+          <Image class="WEAPON-ICON weapon-selection-item-icon-main" src="file://{images}/icons/equipment/flashbang.svg" textureheight="48"/>
+                            
+          <CCSGOSteamInputAction actionset="GameControls" separatortext="/" controllernumber = "1" id="action-binding-glyph-slots"/> 
+          <CCSGOSteamInputAction actionset="GameControls" separatortext="/" controllernumber = "1" id="action-binding-glyph"/> 
+                            
+          <Label class="weapon-selection-item-count" text="#Panorama_WeaponSelection_ItemCount" />
+        </Panel>
+        <Panel class="weapon-selection-item-name">
+          <Label class="weapon-selection-item-name-text" text="#Panorama_WeaponSelection_WeaponName" />
+          <Label class="weapon-selection-item-name-text-owned" text="#Panorama_WeaponSelection_OwnedName" />
+        </Panel>
+      </Panel>
+    </snippet>
+
+    <snippet name="WeaponIcon--Bomb">
+      <Panel class="weapon-selection-item weapon-selection-item--bomb">
+        <Panel class="weapon-selection-item-icon">
+          <Image class="weapon-selection-item-icon-bombzone" src="file://{images}/icons/ui/bomb_arrow_segment.svg" texturewidth="-1" textureheight="25" />
+          <Image class="WEAPON-ICON weapon-selection-item-icon-main" src="file://{images}/icons/equipment/flashbang.svg" textureheight="56"/>
+                            
+          <CCSGOSteamInputAction actionset="GameControls" separatortext="/" controllernumber = "1" id="action-binding-glyph-slots"/> 
+          <CCSGOSteamInputAction actionset="GameControls" separatortext="/" controllernumber = "1" id="action-binding-glyph"/> 
+                            
+          <Label class="weapon-selection-item-count" text="#Panorama_WeaponSelection_ItemCount" />
+        </Panel>
+        <Panel class="weapon-selection-item-name">
+          <Label class="weapon-selection-item-name-text" text="#Panorama_WeaponSelection_WeaponName" />
+          <Label class="weapon-selection-item-name-text-owned" text="#Panorama_WeaponSelection_OwnedName" />
+        </Panel>
+      </Panel>
+    </snippet>
+
+    <snippet name="ProgressionPip">
+      <Panel class="progression-pip" />
+    </snippet>
+
+    <snippet name="ProgressionIcon">
+      <Panel class="weapon-selection-progression-item">
+        <Image class="WEAPON-ICON weapon-selection-progression-item-icon-main" src="file://{images}/icons/equipment/flashbang.svg" textureheight="50"
+               svgstrokewidth="1" svgstrokeopacity="1" svgstroke="#ffffff" svgfillopacity="0" />
+        <Label class="weapon-selection-progression-item-level" text="{d:r:ProgressionIcon--level}" />
+      </Panel>
+    </snippet>
+
+    <snippet name="DemolitionIcon">
+      <Panel class="weapon-selection-demolition-item">
+        <Image class="WEAPON-ICON weapon-selection-demolition-item-icon-main" src="file://{images}/icons/equipment/flashbang.svg" textureheight="50"
+               svgstrokewidth="1" svgstrokeopacity="1" svgstroke="#ffffff" svgfillopacity="0" />
+      </Panel>
+    </snippet>
+  </snippets>
+
+  <CSGOHudWeaponSelection class="weapon-selection" hittest="false" hittestchildren="false">
+                                                                                      
+                                                                                           
+                                           
+    <Panel class="weapon-selection-list" id="weapon-selection-list">
+                                                             
+    </Panel>
+    <Panel class="weapon-selection-demolition">
+      <Label class="weapon-selection-demolition-label" text="#SFUI_WS_GG_AwardNextRound" />
+      <Panel class="weapon-selection-demolition-rewardrow">
+        <Panel class="weapon-selection-demolition-container" id="weapon-selection-demolition">
+                                                                  
+        </Panel>
+        <Panel class="weapon-selection-demolition-reward">
+          <Label class="weapon-selection-demolition-reward-text" text="#SFUI_ARFlashAlert_BonusGrenade" />
+        </Panel>
+      </Panel>
+    </Panel>
+    <Panel class="weapon-selection-progression">
+      <Panel class="weapon-selection-progression-list" id="weapon-selection-progression">
+                                                                         
+      </Panel>
+      <Panel class="weapon-selection-progression-xp">
+        <Label text="{d:r:HudWeaponSelection--progression-maxlevel}" />
+        <Panel class="weapon-selection-progression-xp-container"  id="weapon-selection-xp">
+                                                                  
+        </Panel>
+      </Panel>
+    </Panel>
+  </CSGOHudWeaponSelection>
+
+</root>

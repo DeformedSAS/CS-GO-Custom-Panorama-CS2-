@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudvote.css" />
+	</styles>
+
+	<CSGOHudVote hittest="false" class="hud-vote">
+		<Panel class="hud-vote-header vote-header-callvote">
+			<Image id="VoteHeaderIcon" class="hud-vote-header__icon" src="file://{images}/icons/ui/competitive.svg"/>
+			<Label class="hud-vote-header__label" text="#Panorama_Vote_Header"/>
+		</Panel>
+		<Panel class="hud-vote-header vote-header-passed">
+			<Image id="VoteHeaderIcon" class="hud-vote-header__icon" src="file://{images}/icons/ui/checkbox.svg"/>
+			<Label class="hud-vote-header__label" text="#Panorama_Vote_Passed" html="true"/>
+		</Panel>
+		<Panel class="hud-vote-header vote-header-failed">
+			<Image id="VoteHeaderIcon" class="hud-vote-header__icon" src="file://{images}/icons/ui/cancel.svg"/>
+			<Label class="hud-vote-header__label" text="#Panorama_Vote_Failed" html="true"/>
+		</Panel>
+		<Panel class="hud-vote-body">
+			<Label id="VoteDescLabel" class="hud-vote-body__label" html="true"/>
+			<Panel class="hud-vote-boxes">
+				<Panel class="hud-vote-yesbox">
+					<Image src="file://{images}/icons/ui/checkbox.svg"/>
+					<Label class="hud-vote-boxes-label" text="{d:r:yes_votes}"/>
+				</Panel>
+				<Panel class="hud-vote-nobox">
+					<Image src="file://{images}/icons/ui/cancel.svg"/>
+					<Label class="hud-vote-boxes-label" text="{d:r:no_votes}"/>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel class="hud-vote-footer">
+			<Label class="footer__cast-vote-label" text="#Panorama_Local_Player_Vote" html="true"/>
+			<Panel class="footer__vote-binding">
+				<Label class="horizontal-align-left" text="#Panorama_vote_yes_pc_instruction" html="true"/>
+				<Label class="horizontal-align-right" text="#Panorama_vote_no_pc_instruction" html="true"/>
+			</Panel>
+		</Panel>
+	</CSGOHudVote>
+</root>

@@ -1,0 +1,426 @@
+                                          
+
+                                   
+@define cppFreezeFrameBorderCount: 4;	                                                    
+
+
+CSGOHudFreezePanel Label
+{
+    font-family: Stratum2, 'Arial Unicode MS';
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.FreezePanelRoot
+{
+	width: 100%;
+	height: 100%;
+
+	background-size: 100% 100%;
+}
+
+.FreezePanelRoot--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanelRoot--BorderNone
+{
+	background-image: none;
+}
+
+.FreezePanelRoot--Border0
+{
+	background-image: url( "file://{images}/hud/freezepanel/holiday_border_1.png" );
+}
+
+.FreezePanelRoot--Border1
+{
+	background-image: url( "file://{images}/hud/freezepanel/holiday_border_2.png" );
+}
+
+.FreezePanelRoot--Border2
+{
+	background-image: url( "file://{images}/hud/freezepanel/holiday_border_3.png" );
+}
+
+.FreezePanelRoot--Border3
+{
+	background-image: url( "file://{images}/hud/freezepanel/holiday_border_4.png" );
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.FreezePanel
+{
+	horizontal-align: center;
+	vertical-align: top;
+
+	flow-children: down;
+}
+
+.FreezePanel--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel--FadeIn
+{
+	opacity: 1.0;
+
+	animation-name: FreezePanelFadeInAnim;
+	animation-duration: 0.3s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'FreezePanelFadeInAnim'
+{
+	0%
+	{
+		opacity: 0.0; 
+	}
+
+	100%
+	{
+		opacity: 1.0; 
+	}
+}
+
+.FreezePanel__Content
+{
+	width: 510px;
+}
+
+.FreezePanel__BG
+{
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #00000000 ), to( #000000cc ) );
+}
+
+.FreezePanel__MedalText
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #00000000 ), color-stop( 0.05, #000000aa ), color-stop( 0.60, #000000aa ), to( #00000000 ) );
+	width: 100%;
+	padding-left: 30px;
+	color: white;
+	font-weight: normal;
+}
+
+.FreezePanel__MedalText--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__FillBG
+{
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000cc ), color-stop( 0.70, #000000cc ), to( #00000000 ) );
+}
+
+.FreezePanel_AvatarBG
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #7e7e7e ), to( #2a2a2a ) );
+	width: 86px;
+	height: 86px;
+}
+
+.FreezePanel__Avatar
+{
+	width: 80px;
+	height: 80px;
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.FreezePanel__Avatar--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__AvatarHealthBar
+{
+	width: 80px;
+	height: 5px;
+    border: 1px solid #c2c5ba80;
+	border-radius: 0px;
+	box-shadow: none;
+	vertical-align: bottom;
+	margin: 3px;
+}
+
+.FreezePanel__AvatarHealthBar .ProgressBarLeft
+{
+	background-color: #dee5c8;
+}
+
+.FreezePanel__AvatarHealthBar--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__AvatarFlair
+{
+	transform: translate3d( -32px, -24px, 0.0px );
+	overflow: noclip;
+	img-shadow: 2px 2px 13px 2.0 black;
+}
+
+.FreezePanel__AvatarFlair--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__AvatarSkillGroup
+{
+	width: 64px;
+	height: fit-children;
+	img-shadow: 2px 2px 2px #000000;
+	transform: translate3d( -32px, 58px, 0.0px );
+	overflow: noclip;
+}
+
+.FreezePanel__AvatarSkillGroup--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__Name
+{
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	color: #cccccc;
+	font-size: 30px;
+	font-weight: bold;
+	-s2-mix-blend-mode: additive;
+    text-overflow: ellipsis;
+}
+
+.FreezePanel__Desc
+{
+	padding-left: 20px;
+	color: #c93121;
+	font-size: 20px;
+	font-weight: bold;
+	-s2-mix-blend-mode: additive;
+}
+
+.FreezePanel__Damage
+{
+	width: 100%;
+	padding-left: 10px;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #00000088 ), color-stop( 0.60, #00000088 ), to( #00000000 ) );
+	font-size: 20px;
+	font-weight: normal;
+    text-overflow: ellipsis;
+}
+
+.FreezePanel__Damage--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__DominationIcon
+{
+	height: 46px;
+	horizontal-align: right;
+	margin-right: 5px;
+	visibility: collapse;
+}
+
+.DominationIconTypeNemesis .FreezePanel__DominationIcon--Nemesis,
+.DominationIconTypeRevenge .FreezePanel__DominationIcon--Revenge
+{
+	visibility: visible;
+}
+
+.FreezePanel__ItemContainer
+{
+	height: 100%;
+	width: 150px;
+	border-left: 5px solid black;
+	               
+	background-color: #000000cc;
+}
+
+.FreezePanel__ItemContainer--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanel__Item
+{
+	width: 100%;
+	background-image: url("file://{images}/hud/freezepanel/item_tile_hud_bg.png");
+	background-size: 100% 100%;
+	background-img-opacity: 0.55;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.FreezePanel__Navigation
+{
+	padding-left: 10px;
+	color: #cccccc;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow-fast: 2px 2px black;
+}
+
+.FreezePanel__Navigation--Hidden
+{
+	visibility: collapse;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.FreezePanelSS
+{
+	flow-children: down;
+}
+
+.FreezePanelSS--DefaultPosition
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: 200px;       
+	transform: rotateZ( 6deg );
+}
+
+.FreezePanelSS--Hidden
+{
+	visibility: collapse;
+}
+
+.FreezePanelSS__Logo
+{
+	width: 650px;
+	padding: 10px;
+	margin-left: 30px;
+	margin-bottom: 30px;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #00000000 ), color-stop( 0.30, #00000080 ), to( #00000080 ) );
+}
+
+.FreezePanelSS__LogoImage
+{
+	horizontal-align: right;
+	wash-color-fast: #cccccc;
+}
+
+.FreezePanelSS__Content
+{
+	width: 650px;
+}
+
+.FreezePanelSS__BG
+{
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #00000000 ), color-stop( 0.30, #000000cc ), to( #000000cc ) );
+}
+
+.FreezePanelSS__ContentPadding
+{
+	padding: 10px;
+	flow-children: down;
+	horizontal-align: right;
+}
+
+.FreezePanelSS__MedalText
+{
+	margin-right: 20px;
+	color: white;
+	font-weight: normal;
+	horizontal-align: right;
+}
+
+.FreezePanel_AvatarBG--SS
+{
+	width: 46px;
+	height: 46px;
+}
+
+.FreezePanel__Avatar--SS
+{
+	width: 40px;
+	height: 40px;
+}
+
+.FreezePanel__AvatarHealthBar--SS
+{
+	width: 40px;
+}
+
+.FreezePanel__AvatarFlair--SS
+{
+	transform: translate3d( 20px, -15px, 0.0px );
+	horizontal-align: right;
+	width: 40px;
+	height: 30px;
+}
+
+.FreezePanelSS__Name
+{
+	margin-right: 10px;
+	color: white;
+	font-size: 40px;
+	font-weight: bold;
+	                               	                                                                                                     
+}
+
+.FreezePanelSS__Desc
+{
+	color: #c93121;
+	font-size: 25px;
+	font-weight: bold;
+	                               	                                                                                                     
+}
+
+.FreezePanel__ItemContainer--SS
+{
+	width: 120px;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.FreezeCancel
+{
+	y: 810px;
+	horizontal-align: center;
+	vertical-align: top;
+
+	color: #cccccc;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow-fast: 2px 2px black;
+}
+
+.FreezePanel__SurvivalEndOfMatch
+{
+	padding-left: 90px;
+
+	color: #cccccc;
+	font-size: 20px;
+	font-weight: bold;
+	text-shadow-fast: 2px 2px black;
+}
+
+.FreezeCancel--Hidden
+{
+	visibility: collapse;
+}

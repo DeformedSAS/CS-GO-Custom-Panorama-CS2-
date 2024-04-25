@@ -1,0 +1,372 @@
+.loadout
+{
+	flow-children: down;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+}
+
+.loadout--visible
+{
+	visibility: visible;
+}
+
+.radial-menu-container
+{
+	flow-children: none;
+	vertical-align: center;
+	horizontal-align: center;
+	background-color: #00000001;
+	width: height-percentage( 100% );
+	height: 93%;
+}
+
+.AspectRatio5x4 .radial-menu-container,
+.AspectRatio4x3 .radial-menu-container
+{
+	height: width-percentage( 100% );
+	width: 98%;
+	vertical-align: center;
+}
+
+.radial-menu-team-logo
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 20%;
+	height: 20%;
+	brightness: 0.4;
+	                                      
+	padding:6px;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.radial-menu-team-logo:hover
+{
+	brightness: 1;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.radial-menu-team-logo .TickBox
+{
+	visibility: collapse;
+}
+
+.item-wheel
+{
+	                                                                
+	height: 100%;
+
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.loadout-item
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 256px;
+	height: 190px;
+}
+
+.loadout-item__image
+{
+	width: 244px;
+}
+
+ItemImage Label
+{
+	y: -16px;
+}
+
+.loadout-item__textbox
+{
+	vertical-align: middle;
+	horizontal-align: center;
+	flow-children: down;
+	min-width: 180px;
+	                      
+	color: color-rarity-common;
+	vertical-align: top;
+	text-align: center;
+	font-size: 18px;
+	font-weight: medium;
+	text-shadow: 2px 2px 2px #000000;
+	font-family: Stratum2, 'Noto Sans';
+}
+
+                                           
+.common .loadout-item__textbox { color: color-rarity-common; }
+.uncommon .loadout-item__textbox { color: color-rarity-uncommon; }
+.rare .loadout-item__textbox{ color: color-rarity-rare; }
+.mythical .loadout-item__textbox { color: color-rarity-mythical; }
+.ancient .loadout-item__textbox { color: color-rarity-ancient; } 
+.legendary .loadout-item__textbox { color: color-rarity-legendary; }
+.immortal .loadout-item__textbox { color: color-rarity-immortal; }
+
+.loadout-item__image,
+{
+	padding-top: 26px;
+	vertical-align: bottom;
+}
+
+.w1 > .loadout-item
+{
+	position: -20% -27% 0px;
+}
+
+.w2 > .loadout-item
+{
+	position: 20% -27% 0px;
+}
+
+.w3 > .loadout-item
+{
+	position: 30% 0% 0px;
+}
+
+.w4 > .loadout-item
+{
+	position: 20% 27% 0px;
+}
+
+.w5 > .loadout-item
+{
+	position: -20% 27% 0px;
+}
+
+.w6 > .loadout-item
+{
+	position: -30% 0% 0px;
+}
+
+.loadout-item-list-container
+{
+
+	width: 450px;
+	height: 100%;
+	flow-children: down;
+	background-color: contentPanelBackground;
+}
+
+.AspectRatio16x9 .loadout-item-list-container
+{
+	width: 890px;
+}
+
+.AspectRatio16x10 .loadout-item-list-container
+{
+	width: 700px;
+}
+
+.AspectRatio4x3 .loadout-item-list-container
+{
+	width: 450px;
+}
+
+
+.loadout-sort
+{
+	width: 100%;
+	margin-right: 16px;
+	margin-left: 16px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.loadout-team-selector-container
+{
+	Width: 800px;
+	height: 100%;
+	background-color: contentPanelBackground;
+	border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.loadout-team-selector-spacer
+{
+	width: fill-parent-flow( 1.0 );
+	height: 100%;
+	background-color: contentPanelBackground;
+}
+
+.loadout-single-item-container
+{
+	width: 100%;
+	height: 75%;
+	flow-children: down;
+	vertical-align: center;
+	horizontal-align: center;
+
+	transition-property: height;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.loadout-single-item-container.extra-tall
+{
+	height: 100%;
+}
+
+.loadout-single-item-bg
+{
+	vertical-align: center;
+	horizontal-align: center;
+	width: 100%;
+	opacity: 0.25;
+}
+
+.loadout-single-item-bg--localagent--CT
+{
+	wash-color: color-CT;
+	opacity: 0.1;
+	width: 80%;
+	height: 50%;
+}
+
+.loadout-single-item-bg--localagent--TERRORIST
+{
+	wash-color: color-T;
+	opacity: 0.1;
+	width: 80%;
+	height: 50%;
+}
+
+
+.loadout-single-item
+{
+	width: 100%;
+	height: 100%;
+	background-color: contentPanelBackground;
+}
+
+.loadout-single-item-title
+{
+	font-size: 24px;
+	text-align: center;
+	width: 100%;
+	font-weight: medium;
+	font-family: Stratum2, 'Noto Sans';
+	margin: 15px 0px;
+	width: 400px;
+	height: 26px;
+
+	horizontal-align:center;
+	text-overflow: shrink;
+}
+
+.loadout-single-item-rarity
+{
+	width: 100%;
+	height: 8px;
+	box-shadow: shadowOffset;
+}
+
+                                               
+
+.border-right-white {
+	border-right: 1px solid #ffffff22;
+}
+
+.margin-right-20 {
+	padding-right: 20px;
+}
+
+#LoadoutSingleItemModelWeaponChoice {
+	min-width: 350px;
+  	                      
+}
+
+
+.popup-button-row
+{
+	width: 90%;
+	border-top: 1px solid rgba(145, 145, 145, 0.5);
+	vertical-align: bottom;
+	horizontal-align: center;
+	padding: 8px 0px 8px 0px;
+}
+
+.loadout-character-controls .IconButton Image
+{
+	height: 36px;
+}
+
+#LoadoutCharacterControls {
+	vertical-align: center;
+}
+
+.hidden
+{
+	visibility: collapse;
+}
+
+.loadout-team-selector
+{
+	flow-children: left;
+	horizontal-align: right;
+	vertical-align: top;
+	margin: 3px 16px;
+}
+
+.loadout-team-selector .RadioBox
+{
+	opacity: 1;
+	vertical-align: center;
+}
+
+.loadout--no-item ItemImage
+{
+	visibility: collapse;
+}
+
+.loadout--shuffle-enabled ItemImage
+{
+	brightness: 0.3;
+	blur: fastgaussian( 2, 2, 1 );
+}
+
+.loadout-shuffle_icon
+{
+	visibility: collapse;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.loadout-shuffle-text
+{
+	visibility: collapse;
+	horizontal-align: center;
+}
+
+.loadout--shuffle-enabled .loadout-shuffle_icon, 
+.loadout--shuffle-enabled .loadout-shuffle-text
+{
+	visibility: visible;
+}
+
+.loadout-empty-list-text
+{
+	max-width: 512px;
+	font-size:16;
+	font-weight:lighter;
+	line-height:24px;
+}
+
+.shuffle-options
+{
+	vertical-align: center;
+	width: 24px;
+	height: 24px;
+}
+
+.loadout-info
+{
+	margin-right: 16px;
+	vertical-align: center;
+	wash-color: baseText;
+}

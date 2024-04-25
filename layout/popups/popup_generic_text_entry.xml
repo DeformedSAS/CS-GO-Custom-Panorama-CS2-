@@ -1,0 +1,26 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/gamestyles.css" />
+    <include src="file://{resources}/styles/popups/popups_shared.css" />
+    <include src="file://{resources}/styles/popups/popup_generic_text_entry.css" />
+  </styles>
+
+  <Panel class="PopupPanel Hidden" popupbackground="dim" defaultfocus="TextEntry">
+    <Label class="PopupTitle" text="#DOTA_Generic_Popup_Title" />
+    <Panel class="MessagePanel" >
+      <Panel class="ImageContainer" >
+                                                                                              
+                                                                                  
+      </Panel>
+      <Label class="MessageLabel" text="#DOTA_Generic_Popup_Body"/>
+    </Panel>
+    <TextEntry id="TextEntry" oninputsubmit="GenericPopupTextEntryFinished()" />    
+    <Panel id="ButtonContainer" class="PopupButtonRow">
+                                           
+                                                                             
+                 
+               
+         
+    </Panel>
+  </Panel>
+</root>

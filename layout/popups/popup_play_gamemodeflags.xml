@@ -1,0 +1,42 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_play_gamemodeflags.css" />
+
+		<include src="file://{resources}/styles/csgostyles.css" />
+
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_play_gamemodeflags.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="option">
+			<RadioButton id="" group="options" class="PopupButton">
+				<Panel class="top-bottom-flow" >
+					<Label text='{s:optiontext}'/>
+					<Label class="small" text='{s:optiontextdesc}'/>
+				</Panel >
+			</RadioButton>			
+		</snippet>
+	</snippets>
+
+
+
+
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="SetupPopup()" oncancel="CancelPopup()">>
+		<Label class="PopupTitle" text="{s:title}" />
+
+		<Label class="PopupMessage" text="{s:desc}" />	
+
+		<Panel id="RadioOptionsContainer" class="radio-options-container" style=""/>
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="#OK" onactivate="OnOKPressed()" />
+            <TextButton class="PopupButton" text="#Cancel_Button" onactivate="CancelPopup()" />
+		</Panel>
+	
+	</PopupCustomLayout>
+</root>

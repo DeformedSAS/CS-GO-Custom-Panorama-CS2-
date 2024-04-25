@@ -1,0 +1,34 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/crosshair.css" />
+	</styles>
+
+	                                                                                                                             
+	                                                                        
+	<CSGOCrosshair class="crosshair" clampfractionalpixelpositions="false">
+			                                                                               
+
+			                                       
+			<Image id="TopPip" class="crosshair__pip crosshair__pip--green" src="file://{images}/hud/reticle/crosshairpip2.png" orientation="0" />
+			<Image id="RightPip" class="crosshair__pip crosshair__pip--green" src="file://{images}/hud/reticle/crosshairpip2.png" orientation="90" />
+			<Image id="BottomPip" class="crosshair__pip crosshair__pip--green" src="file://{images}/hud/reticle/crosshairpip2.png" orientation="180" />
+			<Image id="LeftPip" class="crosshair__pip crosshair__pip--green" src="file://{images}/hud/reticle/crosshairpip2.png" orientation="270" />
+
+			<Panel id="TopArc" class="crosshair__arc crosshair__arc--horizontal" />
+			<Panel id="RightArc" class="crosshair__arc crosshair__arc--vertical" />
+			<Panel id="BottomArc" class="crosshair__arc crosshair__arc--horizontal" />
+			<Panel id="LeftArc" class="crosshair__arc crosshair__arc--vertical" />
+					
+			                                  
+			<Image id="TopPipBlack" class="crosshair__pip crosshair__pip--black" src="file://{images}/hud/reticle/reticlepip.png" orientation="0" />
+			<Image id="RightPipBlack" class="crosshair__pip crosshair__pip--black" src="file://{images}/hud/reticle/reticlepip.png" orientation="90" />
+			<Image id="BottomPipBlack" class="crosshair__pip crosshair__pip--black" src="file://{images}/hud/reticle/reticlepip.png" orientation="180" />
+			<Image id="LeftPipBlack" class="crosshair__pip crosshair__pip--black" src="file://{images}/hud/reticle/reticlepip.png" orientation="270" />
+
+			<Image class="crosshair__blackcircle" src="file://{images}/hud/reticle/reticlecircle.png" scaling="stretch" />
+
+      		<Image class="crosshair__dot" src="file://{images}/hud/reticle/reticlecircle.png" textureheight="1"/>
+	</CSGOCrosshair>
+</root>

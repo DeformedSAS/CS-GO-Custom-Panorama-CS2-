@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/store.css" />
+	</styles>
+	
+	<Panel class="StoreItem">
+		<Image id="ItemImage" src="file://{images}/store/storeimages_double_temp_pow2.vtf" />
+		<Label id="ItemTitle"></Label>
+		<Label id="ItemDescription"></Label>
+		<Button id="ItemButton" onactivate="BuyStoreItem();">
+			<Label class="StoreButtonContents" text="#SFUI_Store_Market_Link" />
+		</Button>
+	</Panel>
+</root>

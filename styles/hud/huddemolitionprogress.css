@@ -1,0 +1,293 @@
+                                                       
+
+@define bg-trans: #00000000;
+@define bg-base: #000000a0;
+@define bg-past: #000000c8;
+@define bg-active: #000000e0;
+@define bg-highlight: #606060e0;
+@define chevron-left-top: 0% 100%, 100% 0%;
+@define chevron-left-bottom: 0% 0%, 100% 100%;
+@define chevron-right-top: 100% 0%, 0% 100%;
+@define chevron-right-bottom: 100% 100%, 0% 0%;
+@define chevron-gradient-base: from(bg-trans), color-stop(0.5, bg-trans), color-stop(0.5, bg-base), to(bg-base);
+@define chevron-gradient-past: from(bg-trans), color-stop(0.5, bg-trans), color-stop(0.5, bg-past), to(bg-past);
+@define chevron-gradient-active: from(bg-trans), color-stop(0.5, bg-trans), color-stop(0.5, bg-active), to(bg-active);
+@define chevron-gradient-highlight: from(bg-trans), color-stop(0.5, bg-trans), color-stop(0.5, bg-highlight), to(bg-highlight);
+
+@define highlight-blink-anim-duration: 0.5s;
+@define highlight-blink-anim-timing: linear;
+@define highlight-blink-anim-count: 6;
+
+CSGOHudDemolitionProgression Label
+{
+    font-family: Stratum2, 'Arial Unicode MS';
+    color: #fff;
+    font-size: 20px;
+}
+
+CSGODemolitionProgressionView Label
+{
+    font-family: Stratum2, 'Arial Unicode MS';
+    color: #fff;
+    font-size: 20px;
+}
+
+@keyframes 'gg-weapon-background-chevron-left-top-blink' {
+    0%   { background-color: gradient( linear, chevron-left-top, chevron-gradient-active ); }
+    33%  { background-color: gradient( linear, chevron-left-top, chevron-gradient-highlight ); }
+    100% { background-color: gradient( linear, chevron-left-top, chevron-gradient-active ); }
+}
+@keyframes 'gg-weapon-background-chevron-left-bottom-blink' {
+    0%   { background-color: gradient( linear, chevron-left-bottom, chevron-gradient-active ); }
+    33%  { background-color: gradient( linear, chevron-left-bottom, chevron-gradient-highlight ); }
+    100% { background-color: gradient( linear, chevron-left-bottom, chevron-gradient-active ); }
+}
+@keyframes 'gg-weapon-background-center-blink' {
+    0%   { background-color: bg-active; }
+    33%  { background-color: bg-highlight; }
+    100% { background-color: bg-active; }
+}
+@keyframes 'gg-weapon-background-chevron-right-top-blink' {
+    0%   { background-color: gradient( linear, chevron-right-top, chevron-gradient-active ); }
+    33%  { background-color: gradient( linear, chevron-right-top, chevron-gradient-highlight ); }
+    100% { background-color: gradient( linear, chevron-right-top, chevron-gradient-active ); }
+}
+@keyframes 'gg-weapon-background-chevron-right-bottom-blink' {
+    0%   { background-color: gradient( linear, chevron-right-bottom, chevron-gradient-active ); }
+    33%  { background-color: gradient( linear, chevron-right-bottom, chevron-gradient-highlight ); }
+    100% { background-color: gradient( linear, chevron-right-bottom, chevron-gradient-active ); }
+}
+
+.gg-progress
+{
+    flow-children:down;
+
+    opacity:0;                                                                                                 
+    width: 1300px;
+    height: 280px;
+    margin-top:5px;                                       
+    horizontal-align:center;
+}
+.gg-progress.gg-progress--active
+{
+    opacity:1;
+
+                              
+    transition-property:opacity;
+    transition-duration:2s;
+    transition-timing-function:linear;
+}
+.gg-progress.gg-progress-fade
+{
+    opacity:0;
+}
+
+.gg-progress-title
+{
+    font-family: Stratum2 Bold, 'Arial Unicode MS';
+    horizontal-align:center;
+    font-size:30px;
+}
+
+.gg-weapon-list
+{
+    flow-children:right-wrap;
+}
+
+@keyframes 'gg-weapon-animate-on' {
+    0%   { transform: translateX(-350px); }
+    66%  { transform: translateX(-350px); }
+    100% { transform: translateX(0px); }
+}
+
+.gg-progress--active .gg-weapon-overflow
+{
+    animation-name: gg-weapon-animate-on;
+    animation-duration: .8s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}
+
+.gg-weapon--level0 .gg-weapon-overflow { animation-delay: -0.00s; }
+.gg-weapon--level1 .gg-weapon-overflow { animation-delay: -0.05s; }
+.gg-weapon--level2 .gg-weapon-overflow { animation-delay: -0.10s; }
+.gg-weapon--level3 .gg-weapon-overflow { animation-delay: -0.15s; }
+.gg-weapon--level4 .gg-weapon-overflow { animation-delay: -0.20s; }
+.gg-weapon--level5 .gg-weapon-overflow { animation-delay: -0.25s; }
+.gg-weapon--level6 .gg-weapon-overflow { animation-delay: -0.30s; }
+.gg-weapon--level7 .gg-weapon-overflow { animation-delay: -0.35s; }
+.gg-weapon--level8 .gg-weapon-overflow { animation-delay: -0.40s; }
+.gg-weapon--level9 .gg-weapon-overflow { animation-delay: -0.45s; }
+
+.gg-weapon
+{
+                                                                                  
+    width:290px;
+    margin-right:-40px;                           
+}
+
+.gg-weapon-background
+{
+    flow-children: right;
+    width:290px;
+    height:90px;
+    margin-bottom:20px;
+}
+
+.gg-weapon-background-chevron-left
+{
+    flow-children:down;
+}
+
+.gg-weapon-background-chevron-left-top
+{
+    width:45px;
+    height:45px;
+    background-color: gradient( linear, chevron-left-top, chevron-gradient-base );
+}
+.gg-weapon--active .gg-weapon-background-chevron-left-top
+{
+    background-color: gradient( linear, chevron-left-top, chevron-gradient-active );
+}
+.gg-progress--active .gg-weapon--active .gg-weapon-background-chevron-left-top
+{
+    animation-name: gg-weapon-background-chevron-left-top-blink;
+    animation-duration: highlight-blink-anim-duration;
+    animation-timing-function: highlight-blink-anim-timing;
+    animation-iteration-count: highlight-blink-anim-count;
+}
+.gg-weapon--past .gg-weapon-background-chevron-left-top
+{
+    background-color: gradient( linear, chevron-left-top, chevron-gradient-past );
+}
+
+
+.gg-weapon-background-chevron-left-bottom
+{
+    width:45px;
+    height:45px;
+    background-color: gradient( linear, chevron-left-bottom, chevron-gradient-base );
+}
+.gg-weapon--active .gg-weapon-background-chevron-left-bottom
+{
+    background-color: gradient( linear, chevron-left-bottom, chevron-gradient-active );
+}
+.gg-progress--active .gg-weapon--active .gg-weapon-background-chevron-left-bottom
+{
+    animation-name: gg-weapon-background-chevron-left-bottom-blink;
+    animation-duration: highlight-blink-anim-duration;
+    animation-timing-function: highlight-blink-anim-timing;
+    animation-iteration-count: highlight-blink-anim-count;
+}
+.gg-weapon--past .gg-weapon-background-chevron-left-bottom
+{
+    background-color: gradient( linear, chevron-left-bottom, chevron-gradient-past );
+}
+
+.gg-weapon-background-chevron-right
+{
+    flow-children:down;
+}
+
+.gg-weapon-background-chevron-right-top
+{
+    width:45px;
+    height:45px;
+    background-color: gradient( linear, chevron-right-top, chevron-gradient-base );
+}
+.gg-weapon--active .gg-weapon-background-chevron-right-top
+{
+    background-color: gradient( linear, chevron-right-top, chevron-gradient-active );
+}
+.gg-progress--active .gg-weapon--active .gg-weapon-background-chevron-right-top
+{
+    animation-name: gg-weapon-background-chevron-right-top-blink;
+    animation-duration: highlight-blink-anim-duration;
+    animation-timing-function: highlight-blink-anim-timing;
+    animation-iteration-count: highlight-blink-anim-count;
+}
+.gg-weapon--past .gg-weapon-background-chevron-right-top
+{
+    background-color: gradient( linear, chevron-right-top, chevron-gradient-past );
+}
+
+.gg-weapon-background-chevron-right-bottom
+{
+    width:45px;
+    height:45px;
+    background-color: gradient( linear, chevron-right-bottom, chevron-gradient-base );
+}
+.gg-weapon--active .gg-weapon-background-chevron-right-bottom
+{
+    background-color: gradient( linear, chevron-right-bottom, chevron-gradient-active );
+}
+.gg-progress--active .gg-weapon--active .gg-weapon-background-chevron-right-bottom
+{
+    animation-name: gg-weapon-background-chevron-right-bottom-blink;
+    animation-duration: highlight-blink-anim-duration;
+    animation-timing-function: highlight-blink-anim-timing;
+    animation-iteration-count: highlight-blink-anim-count;
+}
+.gg-weapon--past .gg-weapon-background-chevron-right-bottom
+{
+    background-color: gradient( linear, chevron-right-bottom, chevron-gradient-past );
+}
+
+.gg-weapon-background-center
+{
+    width:200px;
+    height:90px;
+    background-color: bg-base;
+}
+.gg-weapon--active .gg-weapon-background-center
+{
+    background-color: bg-active;
+}
+.gg-progress--active .gg-weapon--active .gg-weapon-background-center
+{
+    animation-name: gg-weapon-background-center-blink;
+    animation-duration: highlight-blink-anim-duration;
+    animation-timing-function: highlight-blink-anim-timing;
+    animation-iteration-count: highlight-blink-anim-count;
+}
+.gg-weapon--past .gg-weapon-background-center
+{
+    background-color: bg-past;
+}
+
+
+
+.gg-weapon-container
+{
+    flow-children:down;
+    height:76px;
+    width:200px;
+    margin-top:10px;
+    margin-left:28px;
+}
+
+.gg-weapon-icon
+{
+    horizontal-align:right;
+}
+
+.gg-weapon-icon-solid   { opacity:0; }
+.gg-weapon-icon-outline { opacity:1; }
+
+.gg-weapon--past .gg-weapon-icon-solid   { opacity:0.6; wash-color: #808080; }
+.gg-weapon--past .gg-weapon-icon-outline { opacity:0; }
+
+.gg-weapon--active .gg-weapon-icon-solid   { opacity:1; }
+.gg-weapon--active .gg-weapon-icon-outline { opacity:0; }
+
+.gg-weapon-name
+{
+    horizontal-align:right;
+}
+.gg-weapon-name-text
+{
+    horizontal-align:right;
+    text-align:right;
+    white-space:nowrap;
+}
+

@@ -1,0 +1,88 @@
+<!-- xml reconstructed by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/huddeathpanel.css" />
+	</styles>
+	<scripts>
+		<include src="file://[resources}/scripts/common/anim_background.js" />
+		<include src="file://{resources}/scripts/hud/huddeathpanel.js" />
+	</scripts>
+	<CSGOHudDeathPanel class="DeathPanelRoot" hittest="false" hittestchildren="false">
+		<Panel id="DeathPanel" class="DeathPanel DeathPanel__BG-Blur overflow-noclip">
+			<Panel class="death-panel-bg" />
+			<Panel class="left-right-flow overflow-noclip">
+				<Panel class="DeathPanel__Content overflow-noclip">
+					<Panel class="DeathPanel__BG" />
+					<Panel class="top-bottom-flow full-width overflow-noclip">
+						<Label id="MedalText" class="DeathPanel__MedalText stratum-regular" html="true" />
+						<Panel class="full-width overflow-noclip">
+							<Panel class="left-right-flow full-width overflow-noclip">
+								<Panel class="overflow-noclip">
+									<Panel class="DeathPanel_AvatarBG" />
+									<CSGOAvatarImage id="Avatar" class="DeathPanel__Avatar" scaling="stretch-to-cover-preserve-aspect" />
+									<ProgressBar id="AvatarHealthBar" class="DeathPanel__AvatarHealthBar" />
+									<Image id="AvatarFlair" class="DeathPanel__AvatarFlair" />
+									<Image id="PlayerAvatarSkillGroup" class="DeathPanel__AvatarSkillGroup DeathPanel__AvatarSkillGroup--Hidden" textureheight="-1" texturewidth="64" src="file://{images}/icons/skillgroups/skillgroup_expired.svg" />
+								</Panel>
+								<Panel class="top-bottom-flow vertical-center" style="width: fill-parent-flow( 1.0 );">
+									<Panel class="full-width">
+										<Label class="DeathPanel__Name stratum-bold" html="true" text="{s:killer_name}" />
+										<Image class="DeathPanel__DominationIcon DeathPanel__DominationIcon--Nemesis" src="file://{images}/hud/deathpanel/icon-dominated.png" scaling="stretch-to-fit-preserve-aspect" />
+										<Image class="DeathPanel__DominationIcon DeathPanel__DominationIcon--Revenge" src="file://{images}/hud/deathpanel/icon-domination-break.png" scaling="stretch-to-fit-preserve-aspect" />
+									</Panel>
+									<Label id="DescriptionText" class="DeathPanel__Desc stratum-bold-italic" html="true" />
+								</Panel>
+							</Panel>
+						</Panel>
+						<Panel class="DeathPanel__Damage Taken">
+							<ProgressBar id="ProgressDamageTaken" />
+							<Label id="DamageTaken" class="" html="true" />
+						</Panel>
+						<Panel class="DeathPanel__Damage Given">
+							<ProgressBar id="ProgressDamageGiven" />
+							<Label id="DamageGiven" class="" html="true" />
+						</Panel>
+					</Panel>
+				</Panel>
+				<Panel id="ItemContainer" class="DeathPanel__ItemContainer">
+					<ItemImage id="WeaponImage" class="DeathPanel__Item" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+			</Panel>
+			<Panel class="DeathPanel_Nav_Container">
+				<Label id="NavigationCancel" class="DeathPanel__Navigation" text="#Panorama_Death_Cancel_Replay" />
+				<Label id="NavigationSnapshot" class="DeathPanel__Navigation" text="#Panorama_Death_Snapshot" />
+				<Label id="NavigationReplay" class="DeathPanel__Navigation" html="true" text="#Panorama_HUD_Spectate_Navigation_Replay_Death" />
+				<Label id="SurvivalEndOfMatch" class="DeathPanel__SurvivalEndOfMatch" text="#Panorama_SurvivalEndOfMatch_ShowStats" />
+			</Panel>
+		</Panel>
+		<Panel id="DeathPanelSS" class="DeathPanelSS overflow-noclip">
+			<Panel class="DeathPanelSS__Logo">
+				<Image class="DeathPanelSS__LogoImage" src="file://{images}/hud/deathpanel/logo.png" />
+			</Panel>
+			<Panel class="left-right-flow overflow-noclip">
+				<Panel class="DeathPanelSS__Content overflow-noclip">
+					<Panel class="DeathPanelSS__BG" />
+					<Panel class="DeathPanelSS__ContentPadding overflow-noclip">
+						<Label id="MedalTextSS" class="DeathPanelSS__MedalText stratum-regular" html="true" />
+						<Panel class="left-right-flow horizontal-align-right overflow-noclip">
+							<Label class="DeathPanelSS__Name" html="true" text="{s:killer_name}" />
+							<Panel class="overflow-noclip">
+								<Panel class="DeathPanel_AvatarBG DeathPanel_AvatarBG--SS" />
+								<CSGOAvatarImage id="AvatarSS" class="DeathPanel__Avatar DeathPanel__Avatar--SS" scaling="stretch-to-cover-preserve-aspect" />
+								<ProgressBar id="AvatarHealthBarSS" class="DeathPanel__AvatarHealthBar DeathPanel__AvatarHealthBar--SS" />
+								<Image id="AvatarFlairSS" class="DeathPanel__AvatarFlair DeathPanel__AvatarFlair--SS" />
+							</Panel>
+						</Panel>
+						<Label id="DescriptionTextSS" class="DeathPanelSS__Desc" html="true" />
+					</Panel>
+				</Panel>
+				<Panel id="ItemContainerSS" class="DeathPanel__ItemContainer DeathPanel__ItemContainer--SS">
+					<ItemImage id="WeaponImageSS" class="DeathPanel__Item" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="DeathPanelSSCameraFlash" class="DeathPanelSSCameraFlash" />
+		<Label id="DeathCancel" class="DeathCancel" text="#Panorama_Death_Cancel_Start_Replay" />
+	</CSGOHudDeathPanel>
+</root>

@@ -1,0 +1,43 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/hud/huddemolitionprogress.css" />
+  </styles>
+
+  <snippets>
+    <snippet name="WeaponIcon">
+      <Panel class="gg-weapon">
+        <Panel class="gg-weapon-overflow">                                                    
+          <Panel class="gg-weapon-background">
+            <Panel class="gg-weapon-background-chevron-left">
+              <Panel class="gg-weapon-background-chevron-left-top" />
+              <Panel class="gg-weapon-background-chevron-left-bottom" />
+            </Panel>
+            <Panel class="gg-weapon-background-center" />
+            <Panel class="gg-weapon-background-chevron-right">
+              <Panel class="gg-weapon-background-chevron-right-top" />
+              <Panel class="gg-weapon-background-chevron-right-bottom" />
+            </Panel>
+          </Panel>
+          <Panel class="gg-weapon-container">
+            <Panel class="gg-weapon-icon">
+              <Image class="WeaponIconImage gg-weapon-icon-solid" src="file://{images}/icons/equipment/flashbang.svg" textureheight="50"
+                      svgstrokeopacity="0" svgfillopacity="1" svgfill="#ffffff" />
+              <Image class="WeaponIconImage gg-weapon-icon-outline" src="file://{images}/icons/equipment/flashbang.svg" textureheight="50"
+                      svgstrokewidth="0.5" svgstrokeopacity="1" svgstroke="#ffffff" svgfillopacity="0" svgfill="#000000" />
+            </Panel>
+            <Label class="gg-weapon-name" id="weaponname" text="" />
+          </Panel>
+        </Panel>
+      </Panel>
+    </snippet>
+  </snippets>
+
+  <CSGOHudDemolitionProgression class="gg-progress" hittest="false" hittestchildren="false">
+    <Label class="gg-progress-title" text="#SFUI_Rules_Demolition_Progression" />
+    <Panel class="gg-weapon-list" id="gg-weapon-list">
+                                                              
+    </Panel>
+  </CSGOHudDemolitionProgression>
+
+</root>

@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/mainmenu_play.css"/>
+		<include src="file://{resources}/styles/stats/playerstats.css" />
+		<include src="file://{resources}/styles/scoreboard.css" />
+        <include src="file://{resources}/styles/matchinfo.css" />
+		
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/matchinfo.js" />
+		<include src="file://{resources}/scripts/popups/stats/popup_playerstats_singlematch.js" />
+	</scripts>
+
+
+	<PopupCustomLayout class="singlematch__root full-width full-height" onload="singlematch.Appear();" oncancel="singlematch.Dismiss();">
+		<Button class="PopupButton singlematch__dismiss" onactivate="singlematch.Dismiss();" >
+			<Label text="Dismiss" />
+		</Button>
+
+		<Panel id="MatchInfo" class="full-width full-height"/>
+
+		<Panel id="PageSpinner" class="vertical-center horizontal-center">
+			<Panel class="Spinner"/>
+		</Panel>
+	</PopupCustomLayout>
+</root>

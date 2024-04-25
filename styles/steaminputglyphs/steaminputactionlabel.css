@@ -1,0 +1,16 @@
+
+                   
+                                         
+
+.steam-action-name
+{
+	horizontal-align : center;
+	vertical-align : center;
+	width: fit-children;
+	height: fit-children;
+}
+
+.play-menu__playbtn CCSGOSteamInputAction .steam-action-name
+{
+	visibility: collapse;
+}

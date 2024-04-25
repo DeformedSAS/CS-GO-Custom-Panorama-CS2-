@@ -1,0 +1,927 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/controlslibrary.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/controlslibrary.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="frame-snippet-example">
+			<Panel>
+				<Label text="This panel is loaded as a snippet via a 'Frame' element" />
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="mainmenu-content__container" >
+		<Panel class="content-navbar" >
+			<Panel class="content-navbar__tabs">
+				<RadioButton id="JsControlStyleGuide" selected="true" group="nav" onactivate="NavigateToTab('ControlLibStyleGuide', 'JsStyleGuide')">
+					<Label text="Style"/>
+				</RadioButton>
+				<RadioButton id="JsControlPopups" group="nav" onactivate="NavigateToTab('ControlsLibPopups', 'JsPopups')">
+					<Label text="Popups"/>
+				</RadioButton>
+				<RadioButton id="JsControlTooltips" group="nav" onactivate="NavigateToTab('ControlsLibTooltips', 'JsControlTooltips')">
+					<Label text="Tooltips"/>
+				</RadioButton> 
+				<RadioButton id="JsControlContext" group="nav" onactivate="NavigateToTab('ControlsLibContextMenu', 'JsControlContext')">
+					<Label text="Context Menu"/>
+				</RadioButton>
+				<RadioButton id="JsControlText" group="nav" onactivate="NavigateToTab('ControlsLibText','JsControlText')">
+					<Label text="Text"/>
+				</RadioButton>
+				<RadioButton id="JsControlIcons" group="nav" onactivate="NavigateToTab('ControlsLibIcons','JsControlIcons')">
+					<Label text="Icons"/>
+				</RadioButton>
+				<RadioButton id="JsControlVideo" group="nav" onactivate="NavigateToTab('ControlsLibVideo','JsControlVideo')">
+					<Label text="Video"/>
+				</RadioButton>
+				<RadioButton id="JsControlScene" group="nav" onactivate="NavigateToTab('ControlsLibScenePanel','JsControlScene');">
+					<Label text="Scene"/>
+				</RadioButton>
+				<RadioButton id="JsControlScene2" group="nav" onactivate="NavigateToTab('ControlsLibMultiScenePanel','JsControlScene2');">
+					<Label text="Scene2"/>
+				</RadioButton>
+				<RadioButton id="JsControlCanvas" group="nav" onactivate="NavigateToTab('ControlsLibCanvas','JsControlCanvas');">
+					<Label text="Canvas"/>
+				</RadioButton>
+				<RadioButton id="JsControlOther" group="nav" onactivate="NavigateToTab('ControlsLibOther', 'JsControlOther')">
+					<Label text="Other"/>
+				</RadioButton>
+				<RadioButton id="JsControlVars" group="nav" onactivate="NavigateToTab('ControlsLibDiagVars', 'JsControlVars')">
+					<Label text="Dialog Vars"/>
+				</RadioButton>
+			</Panel>
+		</Panel>
+
+		<Panel class="content-navbar" >
+			<Panel class="content-navbar__tabs">
+				<RadioButton id="JsControlSound" group="nav" onactivate="NavigateToTab('ControlsLibSound', 'JsControlSound')">
+					<Label text="Sound"/>
+				</RadioButton>
+				<RadioButton id="JsControlBlur" group="nav" onactivate="NavigateToTab('ControlsLibBlendBlur', 'JsControlBlur')">
+					<Label text="Blend+Blur"/>
+				</RadioButton>
+				<RadioButton id="JsControlPanels" group="nav" onactivate="NavigateToTab('ControlsLibPanels', 'JsControlPanels')">
+					<Label text="Panels"/>
+				</RadioButton>
+				<RadioButton id="JsControlCdn" group="nav" onactivate="NavigateToTab('ControlsLibCdn', 'JsControlCdn')">
+					<Label text="Cdn"/>
+				</RadioButton>
+				<RadioButton id="JsControlBG" group="nav" onactivate="NavigateToTab('ControlsLibBackgroundTest', 'JsControlBG')">
+					<Label text="BG"/>
+				</RadioButton>
+				<RadioButton id="JsControlBugs" group="nav" onactivate="NavigateToTab('ControlsLibBugs', 'JsControlBugs')">
+					<Label text="Bugs"/>
+				</RadioButton>
+			</Panel>
+		</Panel>
+
+		<Panel class="full-width full-height">
+			                 
+			<Panel id="ControlLibStyleGuide" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow">
+						<Button id="" class="PopupButton" >
+							<Label  id="" text="#generic active"/>
+						</Button>
+						<Button id="" class="PopupButton White" >
+							<Label  id="" text="#generic White"/>
+						</Button>
+						<Button id="" class="PopupButton" disabled="true" >
+							<Label  id="" text="#generic disabled"/>
+						</Button>
+						<Button id="" class="PopupButton HasExpandIcon" >
+							<Label  id="" text="#generic with dropdown arrow"/>
+							<Image texturewidth="16" textureheight="16" src="file://{images}/icons/ui/expand.svg" />
+						</Button>
+						<Button id="" class="PopupButton" defaultfocus="true" >
+							<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/info.svg"/>
+							<Label  id="" text="#generic with image"/>
+						</Button>
+						<Button id="" class="PopupButton White">
+							<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/info.svg"/>
+							<Label  id="" text="#generic with image"/>
+						</Button>
+						<Button id="" class="PopupButton" disabled="true"  >
+							<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/locked.svg"/>
+							<Label  id="" text="#generic with image disabled"/>
+						</Button>
+						<ToggleButton id="" class="PopupButton" >
+							<Label  id="" text="#Toggle Button"/>
+						</ToggleButton>
+						<ToggleButton id="" class="PopupButton White" >
+							<Label  id="" text="#Toggle Button White"/>
+						</ToggleButton>
+						<ToggleButton id="" class="PopupButton Row" >
+							<Label  id="" text="#Toggle Button Row"/>
+						</ToggleButton>
+						<RadioButton id="" class="PopupButton" >
+							<Label  id="" text="#Radio Button"/>
+						</RadioButton>
+						<RadioButton id="" class="PopupButton White" >
+							<Label  id="" text="#Radio Button White"/>
+						</RadioButton>
+						<RadioButton id="" class="PopupButton Row" >
+							<Label  id="" text="#Radio Button Row"/>
+						</RadioButton>
+					</Panel>
+					<Panel class="top-bottom-flow">
+						<Label text="icon button"/>
+						<Button id="" class="IconButton" >
+							<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/profile.svg"/>
+						</Button>
+						<Label text="icon button disabled"/>
+						<Button id="" class="IconButton" disabled="true">
+							<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/profile.svg"/>
+						</Button>
+						<Button id="" class="FlatButton" >
+							<Label  id="" text="#flat Button"/>
+						</Button>
+						<Button id="" class="FlatButton" disabled="true">
+							<Label  id="" text="#flat Button disabled"/>
+						</Button>
+						<Button id="" class="FlatButton Positive" >
+							<Label  id="" text="#flat Positive"/>
+						</Button>
+						<Button id="" class="FlatButton Warning" >
+							<Label  id="" text="#flat Warning"/>
+						</Button>
+						<Button id="" class="FlatButton Negative" >
+							<Label  id="" text="#flat Negative"/>
+						</Button>
+						<DropDown class="PopupButton White"  id="ControllibDropdown" menuclass="DropDownMenu" oninputsubmit="UIItemPreviewPanelDebugLightSelection()">
+							<Label text="Popup Style White Dropdown" id="ControllibDropdown1" value="1"/>
+							<Label text="ControllibDropdown2" id="ControllibDropdown2" value="2"/>
+							<Label text="ControllibDropdown3" id="ControllibDropdown3" value="3"/>
+							<Label text="ControllibDropdown4" id="ControllibDropdown4" value="4"/>
+							<Label text="ControllibDropdown5" id="ControllibDropdown5" value="5"/>
+							<Label text="ControllibDropdown6" id="ControllibDropdown6" value="6"/>
+						</DropDown>
+
+						<DropDown class="PopupButton"  id="" menuclass="DropDownMenu" oninputsubmit="UIItemPreviewPanelDebugLightSelection()">
+							<Label text="Popup Style Dropdown" id="ControllibDropdown1" value="1"/>
+							<Label text="ControllibDropdown2" id="ControllibDropdown2" value="2"/>
+							<Label text="ControllibDropdown3" id="ControllibDropdown3" value="3"/>
+							<Label text="ControllibDropdown4" id="ControllibDropdown4" value="4"/>
+							<Label text="ControllibDropdown5" id="ControllibDropdown5" value="5"/>
+							<Label text="ControllibDropdown6" id="ControllibDropdown6" value="6"/>
+						</DropDown>
+
+						<DropDown class=""  id="" menuclass="DropDownMenu" oninputsubmit="UIItemPreviewPanelDebugLightSelection()">
+							<Label text="default Style Dropdown" id="ControllibDropdown1" value="1"/>
+							<Label text="ControllibDropdown2" id="ControllibDropdown2" value="2"/>
+							<Label text="ControllibDropdown3" id="ControllibDropdown3" value="3"/>
+							<Label text="ControllibDropdown4" id="ControllibDropdown4" value="4"/>
+							<Label text="ControllibDropdown5" id="ControllibDropdown5" value="5"/>
+							<Label text="ControllibDropdown6" id="ControllibDropdown6" value="6"/>
+						</DropDown>
+				
+					</Panel>
+				</Panel>
+			</Panel>
+			
+			                   
+			<Panel id="ControlsLibPopups" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Generic Popup Types" />
+						<Label text=""/>
+					
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopup('Generic', 'This is a generic message.', '')">
+							<Label text="Generic Message"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupOk( 'Generic Ok', 'This is a generic message.', '', function() { OnControlsLibPopupEvent( 'OK' ); } )">
+							<Label text="Generic Ok"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupCancel( 'Generic Cancel', 'This is a generic message.', '', function() { OnControlsLibPopupEvent('Cancel') } )">
+							<Label text="Generic Cancel"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupYesNo( 'Generic Yes/No', 'This is a generic message.', '', function() { OnControlsLibPopupEvent('Yes') }, function() { OnControlsLibPopupEvent('No') } )">
+							<Label text="Generic Yes No"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupOkCancel( 'Generic Ok/Cancel', 'This is a generic message.', '', function() { OnControlsLibPopupEvent('OK') }, function() { OnControlsLibPopupEvent('Cancel') } )">
+							<Label text="Generic Ok Cancel"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupYesNoCancel( 'Generic Yes/No/Cancel', 'This is a generic message.', '', function() { OnControlsLibPopupEvent('Yes') }, function() { OnControlsLibPopupEvent('No') }, function() { OnControlsLibPopupEvent('Cancel') } )">
+							<Label text="Generic Yes No Cancel"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupOneOption( 'Generic One Option', 'This is a generic message.', '', 'Option1', function() { OnControlsLibPopupEvent('Option1') } )">
+							<Label text="Generic one option"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupTwoOptions( 'Generic Two Options', 'This is a generic message.', '', 'Option1', function() { OnControlsLibPopupEvent('Option1') }, 'Option2', function() { OnControlsLibPopupEvent('Option2') } )">
+							<Label text="Generic two options"/>
+						</Button>
+						
+						<Panel class="left-right-flow">
+							<Label text="You pressed: "/>
+							<Label id="ControlsLibPopupsText" text="--"/>
+						</Panel>
+					</Panel>
+
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Custom Layout Popup Types" />
+						<Label text=""/>
+
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowCustomLayoutPopup('', 'file://{resources}/layout/popups/popup_custom_layout_test.xml')">
+							<Label text="Custom Layout"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutParamsPressed()">
+							<Label text="Custom Layout Params"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutImagePressed()">
+							<Label text="Custom Layout: image"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutImageSpinnerPressed()">
+							<Label text="Custom Layout: image / spinner"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutImageLoadingPressed()">
+							<Label text="Custom Layout: image / loading bar"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutMatchAccept()">
+							<Label text="Accept Match"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutLoadingScreen()">
+							<Label text="Team Seclect"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutWeaponUpdate()">
+							<Label text="New Weapon"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutOpFull()">
+							<Label text="Operatation Fullscreen Launch"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutSurvivalEndOfMatch()">
+							<Label text="Survival End Of Match"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutXpGrant()">
+							<Label text="Xp Grant"/>
+						</Button>
+						<Button class="PopupButton" onactivate="OnPopupCustomLayoutOperationHub()">
+							<Label text="Operation Hub"/>
+						</Button>
+					</Panel>
+					
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Background Styles" />
+						<Label text=""/>
+						
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupBgStyle('Generic', 'This is a generic message.', '', 'none')">
+							<Label text="None"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupBgStyle('Generic', 'This is a generic message.', '', 'dim')">
+							<Label text="Dim"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupBgStyle('Generic', 'This is a generic message.', '', 'dim_dismiss')">
+							<Label text="Dim and Dismiss"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupBgStyle('Generic', 'This is a generic message.', '', 'blur')">
+							<Label text="Blur"/>
+						</Button>
+						<Button class="PopupButton" onactivate="ClearPopupsText();UiToolkitAPI.ShowGenericPopupBgStyle('Generic', 'This is a generic message.', '', 'blur_dismiss')">
+							<Label text="Blur and Dismiss"/>
+						</Button>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                     
+			<Panel id="ControlsLibTooltips" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Tooltip Types" />
+						
+						<Label text=""/>
+						<TooltipPanel tooltip="text tooltip">
+							<Label class="Orange" text="Text tooltip"/>
+						</TooltipPanel>
+						<TooltipPanel tooltip="text tooltip" tooltip-class="ShortTextTooltip">
+							<Label class="Orange" text="Text Tooltip Styled" />
+						</TooltipPanel>
+						
+						<Label text=""/>
+						<TooltipPanel tooltip-title="title tooltip" tooltip="text tooltip">
+							<Label class="Orange" text="Title Text Tooltip" />
+						</TooltipPanel>
+						<TooltipPanel tooltip-title="title tooltip" tooltip="text tooltip" tooltip-class="ShortTextTooltip">
+							<Label class="Orange" text="Title Text Tooltip Styled" />
+						</TooltipPanel>
+
+						<Label text=""/>
+						<TooltipPanel tooltip-title="title tooltip" image-src="file://{images}/control_icons/home_icon.vtf" tooltip="text tooltip">
+							<Label class="Orange" text="Title Image Text Tooltip" />
+						</TooltipPanel>
+						<TooltipPanel tooltip-title="title tooltip" image-src="file://{images}/control_icons/home_icon.vtf" tooltip="text tooltip" tooltip-class="ShortTextTooltip">
+							<Label class="Orange" text="Title Image Text Tooltip Styled" />
+						</TooltipPanel>
+
+						<Label text=""/>
+						<TooltipPanel src="file://{resources}/layout/tooltips/tooltip_custom_test.xml" src-id="CustomTooltipUniqueId">
+							<Label class="Orange" text="Custom Layout Tooltip" />
+						</TooltipPanel>
+						<TooltipPanel src="file://{resources}/layout/tooltips/tooltip_custom_test.xml" src-id="CustomTooltipUniqueId2" src-parameters="test=blah">
+							<Label class="Orange" text="Custom Layout Tooltip with parameters" />
+						</TooltipPanel>
+					</Panel>
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Position (css)" />
+						<Label text=""/>
+						<Label text="tooltip-position:" style="font-weight: bold;" /> 
+						<Label class="fontSize-m fontWeight-light" html="true" text="&lt;p&gt;Specifies where to position a tooltip relative to this panel. Valid options include 'left', 'top', 'right', and 'bottom'. 
+							List up to 4 positions to determine the order that positions are tried if the tooltip doesn't fully fit on screen. 
+							Default is 'right left bottom top'. If less than 4 positions are specified, the tooltip first tries the opposite 
+							of the specified position along the same axis before switching to the other axis.&lt;/p&gt;" />
+						<Label text="Examples:"/>
+						<TooltipPanel tooltip="tooltip-position demo" style="tooltip-position: top;">
+							<Label class="Orange" text="tooltip-position: top;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-position demo" style="tooltip-position: bottom;">
+							<Label class="Orange" text="tooltip-position: bottom;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-position demo" style="tooltip-position: left;">
+							<Label class="Orange" text="tooltip-position: left;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-position demo" style="tooltip-position: right;">
+							<Label class="Orange" text="tooltip-position: right;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-position demo" style="tooltip-position: left bottom;">
+							<Label class="Orange" text="tooltip-position: left bottom;" />
+						</TooltipPanel>
+						
+						<Label text=""/>
+						<Label text="tooltip-body-position:" style="font-weight: bold;" /> 
+						<Label class="fontSize-m fontWeight-light" html="true" text="&lt;p&gt;Specifies where to position the body of a tooltip relative to this panel. The first value controls how the body is 
+							aligned horizontally when the tooltip is to the top or bottom of the panel, and the second value controls how the body is 
+							aligned vertically when the tooltip is to the left or right of the panel. 0% means left/top aligned, 50% means 
+							center/middle aligned, and 100% means right/bottom aligned. Default is '0% 0%'.&lt;/p&gt;" />
+						<Label text="Examples:"/>
+						<TooltipPanel tooltip="tooltip-body-position demo" style="tooltip-position:top; tooltip-body-position:0% 100%;">
+							<Label class="Orange" text="tooltip-body-position: 0% 100%;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-body-position demo" style="tooltip-position:top; tooltip-body-position:50% 100%;">
+							<Label class="Orange" text="tooltip-body-position: 50% 100%;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-body-position demo" style="tooltip-position:top; tooltip-body-position:100% 100%;">
+							<Label class="Orange" text="tooltip-body-position: 100% 100%;" />
+						</TooltipPanel>
+
+						<Label text=""/>
+						<Label text="tooltip-arrow-position:" style="font-weight: bold;" /> 
+						<Label class="fontSize-m fontWeight-light" html="true" text="&lt;p&gt;Specifies where to point the arrow of a tooltip at on this panel. The first value controls how the arrow is  
+							positioned horizontally when the tooltip is to the top or bottom of the panel, and the second value controls how the arrow is 
+							positioned vertically when the tooltip is to the left or right of the panel. Default is '50% 50%'.&lt;/p&gt;" />
+						<Label text="Examples:"/>
+						<TooltipPanel tooltip="tooltip-arrow-position demo" style="tooltip-position:top; tooltip-arrow-position: 25%;">
+							<Label class="Orange" text="tooltip-arrow-position: 25%;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-arrow-position demo" style="tooltip-position:top; tooltip-arrow-position: 50%;">
+							<Label class="Orange" text="tooltip-arrow-position: 50%;" />
+						</TooltipPanel>
+						<TooltipPanel tooltip="tooltip-arrow-position demo" style="tooltip-position:top; tooltip-arrow-position: 75%;">
+							<Label class="Orange" text="tooltip-arrow-position: 75%;" />
+						</TooltipPanel>
+					</Panel>
+
+					                                                 
+						                                                          
+					          
+				</Panel>
+			</Panel>
+
+			                        
+			<Panel id="ControlsLibContextMenu" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Button class="PopupButton" oncontextmenu="OnSimpleContextMenu()" >
+							<Label text="Simple Context Menu"/>
+						</Button>
+						<Button class="PopupButton" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')">
+							<Label text="Custom Layout"/>
+						</Button>
+						<Button class="PopupButton" oncontextmenu="OnContextMenuCustomLayoutParamsPressed()">
+							<Label text="Custom Layout Parameters"/>
+						</Button>
+						<Panel class="left-right-flow">
+							<Label text="You pressed: "/>
+							<Label id="ControlsLibContextMenuText" text="--"/>
+						</Panel>
+					</Panel>
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Position (css)" />
+						<Label text=""/>
+						<Label text="context-menu-position" style="font-weight: bold;" />
+						<Label class="fontSize-m fontWeight-light" html="true" text="&lt;p&gt;Specifies where to position a context menu relative to this panel. Valid options include 'left', 'top', 'right', and 'bottom'.
+							List up to 4 positions to determine the order that positions are tried if the context menu doesn't fully fit on screen. Default 
+							is 'right left bottom top'. If less than 4 positions are specified, the context menu first tries the opposite of the specified 
+							position along the same axis before switching to the other axis.&lt;/p&gt;" />
+						<Label text="Examples:"/>
+						<Label id="ContextMenuButtonPos1" class="Orange" acceptsinput="true" text="context-menu-position: top;" style="context-menu-position: top;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos1', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos2" class="Orange" acceptsinput="true" text="context-menu-position: bottom;" style="context-menu-position: bottom;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos2', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos3" class="Orange" acceptsinput="true" text="context-menu-position: left;" style="context-menu-position: left;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos3', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos4" class="Orange" acceptsinput="true" text="context-menu-position: right;" style="context-menu-position: right;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos4', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos5" class="Orange" acceptsinput="true" text="context-menu-position: left bottom;" style="context-menu-position: left bottom;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos5', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label text=""/>
+						<Label text="context-menu-body-position:" style="font-weight: bold;" /> 
+						<Label class="fontSize-m fontWeight-light" html="true" text="&lt;p&gt;Specifies where to position the body of a context menu relative to this panel. The first value controls how the body is 
+							aligned horizontally when the context menu is to the top or bottom of the panel, and the second value controls how the body is 
+							aligned vertically when the context menu is to the left or right of the panel. 0% means left/top aligned, 50% means 
+							center/middle aligned, and 100% means right/bottom aligned. Default is '0% 0%'.&lt;/p&gt;" />
+						<Label text="Examples:"/>
+						<Label id="ContextMenuButtonPos6" class="Orange" acceptsinput="true" text="context-menu-body-position: 0% 100%;" style="context-menu-position: top; context-menu-body-position: 0% 100%;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos6', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos7" class="Orange" acceptsinput="true" text="context-menu-body-position: 50% 100%;" style="context-menu-position: top; context-menu-body-position: 50% 100%;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos7', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos8" class="Orange" acceptsinput="true" text="context-menu-body-position: 100% 100%;" style="context-menu-position: top; context-menu-body-position: 100% 100%;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos8', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label text=""/>
+						<Label text="context-menu-arrow-position:" style="font-weight: bold;" /> 
+						<Label class="fontSize-m fontWeight-light" html="true" text="&lt;p&gt;Specifies where to point the arrow of a context menu at on this panel. The first value controls how the arrow is  
+							positioned horizontally when the context menu is to the top or bottom of the panel, and the second value controls how the arrow is 
+							positioned vertically when the context menu is to the left or right of the panel. Default is '50% 50%'.&lt;/p&gt;" />
+						<Label text="Examples:"/>
+						<Label id="ContextMenuButtonPos9" class="Orange" acceptsinput="true" text="context-menu-arrow-position: 25%;" style="context-menu-arrow-position: 25%; context-menu-position: top; context-menu-body-position: 0%;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos9', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos10" class="Orange" acceptsinput="true" text="context-menu-arrow-position: 50%;" style="context-menu-arrow-position: 50%; context-menu-position: top; context-menu-body-position: 0%;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos10', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+						<Label id="ContextMenuButtonPos11" class="Orange" acceptsinput="true" text="context-menu-arrow-position: 75%;" style="context-menu-arrow-position: 75%; context-menu-position: top; context-menu-body-position: 0%;" oncontextmenu="ClearContextMenuText();UiToolkitAPI.ShowCustomLayoutContextMenu('ContextMenuButtonPos11', '', 'file://{resources}/layout/context_menus/context_menu_custom_layout_test.xml')"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                 
+			<Panel id="ControlsLibText" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow">
+						<Label class="fontSize-xxl" text="fontSize-xxl" />
+						<Label class="fontSize-xl" text="fontSize-xl" />
+						<Label class="fontSize-l" text="fontSize-l" />
+						<Label class="fontSize-m" text="fontSize-m" />
+						<Label class="fontSize-s" text="fontSize-s" />
+						<Label class="fontSize-xs" text="fontSize-xs" />
+						<Label class="fontSize-xxl" text="" />
+						<Label class="fontSize-m fontWeight-Bold" text="BOLD" />
+						<Label class="fontSize-m fontWeight-Medium" text="MEDIUM" />
+						<Label class="fontSize-m fontWeight-Light" text="LIGHT" />
+						<Label class="fontSize-xxl" text="" />
+						<Label class="fontSize-m fontWeight-Medium Blue" text="Blue" />
+						<Label class="fontSize-m fontWeight-Medium Positive" text="Positive" />
+						<Label class="fontSize-m fontWeight-Medium Negative" text="Negative" />
+						<Label class="fontSize-m fontWeight-Medium Warning" text="Warning" />
+						<Label class="fontSize-m fontWeight-Medium Disabled" text="Disabled" />
+						<Label class="fontSize-xxl" text="" />
+						<Label class="MonoNumbersFont" text="11111+11111 (Monospace Numbers)" />
+						<Label class="MonoNumbersFont" text="22222+22222 (Monospace Numbers)" />
+						<Label text="11111+11111 (Default Numbers)" />
+						<Label text="22222+22222 (Default Numbers)" />
+						<Label class="fontSize-xxl" text="" />
+						<Label text="Large text entry field" />
+						<TextEntry class="TestTextEntry" placeholder="Enter text here"/>
+					</Panel>
+					<Panel class="top-bottom-flow" onload="InitCaseTest()">
+						<Label class="scaled-text-scale3d" text="Scaled text using scale3d" />
+						<Label class="scaled-text-uiscale" text="Scaled text using ui-scale" />
+						<Label class="text-transform-none" text="Case Test:\t\tiİıI\tµ ŉ ſ ß\t\tϴ θ J̌ ǰ Ǆ ǆ ǅ Ǉ ǉ ǈ Ǌ ǌ ǋ Ǳ ǳ ǲ\t\tⒶⓐⒹⓓⒼⓖⒿⓙ" />
+						<Label class="text-transform-upper" text="Case Test:\tiİıI\tµ ŉ ſ ß\tϴ θ J̌ ǰ Ǆ ǆ ǅ Ǉ ǉ ǈ Ǌ ǌ ǋ Ǳ ǳ ǲ\tⒶⓐⒹⓓⒼⓖⒿⓙ" />
+						<Label class="text-transform-lower" text="Case Test:\t\tiİıI\tµ ŉ ſ ß\t\tϴ θ J̌ ǰ Ǆ ǆ ǅ Ǉ ǉ ǈ Ǌ ǌ ǋ Ǳ ǳ ǲ\t\t\tⒶⓐⒹⓓⒼⓖⒿⓙ" />
+						<Label id="CaseTest" class="dialogvar-case-test" text="{s:casetest} {s:u:casetest} {s:l:casetest}" />
+						<TextEntry class="text-transform-none" text="Test Text Entry"/>
+						<TextEntry class="text-transform-upper" text="Test Text Entry"/>
+						<TextEntry class="text-transform-lower" text="Test Text Entry"/>
+						<Panel id="TimeZoo" class="top-bottom-flow">
+							<Label text="Date/Time display:"/>
+							<Label text="t {t:time}"/>
+							<Label text="t:s {t:s:time}"/>
+							<Label text="t:l {t:l:time}"/>
+							<Label text="t:t {t:t:time}"/>
+							<Label text="t:T {t:T:time}"/>
+							<Label text="t:r {t:r:time}"/>
+							<Label text="t:d {t:d:time}"/>
+							<Label text="t:m {t:m:time}"/>
+							<Label text="t:e {t:e:time}"/>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                  
+			<Panel id="ControlsLibIcons" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel id="icon-test1" class="icon-test">
+						<Label text="svg tests:" class="icon-test-header"/>
+						<Button id="svgButton" class="PopupButton" onactivate="CreateSvgFromJs()" >
+							<Label text="Test create svg from js"/>
+						</Button>
+						<Image src="file://{images}/donotship/icon_knife_tactical_big.svg" class="svgtest2" svgfill="#F00" svgfillopacity="0.25" svgstroke="white" svgstrokewidth="2" svgstrokeopacity="1.0" texturewidth="100" textureheight="100"/>
+						<Image src="file://{images}/donotship/icon_knife_tactical.svg" class="svgtest3" svgfillopacity="0.0" svgstroke="#CCC" svgstrokewidth="1.4" textureheight="170"/>
+						<Image src="file://{images}/donotship/smooth_curve_test.svg" class="svgtest1" svgstrokewidth="40" svgstrokelinecap="round" texturewidth="150" textureheight="150"/>
+						<Image src="file://{images}/donotship/smooth_curve_test.svg" class="svgtest1" texturewidth="200" textureheight="200"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                  
+			<Panel id="ControlsLibVideo" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Panel with background video" />
+						<Panel id="VideoBackground" />
+					</Panel>
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Video Player, Controls" />
+						<Movie id="VideoTrailerPlayer" src="file://{resources}/videos/trailer_0.webm" title="Trailer 0" controls="full" />
+						<Label class="fontSize-m fontWeight-light" text="Switching to the next trailer from javascript:" />
+						<Button class="PopupButton" onactivate="VideoPlayNextTrailer()" >
+							<Label text="Next Video"/>
+						</Button>
+					</Panel>
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="Video Player, No Controls" />
+						<Movie id="VideoHeroPlayer" src="file://{resources}/videos/npc_dota_hero_dragon_knight.webm" controls="none" repeat="true" autoplay="onload" />
+					</Panel>
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m fontWeight-light" text="webm - no alpha" />
+						<Movie src="file://{resources}/videos/zoo_no_alpha.webm" controls="none" repeat="true" autoplay="onload" />
+						<Label class="fontSize-m fontWeight-light" text="webm - alpha" />
+						<Movie src="file://{resources}/videos/zoo_alpha.webm" controls="none" repeat="true" autoplay="onload" />
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                       
+			<Panel id="ControlsLibScenePanel" class="ControlsLib" onload="InitScenePanel()">
+				<Panel class="left-right-flow" acceptsinput="true">
+					<Panel class="top-bottom-flow">
+						<ItemPreviewPanel id="Player1" class="ItemPreviewPanelForBuildingInventoryImages" manifest="resource/ui/econ/CharacterIcon.res" item="models/player/custom_player/legacy/ctm_gsg9.mdl" mouse_rotate="true"> 
+							<Panel id="ItemPreviewPanelForBuildingInventoryImages__SafeFrame"/>
+						</ItemPreviewPanel>
+					</Panel>
+
+					<Panel class="top-bottom-flow">
+						<Button id="" class="FlatButton" onactivate='SceneNextAnimSequence();'>
+							<Label  id="" text="Next Anim Sequence"/>
+						</Button>
+						<Button id="" class="FlatButton" onactivate='ScenePrevAnimSequence();'> 
+							<Label  id="" text="Prev Anim Sequence"/>
+						</Button>
+						<Button id="" class="FlatButton" onactivate='GenerateInventoryImages();'>
+							<Label  id="" text="Generate Inventory Images"/>
+						</Button>
+					</Panel>
+
+				</Panel>
+			</Panel>
+
+			                             
+			<Panel id="ControlsLibMultiScenePanel" class="ControlsLib" onload="InitSceneWithContextsPanel()">
+				<Panel class="left-right-flow" acceptsinput="true">
+					<Panel class="top-bottom-flow">
+						<ItemPreviewPanel id="MultiPlayer" class="ItemPreviewPanelForBuildingInventoryImages" manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res" item="models/player/custom_player/legacy/ctm_sas.mdl" mouse_rotate="true" enable_floorshadow="true"/> 
+					</Panel>
+
+					<Panel class="top-bottom-flow">
+						<Button id="" class="FlatButton" onactivate='SceneNextItemContext();'>
+							<Label  id="" text="Next Scene Context"/>
+						</Button>
+						<Button id="" class="FlatButton" onactivate='ScenePrevItemContext();'> 
+							<Label  id="" text="Prev Scene Context"/>
+						</Button>
+					</Panel>
+
+				</Panel>
+			</Panel>
+
+			                   
+			<Panel id="ControlsLibCanvas" class="ControlsLib left-right-flow" >
+				<UICanvas id="Canvas1" class="TestCanvas" allowDrawing="true"/>
+
+				<Panel class="top-bottom-flow">
+					<Button id="" class="FlatButton" onactivate='SetCanvasDrawColorCT();'>
+						<Label  id="" text="CT"/>
+					</Button>
+					<Button id="" class="FlatButton" onactivate='SetCanvasDrawColorT();'> 
+						<Label  id="" text="T"/>
+					</Button>
+					<Button id="" class="FlatButton" onactivate='ClearCanvas();'>
+						<Label  id="" text="Clear"/>
+					</Button>
+				</Panel>
+
+			</Panel>
+
+			                  
+			<Panel id="ControlsLibOther" class="ControlsLib">
+				<Panel class="top-bottom-flow full-width vscroll">
+					<Button class="FlatButton" onactivate='GetRssFeed();'>
+						<Label text="Get RSS Feed" />
+					</Button>
+					<Panel id="RSSFeed" class="RSSFeed">
+					</Panel>
+					<CountdownTimer timeleft="7000s" output_milliseconds="true">
+						<Label text="{t:d:duration}:{s:milliseconds}"/>
+					</CountdownTimer>
+				</Panel>
+
+				    
+				                                
+				                                                                                                                                                  
+				                                                               
+					                                                                         
+				        
+				                                              
+					                           
+						                                                 
+					         
+					                           
+						                                                   
+					         
+				        
+				   
+			</Panel>
+
+			                             
+			<Panel id="ControlsLibDiagVars" class="ControlsLib" onload="InitDialogVariables()">
+				<Panel class="top-bottom-flow">
+					<Label text="Label's text set in xml: text will update automatically when the 'count' dialog variable is changing value." />
+					<Label text="\tStatic Label Count: {d:r:count}" />
+					<Label text="Label's text set dynamically in javascript: text will not update if 'count' dialog variable is changing value." />
+					<Label id="DiagVarLabel" text="\tblah" />
+					<Panel id="DialogVarParentPanel" class="top-bottom-flow">
+						<Label class="fontSize-l Warning" text="Dialog Variable Parent Panel" />
+						<TextEntry id="ParentDialogVarTextEntry" placeholder="Enter debug text here" />
+						<Label text="#ControlsLib_DiagVariableTest1" html="true" />
+						<Panel id="DialogVarChildPanel" class="top-bottom-flow">
+							<Label class="fontSize-l Warning" text="Dialog Variable Child Panel" />
+							<TextEntry id="ChildDialogVarTextEntry" placeholder="Enter debug text here" />
+							<Label text="#ControlsLib_DiagVariableTest1" html="true" />
+						</Panel>
+						<Label text="#ControlsLib_DiagVariableTest2" html="true" />
+					</Panel>
+					<Label text="#ControlsLib_OldStyleVarTest" />
+					<Label class="keytest-header" text="\nkey dialog vars:"/>
+					<Label text="#ControlsLib_Virtual_Test1" />
+					<Label text="#ControlsLib_Virtual_Test2" />
+					<Label text="#ControlsLib_Virtual_Test3" />
+					<Label text="#ControlsLib_Generic_Test1"/>
+					<Label text="#ControlsLib_Generic_Test2"/>
+					<Label text="#ControlsLib_Generic_Test3"/>
+					<Label class="keytest-header" text="\n Set availability on/off for particular keys:"/>
+					<Panel class="left-right-flow">
+						<ToggleButton id="" class="PopupButton" selected="true" onactivate="$( '#CameraText' ).ToggleClass( 'KeyTextActive' )">
+							<Label  id="" text="Camera"/>
+						</ToggleButton>
+						<ToggleButton id="" class="PopupButton" selected="true" onactivate="$( '#NPText' ).ToggleClass( 'KeyTextActive' )">
+							<Label  id="" text="Next Player"/>
+						</ToggleButton>
+						<ToggleButton id="" class="PopupButton" selected="true" onactivate="$( '#SPText' ).ToggleClass( 'KeyTextActive' )">
+							<Label  id="" text="Show Profile"/>
+						</ToggleButton>
+					</Panel>
+					<Panel id="KeyTests" class="left-right-flow">
+						<Label id="CameraText" class="KeyTextActive" text="#ControlsLib_Generic_Test1"/>
+						<Label id="NPText" class="KeyTextActive" text="#ControlsLib_Generic_Test2"/>
+						<Label id="SPText" class="KeyTextActive" text="#ControlsLib_Generic_Test3"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                  
+			<Panel id="ControlsLibSound" class="ControlsLib">
+				<Panel class="top-bottom-flow">
+					<Label class="fontSize-l" text="From CSS:" />
+					<Panel class="top-bottom-flow" style="padding-left: 50px;">
+						<Panel class="left-right-flow">
+							<Label class="Positive fontSize-m fontWeight-Bold" text="sound" />
+							<Label text=" : Specifies a sound event name to play when the css selector is applied." />
+						</Panel>
+						<Panel class="left-right-flow">
+							<Label class="Positive fontSize-m fontWeight-Bold" text="sound-out" />
+							<Label text=" : Specifies a sound event name to play when the css selector is removed." />
+						</Panel>
+						<Panel class="left-right-flow">
+							<Label class="fontSize-m fontWeight-Bold" text="Examples : " />
+							<Button class="SoundBtn SoundOnEnterHover"><Label text="Sound on entering hover state" /></Button>
+							<Button class="SoundBtn SoundOnLeaveHover"><Label text="Sound on leaving hover state" /></Button>
+						</Panel>
+					</Panel>
+					<Label class="fontSize-l" text="From javascript:" />
+					<Panel class="top-bottom-flow" style="padding-left: 50px;">
+						<Panel class="left-right-flow">
+							<Label text="By dispatching panorama event '" />
+							<Label class="Positive fontSize-m fontWeight-Bold" text="PlaySoundEffect" />
+							<Label text="'" />
+						</Panel>
+						<Panel class="left-right-flow">
+							<Label class="fontSize-m fontWeight-Bold" text="Examples : " />
+							<Button class="SoundBtn" id="SoundTest" onactivate="$.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.ui_button_large', $('#SoundTest') )">
+								<Label text="Test" />
+							</Button>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                
+			<Panel id="ControlsLibCdn" class="ControlsLib">
+				<Panel class="top-bottom-flow">
+					<Label class="fontSize-m fontWeight-Bold" text="Image panel" />
+					<Image src="http://media.steampowered.com/apps/csgo/blog/images/camo_bg2.jpg?v=1002" />
+					<Label class="fontSize-m fontWeight-Bold" text="Panel with background-image" />
+					<Panel style="background-image: url( 'http://media.steampowered.com/apps/csgo/blog/images/live_wildfire.jpg' ); width:200px; height:200px;" ></Panel>
+				</Panel>
+			</Panel>
+
+			                   
+			<Panel id="ControlsLibPanels" class="ControlsLib" onload="InitPanels()">
+				<Panel class="top-bottom-flow vscroll">
+					<Label class="fontSize-l fontWeight-Bold" text="Panels created dynamically:" />
+					<Panel id="ControlsLibPanelsDynParent" class="top-bottom-flow" style="padding: 30px;">
+						                                 
+					</Panel>
+
+					<Label class="fontSize-l fontWeight-Bold" text="Custom panels registered with panorama from javascript:" />
+					<Panel id="ControlsLibPanelsJS" class="top-bottom-flow" style="padding: 30px;">
+						<ControlLibTestPanel />
+						<ControlLibTestPanel MyCustomProp="Set from xml" />
+						                                       
+					</Panel>
+
+					<Label class="fontSize-l fontWeight-Bold" text="Carousel test" />
+					<Panel class="top-bottom-flow" style="padding: 30px;">
+						<CarouselNav carouselid="TestCarousel" />
+						<Carousel id="TestCarousel" panels-visible="3">
+							<Label class="TestCarouselItem" text="Panel 1" />
+							<Label class="TestCarouselItem" text="Panel 2" />
+							<Label class="TestCarouselItem" text="Panel 3" />
+						</Carousel>
+					</Panel>
+
+					<Label class="fontSize-l fontWeight-Bold" text="CSS selectors test cases" />
+					<Label class="fontSize-m fontWeight-Bold" text="Press green panel to toggle 'CSSSelectorActive' class -> red border" />
+					<Panel class="left-right-flow" style="padding: 30px;">
+						<Panel id="TestCssNotSelectorId" class="TestCssNotSelector top-bottom-flow" onactivate="$( '#TestCssNotSelectorId' ).ToggleClass( 'CSSSelectorActive' )" >
+							<Label text=".TestCssNotSelector Label                   -> red"/>
+							<Label text=".TestCssNotSelector.CSSSelectorActive Label -> orange"/>
+							<Label text="TestCssNotSelector:not(:hover) Label        -> white"/>
+						</Panel>
+						<Panel id="TestCssNotSelectorId2" class="TestCssNotSelector2 top-bottom-flow" onactivate="$( '#TestCssNotSelectorId2' ).ToggleClass( 'CSSSelectorActive' )"  >
+							<Label text=".TestCssNotSelector2 Label                               -> red"/>
+							<Label text=".TestCssNotSelector2.CSSSelectorActive Label             -> orange"/>
+							<Label text=".TestCssNotSelector2:hover:not(.CSSSelectorActive) Label -> white"/>
+						</Panel>
+					</Panel>
+
+					<Label class="fontSize-l fontWeight-Bold" text="Image fallback:" />
+					<Panel class="top-bottom-flow">
+						<Panel class="left-right-flow">
+							<Label text="From xml, setting 'defaultsrc' attribute on the Image panel"/>
+							<Image src="file://{images}/unknown.vtf" defaultsrc="file://{images}/icons/knife.vtf" />
+						</Panel>
+						<Panel class="left-right-flow">
+							<Label text="From javascript, listening to 'ImageFailedLoad' panorama panel event"/>
+							<Image id="ControlsLibPanelImageFallback" />
+						</Panel>
+					</Panel>
+
+					<Label class="fontSize-l fontWeight-Bold" text="Frames:" />
+					<Frame src="file://{resources}/layout/controlslibrary_frameexample.xml" />
+					<Frame snippet="frame-snippet-example" />
+
+					<Label class="fontSize-l fontWeight-Bold" text="Persepective:" />
+					<Panel class="TestCssPerspectiveParent">
+			
+						<Panel class="TestCssPerspectiveChild"/>
+					</Panel>
+					<Panel>
+						<ItemPreviewPanel id="Player1" class="ItemPreviewPanelLargeSpinningBorder" manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res" item="models/player/custom_player/legacy/ctm_sas.mdl" mouse_rotate="true"/> 
+					</Panel>
+					
+				</Panel>
+			</Panel>
+
+			                         
+			<Panel id="ControlsLibBlendBlur" class="ControlsLib">
+				<Panel >
+					<CSGOBlurTarget id="MyBlendBlurFitParent" blurrects="BlurTest1 BlurTest2 BlurTest3 BlurTest4">
+
+						<Image src="file://{images}/map_icons/screenshots/1080p/de_dust2.png" >					
+						</Image>
+
+						<Panel id ="MixBlendScreen1">
+							<Label text="Mix\nScreen"	/>
+						</Panel>
+
+						<Panel id ="MixBlendScreen2">
+						</Panel>
+
+						<Panel id ="MixBlendScreen3">
+						</Panel>
+
+						<Panel id ="MixBlendMultiply1">
+							<Label text="Mix\nMultiply"	/>
+						</Panel>
+
+						<Panel id ="MixBlendMultiply2">
+						</Panel>
+
+						<Panel id ="MixBlendMultiply3">
+						</Panel>
+
+
+					</CSGOBlurTarget>
+
+					<Label id="BlurTest1" text="Click on this panel to test blur animation\nLMB Fade in\nRMB Fade Out" onactivate="TransitionBlurPanel()" oncontextmenu="TransitionBlurPanel2()" ></Label>
+					<Label id="BlurTest2" text="This panel tests animating position, width and height"> </Label>
+					<Label id="BlurTest3" text="This panel has a transform on it:\n translateX( 150px ) translateY( 150px ) rotateZ( 45deg )"> </Label>
+					<Label id="BlurTest4" text="This panel has an animated transform on it"> </Label>
+				</Panel>
+			</Panel>
+
+			                       
+			<Panel id="ControlsLibBackgroundTest" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Panel class="bg-test-no-alpha">
+							<Label text="Background opacity set. image does not have alpha. Hover to test transition" ></Label>
+						</Panel>
+						<Panel class="bg-test-alpha">
+							<Label text="background opacity not set. Image has alpha"></Label>
+						</Panel>
+						<Panel class="bg-test-alpha-ignored">
+							<Label text="Both background opacity and alpha set"></Label>
+						</Panel>
+
+						<Label id ="alphaedge_bk" text="Hello World\nAnimating opacity on Labels bkgnd">
+						</Label>	
+					</Panel>
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label text="'_rt_tablet' render target" />
+						<Image enginertsrc="_rt_Tablet" style="width: 200px;height: 200px;" />
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                 
+			<Panel id="ControlsLibBugs" class="ControlsLib">
+				<Panel class="left-right-flow">
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Label class="fontSize-m" text="Gradient 2 stops - Correct" />
+						<Panel class="ControlsLibBugsBlue">
+							<Panel class="ControlsLibGradient2Stops" />
+							<Panel class="ControlsLibSolidFill" />
+						</Panel>
+
+						<Label class="fontSize-m" text="Gradient 3 stops - Incorrect, color not matching" />
+						<Panel class="ControlsLibBugsBlue">
+							<Panel class="ControlsLibGradient3Stops" />
+							<Panel class="ControlsLibSolidFill" />
+						</Panel>
+
+						<Label class="fontSize-l" text="Ready for display test" style="padding-top:15px;" />
+						<Panel class="left-right-flow">
+							<Button class="FlatButton" onactivate="JSReadyReset();">
+								<Label text="Reset" />
+							</Button>
+							<Button id="ControlsLibBugsReadyButtonAddChild" class="FlatButton" onactivate="JSReadyAddChild();">
+								<Label text="Add Child" />
+							</Button>
+							<Button id="ControlsLibBugsReadyButtonAddBgImg" class="FlatButton" disabled="true" onactivate="JSReadyAddBgImg();">
+								<Label text="Add bg img" />
+							</Button>
+						</Panel>
+						<Panel id="ControlsLibBugsReadyParent" class="left-right-flow ControlLibBugs__ReadyParent" readyfordisplay="false">
+						</Panel>
+					</Panel>
+
+					<Panel class="top-bottom-flow FillParentFlow">
+						<Panel class="left-right-flow">
+							<Button class="FlatButton" onactivate="$('#ControlsLibBugsContainer').RemoveClass('ControlLibBugs__Container--Bottom');">
+								<Label text="Ctn Top" />
+							</Button>
+							<Button class="FlatButton" onactivate="$('#ControlsLibBugsContainer').AddClass('ControlLibBugs__Container--Bottom');">
+								<Label text="Ctn Bottom" />
+							</Button>
+							<Button class="FlatButton" onactivate="$('#ControlsLibBugsRow').RemoveClass('ControlLibBugs__Row--Hidden');">
+								<Label text="Add Middle Row" />
+							</Button>
+							<Button class="FlatButton" onactivate="$('#ControlsLibBugsRow').AddClass('ControlLibBugs__Row--Hidden');">
+								<Label text="Del Middle Row" />
+							</Button>
+						</Panel>
+						<Panel class="ControlLibBugs__Parent">
+							<Panel id="ControlsLibBugsContainer" class="ControlLibBugs__Container">
+								<Panel class="ControlLibBugs__Row">
+								</Panel>
+								<Panel id="ControlsLibBugsRow" class="ControlLibBugs__Row">
+								</Panel>
+								<Panel class="ControlLibBugs__Row">
+								</Panel>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+
+		</Panel>
+	</Panel>
+</root>
+
+

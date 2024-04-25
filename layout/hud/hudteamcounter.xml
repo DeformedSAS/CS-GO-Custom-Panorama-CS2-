@@ -1,0 +1,211 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudteamcounter.css" />
+    	<include src="file://{resources}/styles/hud/hudvoicestatus.css" />
+	</styles>
+
+	<scripts>
+	</scripts>
+
+	<snippets>
+
+		<snippet name="AvatarLargeSnippet">
+			<Panel acceptsinput="false">
+
+				                                             
+				<Panel id="Visible" class="AvatarL">
+
+					<Panel id="AvatarL__ImageBG" class="avatarl__imagebg">
+						<CSGOAvatarImage id="AvatarImage" class="Avatar__CommonMargin AvatarL__Internal"/>
+						<CSGOAvatarHealthBar id="HealthBar" class="Avatar__HealthMargin AvatarL__HealthBar"/>
+					</Panel>
+
+				</Panel>                 
+
+				                                                                                            
+				<Panel id="ArsenalProgress">
+					<Panel id="ArsenalProgressTextBG" class="AvatarL__GGTextBG">
+						<Label id="ArsenalProgressText" class="AvatarL__GGText"/>
+					</Panel>
+					<Panel id="ArsenalProgressWeapon" class="AvatarL__GGIconBG">
+						<Image id="ArsenalProgressWeaponIcon" class="AvatarL__GGIcon" textureheight="20px" scaling="none"/>
+					</Panel>
+				</Panel>
+
+				                                                                       
+				<Panel id="Invisible" class="preserveSize">
+
+					<Image id="Skull" class="AvatarL__Skull" src="file://{images}/icons/ui/elimination.svg"/>
+					<Image id="Bot" class="AvatarL__Bot" src="file://{images}/hud/teamcounter/teamcounter_botavatar.svg"/>
+					<Image id="Dominated" class="AvatarL__Dominated" src="file://{images}/hud/teamcounter/teamcounter_dominated.svg"/>
+					<Image id="Nemesis" class="AvatarL__Nemesis" src="file://{images}/icons/ui/nemesis.svg"/>
+					<Image id="PlayerColor" class="AvatarL__PlayerColor" src="file://{images}/hud/teamcounter/teamcounter_playercolor.png"/>
+					<Label id="PlayerLetter" class="AvatarL__PlayerLetter"/>
+
+          <Panel id="Sound" class="avatar-speaking">
+            <Panel class="SoundAnim Looping">
+              <Panel class="SpeakerIcon" />
+              <Panel class="SoundIcon1"/>
+              <Panel class="SoundIcon2"/>
+              <Panel class="SoundIcon3"/>
+            </Panel>
+          </Panel>
+          
+				</Panel>                   
+
+			</Panel>
+		</snippet>
+
+		<snippet name="AvatarSmallSnippet">
+			<Panel acceptsinput="false">
+
+				                                             
+				<Panel id="Visible" class="AvatarS">
+
+					                       
+					<Panel id="AvatarS__ImageBG">
+						<CSGOAvatarImage id="AvatarImage" class="Avatar__CommonMargin AvatarS__Internal AvatarS__PlayerImage" scaling="stretch-to-cover-preserve-aspect" />
+						<CSGOAvatarHealthBar id="HealthBar" class="Avatar__HealthMargin AvatarS__HealthBar"/>
+					</Panel>
+
+				</Panel>                 
+
+				                                                                       
+				<Panel id="Invisible">
+
+					<Image id="Skull" class="AvatarS__Skull" src="file://{images}/icons/ui/elimination.svg"/>
+
+					<Image id="Bot" class="AvatarS__Bot" src="file://{images}/hud/teamcounter/teamcounter_botavatar.svg"/>
+
+					<Image id="Dominated" class="AvatarS__Dominated" src="file://{images}/hud/teamcounter/teamcounter_dominated.svg"/>
+
+					<Image id="Nemesis" class="AvatarS__Nemesis" src="file://{images}/icons/ui/nemesis.svg"/>
+
+          <Panel id="Sound" class="avatar-s-speaking">
+            <Panel class="SoundAnim Looping">
+              <Panel class="SpeakerIcon" />
+              <Panel class="SoundIcon1"/>
+              <Panel class="SoundIcon2"/>
+              <Panel class="SoundIcon3"/>
+            </Panel>
+          </Panel>
+          
+				</Panel>                   
+
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+	<CSGOHudTeamCounter>
+
+		                         
+		<Panel id="TeamCounterBG">
+
+			<Panel id="TeamCounter">
+				                           
+				<Panel class="team__large_container--left">
+					<Panel id="TeamLargeCT" class="Team__Large">
+						                                                     
+					</Panel>
+					<Panel id="TeamSmallContainerCT">
+						<Panel id="TeamSmallCT__Row1" class="Team__SmallCT">
+							                                                                           
+						</Panel>
+						<Panel id="TeamSmallCT__Row2" class="Team__SmallCT">
+							                                                                           
+						</Panel>
+					</Panel>
+					
+
+					                                                      
+					<Panel id="AliveBackgroundCT" class="TeamCounter__AliveCT">
+						<Label id="AliveCountCT" class="TeamCounter__AliveCount"/>
+						<Image id="AliveSkullCT" class="TeamCounter__AliveSkull" src="file://{images}/hud/teamcounter/teamcounter_aliveskull.png" />
+						<Label id="AliveTextCT" class="TeamCounter__AliveText" text="#SFUI_PlayerCount_Alive"/>
+					</Panel>
+
+				</Panel>
+
+				                                        
+				<Panel id="ScoreAndTimeAndBomb">
+					<Panel id="ScoreAndTime">
+						<Panel id="GameTime">
+							<Panel id="Timer">
+								<Label id="TimerText" class="teamcounter_timer" text="0:00"/>
+							</Panel>
+						</Panel>
+
+						<Panel id="GameScore">
+							<Panel class="GameScore__BGL">
+								<Label id="ScoreCT" class="TeamScoreL TeamScore" text="0"/>
+							</Panel>
+							<Panel class="GameScore__BGR">
+								<Label id="ScoreT" class="TeamScoreR TeamScore" text="0"/>
+							</Panel>
+						</Panel>
+					</Panel>
+
+					<Panel id="BombStatus">
+						<Image id="BombPlanted" class="bomb_planted" src="file://{images}/hud/teamcounter/teamcounter_bomb-planted.svg"
+						texturewidth="256" textureheight="-1" />
+						<Image id="BombPlantedLines" class="bomb_planted bomb_line" src="file://{images}/hud/teamcounter/teamcounter_bomb-planted-lines.svg" texturewidth="256" textureheight="-1"/>
+						<Image id="BombDefused" class="bomb_defused" src="file://{images}/hud/teamcounter/teamcounter_bomb-planted-defused.svg" texturewidth="256" textureheight="-1" />
+					</Panel>
+				</Panel>
+
+				                                                    
+				<Panel id="TeamAll" class="Team__All">
+					                                                     
+				</Panel>
+
+				<Panel class="team__large_container--right">
+
+					                                                      
+					<Panel id="AliveBackgroundT" class="TeamCounter__AliveT">
+						<Label id="AliveCountT" class="TeamCounter__AliveCount"/>
+						<Image id="AliveSkullT" class="TeamCounter__AliveSkull" src="file://{images}/hud/teamcounter/teamcounter_aliveskull.png" />
+						<Label id="AliveTextT" class="TeamCounter__AliveText" text="#SFUI_PlayerCount_Alive"/>
+					</Panel>
+
+					                            
+					<Panel id="TeamLargeT" class="Team__Large">
+						                                                     
+					</Panel>
+
+					<Panel id="TeamSmallContainerT">
+						<Panel id="TeamSmallT__Row1" class="Team__SmallT">
+							                                                                           
+						</Panel>
+						<Panel id="TeamSmallT__Row2" class="Team__SmallT">
+							                                                                           
+						</Panel>
+					</Panel>
+				</Panel>
+
+			</Panel>
+
+			<Panel class="JoinPanelRoot">
+				<Panel id="JoinPanelParent" class="JoinPanel">
+				<Panel class="hrTop" />
+					<Panel id="JoinPanelCT" class="JoinPanelInner">
+						                                                                                                               
+						<Label id="JoinTextCT" text="#SFUI_NowPlaying_CT"/>
+					</Panel>
+					<Panel id="JoinPanelT" class="JoinPanelInner">
+						<Label id="JoinTextT" text="#SFUI_NowPlaying_T"/>
+						                                                                                                             
+					</Panel>
+					<Panel id="JoinPanelBot" class="JoinPanelInner">
+						<Label id="JoinTextBot" text="#SFUI_NowPlaying_Bot"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
+
+		</Panel>
+
+
+	</CSGOHudTeamCounter>
+</root>

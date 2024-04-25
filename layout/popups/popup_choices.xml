@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/avatar.css" />
+		<include src="file://{resources}/styles/popups/popup_choices.css" />
+	</styles>
+	
+	<scripts>
+	    <include src="file://{resources}/scripts/popups/popup_choices.js" />
+	</scripts>
+  
+	<snippets>
+		<snippet name="ChoiceEntry">
+			<Button class="PopupButton horizontal-align-left full-width">
+				<Image id="Icon"/>
+				<Label id="Name"/>
+			</Button>
+		</snippet>
+		<snippet name="AvatarChoiceEntry">
+			<Button class="PopupButton horizontal-align-left full-width">
+				<CSGOAvatarImage id="AvatarImage" class="avatar-image__icon" defaultsrc="file://{images}/icons/ui/player.svg"/>
+				<Label id="Name"/>
+			</Button>
+		</snippet>
+	</snippets>
+	
+	<PopupCustomLayout class="PopupPanel" useglobalcontext="true" popupbackground="dim">
+		<Label id="ChoiceTitle" class="PopupTitle" />
+		<Panel id="ChoicesContainer" class="popup-choices"/>
+		<Panel class="PopupButtonRow">
+			<Button class="PopupButton" onactivate="UIPopupButtonClicked()">
+				<Label text="#Cancel" />
+			</Button>
+		</Panel>
+		         
+	</PopupCustomLayout>
+</root>

@@ -1,0 +1,39 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_base.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_select_mission_card.css" />
+	</styles>
+	<scripts>
+			<include src="file://{resources}/scripts/common/formattext.js" />
+			<include src="file://{resources}/scripts/operation/operation_util.js" />
+			<include src="file://{resources}/scripts/context_menus/context_menu_select_mission_card.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="mission-card-entry" >
+			<Button class="contextmenu-mission-card-entry">
+				<Image class="contextmenu-mission-card-entry__active-icon" texturewidth="14" textureheight="-1" src="file://{images}/icons/ui/clock.svg"/>
+				<Image class="contextmenu-mission-card-entry__check-icon" texturewidth="14" textureheight="-1" src="file://{images}/icons/ui/check.svg"/>
+				<Label class="contextmenu-mission-card-entry__label" html="true" text="#op_mainmenu_context_menu_name"/>
+
+				<Panel class="left-right-flow vertical-center horizontal-align-right">
+					<Panel class="contextmenu-mission-card-entry__stars">
+						<Label class="contextmenu-mission-card-stars__label stratum-font right-margin" text="#op_mainmenu_context_menu_stars"/>
+						<Image class="vertical-center" texturewidth="14" textureheight="-1" src="file://{images}/icons/ui/icon_star.svg"/>
+					</Panel>
+					<Label id="id-mission-context-entry-timer" class="stratum-font fontWeight-Medium fontSize-sm right-margin" text="{s:time}"/>
+					<Image class="contextmenu-mission-card-entry__locked-icon" texturewidth="18" textureheight="-1" src="file://{images}/icons/ui/locked.svg"/>
+				</Panel>
+			</Button>
+		</snippet>
+	</snippets>
+
+	<ContextMenuBase class="ContextMenu" tabindex="auto" selectionpos="auto" acceptsinput="true" acceptsfocus="true" onload="SelectMissionCardContextMenu.SetupContextMenu();">
+		<Panel id="ContextMenuMissionsBody">
+			
+
+		</Panel>
+
+	</ContextMenuBase>
+</root>

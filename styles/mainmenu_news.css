@@ -1,0 +1,364 @@
+
+                                                  
+
+@define news-image-width: 671px;
+
+
+.news-panel
+{
+	width: 100%;
+	height: fill-parent-flow( 1 );
+	background-color: blurBackgroundColor;
+	margin-bottom: 16px;
+	flow-children: down;
+
+	transition-property: height, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-panel--hide-news-panel #JsNewsPanel
+{
+	height: fill-parent-flow( 0 );
+	margin-bottom: 0px;
+
+	transition-property: height, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+.news-panel--hide-news-panel #JsStorePanel
+{
+	height: 265px;
+}
+
+.news-panel-style-feature-panel-visible #JsNewsPanel
+{
+	height: fill-parent-flow( .5 );
+}
+
+.news-panel-navbar
+{
+	height: 32px;
+	flow-children: right;
+	width: 100%;
+	margin: 0px 16px;
+}
+
+.news-panel-navbar .RadioBox
+{
+	visibility: collapse;
+}
+
+.news-panel-navbar-btn
+{
+	height: 100%;
+	width: fit-children;
+	margin: 0px 24px 0px 0px;
+	vertical-align: center;
+	background-color: gradient( linear, 0% 100%, 0% 99%, from( white ), color-stop( 0, #ffffff00 ), to( #ffffff00 ) );
+	sound-trans: "";
+}
+
+.news-panel-navbar Label
+{
+	margin: 0px;
+	font-size: 16px;
+	font-weight: medium;
+	color: white;
+	vertical-align: center;
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.news-panel-navbar .news-panel-navbar-logo
+{
+	vertical-align: center;
+	margin: 0px 8px;
+}
+
+.news-panel-navbar-worldwide,
+.news-panel-navbar-pwglobal,
+.news-panel-navbar-pwchina
+{
+	visibility: collapse;
+}
+
+.worldwide .news-panel-navbar-worldwide,
+.perfectworld.steamglobal .news-panel-navbar-pwglobal,
+.perfectworld.steamchina .news-panel-navbar-pwchina
+{
+	visibility: visible;
+}
+
+.news-panel__list
+{
+	flow-children: down;
+	width: 100%;
+	padding: 0px 16px;
+	margin-bottom: 0px;
+	height: fit-children;
+
+	transition-property: height, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-entry
+{
+	width: 100%;
+	height: fit-children;
+	min-height: 100px;
+	margin: 0px 8px 8px 8px;
+	                                          
+	                                              
+}
+
+.news-entry,
+.news-panel-style-short-entires .news-entry,
+.news-panel-style-feature-panel-visible .news-entry
+{
+	box-shadow: none;
+	                                          
+	border: 0px solid rgba(0, 0, 0, 0.363);
+}
+
+.news-panel-style-feature-panel-visible .news-entry
+{
+	background-color:rgba(0, 0, 0, 0.0);
+}
+
+.news-entry:hover .news-entry__image
+{
+	transform: scale3d( 1.05, 1.05, 1.05 );
+
+	transition-property: transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-entry__image
+{
+	width: news-image-width;
+	vertical-align: top;
+	horizontal-align: middle;
+
+	transition-property: transform, height;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-panel-style-short-entires .news-entry__image,
+.news-panel-style-feature-panel-visible .news-entry__image
+{
+	width: 192px;
+	vertical-align: center;
+}
+
+.news-entry__image--blur
+{
+	blur: fastgaussian( 8, 8, 5);
+}
+
+.news-entry__info
+{
+	flow-children: down;
+	vertical-align: bottom;
+	z-index: 3;
+	padding: 24px;
+	background-color:rgba(0, 0, 0, 0.5);
+
+	transition-property: background-color, height;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-panel-style-short-entires .news-entry__info,
+.news-panel-style-feature-panel-visible .news-entry__info
+{
+	margin-left: 192px;
+	padding: 16px 24px;
+	height: 100%;
+	vertical-align: center;
+	background-color: none;
+}
+
+.news-entry:hover .news-entry__info
+{
+	background-color:rgba(0, 0, 0, 0.2);
+
+	transition-property: background-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-entry__title
+{
+	                   
+	                   
+	font-weight: Bold;
+	color:white;
+}
+
+.news-entry__title,
+.news-panel-style-short-entires .news-entry__title,
+.news-panel-style-feature-panel-visible .news-entry__title
+{
+	font-size: 16px;
+	margin-top: 4px;
+}
+
+.news-entry__body
+{
+	                   
+	                   
+	color: white;
+	max-height: 48px;
+	text-overflow: ellipsis;
+}
+
+.news-entry__body,
+.news-panel-style-short-entires .news-entry__body,
+.news-panel-style-short-entires .news-entry__details,
+.news-panel-style-feature-panel-visible .news-entry__body,
+.news-panel-style-feature-panel-visible .news-entry__details
+{
+	font-size: 12px;
+	margin-top: 4px;
+}
+
+.news-entry__details
+{
+	font-size: 12px;
+	color:white;
+	text-transform: uppercase;
+	font-weight: Bold;
+}
+
+
+  
+                                 
+
+        
+ 
+	            
+	             
+	                    
+ 
+
+           
+ 
+	            
+	             
+	                   
+	             
+	                             
+	                             
+	                         
+	                                                                                                                     
+ 
+
+               
+ 
+	             
+	             
+	                         
+	                       
+	                   
+ 
+
+                                
+ 
+	                       
+	                     
+	           
+	             
+	                       
+ 
+
+                                 
+ 
+	                        
+	                    
+	          
+	             
+	                       
+ 
+
+            
+ 
+	            
+	             
+	                               
+	               
+	                            
+	                                                  
+	                         
+	                                        
+	                          
+	                         
+	                       
+	                    
+	                    
+ 
+
+                  
+ 
+	              
+ 
+                   
+ 
+	            
+	             
+	                      
+	              
+	                                
+	                         
+	                                   
+	                       
+ 
+
+                         
+ 
+	              
+	                                
+	                          
+	                                        
+ 
+
+              
+ 
+	            
+	            
+	                       
+	                         
+	                    
+ 
+
+              
+ 
+	            
+	             
+	                         
+	                       
+
+ 
+
+                                 
+ 
+	            
+	             
+	                                                                                        
+	           
+ 
+  
+
+                           
+ 
+	                         
+	                       
+	                    
+   
+
+.news-panel-style-feature-panel-visible .news-entry.new {
+
+  	                       
+}

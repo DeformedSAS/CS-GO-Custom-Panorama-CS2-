@@ -1,0 +1,37 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/base.css" />
+    <include src="file://{resources}/styles/hud/huddemoplayback.css" />
+    <include src="file://{resources}/styles/csgostyles.css" />
+  </styles>
+
+  <CSGOHudDemoPlayback class="demoplayback">
+    <Panel class="demoplayback-control-row">
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Round', -9999)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Restart"/>
+      </Button>
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Round', -1)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Back"/>
+      </Button>
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Play', 0)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Pause"/>
+      </Button>
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Play', 0.25)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Slow"/>
+      </Button>
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Play', 1.0)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Play"/>
+      </Button>
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Play', 4.0)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Fast"/>
+      </Button>
+      <Button class="demoplayback-control" onactivate="DemoPlaybackControl('Round', 1)">
+        <Label class="demoplayback-control-label" text="#DemoPlayback_Next"/>
+      </Button>
+    </Panel>
+    <Panel class="demoplayback-timer-row">
+                      
+      <Label text="{s:demo-time} / {s:demo-time-max}" />
+    </Panel>
+  </CSGOHudDemoPlayback>
+</root>

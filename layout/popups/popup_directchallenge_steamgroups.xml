@@ -1,0 +1,42 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popup_directchallenge_steamgroups.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_directchallenge_steamgroups.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="snippet-clan-item">
+			<RadioButton class="clan-item PopupButton clan-item-radiobutton horizontal-align-left flow-left-right no-hover">
+				<CSGOAvatarImage id="id-clan__avatar" class="clan-item__avatar"/>
+				<Label id="id-clan__label" class="clan-item__label" text="{s:clan-name}" />
+			</RadioButton>
+		</snippet>
+	</snippets>
+
+	<PopupCustomLayout class="PopupPanel Hidden root" popupbackground="dim" onload="DirectChallengeSteamGroupSelector.Init()" oncancel="DirectChallengeSteamGroupSelector.Cancel()">>
+
+		<Label text="#DirectChallenge_ClanKeyHint" class="PopupTitle"/>
+
+		<Panel id="JsClansLister" class="clanlister"/>
+
+		<Panel class="PopupButtonRow">
+			<TextButton 
+			id="submit"
+			class="PopupButton" 
+			onactivate="DirectChallengeSteamGroupSelector.Submit()"
+			text="#UI_Submit" />
+
+			<TextButton 
+			class="PopupButton" 
+			onactivate="DirectChallengeSteamGroupSelector.Cancel()" 
+			text="#UI_Cancel" />
+		</Panel>
+
+	</PopupCustomLayout>
+</root>

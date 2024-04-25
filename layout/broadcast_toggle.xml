@@ -1,0 +1,18 @@
+<root>
+	<styles>
+        <include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/broadcast_toggle.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/friendtile.js" />
+	</scripts>
+
+
+    <Panel class="btn_broadcast" >
+        <ToggleButton id="HireAdvertisingToggle" class="btn_broadcast__toggle" >
+            <Image clampfractionalpixelpositions="false" class="btn_broadcast__img-pole" texturewidth="-1" textureheight="46" src="file://{images}/icons/ui/broadcast_pole.svg" />
+            <Image clampfractionalpixelpositions="false" class="btn_broadcast__img-ring" texturewidth="-1" textureheight="46" src="file://{images}/icons/ui/broadcast_ring_inner.svg" />
+            <Image clampfractionalpixelpositions="false" class="btn_broadcast__img-ring-outer" texturewidth="-1" textureheight="46" src="file://{images}/icons/ui/broadcast_ring.svg" />
+        </ToggleButton>
+    </Panel>
+</root>

@@ -1,0 +1,889 @@
+
+                        
+                                                     
+
+@define debug: 1px solid black;
+@define debug1: 1px solid red;
+@define debug2: 1px solid green;
+@define debug3: 1px solid blue;
+
+
+@define event-outer-size: 50px;
+@define event-outer-offset: -25px;
+
+@define event-size: 32px;
+@define event-offset: -16px;
+
+@define event-bar-width: 28px;
+@define event-bar-offset: -14px;
+
+@define canvas-width: 750px;
+@define canvas-height: 75px;
+
+@define ris-bg-color: #333333d0;
+
+@define canvas-x: 50px;
+
+.winpanelrow--ris {
+	horizontal-align: center;
+
+  	              
+
+	height: 300px;
+}
+
+
+.winpanelrow--ris.hidden {
+	visibility: collapse;
+}
+
+
+.ris__main {
+	width: canvas-width;
+
+	margin-top: 45px;
+
+	flow-children: down;
+
+	background-color: ris-bg-color;
+
+	border-radius: 0px;
+
+}
+
+.ris__main.hidden {
+	visibility: collapse;
+}
+
+.ris__main--bg {
+	background-color: ris-bg-color;
+
+	border-radius: 0px;
+
+	margin-top: 30px;
+
+
+	height:100%;
+	width: 100%;
+}
+
+.ris__top{
+
+	width: 100%;
+	height: 40px;
+
+  	               
+
+	border-radius: 0px 0px 0px 0px;              
+
+	background-color: rgba( 40,40,40,0.9);
+
+	flow-children: right;
+
+	padding-left: 8px;
+}
+
+.ris__center {
+
+	width: 100%;
+	height: fit-children;
+
+	  	                                     
+
+	horizontal-align:center;
+	vertical-align:top;
+
+  	                       
+
+	z-index: 1;
+
+  	               
+
+}
+
+.ris__center__graph {
+
+	vertical-align:top;
+	horizontal-align:center;
+
+	x : canvas-x;
+
+	                
+
+	overflow: noclip;
+}
+
+.ris__center__graph--bg__margin {
+	height: 100%;
+	width: canvas-x;
+
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000030 ), color-stop( 0.2, #00000000), to( #00000000 ) );
+
+}
+
+.ris__center__graph--bg {
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba( 40,40,40,0.8);
+
+	flow-children: right;
+}
+
+.ris__center__graph--bg__interval {
+	height: 50%;
+	width: 100%;
+
+	horizontal-align: left;
+
+	border-top: 1px solid rgba( 200,200,200,0.1);
+	border-bottom: 1px solid rgba( 200,200,200,0.1);
+}
+
+.ris__center__graph--bg__living {
+	height: 100%;
+
+	horizontal-align: right;
+
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #00000030 ), color-stop( 0.05, #00000000), to( #00000000 ) );
+}
+
+#RisCanvas {
+	width: canvas-width;
+	height: canvas-height;
+
+	clip: rect( 0%, 0%, 100%, 0% );
+
+	overflow: noclip;
+  	              
+}
+
+#RisPlotContainer {
+	width: canvas-width;
+	height: 100%;
+
+	overflow: noclip;
+  	              
+
+
+}
+
+.ris__top__logo {
+	width: 20px;
+	height: 20px;
+
+	vertical-align:center;
+}
+
+.ris__top__title {
+
+		text-align: center;
+		font-size: 16px;
+		font-family: Stratum2, 'Arial Unicode MS';
+		letter-spacing: 1px;
+		vertical-align:center;
+		margin-left: 5px;
+	
+	                          
+	                       
+
+	                   
+	                
+	                                               
+	                    
+  	                               
+
+
+	                  
+
+	                 
+
+
+}
+
+
+.show-canvas{
+
+	animation-name: show-canvas;
+    animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	
+}
+
+
+@keyframes 'show-canvas'
+{
+	0%
+	{
+		clip: rect( 0%, 0%, 100%, 0% );
+	}
+	100%
+	{
+		clip: rect( 0%, 100%, 100%, 0% );
+	}
+}
+
+.ris-starting-odds {
+
+	height: 100px;
+	width: 50px;
+
+	transform: translateX( -25px )  translateY( -50px );
+
+	overflow: noclip;
+}
+
+.ris-starting-odds__dot {
+	padding: 3px;
+
+	width: 24px;
+	height: 24px;
+
+	horizontal-align: center;
+	vertical-align: center;
+
+	                      
+
+}
+
+.ris-starting-odds__dot--bg {
+	width: 100%;
+	height: 100%;
+
+	border-radius: 30px;
+
+	background-color: gray;
+}
+
+.starting-odds__abs {
+
+	y: -17px;
+
+	font-family: Stratum2, 'Arial Unicode MS';
+
+	text-shadow-fast:0px 0px 2 black;
+
+	text-align: center;
+	font-size: 12px;
+
+	horizontal-align: center;
+}
+
+.ris-starting-odds__dot Label {
+
+	text-align: center;
+	font-size: 14px;
+	horizontal-align: center;
+	vertical-align: center;
+
+	font-family: Stratum2, 'Arial Unicode MS';
+
+	text-shadow-fast:0px 0px 2 black;
+
+	color: white;
+
+	wash-color: #00000000;
+}
+
+.ris-event
+{
+	height: 100px;
+	width: event-outer-size;
+
+	vertical-align: top;
+
+	transform: translateX( event-outer-offset ) translateY( -50px);
+
+	overflow:noclip;
+
+}
+
+
+.event__main {
+
+	height: event-size;
+	width: event-size;
+
+	vertical-align:center;
+	horizontal-align:center;
+
+	border: 1px solid black;
+	border-radius: 5px;		
+
+	transition-property: opacity, pre-transform-scale2d, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-out;	
+
+}
+
+.event--bg {
+
+	width: 100%;
+	height: 100%;
+
+	vertical-align:center;
+	horizontal-align:center;	
+	
+	background-color: #777777;
+
+	border-radius: 5px;
+
+}
+
+
+.event__avatar  {
+
+	height: event-size;
+	width: event-size;
+	vertical-align:center;
+	horizontal-align:center;
+
+}
+
+.event__teamcolor {
+	width: 50%;
+	height: 20px;
+	horizontal-align: center;
+}
+
+.event__death{
+
+	height: 12px;
+	width: 12px;
+	vertical-align:center;
+	horizontal-align:center;
+
+	transform: translateY( 8px) translateX( 8px);
+
+	img-shadow: 1px 1px 1px 3 black;
+
+	transition-property: opacity, pre-transform-scale2d, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-out;
+}
+
+.event__team{
+	width: 100%;
+	height: width-percentage( 100% );
+	vertical-align:center;
+	opacity: 0.2;
+  	                              
+
+}
+
+.event__death.prereveal {
+	opacity: 0;
+}
+
+
+.event__main.prereveal {
+
+	opacity:0;
+
+	pre-transform-scale2d: 2;
+}
+
+.event__icon {
+	width: 26px;
+	height: width-percentage( 100% );
+
+	horizontal-align: center;
+	vertical-align: center;
+
+	overflow:noclip;
+
+	img-shadow: 0px 2px 1px 2 black;
+
+	color: white;
+
+	padding: 2px;
+
+	opacity: 0.4;
+
+	transition-property: opacity, pre-transform-scale2d, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-out;
+
+}
+
+.event__icon--objective {
+	opacity: 1;
+
+}
+
+
+.event__chance {
+
+	vertical-align:center;
+	horizontal-align:center;
+
+	flow-children: right;
+
+  	                                 
+
+	position: 0px -27px 0px;
+
+	transform: translateY( 0px );
+
+	transition-property: opacity, pre-transform-scale2d, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-out;
+	padding: 2px;
+}
+
+.event__chance__abs {
+
+	font-size: 12px;
+	text-align: center;
+
+	text-transform: uppercase;
+
+	font-family: Stratum2 bold, 'Arial Unicode MS';
+
+	text-shadow-fast:1px 1px black;
+	color: gray;
+}
+
+.event__chance__delta {
+
+	font-size: 14px;
+	text-align: center;
+
+	font-family: Stratum2, 'Arial Unicode MS';
+
+	text-shadow-fast:1px 1px black;
+}
+
+
+.event__chance.prereveal {
+	opacity: 0;
+	transform: translateY( 20px );
+}
+
+
+.hidden {
+	visibility : collapse;
+}
+
+
+.ris__bottom{
+
+	width: 100%;
+	height: 67px;
+
+}
+
+.ris__bottom--bg {
+
+	width: 100%;
+	height: 100%;
+
+	border-radius: 0px 0px 0px 0px;              
+	background-color: rgba( 40,40,40,0.9);
+
+}
+
+.ris__bottom__damage-container {
+
+	horizontal-align:center;
+	vertical-align:bottom;
+	width: canvas-width;
+	transform: translateX( canvas-x );
+
+	overflow: noclip;
+
+  	              
+}
+
+.ris-damage {
+
+	vertical-align: bottom;
+
+	height: 35px;
+	width: 60px;
+
+	transform: translateX( -30px);
+
+  	             
+
+	overflow:noclip;
+}
+
+
+.ris-damage.prereveal {
+	opacity: 0;
+}
+
+
+.ris-dmg {
+	flow-children: right;
+	horizontal-align: center;
+	vertical-align:center;
+
+  	             
+}
+
+.ris-dmg__value {
+	flow-children: right;
+
+	padding-left: 2px;
+	padding-right: 2px;
+
+
+}
+
+.ris-dmg--given {
+	vertical-align: top;
+
+	visibility:collapse;
+}
+
+.ris-dmg--given .ris-dmg__value {
+	background-color: rgba( 0,255,0,0.05);
+}
+
+.ris-dmg__given__arrow {
+	width: 6px;
+	height: 5px;
+
+	vertical-align:center;
+
+	margin: 2px;
+
+	wash-color:rgb(50,255,50);
+	-s2-mix-blend-mode: SRGBadditive;
+
+	opacity: 0.5;
+
+
+}
+
+.ris-dmg--taken {
+	vertical-align: bottom;
+
+	wash-color:  rgba( 255,0,0,0.6);
+	-s2-mix-blend-mode: SRGBadditive;
+
+	visibility:collapse;
+}
+
+.ris-dmg--taken .ris-dmg__value {
+	background-color: rgba( 255,0,0,0.05);
+	-s2-mix-blend-mode: SRGBadditive;
+}
+
+.ris-dmg__taken__arrow {
+
+	width: 6px;
+	height: 5px;
+
+	vertical-align:center;
+
+	margin: 2px;
+
+	wash-color:rgb(255,50,50);
+	-s2-mix-blend-mode: SRGBadditive;
+
+	transform: rotateZ( 180deg );
+
+	opacity: 0.5;
+}
+
+.ris-dmg__value Label{
+
+	              
+
+	horizontal-align:right;
+	text-align: right;
+	font-size: 12px;
+	white-space: nowrap;
+	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+  	                               
+
+}
+
+.ris-dmg__hits {
+
+	padding-left: 2px;
+
+	horizontal-align:center;
+	text-align: center;
+	font-size: 12px;
+	white-space: nowrap;
+	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+}
+
+
+
+.ris-graph__bar {
+
+	width: event-bar-width;
+	vertical-align:bottom;
+  	                                                                                                                      
+	background-color: gradient( linear, 0% 100%, 0% 0%, from( #ffffff00 ), color-stop( 0.6,#ffffff05 ), to( #ffffff20 ) );
+
+		               
+	transform: translateX( event-bar-offset ) translateY( 69px);
+
+	transform-origin: 0% 0%;
+
+	transition-property: opacity, transform;
+	transition-duration: 0s;
+	transition-timing-function: ease-out;
+
+	z-index: -1;
+}
+
+.ris-graph__bar.color-ct {
+	background-color: gradient( linear, 0% 100%, 0% 0%, from( #B5D4EE00 ), color-stop( 0.6,#B5D4EE10 ), to( #B5D4EE40 ) );
+
+}
+
+
+.ris-graph__bar.color-t {
+	background-color: gradient( linear, 0% 100%, 0% 0%, from( #EAD18A00 ), color-stop( 0.6,#EAD18A10 ), to( #EAD18A40 ) );
+
+}
+
+.ris-graph__bar.prereveal {
+	opacity: 0;
+	transform: translateX( -16px) scaleY( 0 );
+
+	transition-property: opacity, transform;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-out;
+}
+
+
+
+.color-ct{
+	wash-color: color-CT;
+	color: color-CT;
+}
+
+.color-t{
+	wash-color: color-T;
+	color: color-T;
+}
+
+
+.ris__winner-plaque {
+
+	width: canvas-width;
+	height: 40px;
+
+	vertical-align:top;
+	horizontal-align:center;
+
+	overflow: clip;
+
+	transition-property: opacity, pre-transform-scale2d, transform;
+	transition-duration: 0.0s;
+	transition-timing-function: ease-out;	
+
+}
+
+.ris__winner-plaque.prereveal {
+
+	opacity: 0;
+
+	pre-transform-scale2d: 2;
+	transition-duration: 0.2s;
+}
+
+.ris__winner-plaque--bg {
+
+	width:100%;
+	height:100%;
+
+  	                                       
+background-color: gradient( linear, 0% 0%, 100% 0%, from(#00000000), 
+color-stop( 0.2, #333333f0), 
+color-stop( 0.8, #333333f0), 
+to( #00000000) );
+}
+
+.winner-plaque__wins {
+	vertical-align:center;
+	horizontal-align: center;
+	color: white;
+
+	text-align: center;
+	font-size: 22px;
+	font-family: Stratum2 Bold, 'Arial Unicode MS';	
+
+	text-transform: uppercase;
+}
+
+.winner-plaque__logo {
+	vertical-align:center;
+	horizontal-align: center;
+	width: 50px;
+	height: 50px;
+
+	width: 100px;
+	height: 100px;
+
+	margin-right:5px;
+
+	opacity: 0.1;
+
+  	         
+	y: 14px;
+
+  	                            
+
+  	                            
+
+
+}
+
+.ris__mvp-root.prereveal {
+	opacity: 0;
+
+	pre-transform-scale2d: 2;
+}
+
+.ris__mvp-root {
+	vertical-align: bottom;
+	horizontal-align: center;
+
+	min-width: 100px;
+	width: canvas-width;
+
+	height: 50px;
+
+	border-radius: 5px;
+
+	y: -18px;
+
+	transition-property: opacity, pre-transform-scale2d, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-out;	
+}
+
+.ris__mvp__avatar {
+	overflow: noclip;
+	horizontal-align: left;
+
+	vertical-align: center;
+}
+
+.ris__mvp__avatar__bg {
+	width: 100%;
+	height: 50px;
+  	                            	
+	background-color: gradient( linear, 0% 0%, 100% 0%, from(#00000000), 
+	color-stop( 0.15, #333333f0), 
+	color-stop( 0.85, #333333f0), 
+	to( #00000000) );
+
+	vertical-align:center;
+	border-radius: 5px;
+}
+
+.ris__mvp__avatar__picture{
+	width:event-size;
+	height:event-size;
+
+	border-radius: 3px;
+
+	overflow: noclip;
+ 
+	horizontal-align:center;
+	vertical-align:center;
+}
+
+.ris__mvp__avatar__bg__star {
+	height: width-percentage( 100%);
+
+	width: 100px;
+
+	vertical-align:center;
+	horizontal-align:left;
+
+	color: white;
+	opacity: 0.03;
+
+	y: 0px;
+	x:500px;
+
+	transform-origin: 50% 55%;
+
+	transform: rotateZ( 66deg );
+
+
+}
+
+.ris__mvp__star {
+	width: 20px;
+	height: 20px;
+
+	vertical-align:center;
+	y:-2px;
+	x: 50px;
+
+	wash-color: white;
+
+}
+
+@keyframes 'rotate-star'
+{
+	0%	{transform: rotateZ( 0deg );}
+	
+	50%	{transform: rotateZ( 180deg );}
+
+	100% {transform: rotateZ( 360deg );}
+}
+
+
+.ris__mvp__avatar__flair {
+
+	vertical-align: center;
+	horizontal-align: left;
+
+	width: 28px;
+	height: 28px;
+
+	y: -16px;
+	x: -16px;
+}
+
+.ris__mvp__text-container {
+
+	margin-left: 80px;
+	vertical-align:center;	
+  	             
+  	                 
+}
+
+.ris__mvp__text-container Label {
+
+	text-align: center;
+	font-size: 18px;
+	font-family: Stratum2 Bold, 'Arial Unicode MS';
+	letter-spacing: 1px;
+	vertical-align:center;
+}
+
+#RISMVPPanel .MVP__MusicKit Label {
+	font-size: 12px;
+	margin-left: 0px;
+	text-shadow: none;
+}
+
+#RISMVPPanel .MVP__MusicKitIcon {
+	margin-left: -7px;
+	height: 100%;
+	width: height-percentage( 100%);
+}
+
+#RISMVPPanel .MVP__MusicKit--Hidden {
+	visibility: collapse;
+}
+
+.perma-hide {
+	visibility:collapse;
+}

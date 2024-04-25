@@ -1,0 +1,34 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/gamestyles.css" />
+    <include src="file://{resources}/styles/popups/popups_shared.css" />
+    <include src="file://{resources}/styles/popups/popup_generic.css" />
+  </styles>
+
+  <Panel class="PopupPanel Hidden" defaultfocus="Button0" popupbackground="dim">
+    <Label id="TitleLabel" class="PopupTitle" allowrawtext="true"/>	                             
+
+		<Panel class="MessagePanel" >
+      <Panel class="ImageContainer" >
+                                                                                              
+                                                                                  
+      </Panel>
+
+			<Label id="MessageLabel" allowrawtext="true" />	                             
+		</Panel>
+    <Panel class="Confirmation" >
+      <Label text="#GenericConfirmText_Label" />
+      <TextEntry id="ConfirmationText" oninputsubmit="GenericConfirmFinished()" />
+    </Panel>
+    <Panel id="Spinner" class="Spinner" />
+    <ProgressBar id="ProgressBar" />
+
+    <Panel id="ButtonContainer" class="PopupButtonRow">
+                                           
+                                                           
+                 
+               
+         
+    </Panel>
+  </Panel>
+</root>

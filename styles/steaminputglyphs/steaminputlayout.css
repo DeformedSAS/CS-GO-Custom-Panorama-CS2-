@@ -1,0 +1,184 @@
+
+                   
+                                         
+
+
+
+
+CCSGOSteamInputLayout,
+#ControllerLayoutPanel
+{
+	horizontal-align : center;
+	vertical-align : center;
+	width: 100%;
+	height: 100%;
+
+	
+}
+
+#ControllerLayoutPanel
+{
+
+	margin: 64px;
+	flow-children: right;
+	opacity: 0.0;                                
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-out;
+	
+}
+
+.ActionSetActive #ControllerLayoutPanel
+{
+	opacity: 1.0;
+}
+
+  
+                     
+                                                           
+ 
+	             
+ 
+  
+
+CCSGOSteamInputGlyph
+{
+	opacity: 1.0;
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-out;
+}
+
+                                                                      
+.ActionSetActive.ActionSetOverridden CCSGOSteamInputGlyph
+{
+	opacity: 0.0;
+}
+
+                                                                                                                              
+CCSGOSteamInputGlyph.GlyphOverridden
+{
+	opacity: 0.0;
+}
+
+#LeftHalf
+{
+
+	width: 50%;
+	height: 100%;
+	vertical-align :bottom;
+	horizontal-align: left;
+}
+
+#RightHalf
+{
+	width: 50%;
+	height: 100%;
+	vertical-align :bottom;
+	horizontal-align: left;
+}
+
+#DirectionalPad
+{
+	
+	width: 25%;
+	height: 256px;
+
+	vertical-align : bottom;
+	horizontal-align: left;
+}
+
+
+#FaceButtons
+{
+	margin-right: 25%;
+	width: 25%;
+	height: 256px;
+
+	vertical-align : bottom;
+	horizontal-align: right;
+}
+
+
+#FacePad_Up,
+#DPad_Up
+{
+	vertical-align :top;
+	horizontal-align: center;
+}
+
+
+#FacePad_Down,
+#DPad_Down
+{
+	vertical-align : bottom;
+	horizontal-align: center;
+}
+
+
+#FacePad_Left,
+#DPad_Left
+{
+	vertical-align : center;
+	horizontal-align: left;
+}
+
+
+#FacePad_Right,
+#DPad_Right
+{
+	vertical-align : center;
+	horizontal-align: right;
+}
+
+
+                                                 
+CCSGOSteamInputLayout CCSGOSteamInputGlyph
+{
+	width: 33%;
+	height: 33%;
+}
+
+CCSGOSteamInputLayout .steam-button-name
+{
+	              
+  	                        
+  	overflow: noclip;
+
+
+}
+
+CCSGOSteamInputLayout .ActionSetCurrentLayerActive CCSGOSteamInputGlyph .steam-button-name
+{
+	              
+  	                        
+  	overflow: noclip;
+
+	
+}
+
+
+
+
+  
+                                   
+ 
+	                     
+ 
+
+                                  
+ 
+	                    
+ 
+
+                                     
+ 
+	                 
+ 
+
+                                    
+ 
+	                  
+ 
+
+  

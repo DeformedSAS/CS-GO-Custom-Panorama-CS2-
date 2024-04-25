@@ -1,0 +1,91 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/scoreboard.css" />
+		<include src="file://{resources}/styles/endofmatch-characters.css" />
+		<include src="file://{resources}/styles/endofmatch.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-characters.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/characterlineup.js" />
+		<include src="file://{resources}/scripts/scoreboard.js" />
+		<include src="file://{resources}/scripts/mock_adapter.js" />
+	</scripts>
+
+	<snippets>
+
+		<snippet name="snippet-eom-chars__accolade" >
+			<Panel class="eom-chars__accolade">
+				<Panel class="top-bottom-flow horizontal-center">
+					<Label class="eom-chars__accolade--label eom-chars__accolade--the" text="{s:eom-accolade-the}"/>
+					<Label class="eom-chars__accolade--label eom-chars__accolade--title" text="{s:eom-accolade-title}"/>
+					<Label class="eom-chars__accolade--label eom-chars__accolade--desc" text="{s:eom-accolade-desc}"/>
+				</Panel>		
+			</Panel>
+		</snippet>
+
+
+		<snippet name="snippet-eom-chars__layout--scrimcomp2v2" >
+			<Panel class="eom-chars__layout eom-chars__layout--scrimcomp2v2">
+				<Panel class="eom-chars__layout--scrimcomp2v2__team1__glow" />
+				<Panel class="eom-chars__layout--scrimcomp2v2__team2__glow" />
+				<Image id="id-eom-chars__layout__logo--ct" texturewidth='1024' textureheight='-1' class="eom-chars__layout__team-logo" />
+				<Image id="id-eom-chars__layout__logo--t" texturewidth='1024' textureheight='-1' class="eom-chars__layout__team-logo" />
+				<Frame id="id-eom-characters__player-container" class="character-lineup" src="file://{resources}/layout/characterlineup.xml" />
+			</Panel>
+		</snippet>
+
+		<snippet name="snippet-eom-chars__layout--classic" >
+			<Panel class="eom-chars__layout eom-chars__layout--classic">
+				<Panel class="eom-chars__layout--classic__team__glow" />
+				<Image id="id-eom-chars__layout__logo--myteam" texturewidth='1024' textureheight='-1' class="eom-chars__layout__team-logo" />
+				<Frame id="id-eom-characters__player-container" class="character-lineup" src="file://{resources}/layout/characterlineup.xml" />
+			</Panel>
+		</snippet>	
+
+		<snippet name="snippet-eom-chars__layout--cooperative" >
+			<Panel class="eom-chars__layout eom-chars__layout--cooperative">
+				<Panel class="eom-chars__layout--classic__team__glow" />
+				<Image id="id-eom-chars__layout__logo--myteam" texturewidth='1024' textureheight='-1' class="eom-chars__layout__team-logo" />
+				<Frame id="id-eom-characters__player-container" class="character-lineup" src="file://{resources}/layout/characterlineup.xml" />
+			</Panel>
+		</snippet>		
+
+		<snippet name="snippet-eom-chars__layout--ffa" >
+			<Panel class="eom-chars__layout eom-chars__layout--ffa">
+				<Panel class="character-lineup layout-position-container">
+					<Panel class="eom-chars__layout__position eom-chars__layout__position--2nd">
+						
+						<Label class="eom-chars__layout__position--2nd glowsilver" text="#EOM_Position_2"/>
+						<Image class="eom-chars__laurel__layout__position--2nd glowsilver" texturewidth='220' textureheight='-1' src="file://{images}/icons/ui/laurel_silver.svg" />
+						<Panel class="eom-chars__layout--ffa__glowsilver" />
+
+					</Panel>
+					<Panel class="eom-chars__layout__position eom-chars__layout__position--1st SlowSpin">
+						
+						<Label class="eom-chars__layout__position--1st" text="#EOM_Position_1"/>					
+						<Image class="eom-chars__laurel__layout__position--1st" texturewidth='280' textureheight='-1' src="file://{images}/icons/ui/laurel_gold.svg" />
+						<Image class="glowgoldbg"  src="file://{images}/ui_textures/glow.png" />
+						                                 
+						
+					</Panel>
+					<Panel class="eom-chars__layout__position eom-chars__layout__position--3rd">
+						
+						<Label class="eom-chars__layout__position--3rd glowbronze" text="#EOM_Position_3" />						
+						<Image class="eom-chars__laurel__layout__position--3rd glowbronze" texturewidth='220' textureheight='-1' src="file://{images}/icons/ui/laurel_bronze.svg" />
+						<Panel class="eom-chars__layout--ffa__glowbronze" />
+
+					</Panel>
+				</Panel>
+				<Frame id="id-eom-characters__player-container" class="character-lineup" src="file://{resources}/layout/characterlineup.xml" />
+			</Panel>
+		</snippet>		
+
+	</snippets>
+
+	<CSGOEndOfMatchCharactersPanel class="vertical-align-top" useglobalcontext="true"/>
+
+	
+</root>

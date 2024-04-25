@@ -1,0 +1,65 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/base.css" />
+    <include src="file://{resources}/styles/hud/huddmbonus.css" />
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/mainmenu.css" />
+  </styles>
+
+                        
+                                                    
+                                                    
+                                                   
+    
+                                   
+                                                   
+                                                                                       
+     
+                           
+                         
+                              
+                                  
+                                                          
+     
+  
+   <CSGOHudDMBonusPanel hittest="false" class="bonuspanel">
+    <Panel class="bonuspanel-bg" />
+
+    <Panel class="bonuspanel-bkg-TOP"/>
+    <Panel class="bonuspanel-bkg-BOT"/>
+    <Panel class="bonuspanel-content">                                 
+
+      
+      <Panel class="bonuspanel-timer">                              
+        <Panel class="pie">
+          <Panel class="circle-background" />
+          <Panel class="circle" id="TimerBar" />
+          <Label class="bonuspanel-timer-text" text="#Panorama_DMBonusPanel_Timer"/>
+        </Panel>
+      </Panel>
+
+      <Panel class="bonuspanel-info">                    
+        <Panel class="bonuspanel-title">                                
+		  <CCSGOSteamInputAction actionset="GameControls" action="drop" separatortext="/" controllernumber = "1"/>
+          <Label class="bonuspanel-title-text" text="#Panorama_DMBonusPanel_Title" />
+          <Label class="bonuspanel-title-weapon" text="#Panorama_DMBonusPanel_Weapon" /> 
+        </Panel>
+        <Panel class="bonuspanel-subinfo">                     
+          <Panel class="bonuspanel-icon-container">
+            <Image class="bonuspanel-icon" id="Icon" src="file://{images}/icons/equipment/ak47.svg" textureheight="64px" texturewidth="-1" scaling="none" />
+          </Panel>
+          <Panel class="bonuspanel-points-container">
+            <Label class="bonuspanel-points" id="Points" text="#Panorama_DMBonusPanel_KillAward_Points" />
+                                                                                                               
+          </Panel> 
+        </Panel> 
+      </Panel>
+    </Panel>
+
+                                                                                                                       
+                                                                                                                                          
+    <Panel class="bonuspanel-bonuspoints" id="PointsAnim">
+      <Label class="bonuspanel-bonuspoints-points" text="#Panorama_DMBonusPanel_KillAward_Killpoints" />
+    </Panel>
+  </CSGOHudDMBonusPanel>
+</root>

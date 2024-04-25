@@ -1,0 +1,48 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popup_directchallenge_join.css" />
+		<include src="file://{resources}/styles/popups/popup_add_friend.css" />
+
+
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_directchallenge_join.js" />
+		<include src="file://{resources}/scripts/friendtile.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Hidden root" popupbackground="dim" onload="DirectChallengeJoin.Init()" oncancel="DirectChallengeJoin.Cancel()">>
+
+		<Label text="{s:text}" class="PopupTitle"/>
+
+		<Panel class="popup-addfriend-entry">
+			<TextEntry id="TextEntry"
+						class=""
+						text=""
+						placeholder="XXXXX-XXXX-XXXXX-XXXX"
+						ontextentrysubmit="DirectChallengeJoin.Validate()"/>
+
+			<Image id="id-direct-challenge-icon" class="validiation-icon" texturewidth="24" textureheight="24" src="file://{images}/icons/ui/check.svg"/>
+		</Panel>
+
+		<Label id="id-error_text" class="PopupMessage" text="" />
+		<Panel id="validation-result" class="full-width top-bottom-flow validation-results-container" />
+
+		<Panel class="PopupButtonRow">
+			<TextButton 
+			id="submit"
+			class="PopupButton" 
+			onactivate="DirectChallengeJoin.Submit()"
+			text="#DirectChallenge_join_queue" />
+
+			<TextButton 
+			class="PopupButton" 
+			onactivate="DirectChallengeJoin.Cancel()" 
+			text="#UI_Cancel" />
+		</Panel>
+
+	</PopupCustomLayout>
+</root>

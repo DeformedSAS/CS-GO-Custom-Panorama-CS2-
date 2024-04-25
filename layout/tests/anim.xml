@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+        <include src="file://{resources}/styles/tests/anim.css" />
+	</styles>
+	
+    <scripts>
+        <include src="file://{resources}/scripts/tests/anim.js" />>
+    </scripts>
+
+	<Panel class="full-width full-height">
+        <RadioButton id="csstest" class="debug-border animateanimate" allowrawtext="true" text="PanelTest2" onactivate="TestKeyframes()">
+            <Panel id="testchild" class=""/>
+        </RadioButton>
+        <Panel id="testpeer" class="ProgressBar" allowrawtext="true" text="Hooyah"/>
+	</Panel>
+</root>

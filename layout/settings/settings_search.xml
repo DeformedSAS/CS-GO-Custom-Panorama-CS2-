@@ -1,0 +1,36 @@
+<root>
+
+<styles>
+	<include src="file://{resources}/styles/csgostyles.css" />
+	<include src="file://{resources}/styles/settings/settings.css" />
+	<include src="file://{resources}/styles/mainmenu.css"/>
+</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/settingsmenu_shared.js" />
+		<include src="file://{resources}/scripts/common/promoted_settings.js" />
+		<include src="file://{resources}/scripts/settingsmenu_search.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="SearchResult">
+			<Button class="setting-search-result">
+				<Label id="ResultString"/>
+				<Panel class="IconButton horizontal-align-right vertical-center">
+					<Image src="file://{images}/icons/ui/link.svg"/>
+				</Panel>
+				<Panel class="horizontal-separator"/>
+			</Button>
+		</snippet>
+	</snippets>
+
+    <Panel class="SettingsMenuTab">
+		<Panel class="content-navbar content-navbar--short" >
+			<Panel class="horizontal-align-center full-width vertical-align-bottom" acceptsfocus="true">
+				<TextEntry id="SettingsSearchTextEntry" class="setting-search-textentry" placeholder="#inv_search_default"/>
+			</Panel>
+		</Panel>
+		<Panel id="SearchResultsContainer" class="top-bottom-flow horizontal-center vscroll"/>
+    </Panel>
+</root>
+

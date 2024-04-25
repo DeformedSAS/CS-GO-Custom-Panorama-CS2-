@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/movie.css" />
+	</styles>
+	
+	<MovieDebug oncanel="DeletePanel( this )">
+		<Panel class="debug-background">
+			<Panel class="DebugColumn">
+				<Label allowrawtext="true" text="Dimensions:" />
+				<Label allowrawtext="true" text="Resolution:" />
+				<Label allowrawtext="true" text="Video" />
+				<Label allowrawtext="true" text="- Download:" />
+				<Label allowrawtext="true" text="- Bandwidth:" />
+			</Panel>
+			<Panel class="DebugColumn DebugSecondColumn">
+				<Label id="Dimensions" />
+				<Label id="Resolution" />
+				<Label text=" " />
+				<Label id="VideoSegment" />
+				<Label id="VideoBandwidth" />
+			</Panel>
+		</Panel>
+	</MovieDebug>
+</root>

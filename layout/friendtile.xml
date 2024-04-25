@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/friendtile.css" />
+	</styles>
+	<scripts>
+		                                                                        
+	</scripts>
+	
+	<Panel class="friendtile hidden" acceptsfocus="true" mousetracking="true">
+		<Button id="JsFriendTileBtn" class="friendtile-contents">
+			<Panel class="friendtile-avatar-invite-container">
+				<Panel class="friendtile-avatar">
+					<Panel id="JsFriendStatusBar" class="friendtile-avatar__status"/>
+					<CSGOAvatarImage id="JsFriendAvatar" class="friendtile-avatar__Image"/>
+				</Panel>
+				<Panel class="top-bottom-flow vertical-center">
+					<Image id="JsFriendInvited" class="friendtile-status-icon hidden" src="file://{images}/icons/ui/invite.svg" scaling="stretch-to-fit-preserve-aspect" />
+					<Image id="JsFriendWatch" class="friendtile-status-icon hidden" src="file://{images}/icons/ui/watch_tv.svg" scaling="stretch-to-fit-preserve-aspect" />
+					<Image id="JsFriendJoin" class="friendtile-status-icon hidden" src="file://{images}/icons/ui/JoinPlayer.svg" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+			</Panel>
+			<Panel class="friendtile__status" >
+				<Label id="JsFriendName" class="friendtile__text__title" text=""/>
+				<Label id="JsFriendStatus" class="friendtile__text__status" text=""/>
+			</Panel>
+		</Button>
+	</Panel>
+</root>

@@ -1,0 +1,69 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css"/>
+		<include src="file://{resources}/styles/mainmenu.css"/>
+        <include src="file://{resources}/styles/mainmenu_inventory.css"/>
+		<include src="file://{resources}/styles/crafting.css" />
+	</styles>
+
+	<scripts>
+        <include src="file://{resources}/scripts/common/iteminfo.js" />
+        <include src="file://{resources}/scripts/mainmenu_inventory_search.js" />
+	</scripts>
+
+    <snippets>
+        <snippet name="SuggestedEntry">
+			<Button class="inv-search__suggestions_entry">
+            <Panel id="SuggestedRarity" class="inv-search__suggestions_rarity"/>
+                <Panel class="top-bottom-flow">
+                <ItemImage id="SuggestedImage" 
+                        class="inv-search__suggestions_entry__image" 
+                        scaling="stretch-to-fit-preserve-aspect"/>
+				<Label html="true" text="{s:suggestion_text}" class="stratum-font fontWeight-Medium left-right-padding bottom-padding"/>
+                 </Panel>
+			</Button>
+		</snippet>
+
+    </snippets>
+
+    <Panel class="mainmenu-content--popuptab mainmenu-content__container mainmenu-content--hidden" useglobalcontext="true">
+        <Panel class="content-navbar inv-popup">
+            <Panel class="content-navbar__extra-buttons">
+                <Button class="IconButton" >
+                    <Image src = "file://{images}/icons/ui/back.svg"
+                            onactivate="InventoryPanel.CloseSearchPanel();"/>
+                </Button>
+            </Panel>
+
+            <Panel class="inv-popup-title">
+                <Label class="mainmenu-content--popuptab__title" text="#inv_nav_search"/>
+            </Panel>
+         </Panel>
+
+        <Panel  id="InvSearchTextEntryContainer" class="inv-search-navbar">
+            <TextEntry id="InvSearchTextEntry"
+                    class="inv-search-textentry"
+                    placeholder="#inv_search_default"
+                    onfocus="" />
+
+            <Panel  class="horizontal-align-right left-right-padding">
+                <DropDown class="PopupButton White" id="InvSortDropdown" menuclass="DropDownMenu Width-250" oninputsubmit="">
+
+                </DropDown>
+            </Panel>
+        </Panel>
+
+        <Panel class="full-width full-height">
+            <InventoryItemList id="InvSearchPanel-List" />
+
+            <Panel id="InvSearchSuggestions" class="inv-search__suggestions">
+                <Label html="true" text="#inv_search_popular" class="bottom-padding-medium fontWeight-Medium stratum-font fontSize-xl"/>
+                <Panel id="InvSearchSuggestionsList" class="left-right-flow-wrap"/>
+            </Panel>
+        </Panel>
+
+     </Panel>
+</root>
+
+

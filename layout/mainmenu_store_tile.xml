@@ -1,0 +1,27 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/operation/operation_shared.css" />
+		<include src="file://{resources}/styles/mainmenu_store.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/mainmenu_store_tile.js" />
+	</scripts>
+	
+	<Panel class="store-panel__carousel__item" onload="MainMenuStoreTile.Init();" >
+		<ItemImage id="StoreItemImage" class="store-panel__carousel__item__image" scaling="stretch-to-fit-preserve-aspect"  >
+			<Label id="StoreItemStattrak" class="store-panel__carousel__item__stattrak hidden" text="#CSGO_KillEater_Hud"/>
+			<Label id="StoreItemNew" class="store-panel__carousel__item__stattrak hidden" text="#Store_Price_New"/>
+		</ItemImage>
+		<Label id="StoreItemName" class="store-panel__carousel__item__name stratum-font" text=""/>
+		<Panel class='store-panel__carousel__item_price-container'>
+			<Label id="StoreItemPercent" class="store-sale-tag__text" text=""/>
+			<Panel  class='top-bottom-flow'>
+				<Label id="StoreItemPrice" class="store-panel__carousel__item__name price" text="$X.XX"/>
+				<Label id="StoreItemSalePrice" class="store-panel__carousel__item__name saleprice" html="true" text=""/>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,80 @@
+                                                                               
+                                                                               
+                                                                               
+.match-status-reconnect
+{
+	width: fit-children;
+	visibility: visible;
+	flow-children: right;
+	margin-right: 96px;
+	horizontal-align: right;
+	height: 96px;
+	z-index: 5;
+
+	transition-property: opacity, transform;
+	transition-duration: 0.50s;
+	transition-timing-function: ease-in-out;
+}
+
+.match-status-reconnect.hidden
+{
+	opacity: 0;
+	transform: translateY( -100% );
+
+	transition-property: opacity, transform;
+	transition-duration: 0.50s;
+	transition-timing-function: ease-in-out;
+}
+
+.MainMenuRootPanel--PauseMenuMode .match-status-reconnect
+{	                                                                                                                                                                              
+	opacity: 0;
+	visibility: collapse;
+}
+
+                                                                               
+                                                                               
+                                                                               
+.match-status-ongoingmatch-container
+{
+	transform: translatey( 0px );
+	vertical-align: center;
+	height: 100%;
+	width: fit-children;
+	brightness: 1;
+	padding: 8px 8px 8px 8px;
+	margin-right: 20px;
+	flow-children: down;
+	                                            
+}
+
+.match-status-ongoingmatch-message
+{
+	vertical-align: top;
+}
+
+.match-status-ongoingmatch--subtitle
+{
+	text-overflow: noclip;
+	font-size: 18px;
+    font-family: stratum2Font;
+	color: white;
+	max-width: 420px;
+	height: 22px;
+	font-weight: medium;
+	text-overflow: ellipsis;
+}
+
+.match-status-ongoingmatch-icon
+{
+	vertical-align: top;
+	margin-right: 16px;
+	wash-color: warningColor;
+    width: height-percentage( 100% );
+    img-shadow: 2px 2px 3px #000000;
+}
+
+.match-status-reconnect .match-status-ongoingmatch-reconnect
+{
+    box-shadow: shadowOffset;
+}

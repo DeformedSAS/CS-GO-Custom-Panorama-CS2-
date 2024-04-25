@@ -1,0 +1,382 @@
+#loadingscreen__blur-target.teamselect-bg {
+	width:100%;
+	height:100%;
+
+	background-color: gradient( radial, 50% 100%, 0% 0%, 70% 30%, from( #ffffff10 ), to( #00000000 ) );
+  	                                                                                                 	
+  	                                 
+	z-index: -11;
+
+	transition-property: opacity, brightness;
+	transition-duration: 0.1s;
+}
+
+
+
+
+
+
+.mainmenu-content  
+{
+  	                      
+	height: 100%;
+	width: 100%;
+	background-color: gradient( linear, 0% 80%, 0% 0%, from( #000000 ), to( #00000033 )); 
+} 
+
+.team-select
+{
+	width: 100%;
+	height: 100%;
+
+	visibility: collapse;
+}
+
+.team-select-list-container
+{
+	width: fit-children;
+	height: fit-children;
+	flow-children: right;
+	vertical-align: middle;
+	horizontal-align: center;
+
+	transition-property: position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-list
+{
+	width: 512px;
+	height: fit-children;
+	horizontal-align: center;
+	flow-children: down;
+}
+
+.teamselect-blur
+{
+	height: 100%;
+	width: 100%;
+	brightness: 0.7;
+	blur: fastgaussian( 1, 2, 2 );
+}
+
+.team-select-icon-title
+{
+	flow-children: down;
+	width: fit-children;
+	horizontal-align: center;
+	vertical-align: middle;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-list__title
+{
+	vertical-align: top;
+	font-weight: bold;
+	horizontal-align: center;
+	text-transform: uppercase;
+
+	transition-property: color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-list__title--ct
+{
+	color:color-CT;
+	font-family: Stratum2;
+	font-size: 32px;
+}
+
+.team-select-list__title--t
+{
+	color: color-T;
+	font-family: Stratum2;
+	font-size: 32px;
+}
+
+.team-select-list__subtitle
+{
+	vertical-align: top;
+	font-weight: lighter;
+	text-transform: none;
+	font-weight: normal;
+	horizontal-align: center;
+	text-align: center;
+
+	transition-property: color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-icon-title.team-select-icon-title-highlight .team-select-list__title,
+.team-select-icon-title.team-select-icon-title-highlight .team-select-list__subtitle
+{
+	color: white;	
+	transition-property: color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+
+.team-select-icon-title-t
+{
+	position: -440px 0px 0px;
+}
+
+.team-select-icon-title-ct
+{
+	position: 440px 0px 0px;
+}
+
+
+.team-select-icon-title__labels
+{
+	flow-children: down;
+	                      
+	width: 100%;
+	margin: 0px 16px 64px 16px;
+	vertical-align: middle;
+	horizontal-align: center;
+}
+
+.team-select-icon
+{
+	horizontal-align: center;
+	vertical-align: middle;
+	position: -440px 0px 0px;
+	brightness: .3;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+
+	sound-trans: "UIPanorama.team_select_rolloff";
+}
+
+.team-select-icon:hover
+{
+	sound-trans: "UIPanorama.team_select_rollover";
+}
+
+.team-select-icon-title.team-select-icon-title-highlight .team-select-icon
+{
+	brightness: 1;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-list__teammates
+{
+	flow-children: down;
+	width: 512px;
+	height: fit-children;
+	overflow: clip;
+}
+
+.team-select-teammate
+{
+	visibility: visible;
+	transform: scaleY( 1 );
+	transform-origin: 50% 0%;
+	
+	transition-property: opacity, transform, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-teammate.hidden
+{
+	opacity:0;
+	transform: scaleY( 0 );
+	
+	transition-property: opacity, transform, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-teammate__name
+{
+	vertical-align: bottom;
+	margin-left: 8px;
+	margin-bottom: 14px;
+	height: 24px;
+	text-overflow: ellipsis;
+}
+
+.team-select-list--t .team-select-teammate
+{
+	flow-children: right;
+	horizontal-align: right;
+	margin-right: 16px;
+}
+
+.team-select-list--ct .team-select-teammate
+{
+	flow-children: left;
+	margin-left: 0px;
+}
+
+.team-select-vertical-separator
+{
+	height:100%;
+	width: 1px;
+	margin: 0px 16px;
+	background-color: gradient( linear, 0% 0%, 0% 80%, from( rgba(255, 255, 255, 0.158) ), to( rgba(255, 255, 255, 0 )));
+}
+
+.team-select__timer
+{
+	horizontal-align: right;
+	vertical-align: top;
+	margin-right: 64px;
+	margin-top: 32px;
+	height: fit-children;
+	flow-children: right;
+}
+
+.team-select__timer Image
+{
+	margin-right: 8px;
+	vertical-align: middle;
+	wash-color: White;
+}
+
+.team-select__timer Label
+{
+	font-size: 38px;
+	font-weight: bold;
+	horizontal-align: left;
+	vertical-align: center;
+	color: White;
+}
+
+.team-select-error
+{
+	flow-children: right;
+	padding:16px;
+	border-radius: 2px;
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-bottom: 64px;
+	wash-color: warningColor;
+	background-color: rgba(0, 0, 0, 0.50);
+	opacity: 1;
+
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-error.hidden
+{
+	opacity: 0;
+	
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-error__label
+{
+	margin-left: 8px;
+	color:white;
+}
+
+Countdown.CountdownAfterEnd
+{
+	visibility: collapse;
+}
+
+.join-spec-button
+{
+	vertical-align: bottom;
+	horizontal-align: center;
+	border-radius: 4px;
+	margin-bottom: 32px;
+	font-weight: bold;
+}
+
+.team-select-actionbar
+{
+	height: 96px;
+	width: 100%;
+	vertical-align: bottom;
+	horizontal-align: center;
+	flow-children: down;
+}
+
+.team-select-actionbar > .mainmenu-navbar
+{
+	flow-children: left;
+}
+
+.loading-screen-model
+{
+	width: 700px;
+	height: 100%;
+	horizontal-align: center;
+	vertical-align: middle;
+	opacity: 1;
+	ui-scale: 95%;
+  	                     
+	img-shadow: -2px -2px 8px #000000;
+
+	brightness: 0.5;
+
+	transition-property: position, brightness, ui-scale, opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.loading-screen-model--right
+{
+	position: 440px -80px 0px;
+}
+
+.loading-screen-model--left
+{
+	position: -420px -80px 0px;
+}
+
+.loading-screen-model--right.highlight,
+.loading-screen-model--left.highlight
+{
+	ui-scale: 98%;
+
+	brightness: 2.0;
+
+	transition-property: ui-scale;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.highlit-player {
+
+	animation-name: ping;
+	animation-duration: .3s;
+	                             
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+
+	brightness: 1.0;
+}
+
+@keyframes ping
+{
+	0%
+	{
+		brightness: .5;
+	}
+
+	100%
+	{
+		brightness: 1;
+	}
+}

@@ -1,0 +1,97 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/endofmatch-skillgroup.css" />
+		<include src="file://{resources}/styles/endofmatch-podium.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/sessionutil.js" />
+		<include src="file://{resources}/scripts/endofmatch-skillgroup.js" />
+	</scripts>
+
+
+	<snippets>
+
+		                           
+		<snippet name="eom-skillgroup-display">
+			<Panel class="full-width vertical-center">
+				<Panel class="left-right-flow horizontal-center">
+					<Image id="id-eom-skillgroup-image" 
+							class="eom-skillgroup__image right-margin-medium hidden" 
+							textureheight="-1" 
+							texturewidth="180" 
+							src="file://{images}/icons/skillgroups/skillgroup_expired.svg" />
+
+					<ItemPreviewPanel id="id-eom-skillgroup-model"
+										class="eom-skillgroup__model eom-skillgroup__model-reveal right-margin-medium hidden"
+										manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+										item="models/inventory_items/skillgroups/skillgroup12.mdl"
+										hittest="false"
+										mouse_rotate="false"/>
+
+					<Panel class="top-bottom-flow vertical-center">
+						<Panel id="id-eom-skillgroup__wins" class="left-right-flow bottom-margin" >
+							<Image class="eom-skillgroup__trophy-icon right-margin vertical-center" textureheight="20" texturewidth="-1" src="file://{images}/icons/ui/trophy.svg" />
+							<Label id="id-eom-skillgroup__wins-label" class="eom-skillgroup__info-label small right-margin" text=""/>
+							<Label id="id-eom-skillgroup__wins-desc" class="eom-skillgroup__info-label eom-skillgroup__info-label-noglow small" text=""/>
+						</Panel>
+						<Panel class="left-right-flow" >
+							<Label id="id-eom-skillgroup__rankname-label" class="eom-skillgroup__info-label right-margin" text=""/>
+							<Label id="id-eom-skillgroup__rankname-desc" class="eom-skillgroup__info-label eom-skillgroup__info-label-noglow hidden" text=""/>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+
+		                          
+		<snippet name="eom-skillgroup-reveal">
+			<Panel class="full-width vertical-center">
+				<Panel class="left-right-flow horizontal-center">
+					<Panel class="horizontal-center">
+						<Panel id="id-eom-skillgroup-bg" class="eom-skillgroup-icon eom-skillgroup-icon-bg"/>
+						<Panel class="eom-skillgroup-icon">
+							<ItemPreviewPanel id="id-eom-skillgroup-model"
+												class="eom-skillgroup__model"
+												manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+												item="models/inventory_items/skillgroups/skillgroup12.mdl"
+												hittest="false"
+												mouse_rotate="false"/>
+
+						</Panel>
+
+						<Image id="id-eom-skillgroup__flare" class="eom-skillgroup__flare"  src="file://{images}/ui_textures/flare.png" />
+						<ItemPreviewPanel id="SkillGroupParticles"
+										class="eom-skillgroup__particles hidden"
+										manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+										hittest="false"
+										item=""
+										mouse_rotate="false"/>
+
+						<Label id="id-eom-skillgroup__newrank" class="eom-skillgroup-new-label" text="#eom-skillgroup-higher"/>
+					</Panel>
+	
+					<Panel id="id-eom-skillgroup__info" class="top-bottom-flow vertical-center">
+						<Panel id="id-eom-skillgroup__wins" class="left-right-flow bottom-margin" >
+							<Image class="eom-skillgroup__trophy-icon right-margin vertical-center" textureheight="22" texturewidth="-1" src="file://{images}/icons/ui/trophy.svg" />
+							<Label id="id-eom-skillgroup__wins-label" class="eom-skillgroup__info-label small right-margin" text=""/>
+							<Label id="id-eom-skillgroup__wins-desc" class="eom-skillgroup__info-label eom-skillgroup__info-label-noglow small" text=""/>
+						</Panel>
+						<Panel class="left-right-flow" >
+							<Label id="id-eom-skillgroup__rankname-label" class="eom-skillgroup__info-label right-margin" text=""/>
+							<Label id="id-eom-skillgroup__rankname-desc" class="eom-skillgroup__info-label eom-skillgroup__info-label-noglow hidden" text=""/>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+
+	<CSGOEndOfMatchSkillgroupPanel class="eom-skillgroup" useglobalcontext="true">
+		<Panel id="id-eom-skillgroup" >
+
+		</Panel>
+	</CSGOEndOfMatchSkillgroupPanel>
+	
+</root>

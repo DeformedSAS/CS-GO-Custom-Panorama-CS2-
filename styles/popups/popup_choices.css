@@ -1,0 +1,34 @@
+                                  
+
+.PopupPanel
+{
+	width: 500px;
+}
+
+.popup-choices
+{
+	flow-children: down;
+	height: fit-children;
+	width: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.popup-choices CSGOAvatarImage Image
+{
+	margin: 0px;
+}
+
+  	                                                                                                          
+  	                                                                               
+  	                                                                                                                                                       
+  	                                                                                                                                      
+.popup-map-vote #ChoicesContainer Button Label 
+{
+	text-transform: none;
+}
+
+.popup-choices
+{
+	color: black;
+}

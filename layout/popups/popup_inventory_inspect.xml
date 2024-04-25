@@ -1,0 +1,43 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/popups/popup_inventory_inspect.css" />
+		<include src="file://{resources}/styles/popups/popup_capability_shared.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_inspect_action-bar.js" />
+		<include src="file://{resources}/scripts/popups/popup_acknowledge_item.js" />
+		<include src="file://{resources}/scripts/popups/popup_inventory_inspect.js" />
+        <include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Capability Hidden"
+						useglobalcontext="true"
+						popupbackground="blur"
+						oncancel="InventoryInspect.ClosePopup();"
+						onload="InventoryInspect.Init()">
+
+		<Panel class="mainmenu-content__container mainmenu-content__container--inspect" useglobalcontext="true">
+			<Panel class="full-width full-height top-bottom-flow vertical-center">
+				<Panel id="PopUpInspectFullScreenHostContainer" class="full-width full-height">
+				
+					<Frame id="PopUpInspectModelOrImage" src="file://{resources}/layout/popups/popup_inspect_model-image.xml" />
+					<Frame id="PopUpInspectHeader" class='hidden' src="file://{resources}/layout/popups/popup_inspect_header.xml" />
+					<Frame id="PopUpCapabilityHeader" class='hidden' src="file://{resources}/layout/popups/popup_capability_header.xml" />
+
+					<Panel class="bottom-top-flow vertical-align-bottom full-width horizontal-center">
+						<Frame id="PopUpInspectActionBar" class="hidden" src="file://{resources}/layout/popups/popup_inspect_action-bar.xml" />
+						<Frame id="PopUpInspectAsyncBar" class="hidden" src="file://{resources}/layout/popups/popup_inspect_async-bar.xml" />
+						<Frame id="PopUpInspectPurchaseBar" class="hidden" src="file://{resources}/layout/popups/popup_inspect_purchase-bar.xml" />
+						<Label id="InspectItemDesc"  html="true" class="popup-inspect__desc" text="{s:h:item_description}"/>
+					</Panel>
+
+				</Panel>
+			</Panel>
+		</Panel>
+	</PopupCustomLayout>
+</root>

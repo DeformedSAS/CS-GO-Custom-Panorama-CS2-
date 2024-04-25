@@ -1,0 +1,296 @@
+.eom {
+	width: 100%;
+	height: 100%;
+    padding: 0px;
+
+    background-color: rgba(20, 20, 20, 0.0);
+	opacity: 0;
+}
+
+.eom-scoreboard-toggle-instructions
+{
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-bottom: 10px;
+   	                    
+
+	font-size: 16px;
+	color: gray;
+}
+
+.eom.eom--reveal
+{
+                                                  
+	opacity: 1.0;
+	
+	background-color: gradient( linear, 0% 100%, 0% 0%, from( rgba(0, 0, 0, 1) ), 
+	color-stop( 0.2, rgba(0, 0, 0, 0.9) ), 
+	color-stop( 0.9, rgba(39, 39, 39, 0.9) ), 
+	to( rgba(54, 54, 54, 0.9)) );
+
+}
+
+@keyframes 'eom-background-fade-in'
+{
+	from
+	{
+		background-color: rgba(20, 20, 20, 0.0);
+		opacity: 0;
+	}
+
+	to
+	{
+		background-color: rgba(20, 20, 20, 0.9);
+		opacity: 1.0;
+	}
+}
+
+
+.eom.eom--fade-in-enabled.eom--reveal
+{
+	animation-name: eom-background-fade-in;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+
+.eom-layout {
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	
+	horizontal-align: center;
+	vertical-align: top;
+}
+
+
+#id-eom-chat-and-score {
+
+	width: 100%;
+	height: 100%;                          
+
+	vertical-align: bottom;
+
+}
+
+
+#id-eom-chat-container {
+
+	horizontal-align: left;
+
+	vertical-align: bottom;
+
+}
+
+
+.eom-chat {
+
+	vertical-align:bottom;
+
+	width: 100%;
+}
+
+.content-navbar__tabs
+{
+	height: fit-children;
+	min-height: 48px;
+}
+
+.content-navbar__tabs RadioButton, 
+.content-navbar__tabs DropDown, 
+.content-navbar__tabs ToggleButton, 
+.content-navbar__tabs TextButton,
+.content-navbar__tabs Button
+{
+	margin: 0px 32px 0px 0px;
+	width: fit-children;
+	height: 48px;
+	horizontal-align: center;
+	vertical-align: middle;
+	tooltip-position: bottom;
+	background-color: gradient( linear, 0% 100%, 0% 99%, from( white ), color-stop( 0, #ffffff00 ), to( #ffffff00 ) );
+	flow-children: right;
+	sound-trans: "";
+}
+
+#id-eom-layout{
+
+	height: 300px;
+	width: 100%;
+	z-index: 10;
+	vertical-align: top;
+
+	                                    
+}
+
+.eom-layout,
+.content-navbar {
+	                                       
+}
+
+.content-navbar{
+
+	height: 96px;
+	flow-children: none;
+}
+
+.mainmenu-content__container{
+
+	flow-children:down;
+}
+
+#id-display-timer-progress-bar{
+
+	height: 6px;
+	width: 0px;
+
+	horizontal-align: left;
+
+	background-color: rgba(255, 255, 255, 0.06 );
+
+	transition-property:  width;
+	transition-duration: 0s;
+	transition-timing-function: linear;
+}
+
+.eom-panel {
+    horizontal-align: center;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+                                     
+                                        
+    opacity: 0;
+                                           
+                                                                                      
+                                         
+                                                                                                  
+                                           
+
+	transition-property: opacity;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out;
+}
+
+                                                               
+.eom-panel.eom-panel--active
+{
+	opacity: 1.0;
+}
+
+.hidden {
+	visibility: collapse;
+}
+
+               
+
+.time_container{
+
+	horizontal-align: right;
+	vertical-align: center;
+	flow-children: right;
+
+	margin-right: 10%;
+
+	width: fit-children;
+}
+
+.timer{
+
+	horizontal-align: right;
+	vertical-align: center;
+	color: white;
+	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+#id-gametime__time{
+
+	font-size: 32px;
+}
+
+#id-gametime__desc{
+
+	font-size: 18px;
+	margin-right: 20px;
+	font-family: Stratum2, 'Arial Unicode MS';
+	color: rgb(189, 189, 189);
+}
+
+
+#id-content-navbar__time{
+
+	font-size: 24px;
+	color: white;
+
+	width: 200px;
+
+	vertical-align: bottom;
+	font-weight: medium;
+	horizontal-align: right;
+
+	margin-left: 50px;
+	margin-right: 200px;
+
+	transition-property:  opacity;
+	transition-duration: .2s;
+	transition-timing-function: ease-in-out;
+}
+
+
+.content-navbar__tabs{
+
+	horizontal-align: left;
+	vertical-align: bottom;
+
+	margin-left: 100px;
+	margin-top: 10px;
+
+	transition-property:  position;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+}
+
+.content-navbar__tabs Label{
+	font-family: Stratum2, 'Arial Unicode MS';
+}
+
+.content-navbar__tabs RadioButton{
+
+	opacity:0;
+}
+
+.content-navbar__tabs RadioButton.appear{
+	opacity: 1.0;
+
+	transition-property:  opacity;
+	transition-duration: 1s;
+	transition-timing-function: ease-in-out;
+}
+
+#id-display-timer-progress-bar-container {
+	horizontal-align: left;
+	width: 100%;
+}
+
+#id-eom-scoreboard-container{
+	opacity:0;
+
+	transition-property: opacity;
+	transition-duration: 0.2s;
+
+	position: 0px 280px 0px;
+}
+
+.scoreboard-visible #id-eom-scoreboard-container{
+	opacity:1;
+}
+
+.WindowRoot_TripleMonitor #id-display-timer-progress-bar-container,
+.WindowRoot_TripleMonitor #id-eom-chat-and-score,
+.WindowRoot_TripleMonitor #id-eom-layout,
+.WindowRoot_TripleMonitor .content-navbar
+{
+	horizontal-align: center;
+	width: 33%;
+}

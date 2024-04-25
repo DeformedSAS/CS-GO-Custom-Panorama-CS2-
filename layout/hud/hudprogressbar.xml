@@ -1,0 +1,38 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/hud/hudprogressbar.css" />
+  </styles>
+
+  <CSGOHudProgressBar hittest="false" class="hud-progress-bar">
+    <Panel>
+      <Panel class="hud-progress-bar-background">
+        <Panel class="hud-progress-bar-background-top" />
+        <Panel class="hud-progress-bar-background-bot" />
+      </Panel>
+
+      <Panel class="hud-progress-bar-layout">
+        <Panel class="hud-progress-bar-circle">
+          
+          <Panel class="hud-progress-bar-circle-background" />
+          <Panel class="hud-progress-bar-circle-animator progress-bar-animating" progress-animation="circle-full-to-empty" />
+          <Image id="ActionIcon" src="file://{images}/icons/equipment/defuser.svg" class="hud-progress-bar-circle-icon" scaling="stretch-to-fit-preserve-aspect" />
+          
+                                                                       
+          <Panel class="hud-progress-bar-circle-border-inner" />
+        </Panel>
+
+        <Panel class="hud-progress-bar-info">
+          <Label id="ActionLabel" class="hud-progress-bar-info-title"/>
+                                                                                                                
+                                                                                                               
+                                                                                                                
+                                                                                                                
+                              
+               
+          <Label text="{t:d:duration}.{s:milliseconds} " class="hud-progress-bar-info-countdown-text" />
+        </Panel>
+      </Panel>
+    </Panel>
+  </CSGOHudProgressBar>
+</root>

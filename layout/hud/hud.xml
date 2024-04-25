@@ -1,0 +1,168 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hud.css" />
+	</styles>
+
+	<CSGOHud hittest="false">
+		                                                                           
+		
+		<CSGOHudBlurTarget blurrects="RoundImpactScoreMain MapDraft" class="HudBlurLess" hittest="false" hittestchildren="false">
+			<CSGOBackbufferImagePanel class="full-width full-height" />
+		</CSGOHudBlurTarget>
+
+		                                                                                     
+		<Panel id="HudInWorld" hittest="false" hittestchildren="false">
+			<CSGOHudDamageIndicator id="HudDamageIndicator"/>
+			<CSGOHudReticle id="HudReticle"/>
+		</Panel>
+
+		<Frame id="MapDraft" class="full-width full-height" src="file://{resources}/layout/mapdraft.xml"/>
+
+		            
+		<CCSGOTabletPanoLayer id="TabletPanoLayer" offscreen-composition-layer="true" />
+		<CSGOSurvivalBuyMenu id="SurvivalBuyMenu"/>
+		            
+
+		                                                                            
+		<Panel id="HudSpectatorVignetting" hittest="false" hittestchildren="false" />
+
+		                                                               
+		<Panel id="HudCenter" hittest="false" hittestchildren="false">
+			<CSGOHudDemolitionProgression id="HudDemolitionProgression" />
+		</Panel>
+
+		                                                                   
+		<CSGOHudSpecPlayer id="HudSpecPlayer" hittest="false" hittestchildren="false" />
+
+		                                                    
+		<CSGOHudWinPanel id="HudWinPanel" hittest="false" hittestchildren="false" />
+
+		                                                                            
+		                                                                            
+		                                                                            
+		                                                                       
+		                                        
+		   
+		<Panel id="HudTopCenter" hittest="false" hittestchildren="false">
+			            
+			<CSGOCompass id="Compass"/>
+			            
+		</Panel>
+
+		                                                                                     
+		<Panel id="HudTopLeft" hittest="false" hittestchildren="false">
+			            
+			<Frame id="" class="matchmaking-status-container" data-type="hud" src="file://{resources}/layout/matchmaking_status.xml"/>
+			<CSGOSurvivalPlayerRemainingCounter id="SurvivalPlayerRemaining"/>
+			<Frame id="" class="" src="file://{resources}/layout/survival/survival_zonetimer.xml"/>
+			            
+			<CSGOHudRadar id="HudRadar"/>
+			<CSGOHudGameIcons id="HudGameIcons"/>
+			<CSGOHudMissionPanel id="HudMissionPanel" />
+			<CSGOHudGuardianPanel id="HudGuardianPanel" />
+			<CSGOHudDMBonusPanel id="HudDMBonusPanel" />
+			<Panel />                                                                        
+		</Panel>
+
+		                                                              
+		<CSGOHudTeamCounter id="HudTeamCounter" hittest="false" hittestchildren="false" />
+
+		                                                                                
+		                                                                
+		<Panel id="HudBottomCenter" hittest="false" hittestchildren="false">
+			<CSGOOutOfAmmo id="OutOfAmmo"/>
+			
+			<CSGOHudProgressBar id="HudProgressBar"/>
+			<CSGOHudAlerts id="HudAlerts"/>
+			<CSGOHudHintText id="HudHintText"/>
+			<CSGOShieldDamageAlert id="ShieldDamageAlert"/>
+			                                                               
+			            
+			<Frame id="HudTabletHints" src="file://{resources}/layout/hud/hudtablethints.xml" />
+			            
+			
+		</Panel>
+
+		                                                                                      
+		<Panel id="HudLowerLeft" hittest="false" hittestchildren="false">
+		<CSGOHudMoney id="HudMoney"/>
+			<CSGOHudVoiceStatus id="Status"/>
+			<CSGOHudHealthArmor id="HudHealthArmor"/>
+		</Panel>
+
+		                                                                
+		<CSGOHudRadio id="HudRadio" hittest="false" hittestchildren="false" />
+
+		                          
+		<CSGORetakePanel id="HudRetake" hittest="false" hittestchildren="false" />
+
+		                                                                   
+		<Panel id="HudBottomRight" hittest="false" hittestchildren="false">
+			<CSGOHudWeaponSelection id="HudWeaponSelection"/>
+			<CSGOHudWeaponPanel id="HudWeaponPanel"/>
+		</Panel>
+
+		                                                                           
+		<Panel id="HudTopRight" hittest="false" hittestchildren="false">
+			<CSGOHudAutoDisconnect id="HudAutoDisconnect"/>
+			<CSGOHudDeathNotice id="HudDeathNotice"/>
+		</Panel>
+
+		                                                                
+		<CSGOHudFreezePanel id="HudFreezePanel" hittest="false" hittestchildren="false" />
+
+		<CSGOHudBlurTarget id="HudBlur" blurrects="Scoreboard EndOfMatch BuyMenu sliding-panel--TERRORIST sliding-panel--CT" class="HudBlur" hittest="false" hittestchildren="false">
+			<CSGOBackbufferImagePanel class="full-width full-height" />
+		</CSGOHudBlurTarget>
+
+		<CSGOHudSpectator id="HudSpectator" />
+		<CSGOHudDemoPlayback id="HudDemoPlayback" />
+
+		<CSGOHudRosettaSelector id="HudRosettaSelector" />
+
+
+		<CSGOMapOverview id="MapOverview"/>
+
+    	<CSGOQuickInventory id="QuickInventory" sound_click="UIPanorama.loadout_sector_select" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickGrenadesRadial id="QuickGrenadesRadial" sound_click="UIPanorama.loadout_sector_select" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickUtilityItemRadial id="QuickUtilityItemRadial" sound_click="UIPanorama.loadout_sector_select" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CSGORadialRadio id="RadialRadio" sound_click="UIPanorama.loadout_sector_select" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+
+		<CSGORetakeLoadout id="RetakeLoadout"/>
+
+		<CSGOBuyMenu id="BuyMenu" />
+		<CCSGOQuickBuyRadial id="QuickBuyPistols" buy_menu = "pistols" sound_click="" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickBuyRadial id="QuickBuyHeavyWeapons" buy_menu = "heavyweapons" sound_click="" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickBuyRadial id="QuickBuySMGs" buy_menu = "smgs" sound_click="" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickBuyRadial id="QuickBuyRifles" buy_menu = "rifles" sound_click="" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickBuyRadial id="QuickBuyGear" buy_menu = "gear" sound_click="" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		<CCSGOQuickBuyRadial id="QuickBuyGrenades" buy_menu = "grenades" sound_click="" sound_rollover="UIPanorama.loadout_sector_scroll" sound_rollover_cannot_select="UIPanorama.loadout_sector_cannot_select" sound_open_radial="UIPanorama.loadout_sector_open"/>
+		
+		                                                                                                               
+		<Panel id="ScoreboardContainer" class="full-width full-height" hittest="false">
+			<CSGOScoreboard id="Scoreboard" />
+		</Panel>
+
+		<CSGOEndOfMatch id="EndOfMatch" />
+
+		<CSGOTeamSelectMenu id="TeamSelectMenu"/>
+
+		            
+		<CSGOSurvivalSpawnSelect id="SurvivalSpawnSelect"/>
+		            
+
+		<Frame id="Versus" src="file://{resources}/layout/versus.xml"/>
+		
+		                                                       
+		<CSGOHudChat id="HudChat"/>
+		<CSGOHudVote id="HudVote"/>
+		
+		                                                                   
+		<Panel id="ItemPreviewDebugManager" hittest="false" />
+		<CSGOPopupManager id="PopupManager" onpopupsdismissed="" />
+		<ContextMenuManager id="ContextMenuManager" />
+		<CSGOTooltipManager id="TooltipManager" hittest="false" />
+
+	</CSGOHud>
+</root>

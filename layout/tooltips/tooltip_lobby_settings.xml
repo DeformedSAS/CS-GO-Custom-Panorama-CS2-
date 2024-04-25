@@ -1,0 +1,71 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_text.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_player_xp.css" />
+
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/util_gamemodeflags.js" />
+		<include src="file://{resources}/scripts/common/sessionutil.js" />
+		<include src="file://{resources}/scripts/tooltips/tooltip_lobby_settings.js" />
+		<include src="file://{resources}/scripts/common/formattext.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="SettingsEntry">
+			<Panel class="tooltip-player-setting" >
+				<Image id="SettingImage" class="tooltip-player-setting__image" src="" textureheight="16" texturewidth="16"/>
+				<Label id="SettingText" class="tooltip-player-xp__subtitle" text="XXXX" />
+			</Panel>
+		</snippet>
+	</snippets>
+	
+	<Panel ontooltiploaded="TooltipLobby.Init()">
+		<Panel class="tooltip-player-xp tooltip-player-xp--matchmaking">
+			<Panel id="LobbyTooltipStats" class="tooltip-player-xp__section-matchmaking hidden">
+				<Label id="LobbyTooltipStatsTitle" html="true" class="tooltip-player-xp__title" text="" />
+				<Panel id="LobbyTooltipStatsList" class="top-bottom-flow" >
+					                         
+				</Panel>
+				<Panel class="tooltip-player-xp__seperator tooltip-player-xp__seperator--margintop"/>
+			</Panel>
+			
+			<Panel  class="tooltip-player-xp__section">
+				<Label class="tooltip-player-xp__title" text="#matchmaking_tooltip_title" />
+				<Panel id="LobbyTooltipDirectChallengeContainer" class="tooltip-player-setting" >
+					<Image class="tooltip-player-setting__image tint" src="file://{images}/icons/ui/locked.svg" textureheight="16" texturewidth="16"/>
+					<Label class="tooltip-player-xp__subtitle" id="LobbyDirectChallenge" text="" />
+				</Panel>				
+				<Panel class="tooltip-player-setting" >
+					<Image class="tooltip-player-setting__image tint" src="file://{images}/icons/ui/prime.svg" textureheight="16" texturewidth="16"/>
+					<Label class="tooltip-player-xp__subtitle" id="LobbyTooltipPrime" text="" />
+				</Panel>
+				<Panel class="tooltip-player-setting" >
+					<Image class="tooltip-player-setting__image tint" src="file://{images}/icons/ui/prime_active.png" textureheight="16" texturewidth="16"/>
+					<Label class="tooltip-player-xp__subtitle" id="LobbyTooltipRanked" text="" />
+				</Panel>
+				<Panel class="tooltip-player-setting" >
+					<Image class="tooltip-player-setting__image tint" src="file://{images}/icons/ui/settings.svg" textureheight="16" texturewidth="16"/>
+					<Label class="tooltip-player-xp__subtitle" id="LobbyTooltipPermissions" text="" />
+				</Panel>
+				<Panel id="LobbyTooltipGameModeFlagsContainer" class="tooltip-player-setting" >
+					<Image id="LobbyTooltipGamdeModeFlagsImage" class="tooltip-player-setting__image tint" src="file://{images}/icons/ui/clock.svg" textureheight="16" texturewidth="16"/>
+					<Label class="tooltip-player-xp__subtitle"  text=" {s:gamemodeflags}" />
+				</Panel>				
+			</Panel>
+
+			<Panel class="tooltip-player-xp__section">
+				<Label class="tooltip-player-xp__title--small" text="#party_tooltip_gamemode" />
+				<Panel id="LobbyTooltipGameMode" class="tooltip-player-setting" >
+					<Image id="SettingImage" class="tooltip-player-setting__image tint" src="" textureheight="16" texturewidth="16"/>
+					<Label id="SettingText" class="tooltip-player-xp__subtitle" text="XXXXXXXXXXX" />
+				</Panel>
+			</Panel>		
+
+			<Panel id="LobbyTooltipMapsList" class="tooltip-player-xp__section tooltip-player-xp__section-bottom">
+				                         
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

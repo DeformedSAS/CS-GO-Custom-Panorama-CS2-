@@ -1,0 +1,12 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/settings/settings_enum.css" />
+	</styles>
+
+  <CSGOSettingsEnum>
+	  <Label id="title" />
+    <Panel id="values" />
+  </CSGOSettingsEnum>
+  
+</root>

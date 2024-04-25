@@ -1,0 +1,140 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mapoverview.css" />
+	</styles>
+
+	<snippets>
+
+		<snippet name="PlayerIconPackage">
+			<Panel class="PlayerIcons" acceptsinput="false" hittest="false" mousetracking="false">
+
+				<Panel id="PI_FirstRotated" hittest="false">
+					<Image id="PlayerIndicator" class="PI_Indicator" src="file://{images}/hud/radar/icon-player-indicator.png"/>
+					<Image id="SpeakingOnMap" src="file://{images}/hud/radar/icon-speaking-on-map.png"/>
+					<Image id="HostageTransitOnMap" src="file://{images}/hud/radar/icon-hostage-transit-on-map.png"/>
+					<Image id="EnemyOnMap" class="PI_EnemyOnMap" src="file://{images}/hud/radar/mapoverview/icon-enemy-on-map.png"/>
+					<Image id="EnemyDeath" class="PI_Death" src="file://{images}/hud/radar/mapoverview/icon-enemy-death.png"/>
+					<Image id="EnemyGhost" class="PI_Ghost" src="file://{images}/hud/radar/icon-enemy-ghost.png"/>
+					<Image id="HostageOnMap" class="PI_HostageOnMap" src="file://{images}/hud/radar/mapoverview/icon-hostage-on-map.png"/>
+					<Image id="HostageDeath" class="PI_Death" src="file://{images}/hud/radar/mapoverview/icon-hostage-death.png"/>
+					<Image id="HostageGhost" class="PI_Ghost" src="file://{images}/hud/radar/icon-hostage-ghost.png"/>
+`					<Image id="PlayerOnMap" class="PI_OnMap" src="file://{images}/icons/ui/map_onmap.svg"/>
+					<Image id="PlayerDeath" class="PI_Death" src="file://{images}/hud/radar/mapoverview/icon-death_black.svg"/>
+					<Image id="PlayerGhost" class="PI_Ghost" src="file://{images}/icons/ui/map_ghost.svg"/>
+					<Image id="DirectionalIndicator" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-direction-indicator.png"/>
+					<Image id="MuzzleFlash" src="file://{images}/hud/radar/mapoverview/icon-muzzle-flash.png"/>
+					<Image id="LowHealth" src="file://{images}/hud/radar/mapoverview/icon-player-low-health.png"/>
+					<Image id="Selected" src="file://{images}/hud/radar/icon-selected.png"/>
+				</Panel>
+
+				<Panel id="PI_NonRotated" hittest="false">
+					<Image id="Grenade_HE" src="file://{images}/hud/radar/mapoverview/png_he.png"/>
+					<Image id="Grenade_FLASH" src="file://{images}/hud/radar/mapoverview/png_flash.png"/>
+					<Image id="Grenade_SMOKE" src="file://{images}/hud/radar/mapoverview/png_smoke.png"/>
+					<Image id="Grenade_MOLOTOV" src="file://{images}/hud/radar/mapoverview/png_molotov.png"/>
+					<Image id="Grenade_DECOY" src="file://{images}/hud/radar/mapoverview/png_decoy.png"/>
+
+					<Image id="Defuser" src="file://{images}/hud/radar/icons-defuser.png"/>
+
+          <Image id="SurvivalCrate" src="file://{images}/hud/radar/mapoverview/icon-paradrop.png" hittest="false"/>     
+
+          <Image id="AbovePlayer" class="PI_Above" src="file://{images}/hud/radar/icon-radar-bomb-above.png" hittest="false"/>
+					<Image id="BelowPlayer" class="PI_Below" src="file://{images}/hud/radar/icon-radar-bomb-below.png"/>
+
+					<Image id="Flashed" src="file://{images}/hud/radar/mapoverview/icon-flashed.png"/>
+
+					<Label id="PlayerNumber" class="PI_Text PI_Text_Number" hittest="false" />
+					<Label id="PlayerName" class="PI_Text PI_TextName" hittest="false"/>
+				</Panel>
+
+			</Panel>
+		</snippet>
+
+		<snippet name="HostageIconPackage">
+			<Panel acceptsinput="false" hittest="false">
+				<Image id="HostageDead" src="file://{images}/hud/radar/icon-hostage-dead.png"/>
+				<Image id="HostageRescued" src="file://{images}/hud/radar/icon-hostage-rescued.png"/>
+				<Image id="HostageAlive" src="file://{images}/hud/radar/icon-hostage-alive.png"/>
+				<Image id="HostageTransit" src="file://{images}/hud/radar/icon-hostage-transit.png"/>
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+	<CSGOMapOverview hittest="false">
+
+		                         
+			                            
+		          
+
+		<Panel id="MapOverview">
+
+			<Panel id="MapOverview__Square">
+					
+
+					<Image id="MapOverview__Map"/>
+					
+					            
+					<Image id="MapOverview__DangerZone" enginertsrc="_rt_ZoneProjectionSpectator" scaling="stretch" />
+					            
+					
+					                                       
+
+
+			</Panel>
+
+			<Panel id="RI_BombDefuserPackage" acceptsinput="false" hittest="false">
+				                                                                                             	
+				                                                                                                
+				                                                                                                
+				
+				<Panel id="PlantedBomb"/>
+				<Panel id="DroppedBomb"/>
+
+				<Image id="BombAbove" class="PI_Above" src="file://{images}/hud/radar/icon-radar-bomb-above.png"/>
+				<Image id="BombBelow" class="PI_Below" src="file://{images}/hud/radar/icon-radar-bomb-below.png"/>
+				<Image id="CreateBombPack" textureheight="12" texturewidth="16" src="file://{images}/hud/radar/C4_sml.png"/>
+
+				<Image id="DefuserIconDropped" src="file://{images}/hud/radar/icon-defuse-dropped.png"/>
+				<Image id="DefuserIconPackage" src="file://{images}/hud/radar/icon-radar-defuse.png"/>
+			</Panel>
+
+			                                 
+				                                                                                        
+				                                                                                      
+			          
+
+			<Image id="BombZoneA" class="BombZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-bomb-zone-A.png"/>
+			<Image id="BombZoneB" class="BombZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-bomb-zone-B.png"/>
+
+			<Image id="HZone0" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-hostage-indicator-zone.png"/>
+			<Image id="HZone1" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-hostage-indicator-zone.png"/>
+			<Image id="HZone2" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-hostage-indicator-zone.png"/>
+			<Image id="HZone3" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-hostage-indicator-zone.png"/>
+
+			<UICanvas id="Canvas" class="full-width full-height" allowDrawing="true"/>
+
+			<Panel id="HotKeyLabelContainer" class="MapOverview__key-hints" acceptsinput="false" hittest="false">
+				<Label id="HotKeyClose" class="MapOverview__key-hints-text" html="true" text="#PANOHUD_MapOverview_Close"/>
+				<Label id="HotKeyNextColorL" class="MapOverview__key-hints-text" html="true" text="#SFUIHUD_MapOverview_NextColor1"/>
+				<Label id="HotKeyNextColorR" class="MapOverview__key-hints-text" html="true" text="#SFUIHUD_MapOverview_NextColor2"/>
+				<Label id="HotKeyClear" class="MapOverview__key-hints-text" html="true" text="#SFUIHUD_MapOverview_ClearColor"/>
+			</Panel>
+
+		</Panel>
+
+		<Panel id="Dashboard__HostageIcons" acceptsinput="false" hittest="false">
+
+			<Panel id="Dashboard__HostageIconsRow">
+				<Image id="Dashboard__HZone" src="file://{images}/hud/radar/icon-hostage-zone.png"/>
+			
+				<Panel id="Dashboard__HostageStatusIcons">
+					                                                              
+				</Panel>
+			</Panel>
+
+		</Panel>
+
+	</CSGOMapOverview>
+</root>

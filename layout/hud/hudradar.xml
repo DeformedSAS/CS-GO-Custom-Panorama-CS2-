@@ -1,0 +1,99 @@
+<!-- xml reconstructed by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudradar.css" />
+	</styles>
+	<snippets>
+		<snippet name="PlayerIconPackage">
+			<Panel class="PlayerIcons" acceptsinput="false" force-no-composition-layer="true">
+				<Panel id="PI_FirstRotated">
+					<Image id="ViewFrustrum" src="file://{images}/icons/ui/map_view_angle.svg"/>
+					<Image id="SpeakingOnMap" src="file://{images}/icons/ui/map_speaking_onmap.svg"/>
+          <Image id="SpeakingOffMap" src="file://{images}/icons/ui/map_speaking_offmap.svg"/>
+					<Image id="PlayerPing" />
+					<Image id="PlayerPingOffMap">
+            <Image id="PlayerPingOffMapArrow" src="file://{images}/icons/ui/map_enemy_offmap.svg"/>
+					</Image>
+          <Image id="AbovePlayer" class="PI_Above" src="file://{images}/hud/radar/icon-radar-bomb-above.png" texturewidth="13" textureheight="7" />
+					<Image id="BelowPlayer" class="PI_Below" src="file://{images}/hud/radar/icon-radar-bomb-below.png" texturewidth="13" textureheight="7" />
+					<Image id="HostageTransitOnMap" src="file://{images}/icons/ui/map_hostage_transit_onmap.svg"/>
+					<Image id="CTOnMap" class="PI_OnMap PI_Color_CT" textureheight="11" texturewidth="11" src="file://{images}/hud/radar/icon-on-map.png"/>
+					<Image id="CTOffMap" class="PI_OffMap PI_Color_CT" src="file://{images}/icons/ui/map_enemy_offmap.svg"/>
+					<Image id="CTDeath" class="PI_Death PI_Color_CT" src="file://{images}/icons/ui/map_death.svg"/>
+					<Image id="CTGhost" class="PI_Ghost" src="file://{images}/hud/radar/icon-ct-ghost.png"/>
+					<Image id="TOnMap" class="PI_OnMap PI_Color_T" textureheight="11" texturewidth="11" src="file://{images}/hud/radar/icon-on-map.png"/>
+					<Image id="TOffMap" class="PI_OffMap PI_Color_T" src="file://{images}/icons/ui/map_enemy_offmap.svg"/>
+					<Image id="TDeath" class="PI_Death PI_Color_T" src="file://{images}/icons/ui/map_death.svg"/>
+					<Image id="TGhost" class="PI_Ghost" src="file://{images}/hud/radar/icon-t-ghost.png"/>
+					<Image id="EnemyOnMap" class="PI_EnemyOnMap PI_Color_Enemy" textureheight="14" texturewidth="14" src="file://{images}/hud/radar/icon-enemy-on-map.png"/>
+					<Image id="EnemyOffMap" class="PI_OffMap PI_Color_Enemy" src="file://{images}/icons/ui/map_enemy_offmap.svg"/>
+					<Image id="EnemyDeath" class="PI_Death PI_Color_Enemy" src="file://{images}/icons/ui/map_death.svg"/>
+					<Image id="EnemyGhost" class="PI_Ghost" src="file://{images}/hud/radar/icon-enemy-ghost.png"/>
+					<Image id="HostageOnMap" class="PI_HostageOnMap" textureheight="14" src="file://{images}/icons/ui/map_hostage_onmap.svg"/>
+					<Image id="HostageOffMap" class="PI_OffMap" src="file://{images}/icons/ui/map_hostage_offmap.svg"/>
+					<Image id="HostageDeath" class="PI_Death" src="file://{images}/hud/radar/icon-hostage-death.png"/>
+					<Image id="HostageGhost" class="PI_Ghost" src="file://{images}/hud/radar/icon-hostage-ghost.png"/>
+					<Image id="DirectionalIndicator" scaling="stretch-to-fit-preserve-aspect" textureheight="7" texturewidth="10" src="file://{images}/hud/radar/icon-direction-indicator.png"/>
+					<Image id="Defuser" src="file://{images}/hud/radar/icons-defuser.png"/>
+					<Image id="Selected" src="file://{images}/icons/ui/map_view_selected.svg"/>
+				</Panel>
+				<Panel id="PI_NonRotated">
+					<Label id="PlayerNumber" class="PI_Text" />
+					<Label id="PlayerLetter" class="PI_Text" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="RadarPlayerSoundSnippet">
+			<Panel class="PlayerIcons" acceptsinput="false" force-no-composition-layer="true">
+				<Panel id="PI_NonRotated">
+					<Panel class="PlayerSound hud-colorize-wash" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="RadarImageSnippet">
+			<Image class="RadarTextMapImg" textureheight="10" texturewidth="10" antialias="true" scaling="stretch-to-fit-preserve-aspect" />
+		</snippet>
+	</snippets>
+	<CSGOHudRadar class="hud-radar" hittest="false">
+		<Panel id="Radar" clampfractionalpixelpositions="false">
+			<Panel id="Radar__Round">
+				<Panel id="Radar__Round--Inner">
+					<Panel id="Radar__Round--InnerTransform" force-no-composition-layer="true" class="additive" />
+				</Panel>
+				<Panel id="Radar__Round--Border" class="hud-colorize-wash Radar__Round--BorderClass" />
+			</Panel>
+			<Panel id="Radar__Square" antialias="true">
+				<Panel id="Radar__Square--Inner">
+					<Panel id="Radar__Square--InnerTransform" force-no-composition-layer="true" />
+				</Panel>
+				<Panel id="Radar__Square--Border" class="hud-colorize-wash" />
+			</Panel>
+			<Image id="DirectionArrow" force-no-composition-layer="true" src="file://{images}/hud/direction.vtf" />
+			<Panel id="RI_BombDefuserPackage">
+				<Image id="BombPlantedIcon" src="file://{images}/icons/ui/bomb_c4.svg"/>	
+				<Image id="BombPlantedIconMedium" src="file://{images}/icons/ui/bomb_c4.svg"/>
+				<Image id="BombPlantedIconFast" src="file://{images}/icons/ui/bomb_c4.svg"/>
+				<Panel id="PlantedBomb" />
+				<Panel id="DroppedBomb" />
+				<Image id="BombAbove" class="PI_Above" textureheight="19" texturewidth="16" src="file://{images}/icons/ui/map_bomb_above.svg"/>
+				<Image id="BombBelow" class="PI_Below" textureheight="19" texturewidth="16" src="file://{images}/icons/ui/map_bomb_below.svg"/>
+				<Image id="CreateBombPack" textureheight="12" texturewidth="16" src="file://{images}/hud/radar/C4_sml.png"/>
+				<Image id="DefuserIconDropped" src="file://{images}/hud/radar/icon-defuse-dropped.png"/>
+				<Image id="DefuserIconPackage" src="file://{images}/hud/radar/icon-radar-defuse.png"/>
+			</Panel>
+			<Image id="BombZoneA" class="BombZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-bomb-zone-a.png"/>
+			<Image id="BombZoneB" class="BombZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/hud/radar/icon-bomb-zone-b.png"/>
+			<Image id="HZone0" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/icons/ui/map_hostage_indicator_zone.svg"/>
+			<Image id="HZone1" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/icons/ui/map_hostage_indicator_zone.svg"/>
+			<Image id="HZone2" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/icons/ui/map_hostage_indicator_zone.svg"/>
+			<Image id="HZone3" class="HZone" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/icons/ui/map_hostage_indicator_zone.svg"/>
+			<Panel id="RI_PlayerSoundContainer" />
+		</Panel>
+		<Panel id="Radar__Invisible" class="Invisible" />
+		<Panel>
+			<Panel class="hrBotrad additive" />
+			<Label id="DashboardLabel" class="hud-colorize-wash additive stratum-medium" />
+		</Panel>
+	</CSGOHudRadar>
+</root>

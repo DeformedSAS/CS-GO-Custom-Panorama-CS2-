@@ -1,0 +1,80 @@
+                                                       
+
+CSGOHudDemoPlayback Label
+{
+    font-family: Stratum2 Monodigit, 'Arial Unicode MS';
+    color: #fff;
+    font-weight: bold;
+    text-shadow-fast: 1px 1px #00000088;
+}
+
+.demoplayback
+{
+    height: 50px;
+    width: fit-children;
+    
+    flow-children: down;
+    horizontal-align: center;
+
+    transform: translateY(-50px);
+    visibility: collapse;
+
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+
+    background-color: #000000c0;
+}
+
+.demoplayback.demoplayback--active
+{
+    transform: translateY(0px);
+    visibility: visible;
+}
+
+.demoplayback-control-row
+{
+    flow-children: right;
+    horizontal-align: center;
+}
+
+.demoplayback-control
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+
+    border: 1px solid red;
+    background-color: #40004080;
+}
+
+.demoplayback-control:hover .demoplayback-control-label
+{
+    text-shadow: #ffffffff 0px 0px 3px 0.4;
+}
+
+.demoplayback-control:active .demoplayback-control-label
+{
+    color: #000000ff;
+    background-color: #c0c0c0ff;
+}
+
+.demoplayback-control-label
+{
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    font-size:14px;
+}
+
+.demoplayback-timer-row
+{
+    flow-children: right;
+    horizontal-align: center;
+}
+
+
+
+

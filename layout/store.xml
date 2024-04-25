@@ -1,0 +1,23 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/store.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/store.js" />
+	</scripts>
+
+	<SalesBanner hittest="false" class="MainMenuPanel"> 	
+		<EdgeScroller id="BannerContents">
+			                                       
+		</EdgeScroller>
+		<Panel id="BannerControls">
+			<Panel id="BannerControlsBgShadow" class="MainMenuPanelBg"/>
+			<Panel id="BannerControlsBg" class="MainMenuPanelBg"/>
+		</Panel>
+	</SalesBanner>
+
+</root>

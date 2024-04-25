@@ -1,0 +1,260 @@
+
+
+Label
+{
+	text-shadow: 2px 2px 2px 0.0 #000000ff;
+}
+
+
+#id-charlineup__teamname{
+
+	width: 100%;
+
+}
+
+#id-charlineup__teamname Label{
+	horizontal-align: center;
+
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}	
+
+
+
+            
+.charlineup__player{
+
+  	                                                           
+
+	height: 100%;
+
+	opacity: 0.00001;
+
+	transition-property: opacity;
+	transition-duration: 1s;
+
+	horizontal-align: left;
+
+  	                        
+
+}
+
+
+.charlineup__player.charlineup__player--localplayer{
+
+                         
+}
+
+
+.charlineup-root{
+	width: 1300px;
+	height: 100%;
+
+	horizontal-align: center;
+}
+
+.charlineup__characters{
+
+	width: 100%;
+	height: 100%;
+
+	horizontal-align: center;
+
+}
+
+
+@keyframes 'char-highlight'
+{
+	from
+	{
+		brightness: 0.3;
+	}
+
+
+	to
+	{
+		brightness: 1.3;
+	}
+}
+
+.darkmodel
+{
+	brightness: 0.3;
+}
+
+
+.brightmodel
+{
+	brightness: 1.3;
+
+	animation-name: char-highlight;
+	animation-duration: 0.01s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+  
+                           
+
+	           
+	            
+	                        
+	                         
+	                       
+ 
+  
+
+.charlineup__model-preview-panel{
+
+	width:100%;
+	height:100%;
+
+	horizontal-align: center;
+	vertical-align: bottom;
+
+}
+
+#id-charlineup__character-1 .charlineup__model-preview-panel{
+  	                       
+}
+
+#id-charlineup__character-1.charlineup__player{
+  	                        
+}
+
+.reveal{
+
+	opacity: 1;
+}
+
+.charlineup__player__info{
+
+	vertical-align: bottom;
+	horizontal-align: center;
+
+	flow-children: down;
+
+  	                         
+
+	max-width: 60%;
+
+
+}
+
+.dead{
+  	             
+}
+
+.ghosted{
+	opacity: 0.3;
+}
+
+.charlineup__player__identity{
+
+	vertical-align: bottom;
+	horizontal-align: center;
+
+	flow-children:right;
+
+}
+
+                        
+.charlineup__player__name{
+
+	
+  	             
+  	                       
+  	                        
+  	                
+
+  	                   
+
+  	                 
+
+  	                        
+
+  	                     
+
+	font-size: 16px;
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: medium;
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-top: 6px;
+
+    text-shadow: 1px 1px 1px 1.5 #000000AA;
+    text-overflow: ellipsis;
+    color: gray;
+	white-space: nowrap;
+	
+	margin-left:5px;
+
+}
+
+.charlineup__player__avatar{
+
+	height: 24px;
+	width: height-percentage( 100% );
+	horizontal-align: center;
+}
+
+.charlineup__player__commend{
+
+	vertical-align: bottom;
+	horizontal-align: center;
+
+	width: 30px;
+	height: 30px;
+
+	position: 40px 0px 0px;
+
+	brightness: 0.2;
+
+	z-index:10;
+}
+
+.charlineup__player__commend:hover{
+
+	brightness: 1;
+
+	transition-property: brightness;
+	transition-duration: 0.3s;
+}
+
+.hidden{
+
+	visibility: collapse;
+}
+
+.charlineup__placeholder__blur{
+
+	background-color:backgroundGradient;
+	blur:fastgaussian( 3, 3, 2 );
+	                                         
+	                               
+
+
+	width: 100%;
+	height: 100%;
+
+	opacity: 0.5;
+}
+
+.placeholder{
+
+	opacity: 1.0;
+}
+
+@keyframes 'first-place'
+{
+	0%
+	{
+		text-shadow: 0px 0px 5px 0.0 #ffffff;
+	}
+
+	100%
+	{
+		text-shadow: 0px 0px 4px 2.0 #000000;
+	}
+}

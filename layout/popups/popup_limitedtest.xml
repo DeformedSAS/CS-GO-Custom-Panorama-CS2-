@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_limitedtest.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_limitedtest.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="" oncancel="PopupLimitedTest.OnCancelPressed()">
+
+		                                       
+		<Panel class="popup-limitedtest">
+					<Panel class="popup-limitedtest-fade" />
+			<Panel class="popup-limitedtest-contents">
+				<Image class="popup-limitedtest_logo" texturewidth="550" textureheight="-1" src="file://{images}/icons/cs2_stacked_logo.svg" />
+				<Label class="popup-limitedtest-subheading stratum2Font" text="#popup_limited_test_invite" />
+				<Label class="popup-limitedtest-body stratum2Font" text="#popup_limited_test_desc" />
+				<Label class="popup-limitedtest-body popup-limitedtest-body--warning" text="#popup_limited_test_download_size"/>
+			</Panel>
+
+			<Label id="id-popup-limited-warning" class="popup-limitedtest-body popup-limitedtest-body--green hidden stratum2Font" text="#popup_limited_test_download_warning" />
+		</Panel>
+
+
+		<Panel class="PopupButtonRow">
+			<Image id="id-popup-limited-test-check" class="Check vertical-center horizontal-center hidden" texturewidth="24" textureheight="24" src="file://{images}/icons/ui/check.svg"/>
+			<Panel id="id-popup-limited-test-spinner" class="Spinner vertical-center horizontal-center hidden"/>
+			<Panel class="spacer"/>
+			<TextButton id="id-popup-limited-test-download-btn" class="PopupButton Positive" text="#popup_limited_test_download_btn" onactivate="PopupLimitedTest.OnOKPressed();" />
+			<TextButton id="id-popup-limited-test-quit-btn" class="PopupButton Positive hidden" text="#popup_limited_test_download_quit_btn" onactivate="PopupLimitedTest.OnQuitPressed();" />
+			<TextButton id="id-popup-limited-test-info-btn" class="PopupButton" text="#popup_limited_test_info_btn" onactivate="PopupLimitedTest.OnInfoPressed();" />
+			<TextButton id="id-popup-limited-test-close-btn" class="PopupButton" text="#GameUI_Close" onactivate="PopupLimitedTest.OnCancelPressed();" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

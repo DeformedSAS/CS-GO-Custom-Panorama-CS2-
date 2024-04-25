@@ -1,0 +1,39 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/itemtile.css" />
+		<include src="file://{resources}/styles/endofmatch-drops.css" />
+
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-drops.js" />
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/common/tint_spray_icon.js" />
+	</scripts>
+
+	<snippets>
+
+		<snippet name="eom-drops__item">
+			<Panel class="eom-drops__item">
+				<Panel id="id-item-rarity" class="eom-drops__item__rarity"/>
+				<Panel id="id-item-image-name-owner" class="eom-drops__item-image-name-owner">
+					<Panel class="full-width">
+						<Panel class="item-tile__bg"/>
+						<ItemImage id="id-item-image" class="eom-drops__item__image" scaling="stretch-to-fit-preserve-aspect"/>
+					</Panel>
+
+					<Label html="true" id="id-item-name" class="item-tile__name"/>
+
+					<Panel class="eom-drops__item__owner-container">
+						<CSGOAvatarImage id="id-avatar" class="eom-drops-avatar"/>
+						<Label id="id-item-owner-name" class="stratum-font" text="{s:user_name}"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<CSGOEndOfMatchItemDropsPanel class="eom-panel eom-drops" useglobalcontext="true" />
+	
+</root>

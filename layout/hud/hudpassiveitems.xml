@@ -1,0 +1,13 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudpassiveitems.css" />
+	</styles>
+		
+	<CSGOHudPassiveItems class="hudpassiveitems">
+		<Image id="PassiveItemParachute"	class="hudpassiveitem cl-hud-wash-color hudpassiveitems-hidden" src="file://{images}/icons/ui/parachute_hud.svg"		textureheight="42" texturewidth="-1"/>
+		<Image id="PassiveItemExoJump"		class="hudpassiveitem cl-hud-wash-color hudpassiveitems-hidden" src="file://{images}/icons/ui/exojump_hud.svg"			textureheight="42" texturewidth="-1"/>
+	</CSGOHudPassiveItems>
+	
+</root>

@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_inventory_item.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/tooltips/tooltip_inventory_item.js" />
+	</scripts>
+	
+	<Panel class="TooltipContents tooltip-inventory-item" ontooltiploaded="setupTooltip()">
+		<Panel class="left-right-flow">
+			<Image id="CollectionLogo" class="collection-logo" scaling="stretch-to-fit-preserve-aspect" />
+			<Panel class="NameCollection">
+				<Label class="name-label" text="{s:name}" />
+				<Label class="collection-label" text="{s:collection}"/>
+			</Panel>
+		</Panel>
+    <Panel class="separator-top" />
+		<Panel class="InfoBlock">
+			<Panel class="top-bottom-flow">
+				<Label class="rarity-header" text="#inv_header_rarity" />
+				<Label class="grade-header" text="#inv_header_grade" />
+				<Label class="team-header" text="#inv_header_team" />
+			</Panel>
+			<Panel class="top-bottom-flow">
+				<Label class="rarity-label" text="{s:rarity}" />
+				<Label class="grade-label" text="{s:grade}" />
+				<Panel class="team-container left-right-flow">
+					<Image class="team-logo team-logo__ct" src="file://{images}/icons/ct_logo.svg" texturewidth="20" textureheight="-1" />
+          <Image class="team-logo team-logo__t" src="file://{images}/icons/t_logo.svg" texturewidth="20" textureheight="-1" />
+          <Label class="team-label" id="Team" text="{s:team}"/>
+				</Panel>
+			</Panel>
+		</Panel>
+    <Panel class="separator-bottom" />
+
+    <Label class="desc-text" html="true" text="{s:h:description}" />
+				
+
+	</Panel>
+</root>

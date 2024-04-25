@@ -1,0 +1,22 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+    <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_custom.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_store_status.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="SetupPopup()">
+		<Label class="PopupTitle" text="#StoreScaleform_Title" />
+		<Label class="PopupMessage" text="{s:message}" />
+		<Panel id="Spinner" class="Spinner" />
+		<Panel class="PopupButtonRow">
+			<TextButton id="PurchaseConfirmation" class="PopupButton Positive" text="" onactivate="OnOKPressed()" />
+			<TextButton id="OkButton" class="PopupButton" text="#SFUI_MBox_OKButton" onactivate="OnOKPressed()" />
+			<TextButton id="CancelButton" class="PopupButton" text="#SFUI_MBox_CancelButton" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+	
+	</PopupCustomLayout>
+</root>

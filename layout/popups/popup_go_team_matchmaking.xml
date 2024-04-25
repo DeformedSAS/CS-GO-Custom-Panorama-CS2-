@@ -1,0 +1,66 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/mainmenu_play.css" />
+		<include src="file://{resources}/styles/popups/popup_go_team_matchmaking.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_go_team_matchmaking.js" />
+		<include src="file://{resources}/scripts/friendtile.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Hidden"
+						useglobalcontext="true"
+						popupbackground="dim"
+						onload="PopupGoTeamMatchmaking.Init();">
+		<Label class="PopupTitle" text="#PopupGoTeamMatchmaking_Title" />
+
+		                                                                             
+
+		<Panel class='popup-go-team-matchmaking-group'>
+			<Label class="PopupMessage" html="true" text="#PopupGoTeamMatchmaking_RegularMM_Help" />
+			<Button class="play-menu__playbtn play-menu__playbtn--startsearch Positive" onactivate="PopupGoTeamMatchmaking.GO('regular')" >
+				<Label text="#PopupGoTeamMatchmaking_RegularMM" />
+			</Button>
+		</Panel>
+
+		<Panel class='popup-go-team-matchmaking-group'>
+			<Label class="PopupMessage" html="true" text="#PopupGoTeamMatchmaking_TeamMM_Help" />
+			<Button class="play-menu__playbtn play-menu__playbtn--startsearch Positive" onactivate="PopupGoTeamMatchmaking.GO('team')" >
+				<Label text="#PopupGoTeamMatchmaking_TeamMM" />
+			</Button>
+		</Panel>
+
+		<Panel class='popup-go-team-matchmaking-group'>
+			<Label class="PopupMessage" html="true" text="#PopupGoTeamMatchmaking_DirectChallenge_Help" />
+
+			<Panel class="popup-directcode-entry">
+				<TextEntry id="CodeTextEntry"
+							placeholder="#PopupGoTeamMatchmaking_DirectChallenge_PlaceholderHint"
+							ontextentrysubmit="PopupGoTeamMatchmaking.GO('direct')"/>
+
+				<Button id="CopyCode" class="IconButton" onactivate="PopupGoTeamMatchmaking.CopyCode()"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'CopyCode', '#PopupGoTeamMatchmaking_DirectChallenge_CopyHint' )"
+					onmouseout="UiToolkitAPI.HideTextTooltip()">
+					<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/message.svg"/>
+				</Button>
+				<Button id="RandomCode" class="IconButton" onactivate="PopupGoTeamMatchmaking.RandomCode()"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'RandomCode', '#PopupGoTeamMatchmaking_DirectChallenge_RandomHint' )"
+					onmouseout="UiToolkitAPI.HideTextTooltip()">
+					<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/refresh.svg"/>
+				</Button>
+			</Panel>
+
+			<Button class="play-menu__playbtn play-menu__playbtn--startsearch Positive" onactivate="PopupGoTeamMatchmaking.GO('direct')" >
+				<Label text="#PopupGoTeamMatchmaking_DirectChallenge" />
+			</Button>
+		</Panel>
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="#UI_Cancel" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+	
+	</PopupCustomLayout>
+</root>

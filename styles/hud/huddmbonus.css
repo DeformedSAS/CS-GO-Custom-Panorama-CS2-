@@ -1,0 +1,276 @@
+                                                       
+
+@define TimeToDisplayBonusKill: 2.0s;                                                                      
+
+.bonuspanel {
+	width: 100%;                                                                              
+	height: 100px;
+    vertical-align:top;
+    horizontal-align:left;
+
+    transform: translateX( -400px );
+    opacity: 0;
+
+	transition-property:  transform, opacity;
+	transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    font-family: notosans, 'Arial Unicode MS';
+
+                                                                                          
+    visibility: collapse;
+}
+
+.bonuspanel-bkg-TOP
+{
+	width: 400px;
+	height: 2px;
+    vertical-align: top;
+    background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), to( #000000BB ) );
+}
+
+.bonuspanel-bkg-BOT
+{
+	width: 400px;
+	height: 2px;
+    vertical-align: bottom;
+    background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), to( #000000BB ) );
+}
+
+.bonuspanel.bonuspanel--deathmatch {
+    visibility: visible;
+}
+
+.bonuspanel.bonuspanel--active {
+    transform: translateX( 0px );
+    opacity: 1;
+
+    sound:"UI.DeathMatchBonusAlertStart";
+    sound-out:"UI.DeathMatchBonusAlertEnd";
+}
+
+.bonuspanel-bg {
+    flow-children: right;
+    width: 400px;
+	height: 100%;
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000ED ), color-stop(0.8, #00000020), to( #00000000 ) );
+}
+
+.bonuspanel-content {
+    width: 480px;
+    margin: 10px, 10px;
+    flow-children: right;
+}
+
+.bonuspanel-title {
+    flow-children: right;
+    width: 260px;
+    padding-top: -2px;
+}
+
+.bonuspanel-title CCSGOSteamInputAction 
+{
+    margin-right: 4px;
+}
+
+.bonuspanel-title-text {
+    font-family: Stratum2;
+                          
+	color: #dddddd;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px 1.0 #000000;
+}
+
+.bonuspanel-title-weapon {
+    font-family: Stratum2;
+    font-weight: medium;
+	color: #ffffff;
+    font-size: 22px;
+    text-shadow: 1px 1px 1px 1.0 #000000;
+    padding-left: 4px;
+}
+
+.bonuspanel-info {
+    flow-children: down;
+    margin-left: 14px;
+}
+
+.bonuspanel-subinfo {
+    flow-children: right;
+    width: 333px;
+}
+
+.bonuspanel-icon-container
+{
+    min-width: 180px;
+    height: 64px;
+    horizontal-align: left;
+    vertical-align: center;
+}
+
+
+.bonuspanel-icon {
+                   
+    height: 64px;
+    color: white;
+    margin-top: 0px;
+    horizontal-align: left;
+    vertical-align: center;
+}
+
+.bonuspanel-points-container {
+    width: 125px;
+    height: 68px;
+    opacity:1;
+
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+.bonuspanel--bonuskill .bonuspanel-points-container
+{
+    opacity:0;                                       
+}
+
+.bonuspanel-points {
+    width: 125px;
+    color:#ffffff;
+    font-family: Stratum2;
+    font-size: 26px;
+    font-weight: medium;
+    text-shadow: 1px 1px 1px 1.0 #000000;  
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.bonuspanel-timer {
+    flow-children: down;
+    vertical-align: middle;
+    width: 80px;
+}
+
+.bonuspanel-timerbar {
+    margin-top: 3px;
+    height: 5px;
+    width: 100%;
+    background-color: #615F5F; 
+}
+
+.bonuspanel-bonuspoints {
+    x:292px;
+    y:40px;
+    
+    width: 85px;
+    height: 85px;                                       
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+    opacity: 0;
+    padding-bottom: 20px;
+}
+
+@keyframes bonuspanel-kill-animation
+{
+    0% {
+        transform: translateX(0px);
+        opacity: 0;
+    }
+    20% {
+        transform: scaleX(2) scaleY(2) translateX(100px);
+        opacity: 1;
+    }
+    30% {
+        transform: translateX(100px) scaleX(1) scaleY(1);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(100px);
+        opacity:1;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity:0;
+    }
+}
+
+.bonuspanel--bonuskill .bonuspanel-bonuspoints {
+    animation-name: bonuspanel-kill-animation;
+    animation-duration: TimeToDisplayBonusKill;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    sound:"UI.DeathMatchBonusKill";
+}
+
+.bonuspanel-bonuspoints-points {
+    font-family: Stratum2;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    vertical-align: middle;
+    text-shadow: 1px 1px 1px 1.0 #000000;
+    text-align: center;
+    margin-left: 10px;
+}
+
+                                                 
+.pie {
+    width: 100px;
+    height: 100px;
+}
+
+.circle-background
+{
+    width: 100%;
+    height: 100%;  
+    border: 7px solid #ffffff05;
+    border-radius: 50%;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;  
+    border: 7px solid #ffffff;                                      
+    border-radius: 50%;
+    animation-name: bonuspanel-timerbar-animation;
+    animation-duration:30s;
+    animation-timing-function:linear;
+    animation-fill-mode:both;
+}
+
+@keyframes bonuspanel-timerbar-animation
+{
+    0% {
+        clip:radial(50% 50%, 0deg, 0deg);
+        wash-color-fast:#00ff00;
+    }
+    30% {
+        wash-color-fast:#00ff00;
+    }
+    55% {
+        wash-color-fast:#ffff00;
+    }
+    60% {
+        wash-color-fast:#ffff00;
+    }
+    85% {
+        wash-color-fast:#ff0000;
+    }
+    100% {
+        clip:radial(50% 50%, -180deg, 360deg);
+        wash-color-fast:#ff0000;
+    }
+}
+
+.bonuspanel-timer-text {
+	color: #fff;
+    width: 64px;
+                                                
+    font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+    font-size: 50px;
+    font-weight: bold;
+    vertical-align: middle;
+    horizontal-align: center;
+    line-height: 0px;
+    padding: 3px 0px 0px -1px;
+    text-overflow: shrink;
+    text-align: center;
+}

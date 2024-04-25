@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/base.css" />
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudretake.css" />
+	</styles>
+
+	<CSGORetakePanel class="retake" hittest="false" force-no-composition-layer="true">
+		<Panel id="BombSiteGoalMsg" >
+			<Panel id="BombSiteBG" class="bombsite-text-bg"/>
+			<Panel class="bombsite-text">
+				<Label class="bombsite-text-label cl-hud-wash-color" text="#Hud_Retake_BombSite"/>
+			</Panel>
+			<CCSGORetakeBombSiteAnimLabel id="BombSite-Flash" class="bombsite-anim" text="#Hud_Retake_BombSite"/>
+		</Panel>
+
+		<Panel id="BombSitePipA" class="bombsite-pip-a">
+			<Panel id="BombSitePipArrowA" class="bombsite-pip-arrow-a">
+				<Image class="bombsite-pip-arrow-img-a" src="file://{images}/icons/ui/retake_site_pip_arrow.svg"/>
+			</Panel>
+		</Panel>
+		
+		<Panel id="BombSitePipB" class="bombsite-pip-b">
+			<Panel id="BombSitePipArrowB" class="bombsite-pip-arrow-b">
+				<Image class="bombsite-pip-arrow-img-b" src="file://{images}/icons/ui/retake_site_pip_arrow.svg"/>
+			</Panel>
+		</Panel>
+	</CSGORetakePanel>
+</root>

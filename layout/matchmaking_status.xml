@@ -1,0 +1,34 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/friendslist.css" />
+		<include src="file://{resources}/styles/matchmaking_status.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/operation/operation_util.js" />
+		<include src="file://{resources}/scripts/matchmaking_status.js" />
+	</scripts>
+
+	<Panel class="top-bottom-flow full-width hidden" useglobalcontext="true">
+		<Panel id="MatchStatusWait" class="left-right-flow matchmaking-status-wait">
+			<Label id="MatchStatusWaitLabel" class="matchmaking-status-header" html="true" text=""/>
+		</Panel>
+
+		<Panel id="MatchStatusSearching" class="left-right-flow matchmaking-status-searching" >
+			<Panel class="matchmaking-status-left">
+				<Image id="MatchStatusFailIcon" class="vertical-center horizontal-center warningColor matchmaking-status-fail-icon hidden" texturewidth="36" textureheight="-1" src="file://{images}/icons/ui/warning.svg"/>
+				<Label id="MatchStatusTime" class="matchmaking-status-time" text="00:00"/>
+			</Panel>
+			<Label id="MatchStatusSearchingLabel" class="matchmaking-status-header" html="true" text=""/>
+		</Panel>
+
+		<Panel id="MatchStatusWarning" class="left-right-flow matchmaking-status-warning" >
+			<Panel class="matchmaking-status-left">
+				<Image class="vertical-center horizontal-center warningColor" texturewidth="36" textureheight="-1" src="file://{images}/icons/ui/warning.svg"/>
+			</Panel>
+			<Label id="MatchStatusWarningLabel" class="matchmaking-status-header" text=""/>
+		</Panel>
+	</Panel>
+</root>

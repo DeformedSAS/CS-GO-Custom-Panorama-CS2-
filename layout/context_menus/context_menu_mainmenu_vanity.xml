@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_mainmenu_vanity.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/context_menus/context_menu_mainmenu_vanity.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+
+	</scripts>
+
+	<snippets>
+
+		<snippet name="snippet-vanity-item">
+			<Button class="vanity-item">
+				<Label id="id-vanity-item__rarity" class="vanity-item__rarity" html='true' text="" />
+				<Label id="id-vanity-item__label" class="vanity-item__label" text="" />
+			</Button>
+		</snippet>
+
+	</snippets>
+	
+   <Panel class="ContextMenuItem" onload="MainMenuVanityContextMenu.Init();">
+  		<Panel id="ContextMenuBodyNoScroll" class="top-bottom-flow"/>
+      	<Panel id="ContextMenuBodyWeapons" class="top-bottom-flow"/>
+	</Panel>
+
+</root>

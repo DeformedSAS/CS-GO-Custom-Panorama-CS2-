@@ -1,0 +1,19 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+	</styles>
+
+	<scripts>
+    <include src="file://{resources}/scripts/tests/perf/type_safety.js" />
+  </scripts>
+
+	<Panel class="top-bottom-flow full-width full-height" hittest="false">
+		<Label class="fontSize-l fontWeight-Bold horizontal-center" allowrawtext="true" text="TypeSafetyTest"/>
+		<Label id ="Info" allowrawtext="true" text="Test of type safety on C++ callbacks."/>
+
+		<Panel id="JsContent" style="padding-top:20px;flow-children: right-wrap;overflow:squish scroll;">
+      <CSGOPanelTest1 id="Test1" />
+      <CSGOPanelTest2 id="Test2" />
+		</Panel>
+	</Panel>
+</root>

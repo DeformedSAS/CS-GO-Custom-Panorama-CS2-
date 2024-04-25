@@ -1,0 +1,124 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/mainmenu_play.css"/>
+		<include src="file://{resources}/styles/mainmenu_watch.css" />
+		
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/scheduler.js" />	
+		<include src="file://{resources}/scripts/common/commonutil.js" />
+		<include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+		<include src="file://{resources}/scripts/common/licenseutil.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/watchtile.js" />
+		<include src="file://{resources}/scripts/matchlist.js" />
+        <include src="file://{resources}/scripts/matchinfo.js" />
+		<include src="file://{resources}/scripts/mainmenu_watch.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="MatchListAndInfo">
+			<Panel class="no-flow full-width full-height">
+				<Panel class="left-right-flow full-width full-height">
+                        <Panel id="id-match-list-container" class="MatchList subsection-content__background-color">
+							<Panel id="JsMatchList" class="MatchList MatchList-scroll">
+								                                            
+							</Panel>
+						</Panel>
+					<Panel id="Info" class="subsection-content__background-color full-width full-height">
+						                                            
+						<Panel class="full-width full-height no-flow">
+							<Panel id="id-match-spinner" class="Spinner horizontal-center vertical-center hide"/>
+							<Panel id="id-match-message-container" class="left-right-flow horizontal-center vertical-center hide">
+								<Image class="info-icon" src="file://{images}/icons/ui/info.svg" texturewidth="32" textureheight="32"/>
+								<Label id="id-match-message" class="Info-Message horizontal-center"/>
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+				<Panel class="full-width full-height no-flow" hittest="false">
+					<Panel id="id-list-spinner" class="Spinner horizontal-center vertical-center"/>
+					<Panel id="id-list-message-container" class="left-right-flow horizontal-center vertical-center hide">
+						<Image class="info-icon" src="file://{images}/icons/ui/info.svg" texturewidth="32" textureheight="32"/>
+						<Label id="id-list-message" class="Info-Message horizontal-center"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+    <Panel class="mainmenu-content__container">
+        <Panel id="JsWatchContent" class="full-width full-height" onload="mainmenu_watch.InitMainWatchPanel();">
+            <Panel id="main-content" class="full-width full-height top-bottom-flow mainmenu-watch-content__container">
+                <Panel id="watch-navbar" class="content-navbar__tabs content-navbar__tabs--noflow">
+                    <Panel class="content-navbar__tabs__center-container">
+                        <RadioButton id="WatchNavBarYourMatches" group="WatchNavBar" class="content-navbar__tabs__btn" onactivate="mainmenu_watch.NavigateToTab(&apos;JsYourMatches&apos;, &apos;yourmatches menu button&apos;);">
+                            <Label class="" text="#CSGO_Watch_Cat_YourMatches" />
+                        </RadioButton>
+                        <RadioButton group="WatchNavBar" class="content-navbar__tabs__btn" onactivate="mainmenu_watch.NavigateToTab(&apos;JsDownloaded&apos;, &apos;downloaded menu button&apos;);">
+                            <Label class="" text="#CSGO_Watch_Cat_Downloaded" />
+                        </RadioButton>
+                    </Panel>
+                    <Panel class="horizontal-align-right vertical-center right-margin-64 left-right-padding">
+                        <Button class="IconButton">
+                            <Image src="s2r://panorama/images/icons/ui/refresh.vsvg" onactivate="mainmenu_watch.UpdateActiveTab();" />
+                        </Button>
+                    </Panel>
+                </Panel>
+                <Panel class="full-width full-height" useglobalcontext="true">
+                    <Panel id="JsLive" class="WatchMenu WatchMenu--Hide" />
+                    <Panel id="JsYourMatches" class="WatchMenu WatchMenu--Hide" />
+                    <Panel id="JsTournaments" class="WatchMenu WatchMenu--Hide subsection-content__background-color">
+                        <Panel id="JsTournamentList" class="horizontal-center top-bottom-flow full-width full-height" />
+						                                                                                                                                                 
+						                                                         
+						    
+						                                                                                                                                                                   
+							                                                            
+						              
+						   
+						<RadioButton id="WatchNavBarButtonTournaments" group="WatchNavBar" onactivate="mainmenu_watch.NavigateToTab('JsTournaments', 'tournament menu button');">
+							<Label class="" text="#CSGO_Watch_Cat_Tournament_0"/>
+						</RadioButton>
+						<RadioButton group="WatchNavBar" onactivate="mainmenu_watch.NavigateToTab('JsYourMatches', 'yourmatches menu button');">
+							<Label class="" text="#CSGO_Watch_Cat_YourMatches"/>
+						</RadioButton>
+						<RadioButton group="WatchNavBar" onactivate="mainmenu_watch.NavigateToTab('JsDownloaded', 'downloaded menu button');">
+							<Label class="" text="#CSGO_Watch_Cat_Downloaded"/>
+						</RadioButton>						
+						<RadioButton id="WatchNavBarButtonLive" group="WatchNavBar" onactivate="mainmenu_watch.NavigateToTab('JsLive', 'live menu button');">
+							<Label class="" text="#CSGO_Watch_Cat_LiveMatches"/>
+						</RadioButton>
+						    
+						                                                                                                                                              
+							                                                
+						              
+						   
+						<RadioButton id="WatchNavBarButtonEvents" group="WatchNavBar" onactivate="mainmenu_watch.NavigateToTab('JsEvents', 'events menu button');">
+							<Label class="" text="#CSGO_Watch_Cat_Events"/>
+						</RadioButton>
+
+					</Panel>
+					<Panel class="horizontal-align-right vertical-center left-right-padding">	
+						<Button class="IconButton" >
+							<Image src = "file://{images}/icons/ui/refresh.svg" onactivate="mainmenu_watch.UpdateActiveTab();"/>
+						</Button>
+					</Panel>
+
+				</Panel>
+				
+				<Panel class="full-width full-height" useglobalcontext="true">
+					<Panel id="JsLive" class="WatchMenu WatchMenu--Hide"/>
+					<Panel id="JsYourMatches" class="WatchMenu WatchMenu--Hide"/>
+					<Panel id="JsTournaments" class="WatchMenu WatchMenu--Hide subsection-content__background-color">
+						<Panel id="JsTournamentList" class="horizontal-center top-bottom-flow full-width full-height"/>
+					</Panel>
+					<Frame id="JsEvents" src="file://{resources}/layout/mainmenu_watch_eventsched.xml" class="WatchMenu WatchMenu--Hide" />
+					<Panel id="JsDownloaded" class="WatchMenu WatchMenu--Hide"/>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

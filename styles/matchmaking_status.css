@@ -1,0 +1,58 @@
+
+CSGOHud .matchmaking-status-container
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from(#00000000), color-stop(0.5, rgba(0, 0, 0, 0.5)), color-stop(0.6, rgba(0, 0, 0, 0.5)), color-stop(0.9, rgba(0, 0, 0, 0.35) ), to(rgba(0, 0, 0, 0.0)));
+	                    
+	width: 384px;
+}
+
+.matchmaking-status-wait
+{
+	min-height: 64px;
+	margin-left: 24px;
+}
+
+.matchmaking-status-left
+{
+	width: 96px;
+	height: 64px;
+}
+
+.matchmaking-status-time
+{
+	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
+	color:  rgb(175, 175, 175);
+	font-size: 24px;
+	text-align: center;
+	horizontal-align: center;
+	-s2-mix-blend-mode: SRGBadditive;
+}
+
+.matchmaking-status-header
+{
+	font-size: 18px;
+	font-weight: medium;
+	text-transform: none;
+	color:  rgb(175, 175, 175);
+	vertical-align: center;
+	min-width: 50px;
+	max-width: 256px;
+	font-family: Stratum2, 'Arial Unicode MS';
+	-s2-mix-blend-mode: SRGBadditive;
+}
+
+.matchmaking-status-container.hidden,
+.matchmaking-status-wait.hidden,
+.matchmaking-status-searching.hidden,
+.matchmaking-status-warning.hidden,
+.matchmaking-status-fail-icon.hidden,
+.matchmaking-status-time.hidden
+{
+	opacity: 0;
+	transform: scaleY(0);
+	visibility: collapse;
+
+	transition-property: opacity, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}

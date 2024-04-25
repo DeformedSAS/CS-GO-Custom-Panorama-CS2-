@@ -1,0 +1,549 @@
+                                          
+
+@define defaultColor: #ffffff;
+@define killIconSize: 24px;
+@define burstIconSize: 18px;
+@define bulletYOffset: 24px;
+
+@define WEAPONPANEL_BG_HSV_TRANSFORM: 0, 0.85, 0.75;
+
+
+                                                                               
+                                                                               
+                                                                               
+
+CSGOHudWeaponPanel
+{
+	flow-children: down;
+}
+
+CSGOHudWeaponPanel Label
+{
+    font-family: Stratum2, 'Arial Unicode MS';
+}
+
+                                                                                                 
+                                                                         
+.Language_vietnamese CSGOHudWeaponPanel Label 
+{
+	font-family: ForceStratum2, 'Arial Unicode MS';
+}
+
+#WeaponPanelBottom
+{
+	height: 54px;
+}
+
+.WeaponPanel
+{
+	opacity: 1.0;
+	transform: translatey( 0px );
+
+	transition-property:  opacity, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.WeaponPanel--Hidden
+{
+	opacity: 0;
+	transform: translatey( 10px );
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.csgo-hud--cl-hud-color-0  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-0 ; }
+.csgo-hud--cl-hud-color-1  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-1 ; }
+.csgo-hud--cl-hud-color-2  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-2 ; }
+.csgo-hud--cl-hud-color-3  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-3 ; }
+.csgo-hud--cl-hud-color-4  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-4 ; }
+.csgo-hud--cl-hud-color-5  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-5 ; }
+.csgo-hud--cl-hud-color-6  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-6 ; }
+.csgo-hud--cl-hud-color-7  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-7 ; }
+.csgo-hud--cl-hud-color-8  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-8 ; }
+.csgo-hud--cl-hud-color-9  .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-9 ; }
+.csgo-hud--cl-hud-color-10 .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-10; }
+.csgo-hud--cl-hud-color-11 .WeaponPanel-apply-hud-color  { wash-color-fast: color-hud-11; }
+
+.csgo-hud--cl-hud-color-0  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-0 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-1  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-1 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-2  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-2 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-3  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-3 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-4  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-4 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-5  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-5 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-6  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-6 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-7  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-7 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-8  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-8 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-9  .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-9 , WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-10 .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-10, WEAPONPANEL_BG_HSV_TRANSFORM); }
+.csgo-hud--cl-hud-color-11 .WeaponPanel-apply-hud-color-bg  { wash-color-fast: hsv-transform(color-hud-11, WEAPONPANEL_BG_HSV_TRANSFORM); }
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.WeaponPanelTop
+{
+	horizontal-align: right;
+	               
+	width: 100px;
+}
+
+.WeaponPanelTop__Icon
+{
+	visibility: collapse;	                                               
+	-s2-mix-blend-mode: SRGBadditive; 
+}
+
+.WeaponPanelTop__Icon--Defuse
+{
+	x: 20px;
+	y: -3px;
+	height: 45px;
+}
+
+.WeaponPanelTop__Icon--Show
+{
+	visibility: visible;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+#WeaponPanelBottomBG
+{
+	height: 100%;
+	width: 100%;
+	opacity: 1.0;
+	flow-children: right;
+	horizontal-align: right;
+                                                                                                                                                                                         
+    background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.1, #000000BB ) , color-stop(0.4, #000000CC), color-stop( 0.7, #000000CC ), to( #00000000 ) );
+}
+
+#WeaponPanelBottomBGGradient {
+	height: 100%;
+	width: 40%;
+	                                                                                           
+	                              
+}
+
+#WeaponPanelBottomBGSolid {
+	height: 100%;
+	width: 60%;
+	                              
+	                              
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+#WeaponPanelBottomContent
+{
+	height: 100%;
+	flow-children: right;
+	horizontal-align: right;
+                                 	
+}
+
+                                            
+
+.Kills
+{
+	                      
+	height: 100%;
+}
+
+.Kills__Count
+{
+	flow-children: right;
+	horizontal-align: right;
+	padding-top: 4px;
+}
+
+.Kills__Count--RightLeftFlow
+{
+	flow-children: left;
+}
+
+.Kills__Count--Hidden
+{
+	visibility: collapse;
+}
+
+.Kills__Icon
+{
+	background-image: url( "file://{images}/hud/weaponpanel/kill_icon.png" );
+	background-size: 100% 100%;
+	width: killIconSize;
+	height: killIconSize;
+	margin-left: 1px;
+}
+
+.Kills__Icon--Headshot
+{
+	background-image: url( "file://{images}/hud/weaponpanel/kill_icon_headshot.png" );
+}
+
+.Kills__Icon--Outline
+{
+	background-image: url( "file://{images}/hud/weaponpanel/kill_icon_outline.png" );
+}
+
+.Kills__Icon--Hidden
+{
+	opacity: 0.0;
+}
+
+.Kills__Icon--Animate
+{
+	animation-name: KillIconShowAnim; 
+	animation-duration: .33s;
+	animation-delay: 0s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'KillIconShowAnim'
+{
+	0%
+	{
+		 opacity: 0;
+		 pre-transform-scale2d: 0.4;
+	}
+
+	40%
+	{
+		 opacity: 1;
+		 pre-transform-scale2d: 1.25;
+	}
+
+	100%
+	{
+		opacity: 1;		
+		pre-transform-scale2d: 1;
+	}
+}
+
+.Kills__Text
+{
+	font-weight: bold;
+	font-size: 24px;
+    color: white;
+    letter-spacing: 0px;
+}
+
+.Kills__KillEater
+{
+	flow-children: right;
+	vertical-align: bottom;
+	horizontal-align: right;
+}
+
+.Kills__KillEater--Hidden
+{
+	visibility: collapse;
+}
+
+.Kills__KillEaterText
+{
+	font-weight: bold;
+	font-size: 16px;
+    color: defaultColor;
+    letter-spacing: 0px;
+}
+
+                                        
+
+.Ammo
+{
+	width: 125px;
+}
+
+.Ammo--Hidden
+{
+	opacity: 0.0;
+}
+
+.Ammo__Clip, 
+.Ammo__Total
+{
+	font-weight: bold;
+    color: defaultColor;
+    letter-spacing: 0px;
+	text-align: right;
+}
+
+.Ammo__Clip
+{
+	x: 4px;
+	y: 0px;
+	width: 72px;
+	font-size: 44px;
+	                               
+	                                      
+    text-shadow: 0px 0px 3px 0.0 #000000DD;
+}
+
+.Ammo__Total
+{
+	x: 60px;
+	y: 6px;
+	width: 60px;
+	font-size: 22px;
+	                                      
+    text-shadow: 0px 0px 3px 0.0 #000000DD;
+}
+
+.Ammo__Burst
+{
+	flow-children: right;
+	x: 74px;
+	y: 8px;
+	visibility: collapse;
+	margin-left: 4px;
+	                        
+                                        
+	
+}
+
+.Ammo__Burst--Burst,
+.Ammo__Burst--Single
+{
+	visibility: visible;
+}
+
+.Ammo__BurstIcon
+{
+	background-image: url( "file://{images}/icons/ui/bullet_burst.svg" );
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: burstIconSize;
+	height: burstIconSize;
+	margin-right: 2px;
+	padding: 22px;
+    img-shadow: 0px 0px 1px #00000044;
+}
+
+.Ammo__Burst--Single .Ammo__BurstIcon
+{
+	background-image: url( "file://{images}/icons/ui/bullet_burst_outline.svg" );
+	opacity: 0.9;
+}
+
+.WeaponPanel--Simple .Ammo__Burst
+{
+    visibility: collapse;
+}
+
+                                            
+
+.AmmoAnim
+{
+	width: 95px;
+	height: 100%;
+}
+
+.WeaponPanel--Simple .AmmoAnim
+{
+    opacity: 0;
+    margin-right: -60px;
+}
+
+.AmmoAnim__Bullets
+{
+	width: 100%;
+	height: 100%;
+}
+
+.AmmoAnim__Bullets--Hidden
+{
+	visibility: collapse;
+}
+
+.AmmoAnim__BulletIcon
+{
+	width: 16px;
+	y: bulletYOffset;
+    img-shadow: 0px 0px 1px #00000022;
+}
+
+.AmmoAnim__BulletIcon--Red
+{
+	wash-color-fast: red;
+}
+
+.AmmoAnim__BulletIcon--Hidden
+{
+	visibility: collapse;
+}
+
+.AmmoAnim__BulletIcon--Pos1
+{
+	x: 45px;
+}
+
+.AmmoAnim__BulletIcon--Pos2
+{
+	x: 35px;
+}
+
+.AmmoAnim__BulletIcon--Pos3
+{
+	x: 25px;
+}
+
+.AmmoAnim__BulletIcon--Pos4
+{
+	x: 15px;
+}
+
+.AmmoAnim__BulletIcon--Pos5
+{
+	x: 5px;
+}
+
+.AmmoAnim__BulletIcon--Anim
+{
+	animation-name: BulletAnim;
+	animation-duration: 0.13s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+.AmmoAnim__BulletIcon--Pos5.AmmoAnim__BulletIcon--Anim
+{
+	animation-name: BulletReloadAnim;
+}
+
+@keyframes 'BulletAnim'
+{
+	0%
+	{
+		 transform: translateX(-10px);
+	}
+
+	100%
+	{
+		transform: translateX(0px);
+	}
+}
+
+@keyframes 'BulletReloadAnim'
+{
+	0%
+	{
+		opacity: 0.0; 
+		transform: translateX(-20px);
+	}
+
+	100%
+	{
+		opacity: 1.0;
+		transform: translateX(0px);
+	}
+}
+
+.AmmoAnim__Shells
+{
+	width: 100%;
+	height: 100%;
+}
+
+.AmmoAnim__ShellIcon
+{
+	width: 16px;
+	x: 45px;
+	y: 20px;
+	visibility: collapse;
+}
+
+.AmmoAnim__ShellIcon--Red
+{
+	wash-color-fast: red;
+}
+
+.AmmoAnim__ShellIcon--Anim
+{
+	visibility: visible;
+	opacity: 0.0;
+
+	animation-name: ShellAnim;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'ShellAnim'
+{
+	0%
+	{
+		opacity: 1.0; 
+		transform: rotateZ( 0deg ) translateY( -120px ) rotateZ( 0deg ) translateY( 120px );
+	}
+
+	25%
+	{
+		opacity: 1.0; 
+		transform: rotateZ( -120deg ) translateY( -120px ) rotateZ( 50deg ) translateY( 120px );
+	}
+
+	100%
+	{
+		opacity: 0.0; 
+		transform: rotateZ( -150deg ) translateY( -120px ) rotateZ( 90deg ) translateY( 120px );
+	}
+}
+
+.AmmoAnim__Grenades
+{
+	flow-children: left;
+	horizontal-align: center;
+	vertical-align: center;
+	padding: 5px;
+}
+
+.AmmoAnim__Grenades--Hidden
+{
+	visibility: collapse;
+}
+
+.AmmoAnim_GrenadeIcon
+{
+	width: 20px;
+	margin-left: 5px;
+	transform: rotateZ( 20deg );
+	wash-color-fast: defaultColor;
+}
+
+.AmmoAnim_GrenadeIcon--Hidden
+{
+	visibility: collapse;
+}
+
+
+
+.SteamInputGlyphsActive CSGOHudWeaponPanel CCSGOSteamInputAction.ControllerConnected,
+CSGOHudWeaponPanel CCSGOSteamInputAction
+{
+    visibility: collapse;
+}
+
+.SteamInputGlyphsActive CSGOHudWeaponPanel.WeaponPanel--HasAltFireMode CCSGOSteamInputAction.ControllerConnected 
+{
+	visibility: visible;
+}
+
+
+CSGOHudWeaponPanel .steam-button-glyph
+{
+    width: 24px;
+    height: 24px;
+}

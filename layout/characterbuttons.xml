@@ -1,0 +1,51 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/characterbuttons.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/characterbuttons.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+	</scripts>
+
+
+
+		<Panel class="loadout-character-controls">
+
+			<Panel id="SpecialControls" class="left-right-flow border-right-white">
+				<Button id="PlayCheer"
+					class="IconButton"
+					onactivate="CharacterButtons.PlayCheer();"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'PlayCheer', '#tooltip_character_cheer' );"
+					onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" src="file://{images}/icons/ui/cheer.svg" />
+				</Button>
+				
+				<Button id="PreviewModelVoice"
+					class="IconButton"
+					onactivate="CharacterButtons.PreviewModelVoice();"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'PreviewModelVoice', '#tooltip_character_voice' );"
+					onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" src="file://{images}/icons/ui/sound_off.svg" />
+				</Button>
+			</Panel>
+			
+			<Panel class="margin-right-20" />
+
+			<ToggleButton id="LoadoutSingleItemModelZoom"
+				class="PopupButton Zoom"
+				onactivate="CharacterButtons.ZoomCamera();"
+				onmouseover="UiToolkitAPI.ShowTextTooltip( 'LoadoutSingleItemModelZoom', '#tooltip_character_zoom' );"
+				onmouseout="UiToolkitAPI.HideTextTooltip();">
+			</ToggleButton>
+
+			<DropDown id="LoadoutSingleItemModelWeaponChoice" class="PopupButton horizontal-align-left" menuclass="DropDownMenu Width-250" >
+			                                 
+			</DropDown>
+
+		</Panel>
+
+	
+</root>

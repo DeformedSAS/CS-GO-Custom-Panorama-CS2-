@@ -1,0 +1,40 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/stats/playerstats.css" />
+		<include src="file://{resources}/styles/stats/playerstats_calendar.css" />		
+	</styles>
+
+	<scripts>
+			<include src="file://{resources}/scripts/common/dateutil.js" />
+		<include src="file://{resources}/scripts/tooltips/stats/tooltip_playerstats_calendar_day.js" />
+	</scripts>
+	
+	<snippets>
+
+		<snippet name="snippet-match">
+			<Panel class="left-right-flow horizontal-align-right">
+				<Label class="playerstats-tt__match__map" text="{s:map}" />
+				<Label class="playerstats-tt__match__myscore" text="{s:myscore}" />
+				<Label class="playerstats-tt__match__-" text=" - " />
+				<Label class="playerstats-tt__match__enemyscore" text="{s:enemyscore}" />
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+
+	<Panel useglobalcontext="false" ontooltiploaded="PlayerStatsCalendarDayTooltip.Init()">
+		                                                            
+			                                                                       
+		                     
+
+		<Panel class="playerstats-tt__root">
+			<Label class="playerstats-tt__header" text="{s:date}" />
+			<Panel id="TTCalendarDayMatchList" class="playerstats-tt__matches">
+				                   
+			</Panel>
+		</Panel>
+
+	</Panel>
+</root>

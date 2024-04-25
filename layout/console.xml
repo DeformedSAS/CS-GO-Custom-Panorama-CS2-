@@ -1,0 +1,13 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/panorama_base.css" />
+	</styles>
+	
+	<Panel>
+		<Button id="PanelOne"  onactivate="ToggleDebugger()" >
+			<Label text="This is a label" />
+		</Button>
+		<TextEntry id="TextEntry" />
+	</Panel>
+</root>
+		

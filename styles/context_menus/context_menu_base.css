@@ -1,0 +1,163 @@
+  
+                                         
+
+                                                                                
+                                                                 
+  
+
+#Contents
+{
+	padding: 8px 0px;
+	flow-children: down;
+	width: fit-children;
+	background-color: contextMenuBackground;
+    opacity: 1;
+	box-shadow: shadowOffset;
+	border-radius: btnBorderRadius;
+}
+
+#LeftArrow, #RightArrow, #TopArrow, #BottomArrow
+{
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	
+                                                                      
+	                                                               
+	                                 
+	z-index: 1;
+	
+	                            
+	visibility: collapse;
+}
+
+#LeftArrow, #RightArrow
+{
+	                                                                  
+	                                                           
+	width: 31px;
+	height: 38px;
+
+	                                           
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+#LeftArrow
+{
+	background-image: url( "file://{images}/tooltips/tooltip_arrow_left.vtf" );
+	
+	                                                      
+	margin-right: -2px;
+}
+#RightArrow
+{
+	background-image: url( "file://{images}/tooltips/tooltip_arrow_right.vtf" );
+	margin-left: -2px;
+}
+
+#TopArrow, #BottomArrow
+{
+	width: 38px;
+	height: 31px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+#TopArrow
+{
+	background-image: url( "file://{images}/tooltips/tooltip_arrow_top.vtf" );
+	margin-bottom: -2px;
+}
+#BottomArrow
+{
+	background-image: url( "file://{images}/tooltips/tooltip_arrow_bottom.vtf" );
+	margin-top: -2px;
+}
+
+                                                                                                                
+#ContextMenuBody.LeftArrowVisible #LeftArrow
+{
+	visibility: visible;
+}
+#ContextMenuBody.RightArrowVisible #RightArrow
+{
+	visibility: visible;
+}
+#ContextMenuBody.TopArrowVisible #TopArrow
+{
+	visibility: visible;
+}
+#ContextMenuBody.BottomArrowVisible #BottomArrow
+{
+	visibility: visible;
+}
+
+.ContextMenu_NoArrow #ContextMenuBody.LeftArrowVisible #LeftArrow
+{
+	visibility: collapse;
+}
+.ContextMenu_NoArrow #ContextMenuBody.RightArrowVisible #RightArrow
+{
+	visibility: collapse;
+}
+.ContextMenu_NoArrow #ContextMenuBody.TopArrowVisible #TopArrow
+{
+	visibility: collapse;
+}
+.ContextMenu_NoArrow #ContextMenuBody.BottomArrowVisible #BottomArrow
+{
+	visibility: collapse;
+}
+
+                                                              
+                                                                            
+#ContextMenuBody.LeftArrowVisible #Contents
+{
+	margin-left: 0px;
+	min-height: 60px;
+	max-height: 920px;
+	overflow: squish scroll;
+}
+#ContextMenuBody.RightArrowVisible #Contents
+{
+	margin-right: 0px;
+	min-height: 60px;
+	max-height: 920px;
+	overflow: squish scroll;
+}
+#ContextMenuBody.BottomArrowVisible #Contents
+{
+	margin-bottom: 0px;
+	min-width: 60px;
+}
+#ContextMenuBody.TopArrowVisible #Contents
+{
+	margin-top: 0px;
+	min-width: 60px;
+}
+
+
+                                
+#ContextMenuBody
+{
+	flow-children: down;
+	padding: 8px;
+}
+.ContextMenuBodyRow
+{
+	flow-children: right;
+}
+
+.CartTournamentPasses
+{
+	background-color: rgba(0, 0, 0, 0.658);
+}
+
+.CartTournamentPasses #ContextMenuBody
+{
+	horizontal-align: center;
+	vertical-align: center;
+	ui-scale: 150%;
+	
+	transition-property: transform;
+	transition-duration: .20s;
+	transition-timing-function: ease-in-out;
+}

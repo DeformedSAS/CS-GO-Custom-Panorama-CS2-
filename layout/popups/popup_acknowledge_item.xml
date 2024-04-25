@@ -1,0 +1,84 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_acknowledge_item.css" />
+		<include src="file://{resources}/styles/operation/operation_shared.css" />
+		<include src="file://{resources}/styles/operation/operation_main.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_acknowledge_item.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/popups/popup_capability_can_sticker.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="Item">
+			<Panel class="popup-acknowledge__item">
+				<Panel id="AcknowledgeMovie" class="popup-acknowledge__bg"/>
+				<Panel id="AcknowledgeBar" class="popup__rarity-bar" />
+
+				<ItemPreviewPanel id="AcknowledgeItemModel"
+							class="popup-acknowledge__item__model"
+							manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+							item="img://inventory_4295015926"
+							mouse_rotate="true"/>
+				<ItemImage id="AcknowledgeItemImage" large="true" class="popup-acknowledge__item__image" acceptsfocus="true" />
+
+				<Panel id="AcknowledgeEquipBtn" class="popup-acknowledge__equip hidden"> 
+					                                           
+								                       
+								                                                                 
+								                                            
+				</Panel>
+				<Panel class="popup-acknowledge__info__title-container" >
+					<Panel id="AcknowledgeItemOperationTier" class="horizontal-center right-padding left-padding hide">
+						<Image class="op-main-topbar__icon" texturewidth="112" textureheight="-1" src="file://{images}/icons/ui/icon_star_empty.svg" />
+						<Label class="vertical-center horizontal-center op-header__num" text="{d:reward_tier}"/>
+					</Panel>
+					<Label id="AcknowledgeItemTitle"  class="popup-acknowledge__info__title" text="#popup_title_acknowledge" />
+				</Panel>
+				<Label id="AcknowledgeItemCount" class="popup-acknowledge__item-count" text=""/>
+				<Panel id="AcknowledgeItemInfo" class="popup-acknowledge__info-block">
+					<Panel id="AcknowledgeItemGift" class="popup-acknowledge__subtitle right-left-flow hidden bottom-padding">
+						<Label id="AcknowledgeItemGiftLabel" class="popup-acknowledge__subtitle-label left-padding"/>
+						<Image texturehwidth="24" textureheight="-1" src="file://{images}/icons/ui/gift.svg"/>
+					</Panel>
+					
+					                 
+					                                                                                             
+						                                             
+							                                                                                      
+						                 
+					                 
+					                 
+					
+					<Label id="AcknowledgeItemLabel"  class="popup-acknowledge__info__itemname stratum-font"/>
+					<Panel id="AcknowledgeItemSet" class="right-left-flow hide">
+						<Label id="AcknowledgeItemSetLabel" class="popup-acknowledge__subtitle-label left-padding" text='#SetName'/>
+						<Image id="AcknowledgeItemSetImage" class="popup-acknowledge__subtitle_seticon" src=""/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<PopupCustomLayout class="Dark PopupPanel Hidden popup-acknowledge"
+						useglobalcontext="true"
+						popupbackground="dim"
+						oncancel="AcknowledgeItems.AcknowledgeAllItems.OnActivate();"
+						onload="AcknowledgeItems.OnLoad();"
+						>
+		<Carousel id="AcknowledgeItemsCarousel" class="full-width" panels-visible="1" hittest="false">
+			                      
+		</Carousel>
+		<Panel class="PopupButtonRow vertical-align-bottom">
+			<TextButton id="AcknowledgeItemBtn"
+						class="PopupButton"
+						text="#ConfirmButtonText"
+						onactivate="AcknowledgeItems.AcknowledgeAllItems.OnActivate();"/>
+		</Panel>
+		<CarouselNav carouselid="AcknowledgeItemsCarousel" incrementsound="inventory_new_item_scroll"/>
+	</PopupCustomLayout>
+</root>

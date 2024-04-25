@@ -1,0 +1,46 @@
+#Contents.ContextMenuPlayerCard
+{
+	flow-children: right;
+	background-color: contextMenuBackground;
+	border-radius: 2px;
+	opacity: 1;
+	box-shadow: shadowOffset;
+	border: 0px solid black;
+	border-radius: 3px;
+	margin: 0px;
+	padding: 0px;
+	width: fit-children;
+	height: fit-children;
+	margin: 8px;
+
+	transition-property: height;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.context-menu-playercard-info
+{
+	flow-children: down;
+	width: 384px;
+}
+
+.context-menu-playercard-seperator
+{
+	background-color: rgba(124, 124, 124, 0.15);
+	width: 1px;
+	height: 100%;
+}
+
+.context-menu-playercard-btns
+{
+	width: fit-children;
+	height: fit-children;
+	margin: 4px 0px;
+    flow-children: down;
+	horizontal-align: right;
+}
+
+.context-menu-playercard-btns .IconButton
+{
+	margin: 8px 16px 8px 16px;
+}

@@ -1,0 +1,48 @@
+.ContextMenu,
+{
+}
+
+#ContextMenuBodyNoScroll{
+
+}
+
+#ContextMenuBodyWeapons{
+
+	max-height: 300px;
+	overflow: scroll;
+}
+
+.ContextMenuItem Button.vanity-item--weapon{
+	height:30px;
+	padding: 0px;
+	width:fit-children;
+
+}
+
+.ContextMenuItem Button.vanity-item{
+	width:fit-children;
+}
+
+.ContextMenuItem .vanity-item--weapon .vanity-item__label{
+
+	padding: 4px 28px;
+	width:fit-children;
+	
+}
+
+.ContextMenuItem .vanity-item__label{
+
+  	                   
+	max-height: 100%;		
+
+	text-overflow:shrink;
+	width:fit-children;
+	
+}
+
+.ContextMenuItem .vanity-item__rarity{
+
+	max-height: 100%;
+	height: 100%;
+	width:fit-children;
+}

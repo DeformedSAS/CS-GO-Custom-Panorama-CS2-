@@ -1,0 +1,1348 @@
+                                       
+
+@define winPanelPosY: 210px;
+@define winPanelPosYRoundEndReport: 120px;
+@define winPanelPosYSurvival: 0px;
+@define winPanelWidth: 1020px;
+@define winPanelHeight: 78px;
+@define winPanelHeightSurvival: 108px;
+@define musicKitAnimDuration: 0.0s;
+
+
+CSGOHudWinPanel Label
+{
+    font-family: Stratum2, 'Arial Unicode MS';
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.WinPanelRoot
+{
+	width: winPanelWidth;
+	height: 500px;
+
+	horizontal-align: center;
+	y: winPanelPosY;
+
+	flow-children: down;
+}
+
+.WinPanelRoot.ShowRoundEndReport {
+	y: winPanelPosYRoundEndReport;
+}
+
+.ShowRoundEndReport #RoundImpactScoreReport,
+.ShowRoundEndReport #RoundImpactScoreMain {
+	visibility: visible;
+}
+
+.ShowRoundEndReport #WinPanelRow,
+.ShowRoundEndReport #TeamLogoDefault,
+.ShowRoundEndReport #TeamLogo,
+.ShowRoundEndReport #Funfact
+{
+	visibility: collapse;
+}
+
+
+.WinPanelRoot--SurvivalVictory.WinPanelRoot,
+.WinPanelRoot--SurvivalDeath.WinPanelRoot
+{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.281);
+	y: winPanelPosYSurvival;
+}
+
+.WinPanelFadeParent
+{
+	width: 100%;
+	height: 100%;
+	flow-children: down;
+}
+
+.WinPanelRoot--ShowAnim .WinPanelFadeParent
+{
+	opacity: 1.0;
+	animation-name: WinPanelRootShowAnim;
+	animation-duration: 0.2s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+.WinPanelRoot--SurvivalVictory.WinPanelRoot--ShowAnim .WinPanelFadeParent,
+.WinPanelRoot--SurvivalDeath.WinPanelRoot--ShowAnim .WinPanelFadeParent
+{
+	opacity: 1.0;
+	animation-name: WinPanelRootShowAnimSurvival;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+.WinPanelRoot--HideAnim .WinPanelFadeParent
+{
+	opacity: 0.0;
+	animation-name: WinPanelRootHideAnim;
+	animation-duration: 0.2s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+.WinPanelRoot--ForceHide
+{
+	visibility: collapse;
+}
+
+@keyframes 'WinPanelRootShowAnim'
+{
+	0%
+	{
+		 opacity: 0.0;
+	}
+
+	100%
+	{
+		opacity: 1.0;
+	}
+}
+
+@keyframes 'WinPanelRootShowAnimSurvival'
+{
+	0%
+	{
+		transform: Scale3d( 3.0, 3.0, 3.0 ) translateY( 500px );
+		opacity: 0.0;
+	}
+
+	20%
+	{
+		opacity: 1.0;
+	}
+
+	100%
+	{
+		transform: Scale3d( 1, 1, 1 ) translateY( 0px );
+		opacity: 1.0;
+	}
+}
+
+@keyframes 'WinPanelRootHideAnim'
+{
+	0%
+	{
+		 opacity: 1.0;
+	}
+
+	100%
+	{
+		opacity: 0.0;
+	}
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.WinPanelRow
+{
+	width: 100%;
+	margin-bottom: 0px;
+	visibility: visible;
+}
+
+.WinPanelRow--Hidden,
+.WinPanelRoot--SurvivalVictory .WinPanelRow--Main,
+.WinPanelRoot--SurvivalDeath .WinPanelRow--Main
+{
+	visibility: collapse;
+}
+
+.WinPanelRow--Main
+{
+	height: winPanelHeight;
+}
+
+
+.WinPanelRow--FlowDown
+{
+	flow-children: down;
+}
+
+.WinPanelRow--Anim
+{
+	opacity: 1.0;
+	
+	animation-name: WinPanelRowAnim;
+	animation-duration: 0.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'WinPanelRowAnim'
+{
+	0%
+	{
+		opacity: 0.0; 
+		transform: translateY( 300px );
+	}
+
+	100%
+	{
+		opacity: 1.0; 
+		transform: translateY( 0px );
+	}
+}
+
+.WinPanelRow__Title
+{
+	width: 100%;
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #00000033 ) , color-stop(0.50, #00000066), color-stop( 0.80, #00000033 ), to( #00000000 ) );
+	padding: 5px;
+	font-size: 18px;
+	font-weight: normal;
+	color: #ffffff;
+	text-align: center;
+	text-shadow-fast: 2px 1px #000000bf;
+}
+
+.WinPanelRow__Title--Bold
+{
+	                    
+}
+
+.WinPanelRow__Body
+{
+	width: 100%;
+	background-color: #00000060;
+	padding: 5px;
+}
+
+.WinPanelRow__Body--FlowDown
+{
+	flow-children: down;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.WinPanelTeam
+{
+	width: 100%;
+	height: 100%;
+	visibility: collapse;
+}
+
+.WinPanelRoot--CTWin .WinPanelTeam,
+.WinPanelRoot--TWin .WinPanelTeam,
+.WinPanelRoot--Draw .WinPanelTeam
+{
+	visibility: visible;
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.TeamBG
+{
+	width: 100%;
+	height: 100%;
+}
+
+.TeamBG__hrTop { 
+	width: 100%;
+	height: 1px;
+	vertical-align: top;
+	z-index: 5;
+}
+
+.TeamBG__hrMid { 
+	width: 100%;
+	height: 1px;
+	y: 80px;
+	z-index: 5;
+}
+
+.TeamBG__hrBot { 
+	width: 100%;
+	height: 1px;
+	vertical-align: bottom;
+	z-index: 5;
+}
+
+.TeamBG__Border
+{
+	width: 100%;
+	height: 100%;
+	padding: 3px;
+}
+
+.TeamBG__MainBG
+{
+	width: 100%;
+	height: 100%;
+	z-index: 4;
+}
+
+.TeamBG__TitleBG
+{
+	width: 100%;
+	height: 39px;
+	y: 4px;
+	                                                                                                                                                                                                                         
+}
+
+.TeamBG__DefaultLogo
+{
+	width: 88px;
+	height: 88px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: -82px;
+	opacity: 1;
+	background-size: contain;
+	background-repeat: no-repeat;
+	visibility: visible;
+	z-index: 10;
+}
+
+.WinPanelRoot--ShowTeamLogo .TeamBG__DefaultLogo
+{
+	visibility: collapse;
+}
+
+.TeamBG__TeamLogo
+{
+	width: 94px;
+	height: 94px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: -84px;
+	opacity: 1;
+	background-size: contain;
+	background-repeat: no-repeat;
+	z-index: 10;
+	visibility: collapse;
+    img-shadow: 0px 0px 1px 1.5 #000000AA;
+}
+
+.WinPanelRoot--ShowTeamLogo .TeamBG__TeamLogo
+{
+	visibility: visible;
+}
+
+                        
+
+.WinPanelRoot--CTWin .TeamBG__hrTop
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #000000cc ) , color-stop(0.50, #000000ff), color-stop( 0.80, #000000cc ), to( #00000000 ) );
+}
+
+
+.WinPanelRoot--CTWin .TeamBG__hrBot
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #000000cc ) , color-stop(0.50, #000000ff), color-stop( 0.80, #000000cc ), to( #00000000 ) );
+}
+
+.WinPanelRoot--CTWin .TeamBG__Border
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5A7182 ), to( #1F2A31 ) );
+}
+
+.WinPanelRoot--CTWin .TeamBG__MainBG
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #0c101300 ), color-stop( 0.20, #18202599 ) , color-stop(0.50, #182025e6), color-stop( 0.80, #18202599 ), to( #18202500 ) );
+}
+
+.WinPanelRoot--CTWin .TeamBG__DefaultLogo
+{
+	background-image: url( "file://{images}/icons/ct_logo.svg" );
+	horizontal-align: center;
+}
+
+.WinPanelRoot--CTWin .TeamFG__Title
+{
+	color: color-CT;
+}
+
+                       
+
+.WinPanelRoot--TWin .TeamBG__hrTop
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #5A4C2F00 ), color-stop( 0.20, #5A4C2F00 ) , color-stop(0.5, #5A4C2F45), color-stop( 0.80, #5A4C2F00 ), to( #5A4C2F00 ) );
+}
+
+.WinPanelRoot--TWin .TeamBG__hrBot
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #000000cc ) , color-stop(0.50, #000000ff), color-stop( 0.80, #000000cc ), to( #00000000 ) );
+}
+
+.WinPanelRoot--TWin .TeamBG__MainBG
+{
+	                            
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #261A0900 ), color-stop( 0.20, #2d231599 ) , color-stop(0.50, #2d2315e6), color-stop( 0.80, #2d231599 ), to( #261A0900 ) );
+}
+
+.WinPanelRoot--TWin .TeamBG__DefaultLogo
+{
+	background-image: url( "file://{images}/icons/t_logo.svg" );
+	horizontal-align: center;
+}
+
+.WinPanelRoot--TWin .TeamFG__Title
+{
+	color: color-T;
+}
+
+
+                      
+
+.WinPanelRoot--Draw .TeamBG__Border
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5A7182 ), to( #1F2A31 ) );
+}
+
+.WinPanelRoot--Draw .TeamBG__MainBG
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #00000099 ) , color-stop(0.50, #000000e6), color-stop( 0.80, #00000099 ), to( #00000000 ) );
+}
+
+.WinPanelRoot--SurvivalVictory.WinPanelRoot--Draw .TeamBG__MainBG,
+.WinPanelRoot--SurvivalDeath.WinPanelRoot--Draw .TeamBG__MainBG
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #56492200 ), color-stop( 0.20, #56492299 ) , color-stop(0.50, #564922e6), color-stop( 0.80, #56492299 ), to( #56492200 ) );
+}
+
+.WinPanelRoot--Draw .TeamBG__DefaultLogo
+{
+	visibility: collapse;
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.TeamFG
+{
+	width: 100%;
+	height: 100%;
+}
+
+.TeamFG__Title
+{
+	width: 100%;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 26px;
+    color: #dadada;
+	letter-spacing: 0.5px;
+	text-align: center;
+	y: 6px;
+}
+
+.WinPanelRoot--SurvivalVictory .TeamFG__Title,
+.WinPanelRoot--SurvivalDeath .TeamFG__Title
+{
+	font-size: 46px;
+	color: #ffffff;
+}
+
+.TeamFG__Surrender
+{
+	y: 34px;
+	width: 100%;
+
+	font-size: 16px;
+    color: white;
+	letter-spacing: 0px;
+	text-align: center;
+
+	vertical-align: top;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.WinPanelGunGame
+{
+	width: 100%;
+	height: 100%;
+
+	visibility: collapse;
+}
+
+.WinPanelRoot--GunGame .WinPanelGunGame
+{
+	visibility: visible;
+}
+
+
+                                                                               
+                                                                                  
+                                                                               
+
+.GunGameBG
+{
+	width: 100%;
+	height: 100%;
+
+	opacity: 0.98;
+}
+
+.GunGameBG__Border
+{
+	width: 100%;
+	height: 100%;
+	padding: 3px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5A7182 ), to( #1F2A31 ) );
+}
+
+.GunGameBG__MainBG
+{
+	width: 100%;
+	height: 100%;
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #000000cc ) , color-stop(0.50, #000000ff), color-stop( 0.80, #000000cc ), to( #00000000 ) );
+}
+
+.GunGameBG__TitleBG
+{
+	width: 100%;
+	height: 39px;
+	y: 4px;
+
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #000000cc ) , color-stop(0.50, #000000ff), color-stop( 0.80, #000000cc ), to( #00000000 ) );
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.GunGameFG
+{
+	width: 100%;
+	height: 100%;
+}
+
+.GunGameFG__Title
+{
+	width: 100%;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 30px;
+    color: #a7a7a7;
+	letter-spacing: 0.5px;
+	text-align: center;
+	y: 6px;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.MVP_content
+{
+	vertical-align: bottom;
+	horizontal-align: center;
+	visibility: visible;
+	margin-bottom: 6px;
+}	
+
+
+.MVP
+{
+	flow-children: right;
+	width: fit-children;
+	horizontal-align: center;
+	vertical-align: middle;
+	                                                                                                                                                                                       
+}
+
+.MVP--Hidden
+{
+	visibility: collapse;
+}
+
+              
+ 
+	               
+	                    
+   
+
+.MVP__Layout--Hidden
+{
+	visibility: collapse;
+}
+
+.MVP__Layout--Left
+{
+}
+
+
+.MVP__Layout--Right
+{
+	width: fit-children;
+}
+
+.MVP__Winner
+{
+	width: fit-children;
+	                                  
+	flow-children: right;
+	                       
+}
+
+.MVP__WinnerStar
+{
+	height: 16px;
+	vertical-align: middle;
+	margin: 0px 2px 3px 0px;
+}
+
+.WinPanelRoot--SurvivalVictory .MVP__WinnerStar,
+.WinPanelRoot--SurvivalDeath .MVP__WinnerStar,
+.WinPanelRoot--GunGame .MVP__WinnerStar
+{
+	visibility: collapse;
+}
+
+.MVP__WinnerName
+{
+	vertical-align: middle;
+	padding-left: 2px;
+	font-size: 18px;
+	font-weight: normal;
+	color: #ffffff;
+}
+
+.WinPanelRoot--SurvivalVictory .MVP__WinnerName,
+.WinPanelRoot--SurvivalDeath .MVP__WinnerName
+{
+	font-size: 34px;
+	color: #ffffff;
+}
+
+.WinPanelRoot--GunGame .MVP__WinnerName
+{
+	color: #ffffff;
+}
+
+.MVP__Avatar
+{
+	width: 32px;
+	height: 32px;
+	                          
+	vertical-align: center;
+	margin-right: 8px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #6d6d6d ), to( #464646) );
+}
+
+.MVP__Avatar .AvatarImage
+{
+	padding: 2px;
+}
+
+.MVP__Avatar--ExtraMargin
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+  
+                                    
+ 
+	                  
+ 
+  
+
+.MVP__AvatarText
+{
+	vertical-align: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: #999999;
+}
+
+.MVP__MusicKit
+{
+	flow-children: right;
+	width: fit-children;
+	                                  
+	vertical-align: middle;
+}
+
+.WinPanelRoot--SurvivalVictory .MVP__MusicKit,
+.WinPanelRoot--SurvivalDeath .MVP__MusicKit,
+.MVP__MusicKit--Hidden
+{
+	visibility: collapse;
+}
+
+.MVP__MusicKitAnim
+{
+	visibility: collapse;
+	flow-children: right;
+	width: fit-children;
+	vertical-align: middle;
+	margin-left: 20px;
+}
+
+
+.MVP__MusicKitAnim--Scroll
+{
+	animation-name: MusicKitScrollAnim;
+	animation-duration: musicKitAnimDuration;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+
+@keyframes 'MusicKitScrollAnim'
+{
+	0%
+	{
+		opacity: 0.0; 
+		transform: translateX( -300px );
+	}
+
+	25%
+	{
+		opacity: 1.0; 
+		transform: translateX( 0px );
+	}
+
+	100%
+	{
+		opacity: 1.0; 
+		transform: translateX( 0px );
+	}
+}
+
+.MVP__MusicKitIcon
+{
+	width: fit-children;
+	height: 30px;
+	vertical-align: middle;
+	margin-left: 15px;
+}
+
+.MVP__MusicKitText
+{
+	font-size: 18px;
+	color: #ffffff;
+	vertical-align: middle;
+	text-overflow: shrink;
+	padding-left: 4px;
+}
+
+.MVP__MusicKitName
+{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 400px;
+}
+
+.MVP__MusicKitInfoText
+{
+	visibility: collapse;
+	width: fit-children;
+	font-size: 18px;
+	color: #ffffff;
+	vertical-align: middle;
+}
+
+.MVP__MusicKitText--Bold
+{
+	                    
+}
+
+.MVP__MusicKitText--Hidden
+{
+	visibility: collapse;
+}
+
+.MVP__MusicKitText--AnimFadeOut
+{
+	opacity: 0.0;
+	
+	animation-name: MusicKitFadeOutAnim;
+	animation-duration: musicKitAnimDuration;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	width: fit-children;
+}
+
+.MVP__MusicKitText--AnimFadeIn
+{
+	opacity: 1.0;
+
+	animation-name: MusicKitFadeInAnim;
+	animation-duration: musicKitAnimDuration;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'MusicKitFadeOutAnim'
+{
+	0%
+	{
+		opacity: 1.0; 
+	}
+
+	68%
+	{
+		opacity: 1.0; 
+	}
+
+	86%
+	{
+		opacity: 0.0; 
+	}
+
+	100%
+	{
+		opacity: 0.0; 
+	}
+}
+
+@keyframes 'MusicKitFadeInAnim'
+{
+	0%
+	{
+		opacity: 0.0; 
+	}
+
+	86%
+	{
+		opacity: 0.0; 
+	}
+
+	100%
+	{
+		opacity: 1.0; 
+	}
+}
+
+.MVP__GunGameAvatars
+{
+	flow-children: right;
+	vertical-align: center;
+	margin-left: 10px;
+}
+
+.MVP__GunGameAvatars--Hidden
+{
+	visibility: collapse;
+}
+
+.MVP__GunGameAvatars--ScrollAnim
+{
+	opacity: 1.0;
+	
+	animation-name: AvatarScrollAnim;
+	animation-duration: 1.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'AvatarScrollAnim'
+{
+	0%
+	{
+		opacity: 0.0; 
+		transform: translateX( -200px );
+	}
+
+	50%
+	{
+		opacity: 0.0; 
+		transform: translateX( -200px );
+	}
+
+	100%
+	{
+		opacity: 1.0; 
+		transform: translateX( 0px );
+	}
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.Medals
+{
+	horizontal-align: center;
+	flow-children: right;
+}
+
+.Medals__Icon
+{
+	height: 56px;
+	margin-right: 10px;
+}
+
+.Medals__Icon--Hidden
+{
+	visibility: collapse;
+}
+
+.Medals__Icon--Anim
+{
+	opacity: 1.0;
+	
+	animation-name: MedalsIconAnim;
+	animation-duration: 0.8s;
+	animation-delay: 0.1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'MedalsIconAnim'
+{
+	0%
+	{
+		opacity: 0.0;
+		brightness: 1.0;
+	}
+
+	33%
+	{
+		opacity: 1.0;
+		brightness: 1.0;
+	}
+
+	66%
+	{
+		opacity: 1.0;
+		brightness: 4.0;
+	}
+
+	100%
+	{
+		opacity: 1.0;
+		brightness: 1.0;
+	}
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.MedalStats
+{
+	width: 100%;
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #00000099 ) , color-stop(0.50, #000000e6), color-stop( 0.80, #00000099 ), to( #00000000 ) );
+	padding: 5px;
+	flow-children: right;
+}
+
+.MedalStats__Icon
+{
+	height: 30px;
+	margin-right: 20px;
+}
+
+.MedalStats__Text
+{
+	font-size: 20px;
+	font-weight: normal;
+	color: white;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.RankUp 
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.20, #00000099 ) , color-stop(0.50, #000000e6), color-stop( 0.80, #00000099 ), to( #00000000 ) );
+	padding: 15px 5px 15px 40px;
+}
+
+.RankUp__Text
+{
+	font-size: 22px;
+	font-weight: normal;
+	visibility: collapse;
+}
+
+.RankUp__Text--Bold
+{
+	font-weight: bold;
+}
+
+.RankUp__Text--Show,
+.RankUp--SingleRank .RankUp__Text--SingleRank,
+.RankUp--Coin .RankUp__Text--Coin,
+.RankUp--MultiRank .RankUp__Text--MultiRank
+{
+	visibility: visible;
+}
+
+
+                                                                               
+                                                                               
+                                                                               
+
+.GunGameExtra
+{
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.30, #00000080 ) , color-stop(0.50, #000000a6), color-stop( 0.70, #00000080 ), to( #00000000 ) );
+	padding: 5px;
+}
+
+.GunGameExtra__Center
+{
+	flow-children: right;
+	horizontal-align: center;
+}
+
+.GunGameExtra__Text
+{
+	font-size: 18px;
+	font-weight: normal;	
+}
+
+.GunGameExtra__Text--Bold
+{
+	font-weight: bold;	
+}
+
+.GunGameExtra__Icon
+{
+	wash-color: #ffffff;
+	padding: 5px;
+}
+
+                                                                               
+                                                                              
+                                                                               
+
+.survival-winner-container
+{
+	visibility: collapse;
+	height: 100%;
+	width: 100%;
+}
+
+.WinPanelRoot--SurvivalVictory .survival-winner-container,
+.WinPanelRoot--SurvivalDeath .survival-winner-container
+{
+	visibility: visible;
+}
+
+.survival-winner
+{
+	width: 512px;
+	height: 512px;
+	horizontal-align: center;
+	vertical-align: center;
+	transform-origin: 50% 50%;
+	background-color: rgba(0, 0, 0, 0.95);
+	opacity-mask: url( "file://{images}/masks/survival-eom.png" );
+}
+
+.survival-winner__movie
+{
+    width: 500px;
+	height: 500px;
+	horizontal-align: center;
+	vertical-align: center;
+	opacity: 1;
+
+	transition-delay: 1.25s;
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in;
+}
+
+.survival-winner__movie--fadeout
+{
+	opacity: 0;
+}
+
+#id-survival-border-1,
+#id-survival-border-2,
+#id-survival-border-3,
+#id-survival-border-4
+{
+	visibility: collapse;
+}
+
+.survival-winner--placement-1 #id-survival-border-1
+{ 
+	visibility: visible;
+}
+
+.survival-winner--placement-2 #id-survival-border-2
+{ 
+	visibility: visible;
+}
+
+.survival-winner--placement-3 #id-survival-border-3
+{ 
+	visibility: visible;
+}
+
+.survival-winner--placement-4 #id-survival-border-4
+{ 
+	visibility: visible;
+}
+
+.WinPanelRoot--SurvivalDeath .survival-winner__movie
+{
+	                                  
+}
+
+.survival-winner__ring
+{
+    width: 400px;
+	height: 400px;
+	horizontal-align: center;
+	vertical-align: center;
+	transform: scale3d( 1, 1, 1 );
+	border-radius: 50%;
+	border: 3px solid white;
+	blur: fastgaussian( 2, 2, 6 );
+	-s2-mix-blend-mode: screen; 
+	opacity: 0;
+
+}
+
+.survival-winner__ring--flash
+{
+	animation-name: survival-eom-flash;
+	animation-delay: 0.50s;
+	animation-duration: .4s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+	animation-fill-mode: both;
+}
+
+@keyframes 'survival-eom-flash'
+{
+	0%
+	{
+		transform: scale3d( 1, 1, 1 );
+		opacity: 0;
+	}
+
+	1%
+	{
+		transform: scale3d( 1, 1, 1 );
+		opacity: 1;
+	}
+
+	100%
+	{
+		transform: scale3d( 1.8, 1.8, 1.8 );
+		opacity: 0;
+	}
+}
+
+.survival-winner__data
+{
+	flow-children: down;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.survival-winner__text-large
+{
+	horizontal-align: center;
+	text-align: center;
+	font-size: 32px;
+	font-weight: medium;
+	text-transform: uppercase;
+	-s2-mix-blend-mode: screen;
+	max-width: 350px;
+	text-overflow: shrink;
+}
+
+.survival-winner__text-small
+{
+	horizontal-align: center;
+	text-align: center;
+	font-size: 20px;
+	font-weight: medium;
+	text-transform: none;
+	-s2-mix-blend-mode: screen;
+	max-width: 350px;
+	text-overflow: ellipsis;
+	height: 32px;
+}
+
+.survival-winner--placement-1 .survival-winner__text-large,
+.survival-winner--placement-1 .survival-winner__text-small
+{
+	color:#f5f3ba;
+}
+
+.survival-winner--placement-1 .survival-winner__text-large
+{
+	text-shadow: 0px 0px 6px 0.25 #bdbb8f;
+}
+
+.survival-winner--placement-2 .survival-winner__text-large,
+.survival-winner--placement-2 .survival-winner__text-small
+{
+	color:#c4c1b5;
+}
+
+.survival-winner--placement-2 .survival-winner__text-large
+{
+	text-shadow: 0px 0px 6px 0.25 #8d8c83;
+}
+
+.survival-winner--placement-3 .survival-winner__text-large,
+.survival-winner--placement-3 .survival-winner__text-small
+{
+	color:#ab836e;
+}
+
+.survival-winner--placement-3 .survival-winner__text-large
+{
+	text-shadow: 0px 0px 6px 0.25 #816352;
+}
+
+.survival-winner--placement-4 .survival-winner__text-large,
+.survival-winner--placement-4 .survival-winner__text-small
+{
+	color:#b12b2b;
+}
+
+.survival-winner--placement-4 .survival-winner__text-large
+{
+	text-shadow: 0px 0px 6px 0.25 #7e1f1f;
+}
+
+.survival-winner__avatar
+{
+	width: 154px;
+	height: 154px;
+	horizontal-align: center;
+	opacity-mask: url( "file://{images}/masks/hex.png" );
+}
+
+.survival-winner--placement-1 .survival-winner__avatar-bg
+{
+	width: 158px;
+	height: 158px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #f5f3ba ), to( #afad6b) );
+
+	opacity-mask: url( "file://{images}/masks/hex.png" );
+}
+
+.survival-winner--placement-2 .survival-winner__avatar-bg
+{
+	width: 158px;
+	height: 158px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #afada2 ), to( #757570) );
+
+	opacity-mask: url( "file://{images}/masks/hex.png" );
+}
+
+.survival-winner--placement-3 .survival-winner__avatar-bg
+{
+	width: 158px;
+	height: 158px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #ab836e ), to( #856452) );
+
+	opacity-mask: url( "file://{images}/masks/hex.png" );
+}
+
+.survival-winner--placement-4 .survival-winner__avatar-bg
+{
+	width: 158px;
+	height: 158px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #da3d3d ), to( #741717) );
+
+	opacity-mask: url( "file://{images}/masks/hex.png" );
+}
+
+#id-survival-avatar-container
+{
+	opacity: 0;
+
+	transition-property: opacity;
+	transition-delay: .80s;
+	transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+#id-survival-avatar-container.reveal
+{
+	opacity: 1;
+}
+
+.survival-winner--reveal
+{
+	animation-name: survival-eom-enter, survival-eom-shrink;
+	animation-duration: .75s, 1s;
+	animation-delay: 0s, 5s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 1;
+
+	animation-fill-mode: both;
+}
+
+@keyframes 'survival-eom-enter'
+{
+	0%
+	{
+		transform: scale3d( 3, 3, 3 );
+		opacity: 0;
+	}
+	
+	80%
+	{
+		transform: scale3d( 1, 1, 1 ); 
+		opacity: 1;
+		brightness: 1;
+	}
+
+	90%
+	{
+		transform: scale3d( 1.015, 1.015, 1.015 );
+		brightness: 50;
+	}
+
+	100%
+	{
+		transform: scale3d( 1, 1, 1 );
+		brightness: 1.0;
+	}
+}
+
+.survival-winner--shrink
+{
+	animation-name: survival-eom-shrink;
+	animation-duration: 1s;
+	animation-delay: 5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'survival-eom-shrink'
+{
+	0%
+	{
+		transform: scale3d( 1, 1, 1 );
+	}
+	
+	100%
+	{
+		transform: scale3d( .5, .5, .5 ) translatey( -300px );
+	}
+}
