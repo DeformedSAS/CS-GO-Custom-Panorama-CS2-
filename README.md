@@ -1,8 +1,6 @@
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
 
-# There are some bugs here and there (Mostly in the pause menu for now as far as i'm aware) but overall is fully functional.
-
 # Main menu
 Well since i don't really know js or css or xml i only did the basic stuff like change the agent position and stuff..
 
