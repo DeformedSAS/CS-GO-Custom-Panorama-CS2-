@@ -59,7 +59,6 @@
 .content-navbar.inv-popup
 {
 	height:64px;
-	background-color: rgba(0, 0, 0, 0.25);
 }
 
 .inv-popup-title
@@ -80,7 +79,7 @@
 
 .inv-popup-title__image
 {
-	height: 50px;
+	height: 96px;
 	width: height-percentage( 130% );
 	vertical-align: center;
 	margin: 0px 12px;
@@ -263,19 +262,8 @@
 .inv-nav-solid-btn-notification
 {
 	horizontal-align: right;
-	vertical-align: center;
-	margin: 0px 0px 0px 0px;
-}
-
-.inv-nav-solid-btn-notification Label
-{
-	font-size: 12px;
-	padding: 4px;
-	height: fit-children;
-}
-
-.inv-arrow-btn--image
-{
-	transform: rotateZ(90deg);
+	vertical-align: top;
+	margin-top: 2px;
+	margin-right: 4px;
 }
 

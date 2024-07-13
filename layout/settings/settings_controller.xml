@@ -10,14 +10,14 @@
 		<include src="file://{resources}/scripts/settingsmenu_shared.js" />
 	</scripts>
 
-	<Panel useglobalcontext="true" class="SettingsMenuTab">
 
-		<Panel class="content-navbar content-navbar--short" >
-			<Panel class="content-navbar__tabs content-navbar__tabs--small">
-				<RadioButton onactivate="SettingsMenuShared.ScrollToId('SettingsController')" group="SettingsController">
+  <Panel class="mainmenu-content__container" useglobalcontext="true">
+        <Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--noflow">
+            <Panel class="content-navbar__tabs__center-container">
+				<RadioButton onactivate="SettingsMenuShared.ScrollToId('SettingsController')" class="content-navbar__tabs__btn" group="SettingsController">
 					<Label text="#settings_controller_section"/>
 				</RadioButton>
-				<RadioButton onactivate="SettingsMenuShared.ScrollToId('SettingsControllerBindings')" group="SettingsController">
+				<RadioButton onactivate="SettingsMenuShared.ScrollToId('SettingsControllerBindings')" class="content-navbar__tabs__btn" group="SettingsController">
 					<Label text="#settings_controller_binds_section"/>
 				</RadioButton>
 			</Panel>

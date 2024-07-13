@@ -7,7 +7,7 @@
 	<CSGOHud hittest="false">
 		                                                                           
 		
-		<CSGOHudBlurTarget blurrects="RoundImpactScoreMain MapDraft" class="HudBlurLess" hittest="false" hittestchildren="false">
+		<CSGOHudBlurTarget blurrects="HudVote HudRadar HudHintText HudDeathNotice HudProgressBar HudAlerts RoundImpactScoreMain MapDraft" class="HudBlur" hittest="false" hittestchildren="false">
 			<CSGOBackbufferImagePanel class="full-width full-height" />
 		</CSGOHudBlurTarget>
 
@@ -23,6 +23,7 @@
 		<CCSGOTabletPanoLayer id="TabletPanoLayer" offscreen-composition-layer="true" />
 		<CSGOSurvivalBuyMenu id="SurvivalBuyMenu"/>
 		            
+
 
 		                                                                            
 		<Panel id="HudSpectatorVignetting" hittest="false" hittestchildren="false" />
@@ -72,7 +73,7 @@
 		                                                                
 		<Panel id="HudBottomCenter" hittest="false" hittestchildren="false">
 			<CSGOOutOfAmmo id="OutOfAmmo"/>
-			
+			<CSGOHudMoney id="HudMoney"/>
 			<CSGOHudProgressBar id="HudProgressBar"/>
 			<CSGOHudAlerts id="HudAlerts"/>
 			<CSGOHudHintText id="HudHintText"/>
@@ -86,7 +87,7 @@
 
 		                                                                                      
 		<Panel id="HudLowerLeft" hittest="false" hittestchildren="false">
-		<CSGOHudMoney id="HudMoney"/>
+		
 			<CSGOHudVoiceStatus id="Status"/>
 			<CSGOHudHealthArmor id="HudHealthArmor"/>
 		</Panel>
@@ -112,7 +113,7 @@
 		                                                                
 		<CSGOHudFreezePanel id="HudFreezePanel" hittest="false" hittestchildren="false" />
 
-		<CSGOHudBlurTarget id="HudBlur" blurrects="Scoreboard EndOfMatch BuyMenu sliding-panel--TERRORIST sliding-panel--CT" class="HudBlur" hittest="false" hittestchildren="false">
+		<CSGOHudBlurTarget id="HudBlur" blurrects="HudDeathNotice Scoreboard EndOfMatch BuyMenu sliding-panel--TERRORIST sliding-panel--CT" class="HudBlur" hittest="false" hittestchildren="false">
 			<CSGOBackbufferImagePanel class="full-width full-height" />
 		</CSGOHudBlurTarget>
 

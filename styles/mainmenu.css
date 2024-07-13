@@ -30,8 +30,8 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuCore
 
 #MainMenuInput
 {
-	transition-property: blur;
-	transition-duration: .15s;
+	transition-property: opacity;
+	transition-duration: .2s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -59,10 +59,11 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .MainMenuContainer
 {
 	flow-children: down;
+	
 	opacity: 0;
 
-	transition-property: position;
-	transition-duration: 2s;
+	transition-property: opacity;
+	transition-duration: .5s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -259,7 +260,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 #VanityControls Button:hover
 {
 	brightness: 2;
-	vertical-align:center;
+	vertical-align:right;
 	wash-color: white;
 }
 
@@ -268,8 +269,8 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	width: 300px;
 	height: 800px;
 	                            
-	vertical-align:center;
-	horizontal-align:center;
+	vertical-align:right;
+	horizontal-align:right;
 	position: 0px 100px 0px;
 }
 
@@ -288,7 +289,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .AspectRatio16x9 .mainmenu-vanity
 {
-	transform: translateX(10%) translateY(0);
+	transform: translateX(6%) translateY(0);
 }
 
 .AspectRatio21x9 .mainmenu-vanity
@@ -299,19 +300,25 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
  .mainmenu-vanity
 {
 	transform: translateX(22%) translateY(0);
-	width: 1200px;
+	width: 1080px;
 	
 }
 
 .AspectRatio4x3 .mainmenu-vanity
 {
 	transform: translateX(3%) translateY(0);
-	width: 1200px;
+	width: 1080px;
+}
+
+.AspectRatio5x4 .mainmenu-vanity
+{
+	transform: translateX(0%) translateY(0);
+	width: 1080px;
 }
 
 #JsMainmenu_Vanity.hidden
 {
-	opacity: 0.5;
+	opacity: 0;
 }
 
 .mainmenu-vanity__vignette
@@ -330,6 +337,75 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	height: 96px;
 	z-index: 2;
 	margin-left: 32px;
+}
+.pausemenu-navbar .RadioBox
+{
+    visibility: collapse;
+}
+
+.pausemenu-navbar .horizontal-separator
+{
+    width: 50%;
+}
+
+.pausemenu-navbar__btn-small
+{
+    height: 64px;
+    wash-color: white;
+    tooltip-position: bottom;
+    flow-children:right;
+    padding:0px 18px;
+    transition-property: wash-color;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.pausemenu-navbar__btn-small--hidden,.MainMenuRootPanel--PauseMenuMode .PauseMenuModeOnly.pausemenu-navbar__btn-small--hidden,.MainMenuModeOnly.pausemenu-navbar__btn-small--hidden
+{
+    visibility: collapse;
+}
+
+.pausemenu-navbar__btn-small:disabled
+{
+    wash-color: disabledColor;
+}
+
+.pausemenu-navbar__btn-small Image
+{
+    margin: 0px 12px 0px 0px;
+    horizontal-align: center;
+    vertical-align:middle;
+}
+
+.pausemenu-navbar__btn-small:selected Image,.pausemenu-navbar__btn-small:enabled:hover Image,.pausemenu-navbar__btn-small:enabled:hover Image,.chat-panel:selected .chat-panel-icon Image
+{
+    wash-color: rgb(24, 24, 24);
+    background-color: none;
+    box-shadow: none;
+    transition-property: wash-color, background-color, brightness;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+    sound: "UIPanorama.mainmenu_rollover";
+}
+
+.pausemenu-navbar__btn__label-small
+{
+    font-size: 28px;
+    margin: 0px;
+    vertical-align: center;
+    horizontal-align: center;
+    text-align: center;
+    letter-spacing: 1px;
+    color: white;
+    transform: translateY(3px);
+    transition-property: color, text-shadow;
+    transition-duration: .15s;
+    transition-timing-function: ease-in-out;
+}
+
+.pausemenu-navbar__btn-small:hover .pausemenu-navbar__btn__label-small
+{
+    wash-color: rgb(24, 24, 24);
 }
 
 
@@ -351,96 +427,40 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	height: 64px;
 	width: 100%;
 	padding-right: 200px;
-	background-color:blurBackgroundColor, rgba(0, 0, 0, 0.75) ;
+	background-color:blurBackgroundColor;
 	background-image: url("file://{images}/backgrounds/linemap.png");
     background-size: auto auto;
     background-img-opacity: .08;
 	z-index: 0;
 	
 }
+.mainmenu-top-navbar__radio-btn__bg
+{
+    height: 100%;
+    width: 640px;
+    horizontal-align: center;
+    -s2-mix-blend-mode: additive;
+}
 
 .mainmenu-top-navbar__center-container
 {
-	horizontal-align:center;
-	vertical-align: center;
+	horizontal-align:top;
+	vertical-align: top;
 	flow-children: right;
-	overflow: noclip;
-	height: 64px;
+	height: 60px;
+	z-index: -1;
 }
-.mainmenu-top-navbar__center-box
+.mainmenu-top-navbar__left-container
 {
-	horizontal-align:center;
-	vertical-align: center;
-	flow-children: right;
-	overflow: noclip;
-	height: 80%;
+    flow-children: right;
+    vertical-align: center;
 }
 
-
-.mainmenu-navbar__btn-small_inv
+.mainmenu-top-navbar__right-container
 {
-	width: 98px;
-	height: 62px;
-	padding: 0px;
-	horizontal-align: center;
-	wash-color: white;
-	tooltip-position: bottom;
-	tooltip-body-position: 50% 50%;
-	flow-children:none;
-
-	transition-property:  wash-color;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.mainmenu-top-navbar__radio-btn__label_inventory
-{
-	font-weight: medium;
-	font-size: 24px;
-	font-family: Stratum2;
-	margin: 0px;
-	vertical-align: center;
-	horizontal-align: center;
-	text-align: center;
-	letter-spacing: 0px;
-	transition-property: color, text-shadow;
-	transition-duration: .15s;
-	transition-timing-function: ease-in-out;
-}
-
-.mainmenu-top-navbar__radio-btn__label_play
-{
-	font-size: 28px;
-	font-weight: medium;
-	font-family: Stratum2;
-	margin: 0px;
-	vertical-align: center;
-	horizontal-align: center;
-	text-align: center;
-	letter-spacing: 0px;
-}
-.mainmenu-top-navbar__radio-btn__label_vote
-{
-	font-size: 24px;
-	font-weight: medium;
-	font-family: Stratum2;
-	margin: 0px;
-	vertical-align: center;
-	horizontal-align: center;
-	text-align: center;
-	letter-spacing: 0px;
-}
-
-.mainmenu-top-navbar__radio-btn__label_news
-{
-	font-size: 24px;
-	font-weight: medium;
-	font-family: Stratum2;
-	margin: 0px;
-	vertical-align: center;
-	horizontal-align: center;
-	text-align: center;
-	letter-spacing: 0px;
+    horizontal-align:right;
+    vertical-align: center;
+    height: 100%;
 }
 
 .mainmenu-top-navbar__play_seperator
@@ -482,8 +502,9 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .mainmenu-navbar__btn-small
 {
-	width: 64px;
+	width: 78px;
 	height: 64px;
+	font-size: 24;
 	padding: 0px;
 	horizontal-align: center;
 	wash-color: white;
@@ -498,8 +519,9 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .mainmenu-navbar__btn-small-label
 {
 	width: 68px;
-	height: 68px;
+	height: 64px;
 	padding-top: 10px;
+	font-size: 24px;
 	horizontal-align: center;
 	wash-color: white;
 	tooltip-position: bottom;
@@ -507,6 +529,34 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	flow-children:none;
 
 	transition-property:  wash-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+.mainmenu-navbar__btn-small_inv
+{
+	width: 64px;
+	height: 64px;
+	padding: 0px;
+	horizontal-align: center;
+	wash-color: white;
+	tooltip-position: bottom;
+	tooltip-body-position: 50% 50%;
+	flow-children:none;
+
+	transition-property:  wash-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+.mainmenu-top-navbar__radio-btn__label
+{
+    margin: 0px;
+	font-size: 17.4;
+    vertical-align: center;
+    horizontal-align: center;
+    text-align: center;
+    letter-spacing: 0px;
+    transform: translateY(0px);
+	transition-property: background-color;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
@@ -538,7 +588,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 }
 .mainmenu-top-navbar__radio-iconbtn:hover
 {
-	background-color: rgba(255, 255, 255, 0.10);
+	background-color: #82d7ff1a;
 	transition-property: background-color;
 	transition-duration: .15s;
 	transition-timing-function: ease-in;
@@ -552,7 +602,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .mainmenu-top-navbar__radio-iconbtn:disabled:hover
 {
-	background-color: rgba(255, 255, 255, 0);
+	background-color: #82d7ff1a;
 }
 
 .mainmenu-navbar__btn-small--hidden,
@@ -576,7 +626,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .mainmenu-navbar__btn-play:selected Image
 {
 	wash-color: rgb(24, 24, 24);
-	background-color: none;
+	background-color: #82d7ff1a;
 	box-shadow: none;
 
 	transition-property:  wash-color, background-color, brightness;
@@ -780,7 +830,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	width: 100%;
 	height: 100%;
 	opacity: 1;
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.50);
     background-image: url("file://{images}/backgrounds/bluedots_large.png");
 	background-size: backgroundDotsSize;
     background-img-opacity: .01;
@@ -981,6 +1031,7 @@ CSGOEndOfMatch.mainmenu-content__container
 	color: grey;
 	vertical-align: center;
 	font-family: Stratum2, "Arial Unicode MS";
+	height: 0px;
 }
 
 .content-navbar__tabs
@@ -1421,9 +1472,196 @@ RadioButton.content-navbar__tabs__btn--small Label
 
 .settings-notification.has-new-settings
 {
-	visibility: visible;
+	visibility: collapse;
 }
 
 .fairplay-link{ 
 	text-decoration: underline;
+}
+/* fucking inventory stuff */
+.pausemenu-navbar-container
+{
+	width: fit-children;
+	margin-top: 96px;
+	height: 100%;
+	horizontal-align: center;
+	z-index: 2;
+}
+
+.mainmenu-top-navbar-container
+{
+	height: 64px;
+	width: 100%;
+	z-index: 2;
+}
+
+.mainmenu-top-navbar
+{
+	height: 100%;
+	width: 100%;
+	background-color:blurBackgroundColor;
+	background-image: url("file://{images}/backgrounds/linemap.png");
+	background-size: auto auto;
+	background-img-opacity: .05;
+}
+
+.mainmenu-top-navbar__center-container
+{
+	horizontal-align:center;
+	vertical-align: center;
+	flow-children: right;
+	overflow: noclip;
+	height: 100%;
+	transform-origin: 100% 100%;
+}
+
+.mainmenu-top-navbar__radio-btn
+{
+	width: 78px;
+	flow-children: none;
+	tooltip-position: bottom;
+	transition-property: background-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu-top-navbar__radio-btn--play
+{
+	margin: 0px 0px;
+	padding: 0px 0px;
+	horizontal-align: center;
+	flow-children: none;
+	width: 128px;
+}
+
+.mainmenu-top-navbar__radio-btn__bg
+{
+	height: 100%;
+	width: 640px;
+	horizontal-align: center;
+	-s2-mix-blend-mode: additive;
+}
+
+.mainmenu-top-navbar__play_seperator
+{
+	width: 1px;
+	height: 40%;
+	background-color: rgba(255, 255, 255, 0.3);
+	vertical-align: center;
+}
+
+.mainmenu-top-navbar__play_seperator--small
+{
+	height: 30%;
+}
+
+.mainmenu-top-navbar__radio-btn:hover
+{
+	transition-property: background-color;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+	sound: "UIPanorama.mainmenu_rollover";
+}
+
+.mainmenu-top-navbar__radio-btn__icon
+{
+	vertical-align: center;
+	horizontal-align: center;
+	height: 22px;
+	width: 22px;
+	transition-property: wash-color;
+	transition-duration: .15s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__icon--play
+{
+	img-shadow: 0px 0px 0px 0.0 selectedNavColor;
+}
+
+.mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__icon:not(.no-color-wash),.mainmenu-top-navbar__radio-iconbtn:selected .mainmenu-top-navbar__radio-btn__icon:not(.no-color-wash)
+{
+	wash-color: selectedNavColor;
+	transition-property: wash-color;
+	transition-duration: .15s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu-top-navbar__radio-btn__label--play
+{
+	transform: translateY(3px);
+	margin-left: 0px;
+	font-size: 36px;
+	letter-spacing: 1px;
+}
+
+.mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__label
+{
+	color: #82D8FF;
+	transition-property: color, text-shadow;
+	transition-duration: .15s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__label--play
+{
+	text-shadow: 0px 0px 0px 0.0 #00000000;
+}
+
+.mainmenu-top-navbar__radio-btn .RadioBox,.mainmenu-top-navbar__radio-iconbtn .RadioBox
+{
+	visibility: collapse;
+}
+
+.mainmenu-top-navbar__left-container
+{
+	flow-children: right;
+	vertical-align: center;
+}
+
+.mainmenu-top-navbar__right-container
+{
+	horizontal-align:right;
+	vertical-align: center;
+	height: 100%;
+}
+
+.mainmenu-top-navbar__radio-iconbtn
+{
+	vertical-align: center;
+	flow-children: none;
+	margin: 0px 12px;
+	border-radius: 3px;
+	width: 40px;
+	height: 40px;
+	overflow: noclip;
+	tooltip-position: bottom;
+	transition-property: background-color;
+	transition-duration: .15s;
+	transition-timing-function: ease-in;
+}
+
+.mainmenu-top-navbar__radio-iconbtn--quit
+{
+	vertical-align: bottom;
+	margin: 6px 6px;
+}
+
+.mainmenu-top-navbar__radio-iconbtn:hover
+{
+	background-color: rgba(255, 255, 255, 0.10);
+	transition-property: background-color;
+	transition-duration: .15s;
+	transition-timing-function: ease-in;
+	sound: "UIPanorama.mainmenu_rollover";
+}
+
+.mainmenu-top-navbar__radio-iconbtn:disabled
+{
+	wash-color: disabledColor;
+}
+
+.mainmenu-top-navbar__radio-iconbtn:disabled:hover
+{
+	background-color: rgba(255, 255, 255, 0);
 }

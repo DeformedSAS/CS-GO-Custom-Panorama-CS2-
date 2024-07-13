@@ -1,6 +1,13 @@
 /* Prettified by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io */
 
 @define ct-color: rgb(150, 200, 250);
+@define MVPFlashAnimationSpeed: 0.4s;
+
+@define MVPFactAnimationSpeed: 0.16s;
+
+@define AlertAnimationSpeed: 0.2s;
+
+@define PermenentTeamPopup: 0; 
 @define t-color: #eabe54;
 @define ct-color-alpha: rgba( 1, 29, 54, 0.5 );
 @define t-color-alpha: rgba( 51, 41, 1, 0.5 );
@@ -99,6 +106,7 @@
 @define debug4: 1px solid blue;
 @define alert-width: 300px;
 @define spec-width: 460px;
+
 Label,TextEntry
 {
 	font-family: notosans, 'Arial Unicode MS';

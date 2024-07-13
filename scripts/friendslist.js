@@ -523,7 +523,6 @@ var friendsList = (function() {
 	var _SetLobbiesTabListFilters = function( sFilterString )
 	{
 		_m_sLobbiesTabListFiltersString = sFilterString;
-		AdvertisingToggle.OnFilterPressed( sFilterString );
 
 		_RefreshLobbyListings();
 		_RefreshRecentFriendsListings();
@@ -563,7 +562,7 @@ var friendsList = (function() {
 	{
 		if ( !isCollapsed )
 		{
-			for( var i = 0; i < _m_tabs.length; i++ )
+			for( var i = 1; i < _m_tabs.length; i++ )
 			{
 				_m_tabs[i].elTabRadioBtn.RemoveClass( 'hidden' );
 			}

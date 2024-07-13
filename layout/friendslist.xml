@@ -1,4 +1,4 @@
-<!-- xml reconstructed by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io -->
+
 <root>
 	<styles>
 		<include src="file://{resources}/styles/csgostyles.css" />
@@ -84,7 +84,7 @@
 						<Image class="friendslist-accordian__section__header__icon" src="file://{images}/icons/ui/player.svg" />
 						<Frame id="id-friendslist-counter" class="text-only" src="file://{resources}/layout/btn_alert.xml" />
 					</Panel>
-					<Label class="stratum-font fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none" text="#SFUI_Lobby_FriendsListerTitle" />
+					<Label class="stratum-medium fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none" text="#SFUI_Lobby_FriendsListerTitle" />
 					<Button id="AddFriendBtn" class="IconButton horizontal-align-right" style="tooltip-position: bottom;" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;AddFriendBtn&apos;, &apos;#AddFriend_tooltip&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" onactivate="friendsList.OnAddFriend();">
 						<Image src="file://{images}/icons/ui/addplayer.svg" />
 					</Button>
@@ -100,7 +100,7 @@
 						<Frame id="id-friendslist-section-broadcast-icon" class="text-only" src="file://{resources}/layout/advertising_icon.xml" />
 						<Frame id="id-friendslist-counter" class="text-only" src="file://{resources}/layout/btn_alert.xml" />
 					</Panel>
-					<Label class="stratum-font fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none friendslist-accordian__broadcast-transition" text="#SFUI_Lobby_StatusLookingToPlay" />
+					<Label class="stratum-medium fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none friendslist-accordian__broadcast-transition" text="#SFUI_Lobby_StatusLookingToPlay" />
 				</Panel>
 				<Panel id="id-friendslist-section-list" class="friendslist-accordian__section__list friendslist-accordian__section__header--bg">
 					<Panel id="JsFriendsListSettingsControls" class="full-width top-bottom-flow">
@@ -142,7 +142,7 @@
 						<Image class="friendslist-accordian__section__header__icon" src="file://{images}/icons/ui/recent.svg" />
 						<Frame id="id-friendslist-counter" class="text-only" src="file://{resources}/layout/btn_alert.xml" />
 					</Panel>
-					<Label class="stratum-font fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none" text="#SFUI_Friends_Recent" />
+					<Label class="stratum-medium fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none" text="#SFUI_Friends_Recent" />
 				</Panel>
 				<Panel id="id-friendslist-section-list" class="friendslist-accordian__section__list friendslist-accordian__section__header--bg">
 					<Frame id="id-friendslist-nodata" snippet="NoData" />
@@ -158,7 +158,7 @@
 						<Image class="friendslist-accordian__section__header__icon" src="file://{images}/icons/ui/invite.svg" />
 						<Frame id="id-friendslist-counter" src="file://{resources}/layout/btn_alert.xml" />
 					</Panel>
-					<Label class="stratum-font fontSize-l text-letterspace-0px fontcolor-basetext left-margin-none" text="#SFUI_Friends_Requests" />
+					<Label class="stratum-medium fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none" text="#SFUI_Friends_Requests" />
 				</Panel>
 				<Panel id="id-friendslist-section-list" class="friendslist-accordian__section__list friendslist-accordian__section__header--bg">
 					<Frame id="id-friendslist-nodata" snippet="NoData" />

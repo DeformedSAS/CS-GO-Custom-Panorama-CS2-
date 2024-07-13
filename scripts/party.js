@@ -43,7 +43,7 @@ var PartyMenu = ( function()
 		_ShowMatchmakingStatusTooltipEvent();
 	};
 
-	var _RefreshPartyMembers = function()
+		var _RefreshPartyMembers = function()
 	{
 		if ( !_IsSessionActive() )
 		{
@@ -56,8 +56,20 @@ var PartyMenu = ( function()
 			return;
 		}
 
-		var elPartyMembersList = elPartySection.FindChildInLayoutFile( 'PartyMembers' );
-		_UpdateNumPlayersInparty();
+
+		var elPartyMembersList = $( '#PartyList' ).FindChildInLayoutFile( 'PartyMembers' );
+		var numPlayersActuallyInParty = PartyListAPI.GetCount();
+
+		if ( numPlayersActuallyInParty > m_prevMembersInParty )
+		{
+			$.DispatchEvent( 'PlaySoundEffect', 'PanoramaUI.Lobby.Joined', 'PartyList' );
+		}
+		else if ( numPlayersActuallyInParty < m_prevMembersInParty )
+		{
+			$.DispatchEvent( 'PlaySoundEffect', 'PanoramaUI.Lobby.Left', 'PartyList' );
+		}
+
+		m_prevMembersInParty = numPlayersActuallyInParty;
 
 		                                                                                    
 		var bIsSearching = _IsSearching();

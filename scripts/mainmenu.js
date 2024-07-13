@@ -154,7 +154,6 @@ var MainMenu = ( function() {
 
 		                              
 		_GcLogonNotificationReceived();
-		_ShowLegacyVersionWarning();
 		_BetaEnrollmentStatusChange();
 
 		                                                                          
@@ -357,10 +356,8 @@ var MainMenu = ( function() {
 		$( '#MainMenuNavBarVote' ).SetHasClass( 'mainmenu-navbar__btn-small--hidden', ( bTraining ||                      bGotvSpectating ) );
 
 		                                                                                        
-		$( '#MainMenuNavBarReportServer' ).SetHasClass( 'mainmenu-navbar__btn-small--hidden', !bIsCommunityServer );
 
 		                                                                                           
-		$( '#MainMenuNavBarShowCommunityServerBrowser' ).SetHasClass( 'mainmenu-navbar__btn-small--hidden', !bIsCommunityServer );
 		
 
 		                                                            
@@ -1180,17 +1177,18 @@ var MainMenu = ( function() {
 		}
 	};
 
-	var _OnEscapeKeyPressed = function( eSource, nRepeats, focusPanel )
+	var _OnEscapeKeyPressed = function( eSource, focusPanel )
 	{
 		                                
 		if ( $.GetContextPanel().BHasClass( 'MainMenuRootPanel--PauseMenuMode' ) ) {
-			$.DispatchEvent( 'CSGOMainMenuResumeGame' );
+			$.DispatchEvent( 'HideContentPanel' );
 		}
 		else {
 			MainMenu.OnHomeButtonPressed();
 
 			var elPlayButton = $( '#MainMenuNavBarPlay' );
 			if( elPlayButton && !elPlayButton.BHasClass( 'mainmenu-navbar__btn-small--hidden' ) ) {
+				
 
 				GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
 				$.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' );
@@ -1227,6 +1225,34 @@ var MainMenu = ( function() {
 
 		elAlert.FindChildInLayoutFile('MainMenuInvAlertText').text = count;
 		elAlert.SetHasClass( 'hidden', count < 1 );
+	};
+
+	var JsInspectCallback = -1;
+
+	var _OnInventoryInspect = function( id )
+	{
+		UiToolkitAPI.ShowCustomLayoutPopupParameters(
+			'',
+			'file://{resources}/layout/popups/popup_inventory_inspect.xml',
+			'itemid=' + id +
+			'&' + 'inspectonly=true' +
+			'&' + 'viewfunc=primary',
+			'none'
+		);
+	};
+
+	var _OnShowXrayCasePopup = function( toolid, caseId, bShowPopupWarning = false )
+	{
+		var showpopup = bShowPopupWarning ? 'yes' : 'no';
+		
+		UiToolkitAPI.ShowCustomLayoutPopupParameters(
+			'popup-inspect-'+ caseId,
+			'file://{resources}/layout/popups/popup_capability_decodable.xml',
+			'key-and-case=' + toolid + ',' + caseId +
+			'&' + 'asyncworktype=decodeable' +
+			'&' + 'isxraymode=yes' +
+			'&' + 'showxraypopup='+showpopup
+		);
 	};
 
 	var JsInspectCallback = -1;
@@ -1301,32 +1327,6 @@ var MainMenu = ( function() {
 		);
 	};
 
-	var _OpenDecodeAfterInspect = function( keyId, caseId, storeId, extrapopupfullscreenstyle, aParamsForCallback )
-	{
-		                                                                                                               
-		                                                                                    
-		                              
-		var backtostoreiteminspectsettings = storeId ?
-			'&' + 'asyncworkitemwarning=no' +
-			'&' + 'asyncforcehide=true' +
-			'&' + 'storeitemid=' + storeId +
-			'&' + 'extrapopupfullscreenstyle=' + extrapopupfullscreenstyle
-			: '';
-
-		var backtodecodeparams = aParamsForCallback.length > 0 ?
-		'&' + aParamsForCallback.join( '&' ) : 
-		'';
-
-		UiToolkitAPI.ShowCustomLayoutPopupParameters(
-			'',
-			'file://{resources}/layout/popups/popup_capability_decodable.xml',
-			'key-and-case=' + keyId + ',' + caseId +
-			'&' + 'asyncworktype=decodeable' +
-			backtostoreiteminspectsettings +
-			backtodecodeparams
-		);
-	};
-
 	var _WeaponPreviewRequest = function( id )
 	{
 		UiToolkitAPI.CloseAllVisiblePopups();
@@ -1349,7 +1349,6 @@ var MainMenu = ( function() {
 		elAlert = elNavBar.FindChildInLayoutFile('MainMenuSubscriptionAlert');
 
 		var hideAlert = GameInterfaceAPI.GetSettingString( 'ui_show_subscription_alert' ) === '1' ? true : false;
-		elAlert.SetHasClass('hidden', hideAlert )
 	}
 
 	function _CancelNotificationSchedule()
@@ -1478,7 +1477,7 @@ var MainMenu = ( function() {
 		var nIsVacBanned = MyPersonaAPI.IsVacBanned();
 		if ( nIsVacBanned != 0 )
 		{
-			notification.color_class = "NotificationLoggingOn";
+			notification.color_class = "NotificationRed";
 
 			if ( nIsVacBanned == 1 )
 			{
@@ -1496,22 +1495,6 @@ var MainMenu = ( function() {
 			return notification;
 		}
 
-		  
-		                                  
-		  
-		if ( NewsAPI.IsNewClientAvailable() )
-		{
-			notification.color_class = "NotificationYellow";
-			notification.title = $.Localize( "#SFUI_MainMenu_Outofdate_Title_legacy" );
-			notification.tooltip = ""; 
-
-			                                                                  
-			    
-				notification.link = "https://help.steampowered.com/en/faqs/view/73EF-08A3-0935-6369";
-			    
-
-			return null;
-		}	
 		
 		  
 		                             
@@ -1525,17 +1508,17 @@ var MainMenu = ( function() {
 			if ( strType == "global" )
 			{
 				notification.title = $.Localize( "#SFUI_MainMenu_Global_Ban_Title" );
-				notification.color_class = "NotificationLoggingOn";
+				notification.color_class = "NotificationRed";
 			}
 			else if ( strType == "green" )
 			{
 				notification.title = $.Localize( "#SFUI_MainMenu_Temporary_Ban_Title" );
-				notification.color_class = "NotificationLoggingOn";
+				notification.color_class = "NotificationGreen";
 			}
 			else if ( strType == "competitive" )
 			{
 				notification.title = $.Localize( "#SFUI_MainMenu_Competitive_Ban_Title" );
-				notification.color_class = "NotificationLoggingOn";
+				notification.color_class = "NotificationYellow";
 			}
 			
 			                                                                                                                
@@ -1717,31 +1700,7 @@ var MainMenu = ( function() {
 		}
 	};
 
-	var _ShowLegacyVersionWarning = function ()
-	{
-		                                                                  
-		    
-			UiToolkitAPI.ShowGenericPopupTwoOptions( 
-				'#legacy_support_text_title', 
-				'#legacy_support_text_desc', 
-				'', 
-				$.Localize( "#link_to_steam_support"), 
-				function() { (OnlegacyWarningPress('link')) }, 
-				$.Localize( "#OK"), 
-				function() { OnlegacyWarningPress('') }
-			);
-		    
-	}
 
-	function OnlegacyWarningPress( msg )
-	{
-		                                                           
-		if( msg === 'link' )
-		{
-			SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser( "https://help.steampowered.com/en/faqs/view/73EF-08A3-0935-6369" );
-			return;
-		}
-	}
 
 	var _ShowOperationLaunchPopup = function()
 	{
@@ -1779,7 +1738,7 @@ var MainMenu = ( function() {
 
 		if ( vanityPanel && UiToolkitAPI.IsPanoramaInECOMode() )
 		{
-			vanityPanel.Pause( true );
+			vanityPanel.Pause( false );
 		}
 	}
 

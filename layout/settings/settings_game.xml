@@ -36,9 +36,9 @@
                 </RadioButton>
                 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsCrosshair&apos;)" group="SettingsGame">
                     <Label text="#settings_crosshair" />
-                </RadioButton>
-                <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsTelemetry&apos;)" group="SettingsGame">
-                    <Label text="#settings_telemetry_section" />
+				</RadioButton>
+                <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsViewmodel&apos;)" group="SettingsGame">
+                    <Label text="VIEWMODEl" />
 				</RadioButton>
 				    
 				                                                                                                            
@@ -494,17 +494,7 @@
 							<Label text="#GameUI_Yes" value="1" id ="delayunzoomsniper0"/>
 							<Label text="#GameUI_No" value="0" id ="delayunzoomsniper1"/>
 						</CSGOSettingsEnumDropDown>
-					</Panel>
-					<Panel class="horizontal-separator"/>
-					
-					                         
-					<Panel class="SettingsMenuDropdownContainer">
-						<Label text="#SFUI_Settings_ViewmodelPos" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="viewmodel_presetpos">
-							<Label text="#SFUI_Settings_ViewmodelPosDesktop" value="1" id ="viewmodelpreset0"/>
-							<Label text="#SFUI_Settings_ViewmodelPosCouch" value="2" id ="viewmodelpreset1"/>
-							<Label text="#SFUI_Settings_ViewmodelPosClassic" value="3" id ="viewmodelpreset2"/>
-						</CSGOSettingsEnumDropDown>
+						
 					</Panel>
 					<Panel class="horizontal-separator"/>
 
@@ -639,7 +629,8 @@
 						</CSGOSettingsEnumDropDown>
 					</TooltipPanel>
 				</Panel>
-			</Panel> 
+				
+							</Panel> 
 
 			                           
 			<Panel id="SettingsCrosshair" class="SettingsBackground">
@@ -780,25 +771,74 @@
 					        
 					   
 				</Panel>
+				
+				
+			</Panel> 
+			
+			
+
+			                           
+			<Panel id="SettingsViewmodel" class="SettingsBackground">
+				<Panel class="SettingsSectionTitleContianer">
+					<Label class="SettingsSectionTitleLabel" text="Viewmodel" />
+				</Panel>
+				<Panel class ="top-bottom-flow full-width">
+					                          
+					
+					</Panel>
+					<Panel class="horizontal-separator"/>
+
+					                 
+					<Panel id="DominantHand" class="SettingsMenuDropdownContainer">
+						<Label text="Dominant Hand" class="half-width"/>
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="cl_righthand">
+								<Label text="Right" value="1" id="lefthand"/>
+								<Label text="Left" value="0" id="righthand"/>
+						</CSGOSettingsEnumDropDown>
+						
+					</Panel>
+					<Panel class="horizontal-separator"/>
+					
+					                         
+					<Panel class="SettingsMenuDropdownContainer">
+						<Label text="Viewmodel Preset Position" class="half-width"/>
+						<CSGOSettingsEnumDropDown class="PopupButton White" convar="viewmodel_presetpos">
+							<Label text="#SFUI_Settings_ViewmodelPosDesktop" value="1" id ="viewmodelpreset0"/>
+							<Label text="#SFUI_Settings_ViewmodelPosClassic" value="3" id ="viewmodelpreset3"/>
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+					<Panel class="horizontal-separator"/>
+
+					<CSGOSettingsSlider id="ViewmodelFOV" text="Viewmodel FOV" tooltip="Determines your viewmodel FOV" displayprecision="1" max="68.0" min="54.0" convar="viewmodel_fov"/>
+					<Panel class="horizontal-separator"/>
+
+					<CSGOSettingsSlider id="ViewmodelOFX" text="Viewmodel Offset X" tooltip="Determines how far on the left or right your viewmodel is" displayprecision="1" max="2.5" min="-2.0" convar="viewmodel_offset_x"/>
+					<Panel class="horizontal-separator"/>
+
+					<CSGOSettingsSlider id="ViewmodelOFY" text="Viewmodel Offset Y" tooltip="Determines how far away or near the viewmodel is" displayprecision="1" max="2.0" min="-2.0" convar="viewmodel_offset_y"/>
+					<Panel class="horizontal-separator"/>
+
+					<CSGOSettingsSlider id="ViewmodelOFZ" text="Viewmodel Offset Z" tooltip="Determines how high or low the viewmodel is" max="2.0" min="-2.0" displayprecision="1" convar="viewmodel_offset_z"/>
+					<Panel class="horizontal-separator"/>
+
+					                      
+					<CSGOSettingsSlider id="ViewmodelRCL" text="Viewmodel Recoil" max="1" min="0" displayprecision="1" convar="viewmodel_recoil"/>
+					<Panel class="horizontal-separator"/>
+
+					<CSGOSettingsSlider id="ViewbobLower" text="Lowering Amount" max="30" min="5" displayprecision="1" convar="cl_bob_lower_amt"/>
+					<Panel class="horizontal-separator"/>
+					
+					<CSGOSettingsSlider id="Viewbobgunlow" text="Gun Sway Horizontal" max="2.0" displayprecision="1" min="0.1" convar="cl_bobamt_lat"/>
+					<Panel class="horizontal-separator"/>
+					
+					<CSGOSettingsSlider id="Viewbobgunhigh" text="Gun Sway Vertical" max="2.0" displayprecision="1" min="0.1" convar="cl_bobamt_vert"/>
+					<Panel class="horizontal-separator"/>
+					
+
+					        
+					   
 			</Panel>
 
-			                                   
-			     
-			                                                                   
-				                                             
-					                                                                                 
-				        
-					                                           
-					                             
-					                                                                                                         
-						                                                                        
-						                                                                                                                   
-							                                                                                                
-							                                                                                                
-							                                                                                                 
-						                           
-					               
-				        
 			        
 			   
 		</Panel>

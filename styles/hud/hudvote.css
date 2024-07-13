@@ -5,7 +5,22 @@
     flow-children: down;
     visibility: collapse;
     width: 300px;
-    background-color: blurBackgroundColor, rgba(44, 44, 44, 1);
+    opacity: 1.0;
+    world-blur: hudWorldBlur;
+    background-image: url("file://{images}/backgrounds/bluedots_large.png");
+    background-size: 30px auto;
+    background-img-opacity: .01;
+    background-color: #00000090;
+}
+
+.hud-vote.hud-vote-type--auto-instant-surrender
+{
+    width: 480px;
+}
+
+.hud-vote.hud-vote-type--auto-instant-surrender.hud-vote--cast
+{
+    width: 150px;
 }
 
 .hud-vote Label
@@ -26,6 +41,16 @@
 {
     width: 32px;
     height: 32px;
+}
+
+.hud-vote-type-req--regular,.hud-vote-type-req--auto-instant-surrender
+{
+    visibility: collapse;
+}
+
+.hud-vote-type--regular .hud-vote-type-req--regular,.hud-vote-type--auto-instant-surrender .hud-vote-type-req--auto-instant-surrender
+{
+    visibility: visible;
 }
 
 .vote-header-failed .hud-vote-header__icon
@@ -72,6 +97,7 @@
     opacity: 1;
     margin-bottom: 2px;
     padding-top: 2px;
+    -s2-mix-blend-mode: additive;
 }
 
 .hud-vote-body__label
@@ -80,6 +106,16 @@
     vertical-align: top;
     padding: 16px;
     width: 79%;
+}
+
+.hud-vote-type--auto-instant-surrender .hud-vote-body__label
+{
+    width: 85%;
+}
+
+.hud-vote-type--auto-instant-surrender.hud-vote--cast .hud-vote-body__label
+{
+    visibility: collapse;
 }
 
 .hud-vote--callvotefailed .hud-vote-body__label
@@ -104,12 +140,11 @@
 .hud-vote-boxes-label
 {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
     text-align: center;
     vertical-align: center;
-    width: 36px;
+    width: 60px;
     height: 36px;
-    background-color: #40404040;
 }
 
 .hud-vote-boxes Image
@@ -154,6 +189,7 @@
 .hud-vote-footer
 {
     width: 100%;
+    -s2-mix-blend-mode: additive;
 }
 
 .hud-vote--active

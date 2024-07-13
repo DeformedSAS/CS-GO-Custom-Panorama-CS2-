@@ -3,7 +3,6 @@
 		<include src="file://{resources}/styles/csgostyles.css" />
 		<include src="file://{resources}/styles/hud/hudvote.css" />
 	</styles>
-
 	<CSGOHudVote hittest="false" class="hud-vote">
 		<Panel class="hud-vote-header vote-header-callvote">
 			<Image id="VoteHeaderIcon" class="hud-vote-header__icon" src="file://{images}/icons/ui/competitive.svg"/>

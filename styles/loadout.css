@@ -1,3 +1,5 @@
+/* Prettified by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io */
+
 .loadout
 {
 	flow-children: down;
@@ -21,8 +23,17 @@
 	height: 93%;
 }
 
-.AspectRatio5x4 .radial-menu-container,
-.AspectRatio4x3 .radial-menu-container
+.loadout-contents
+{
+	width: 100%;
+	height: 100%;
+	flow-children: right;
+	margin-right: 64px;
+	margin-top: 8px;
+	border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.AspectRatio5x4 .radial-menu-container,.AspectRatio4x3 .radial-menu-container
 {
 	height: width-percentage( 100% );
 	width: 98%;
@@ -36,9 +47,7 @@
 	width: 20%;
 	height: 20%;
 	brightness: 0.4;
-	                                      
 	padding:6px;
-
 	transition-property: brightness;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -47,7 +56,6 @@
 .radial-menu-team-logo:hover
 {
 	brightness: 1;
-
 	transition-property: brightness;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -60,9 +68,7 @@
 
 .item-wheel
 {
-	                                                                
 	height: 100%;
-
 	vertical-align: center;
 	horizontal-align: center;
 }
@@ -91,7 +97,6 @@ ItemImage Label
 	horizontal-align: center;
 	flow-children: down;
 	min-width: 180px;
-	                      
 	color: color-rarity-common;
 	vertical-align: top;
 	text-align: center;
@@ -101,16 +106,42 @@ ItemImage Label
 	font-family: Stratum2, 'Noto Sans';
 }
 
-                                           
-.common .loadout-item__textbox { color: color-rarity-common; }
-.uncommon .loadout-item__textbox { color: color-rarity-uncommon; }
-.rare .loadout-item__textbox{ color: color-rarity-rare; }
-.mythical .loadout-item__textbox { color: color-rarity-mythical; }
-.ancient .loadout-item__textbox { color: color-rarity-ancient; } 
-.legendary .loadout-item__textbox { color: color-rarity-legendary; }
-.immortal .loadout-item__textbox { color: color-rarity-immortal; }
+.common .loadout-item__textbox
+{
+	color: color-rarity-common;
+}
 
-.loadout-item__image,
+.uncommon .loadout-item__textbox
+{
+	color: color-rarity-uncommon;
+}
+
+.rare .loadout-item__textbox
+{
+	color: color-rarity-rare;
+}
+
+.mythical .loadout-item__textbox
+{
+	color: color-rarity-mythical;
+}
+
+.ancient .loadout-item__textbox
+{
+	color: color-rarity-ancient;
+}
+
+.legendary .loadout-item__textbox
+{
+	color: color-rarity-legendary;
+}
+
+.immortal .loadout-item__textbox
+{
+	color: color-rarity-immortal;
+}
+
+.loadout-item__image
 {
 	padding-top: 26px;
 	vertical-align: bottom;
@@ -148,42 +179,23 @@ ItemImage Label
 
 .loadout-item-list-container
 {
-
-	width: 450px;
+	width: 50%;
 	height: 100%;
 	flow-children: down;
-	background-color: contentPanelBackground;
 }
-
-.AspectRatio16x9 .loadout-item-list-container
-{
-	width: 890px;
-}
-
-.AspectRatio16x10 .loadout-item-list-container
-{
-	width: 700px;
-}
-
-.AspectRatio4x3 .loadout-item-list-container
-{
-	width: 450px;
-}
-
 
 .loadout-sort
 {
 	width: 100%;
 	margin-right: 16px;
 	margin-left: 16px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+	margin-bottom: 4px;
 }
 
 .loadout-team-selector-container
 {
-	Width: 800px;
+	Width: 50%;
 	height: 100%;
-	background-color: contentPanelBackground;
 	border-right: 1px solid rgba(255, 255, 255, 0.07);
 }
 
@@ -191,17 +203,15 @@ ItemImage Label
 {
 	width: fill-parent-flow( 1.0 );
 	height: 100%;
-	background-color: contentPanelBackground;
 }
 
 .loadout-single-item-container
 {
 	width: 100%;
-	height: 75%;
+	height: 100%;
 	flow-children: down;
 	vertical-align: center;
 	horizontal-align: center;
-
 	transition-property: height;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -236,7 +246,6 @@ ItemImage Label
 	height: 50%;
 }
 
-
 .loadout-single-item
 {
 	width: 100%;
@@ -246,41 +255,38 @@ ItemImage Label
 
 .loadout-single-item-title
 {
-	font-size: 24px;
-	text-align: center;
+	font-size: 18px;
 	width: 100%;
 	font-weight: medium;
 	font-family: Stratum2, 'Noto Sans';
-	margin: 15px 0px;
+	margin: 15px 0px 15px 5%;
 	width: 400px;
+	color: white;
 	height: 26px;
-
-	horizontal-align:center;
 	text-overflow: shrink;
 }
 
 .loadout-single-item-rarity
 {
 	width: 100%;
-	height: 8px;
-	box-shadow: shadowOffset;
+	horizontal-align: center;
+	height: 6px;
 }
 
-                                               
-
-.border-right-white {
+.border-right-white
+{
 	border-right: 1px solid #ffffff22;
 }
 
-.margin-right-20 {
+.margin-right-20
+{
 	padding-right: 20px;
 }
 
-#LoadoutSingleItemModelWeaponChoice {
+#LoadoutSingleItemModelWeaponChoice
+{
 	min-width: 350px;
-  	                      
 }
-
 
 .popup-button-row
 {
@@ -296,7 +302,8 @@ ItemImage Label
 	height: 36px;
 }
 
-#LoadoutCharacterControls {
+#LoadoutCharacterControls
+{
 	vertical-align: center;
 }
 
@@ -327,7 +334,7 @@ ItemImage Label
 .loadout--shuffle-enabled ItemImage
 {
 	brightness: 0.3;
-	blur: fastgaussian( 2, 2, 1 );
+	blur: gaussian( 2, 2, 1 );
 }
 
 .loadout-shuffle_icon
@@ -343,8 +350,7 @@ ItemImage Label
 	horizontal-align: center;
 }
 
-.loadout--shuffle-enabled .loadout-shuffle_icon, 
-.loadout--shuffle-enabled .loadout-shuffle-text
+.loadout--shuffle-enabled .loadout-shuffle_icon,.loadout--shuffle-enabled .loadout-shuffle-text
 {
 	visibility: visible;
 }

@@ -108,9 +108,9 @@ var CharacterAnims = ( function()
 			if ( !settings.model )
 			{
 				if ( settings.team == 'ct' )
-					settings.model = "models/player/custom_player/legacy/ctm_fbi.mdl";
+					settings.model = "models/player/custom_player/legacy/ctm_sas.mdl";
 				else
-					settings.model = "models/player/custom_player/legacy/tm_phoenix.mdl";
+					settings.model = "models/player/custom_player/legacy/tm_leet_variantb.mdl";
 			}
 		}
 
@@ -120,12 +120,11 @@ var CharacterAnims = ( function()
 		_CancelScheduledAnim( playerPanel );
 		_ResetLastRandomAnimHandle( playerPanel );
 		
-		playerPanel.ResetAnimation( false );
-		playerPanel.SetSceneAngles( 0, 0, 0, 0, true );
+		playerPanel.ResetAnimation( true );
+		playerPanel.SetSceneAngles( 0, 0, 0, false );
 
 		if ( settings.manifest )
-			playerPanel.SetScene( settings.manifest, settings.model, true );
-
+			playerPanel.SetScene( settings.manifest, settings.model, false );
 
 		if ( !bDontStompModel )
 		{
@@ -171,7 +170,7 @@ var CharacterAnims = ( function()
 			                                               
 		}
 
-		playerPanel.SetCameraPreset( Number( 6 ), true );
+		playerPanel.SetCameraPreset( Number( cam ), false );
 
 		           
 
@@ -184,7 +183,7 @@ var CharacterAnims = ( function()
 		if ( 'flashlightColor' in settings && settings.flashlightColor !== '' )
 		{
 			                                                                       
-			playerPanel.SetFlashlightColor( settings.flashlightColor[ 0 ], settings.flashlightColor[ 0 ], settings.flashlightColor[ 2 ] );
+			playerPanel.SetFlashlightColor( settings.flashlightColor[ 0 ], settings.flashlightColor[ 1 ], settings.flashlightColor[ 2 ] );
 		}
 
 

@@ -245,7 +245,7 @@ var mainmenu_watch = ( function()
 				let teamPlaceToken = oTeamData[ 'place_token' ];
 
 				let teamLogo = 'file://{images}/tournaments/teams/' + teamTag.toLowerCase() + '.svg';
-				teamName = $.Localize( 'CSGO_TeamID_' + team );
+				teamName = $.Localize( '#CSGO_TeamID_' + team );
 				teamPlaceStr = $.Localize( teamPlaceToken );
 
 				elTeamLogo.SetImage( teamLogo );
@@ -313,18 +313,18 @@ var mainmenu_watch = ( function()
 				arrElPlayers.forEach( function ( elPlayer, i )
 				{
 					let delay = DELAY_INIT + i * DELAY_DELTA;
-					Scheduler.Schedule( delay, function ( elPlayer )
+					Scheduler.Schedule( delay, () =>
 					{
-						if ( elPlayer )
+						if ( elPlayer && elPlayer.IsValid() )
 							elPlayer.RemoveClass( 'hidden' );
 						
 						                                            
 						Scheduler.Schedule( 0.1, function ()
 						{
-							$.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.mainmenu_rollover', 'MOUSE' );
+							$.DispatchEvent( 'CSGOPlaySoundEffect', 'UIPanorama.mainmenu_rollover', 'MOUSE' );
 						}, "player-reveal" );
 
-					}.bind( this, elPlayer ), "player-reveal");
+					}, "player-reveal");
 
 				});
 			}
@@ -356,10 +356,6 @@ var mainmenu_watch = ( function()
 
 		switch ( elTab.id )
 		{
-			case "JsStreams":
-				StreamsAPI.Refresh();
-				_PopulateStreamList( elTab );
-				break;
 			case "JsTournaments":
 				_PopulateTournamentPage( elTab );
 				break;
@@ -466,8 +462,8 @@ var mainmenu_watch = ( function()
 		}
 
 		                                                       
-		var parent;
-		if ( isSubTab && !$.GetContextPanel().FindChildInLayoutFile( tab ) )
+		var parent = $.GetContextPanel().FindChildInLayoutFile( tab );
+		if ( isSubTab && !parent )
 		{
 			                              
 			var newPanel = undefined;
@@ -641,7 +637,6 @@ var mainmenu_watch = ( function()
 		}
 		else
 		{
-			                                                
 			_InitResourceManagement( $( '#JsEvents' ) );
 		}
 
@@ -660,9 +655,9 @@ var mainmenu_watch = ( function()
 		}
 
 
-		                                                                          
-		_NavigateToTab( 'JsLive' );
-		$( '#WatchNavBarButtonLive' ).checked = true;
+		                                                                                  
+		_NavigateToTab( 'JsYourMatches' );
+		$( '#WatchNavBarYourMatches' ).checked = true;
 
 		                                                                            
 		                                
@@ -751,7 +746,6 @@ var mainmenu_watch = ( function()
                                                                                                     
 ( function()
 {
-	mainmenu_watch.InitMainWatchPanel();
 	$.RegisterEventHandler( 'Cancelled', $( '#JsWatch' ), mainmenu_watch.CloseSubMenuContent );
 	$.RegisterEventHandler( 'ReadyForDisplay', $( '#JsWatch' ), mainmenu_watch.OnReadyForDisplay );
 	$.RegisterForUnhandledEvent( 'ShowActiveTournamentPage', mainmenu_watch.ShowActiveTournamentPage );

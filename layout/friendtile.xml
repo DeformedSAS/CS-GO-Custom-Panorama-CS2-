@@ -22,7 +22,7 @@
 			</Panel>
 			<Panel class="friendtile__status" >
 				<Label id="JsFriendName" class="friendtile__text__title" text=""/>
-				<Label id="JsFriendStatus" class="friendtile__text__status" text=""/>
+				<Label id="JsFriendStatus" class="friendtile__text__status stratum-regular" text=""/>
 			</Panel>
 		</Button>
 	</Panel>

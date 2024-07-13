@@ -1,0 +1,12 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/steaminputglyphs/steaminputactionlabel.css" />
+
+	
+	</styles>
+	
+   <CCSGOSteamInputAction>   	
+		<Label id="ActionLabel" class="steam-action-name"/>
+   </CCSGOSteamInputAction>
+</root>

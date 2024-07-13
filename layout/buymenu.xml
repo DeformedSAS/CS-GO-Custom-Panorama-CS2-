@@ -5,7 +5,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/buymenu.js" />
-		<include src="file://{resources}/scripts/common/characteranims2.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
 		<include src="file://{resources}/scripts/common/iteminfo.js" />
 		<include src="file://{resources}/scripts/mock_adapter.js" />
 	</scripts>
@@ -167,7 +167,7 @@
 
 					<ItemPreviewPanel id="id-buymenu-agent"
 									class="buymenu-agent"
-									mouse_rotate="true"
+									mouse_rotate="false"
 									hittest="true"
 									manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
 									item="models/player/custom_player/legacy/ctm_sas.mdl"

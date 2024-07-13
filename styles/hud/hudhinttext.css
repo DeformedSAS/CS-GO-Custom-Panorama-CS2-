@@ -12,7 +12,6 @@
 {
     transform: scale3d(0, 1, 1);
     opacity: 1.0;
-    world-blur: hudWorldBlur;
     background-color: white;
     transition-delay: .0s, 0s, 0s, .25s;
     transition-property: opacity, transform, height, background-color;
@@ -104,7 +103,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     background-image: url("file://{images}/backgrounds/bluedots_large.png");
-    background-size: backgroundDotsSize;
+    background-size: 150% auto;
     background-img-opacity: .04;
     opacity: 0;
     transition-delay: .25s;
@@ -147,6 +146,8 @@
     color: white;
     text-align: center;
     font-size: 18px;
+	font-family: Stratum2;
+	font-weight: medium;
     text-overflow: shrink;
     transition-property: opacity;
     transition-duration: .1s;
@@ -163,6 +164,6 @@
 
 .Language_vietnamese .hud-hint__text Label
 {
-    font-family: 'Noto Mono', 'Arial Unicode MS';
+    font-family: 'Arial', 'Arial Unicode MS';
 }
 

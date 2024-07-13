@@ -9,74 +9,64 @@
 		                                                                        
 	</scripts>
 
-	<snippets>
-		<snippet name="AvatarPlayerCard">
-			<Button class="avatar" acceptsinput="false" >
-				<Panel class="avatar-image">
-					<Panel>
-						<Panel class="avatar-image__default"/>
-						<CSGOAvatarImage id="JsAvatarImage" class="avatar-image__icon" defaultsrc="file://{images}/icons/ui/player.svg"/>
-						<Image id="JsAvatarTeamColor" class="avatar-teamcolor" src="file://{images}/icons/ui/teamcolor.svg" texturewidth="24" textureheight="-1"/>
-						                                                                                            
-					</Panel>
-				</Panel>
-				<Panel class="avatar-flair">
-					<Image id="JsAvatarFlair" class="avatar-flair__icon" src="" scaling="stretch-to-fit-preserve-aspect"/>
-				</Panel>
-			</Button>
-		</snippet>
-
-		<snippet name="AvatarParty" class="avatar-party-controls">
-			<Button class="avatar avatar--party" >
-				<Panel class="avatar-image">
-					<Panel>
-						<Panel class="avatar-image__default"/>
-						<CSGOAvatarImage id="JsAvatarImage" class="avatar-image__icon"/>
-						<Image id="JsAvatarTeamColor" class="avatar-teamcolor hidden" src="file://{images}/icons/ui/teamcolor.svg" texturewidth="24" textureheight="-1"/>
-					</Panel>
-				</Panel>
-				<Panel class="avatar-flair">
-					<Image id="JsAvatarFlair" class="avatar-flair__icon" src="" scaling="stretch-to-fit-preserve-aspect"/>
-				</Panel>
-				<Panel id="JsAvatarLeader" class="avatar-lobby-leader hidden">
-					<Image class="avatar-flair__icon" src="file://{images}/icons/ui/leader.svg" scaling="stretch-to-fit-preserve-aspect" texturewidth="16" textureheight="-1"/>
-				</Panel>
-				<Panel id="JsAvatarSpeaking" class="avatar-lobby-speaking hidden">
-					<Panel class="SoundAnim Looping">
-						<Panel class="SpeakerIcon" />
-						<Panel class="SoundIcon1"/>
-						<Panel class="SoundIcon2"/>
-						<Panel class="SoundIcon3"/>
-					</Panel>
-				</Panel>
-			</Button>
-		</snippet>
-
-		<snippet name="AvatarNoFlair">
-			<Panel class="avatar">
-				<Panel class="avatar-image">
-					<Panel id="JsAvatarStatus" class="avatar-image__status"/>
-					<CSGOAvatarImage id="JsAvatarImage" class="avatar-image__icon"/>
-				</Panel>
-			</Panel>
-		</snippet>
-
-		<snippet name="player-dead">
-			<Panel class="avatar-survival__avatar-dead-container">
-				<Panel id="JsSurvivalDeadPlanel" class="avatar-survival__avatar-dead">
-					<Panel class="top-bottom-flow horizontal-center">
-						<Label id="JsSurvivalPlacement" class="avatar-survival__avatar-dead__placement stratum-font" text="16"/>
-						<Image id="JsSurvivalDeadIcon" class="avatar-survival__avatar-dead__icon" src="file://{images}/icons/ui/elimination.svg" scaling="stretch-to-fit-preserve-aspect" texturewidth="18" textureheight="-1"/>
-					</Panel>
-				</Panel>
-			</Panel>
-		</snippet>
-	</snippets>
-
-
-	<Panel class="" useglobalcontext="true">
-
-		                                                
-		
-	</Panel>
+	  <snippets>
+        <snippet name="AvatarPlayerCard">
+            <Panel class="avatar" acceptsinput="false">
+                <Panel class="avatar-image">
+                    <Panel>
+                        <Panel class="avatar-image__default" />
+                        <CSGOAvatarImage id="JsAvatarImage" class="avatar-image__icon" defaultsrc="file://{images}/icons/ui/player.svg" />
+                        <Image id="JsAvatarTeamColor" class="avatar-team-color" />
+                    </Panel>
+                </Panel>
+                <Panel class="avatar-flair">
+                    <Image id="JsAvatarFlair" class="avatar-flair__icon" src="" scaling="stretch-to-fit-preserve-aspect" />
+                </Panel>
+            </Panel>
+        </snippet>
+        <snippet name="AvatarParty">
+            <Panel class="avatar avatar--party">
+                <Panel class="avatar-image">
+                    <Panel>
+                        <Panel class="avatar-image__default" />
+                        <CSGOAvatarImage id="JsAvatarImage" class="avatar-image__icon" />
+                        <Image id="JsAvatarTeamColor" class="avatar-team-color hidden" />
+                    </Panel>
+                </Panel>
+                <Panel class="avatar-flair">
+                    <Image id="JsAvatarFlair" class="avatar-flair__icon" src="" scaling="stretch-to-fit-preserve-aspect" />
+                </Panel>
+                <Panel id="JsAvatarLeader" class="avatar-lobby-leader hidden">
+                    <Image class="avatar-flair__icon" src="file://{images}/icons/ui/lobby_leader.svg" scaling="stretch-to-fit-preserve-aspect" texturewidth="16" textureheight="-1" />
+                </Panel>
+                <Panel id="JsAvatarSpeaking" class="avatar-lobby-speaking hidden">
+                    <Panel class="SoundAnim Looping">
+                        <Panel class="SpeakerIcon" />
+                        <Panel class="SoundIcon1" />
+                        <Panel class="SoundIcon2" />
+                        <Panel class="SoundIcon3" />
+                    </Panel>
+                </Panel>
+            </Panel>
+        </snippet>
+        <snippet name="AvatarNoFlair">
+            <Panel class="avatar">
+                <Panel class="avatar-image">
+                    <Panel id="JsAvatarStatus" class="avatar-image__status" />
+                    <CSGOAvatarImage id="JsAvatarImage" class="avatar-image__icon" />
+                </Panel>
+            </Panel>
+        </snippet>
+        <snippet name="player-dead">
+            <Panel class="avatar-survival__avatar-dead-container">
+                <Panel id="JsSurvivalDeadPlanel" class="avatar-survival__avatar-dead">
+                    <Panel class="top-bottom-flow horizontal-center">
+                        <Label id="JsSurvivalPlacement" class="avatar-survival__avatar-dead__placement stratum-font" text="16" />
+                        <Image id="JsSurvivalDeadIcon" class="avatar-survival__avatar-dead__icon" src="file://{images}/icons/ui/elimination.svg" scaling="stretch-to-fit-preserve-aspect" texturewidth="18" textureheight="-1" />
+                    </Panel>
+                </Panel>
+            </Panel>
+        </snippet>
+    </snippets>
+    <Panel class="" useglobalcontext="true" />
 </root>

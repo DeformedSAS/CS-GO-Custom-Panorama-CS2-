@@ -1,0 +1,73 @@
+
+
+           
+.mainmenu__limitedtest
+{
+	height: 130px;
+	width: 100%;
+	background-color: blurBackgroundColor;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu__limitedtest.hidden
+{
+	visibility: collapse;
+}
+
+.mainmenu__limitedtest_bg
+{
+	background-image: url('file://{images}/backgrounds/limitedtest.png');
+	                                  
+	background-size: 99.9% 100%;
+	                              
+
+	width: 100%;
+	height: 100%;
+
+	transition-property: transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu__limitedtest:hover{
+	brightness: 1.3;
+
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu__limitedtest_text
+{
+	text-align: center;
+	color: orange;
+	font-size: 14px;
+	text-shadow: 0px 0px 8px 2.5 #000000e0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: black;
+	padding: 4px;
+
+	vertical-align: top;
+	horizontal-align: right;
+	margin-bottom: 4px;
+
+	transition-property: transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu__limitedtest:hover .mainmenu__limitedtest_bg,
+.mainmenu__limitedtest:hover .mainmenu__limitedtest_text
+{
+	transform: scale3d(1.02, 1.02, 1);
+
+	transition-property: transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+

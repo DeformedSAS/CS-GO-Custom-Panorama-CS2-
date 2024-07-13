@@ -172,6 +172,7 @@ RadioButton.toggle-active Image
 .friendslist-navbar-title__text
 {
 	font-size: 14px;
+	font-family: stratum2;
 	vertical-align: center;
 	horizontal-align: left;
 	font-weight: bold;
@@ -429,16 +430,18 @@ RadioButton.toggle-active Image
 
 .party-list__bg
 {
-	width: 100%;
-	height: 100%;
-	background-image: url("file://{resources}/videos/linemap.webm");
-	background-repeat: no-repeat;
-	wash-color: rgb(10, 110, 157);
-	background-size: 310% auto;
-	background-position: 0% 50%;
-	transition-property: wash-color, background-img-opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+            width: 100%;
+            height: 100%;
+            background-image: url("file://{resources}/videos/linemap.webm");
+            background-repeat: no-repeat;
+            wash-color: rgb(10, 110, 157);
+            background-size: 310% auto;
+            background-position: 0% 50%;
+            box-shadow: -10px -15px 12px 30px rgba(6, 141, 6, 0.767);
+            transition-property: brightness, box-shadow;
+            transition-duration: 0.25s;
+            transition-timing-function: ease-in-out;
+
 }
 
 .party-list__bg--searching

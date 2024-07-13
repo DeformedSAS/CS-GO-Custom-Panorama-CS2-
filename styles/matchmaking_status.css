@@ -1,8 +1,8 @@
+/* Prettified by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io */
 
 CSGOHud .matchmaking-status-container
 {
 	background-color: gradient( linear, 100% 0%, 0% 0%, from(#00000000), color-stop(0.5, rgba(0, 0, 0, 0.5)), color-stop(0.6, rgba(0, 0, 0, 0.5)), color-stop(0.9, rgba(0, 0, 0, 0.35) ), to(rgba(0, 0, 0, 0.0)));
-	                    
 	width: 384px;
 }
 
@@ -14,7 +14,7 @@ CSGOHud .matchmaking-status-container
 
 .matchmaking-status-left
 {
-	width: 96px;
+	width: 64px;
 	height: 64px;
 }
 
@@ -22,7 +22,7 @@ CSGOHud .matchmaking-status-container
 {
 	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';
 	color:  rgb(175, 175, 175);
-	font-size: 24px;
+	font-size: 20px;
 	text-align: center;
 	horizontal-align: center;
 	-s2-mix-blend-mode: SRGBadditive;
@@ -30,29 +30,23 @@ CSGOHud .matchmaking-status-container
 
 .matchmaking-status-header
 {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: medium;
 	text-transform: none;
-	color:  rgb(175, 175, 175);
+	color: white;
 	vertical-align: center;
 	min-width: 50px;
 	max-width: 256px;
 	font-family: Stratum2, 'Arial Unicode MS';
-	-s2-mix-blend-mode: SRGBadditive;
 }
 
-.matchmaking-status-container.hidden,
-.matchmaking-status-wait.hidden,
-.matchmaking-status-searching.hidden,
-.matchmaking-status-warning.hidden,
-.matchmaking-status-fail-icon.hidden,
-.matchmaking-status-time.hidden
+.matchmaking-status-container.hidden,.matchmaking-status-wait.hidden,.matchmaking-status-searching.hidden,.matchmaking-status-warning.hidden,.matchmaking-status-fail-icon.hidden,.matchmaking-status-time.hidden
 {
 	opacity: 0;
 	transform: scaleY(0);
 	visibility: collapse;
-
 	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
+

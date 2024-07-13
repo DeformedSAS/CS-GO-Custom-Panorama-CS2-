@@ -45,10 +45,11 @@
  .loading-root--show
 {
 	animation-name: loading-root--show-animation;
-	animation-duration: 0.65s;
+	animation-duration: 0.25s;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: 1;
     animation-fill-mode: both;
+	
 
 }
 
@@ -85,7 +86,7 @@
 
  .loading-screen-hint-contents
 {
-    height: 80px;
+    height: 120px;
     width: 100%;
 	horizontal-align: center;
 	vertical-align: center;
@@ -113,6 +114,8 @@
 .loading-screen-hint__text
 {
 	font-size: 18px;
+	font-family: Stratum2;
+	font-weight: regular;
 	                       
 	color: #eece60;
 	text-overflow: shrink;
@@ -210,11 +213,9 @@
  .loading-screen-content__info__bg{
   width: 100%;
   height: 100%;
-     background-image: url( "s2r://panorama/images/backgrounds/bluedots_large_png.vtex");
+  background-image: url( "file://{images}/backgrounds/bluedots_large.png");
   background-size: backgroundDotsSize;
-     background-img-opacity: 0.03;
-
-  ignore-parent-flow: true;
+  background-img-opacity: 0.03;
  }
 
 
@@ -261,7 +262,7 @@
     color: white;
     font-size: 40px;
 	font-family: Stratum2;
-    font-weight: medium;
+    font-weight: Medium;
     text-overflow: shrink;
     horizontal-align: center;
     white-space: nowrap;
@@ -288,7 +289,7 @@
 
      margin-right: 8px;
 	 horizontal-align: center;
-     vertical-align: down;
+     vertical-align: bottom;
      width: 30px;
     }
 
@@ -300,7 +301,7 @@
      color: white;
      text-overflow: shrink;
 	 horizontal-align: center;
-     vertical-align: down;
+     vertical-align: bottom;
      text-align: left;
     }
 
@@ -328,7 +329,7 @@
 
    font-size: 16px;
    font-family: Stratum2;
-   font-weight: medium;
+   font-weight: regular;
    color: white;
    text-overflow: shrink;
    vertical-align: top;
@@ -371,7 +372,7 @@
   height: 400px;
   margin-left: 10px;
   height: fit-children;
-  horizontal-align: top;
+  horizontal-align: center;
   vertical-align: center;
  }
 

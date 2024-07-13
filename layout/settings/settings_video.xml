@@ -7,29 +7,23 @@
 	</styles>
 
 	<scripts>
-		<include src="file://{resources}/scripts/settingsmenu_shared.js" />GameModeSelectionRadios
+		<include src="file://{resources}/scripts/settingsmenu_shared.js" />
 	</scripts>
 	
     <Panel useglobalcontext="true" class="SettingsMenuTab">
-        <CSGOVideoSettings class="SettingsMenuTabContent">
-            <Panel id="GameModeSelectionRadios" class="content-navbar__tabs content-navbar__tabs--dark content-navbar__tabs--noflow">
-                <Panel class="content-navbar__tabs__center-container">
-                    <RadioButton id="SimpleVideoSettingsRadio" class="content-navbar__tabs__btn" onactivate="SettingsMenuVideo.SelectSimpleVideoSettings();" group="SettingsVideo">
-                        <Label class="" text="#settings_video_section" />
-                    </RadioButton>
-                    <RadioButton id="AdvancedVideoSettingsRadio" class="content-navbar__tabs__btn" onactivate="SettingsMenuVideo.SelectAdvancedVideoSettings();" group="SettingsVideo">
-                        <Label class="" text="#settings_video_advanced_section" />
-                    </RadioButton>
-                    <Button class="content-navbar__tabs__btn" onactivate="SettingsMenuVideo.ShowHudEdgePositions();" group="SettingsVideo">
-                        <Label class="" text="#settings_video_hud_edge_positions" />
-                    </Button>
-                </Panel>
-            </Panel>
-            <Panel id="video_settings" class="top-bottom-flow full-width">
-                <Panel id="video_settings" class="VideoSettingsMenuTabContent vscroll" style="width: 100%;" rememberchildfocus="true">
-                    <Panel id="SettingsVideo" class="SettingsBackground">
-                        <Panel class="SettingsSectionTitleContianer">
-                            <Label class="SettingsSectionTitleLabel" text="#settings_video_section" />
+
+		<Panel class="content-navbar content-navbar__tabs--noflow content-navbar__tabs ">
+			<Panel id="GameModeSelectionRadios" class="content-navbar__tabs__center-container   content-navbar__tabs--small">
+				<RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId('SettingsVideo')" group="SettingsVideo">
+					<Label class="" text="#settings_video_section"/>
+				</RadioButton>
+
+				<RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId('SettingsVideoAdvanced')" group="SettingsVideo">
+					<Label class="" text="#settings_video_advanced_section"/>
+				</RadioButton>
+
+				<RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ShowHudEdgePositions();" group="SettingsVideo">
+					<Label class="" text="#settings_video_hud_edge_positions"/>
 				</RadioButton>
 				
 			</Panel>
@@ -51,13 +45,12 @@
 						<CSGOSettingsEnumDropDown class="PopupButton White" convar="ui_mainmenu_bkgnd_movie">
 								<Label text="#SFUI_Map_de_ancient" value="ancient" id="ui_mainmenu_bkgnd_movie_ancient"/>
 								<Label text="#SFUI_Map_de_anubis" value="anubis" id="ui_mainmenu_bkgnd_movie_anubis"/>
-								<Label text="#SFUI_Map_dz_blacksite" value="blacksite" id="ui_mainmenu_bkgnd_movie_blacksite"/>
-								<Label text="#SFUI_Map_dz_sirocco" value="sirocco" id="ui_mainmenu_bkgnd_movie_sirocco"/>
+								<Label text="#SFUI_Map_de_overpass" value="blacksite" id="ui_mainmenu_bkgnd_movie_blacksite"/>
 								<Label text="#SFUI_Map_de_cbble" value="cbble" id="ui_mainmenu_bkgnd_movie_cbble"/>
 								                                                                                               
 								                                                                                                        
 								<Label text="#SFUI_Map_de_nuke" value="nuke" id="ui_mainmenu_bkgnd_movie_nuke"/>
-								<Label text="#SFUI_Map_coop_kasbah" value="sirocco_night" id="ui_mainmenu_bkgnd_movie_sirocco_night"/>
+								<Label text="#SFUI_Map_de_dust2" value="sirocco_night" id="ui_mainmenu_bkgnd_movie_sirocco_night"/>
 								<Label text="#SFUI_Map_de_vertigo" value="vertigo" id="ui_mainmenu_bkgnd_movie_vertigo"/>
 								<Label text="#SFUI_Map_random" value="random" id="ui_mainmenu_bkgnd_movie_random"/>
 						</CSGOSettingsEnumDropDown>
@@ -282,8 +275,20 @@
 							<Label text="#SFUI_Settings_Enabled" value="1" id="ubershader1"/>
 							<Label text="#SFUI_Settings_Choice_Autodetect" value="9999999" id="ubershader2"/>
 						</CSGOSettingsEnumDropDown>
-					</TooltipPanel>
+						
+						
 
+				</TooltipPanel>
+
+									<Panel class="horizontal-separator"/>
+				                                <Panel class="horizontal-separator" id="ReflexSeparator" />
+                                <TooltipPanel class="SettingsMenuDropdownContainer" tooltip="The maximum FPS that you allow to have ingame. 0 is unlimited, 1000 is max FPS">
+                                    <CSGOSettingsSlider id="FPSMax" text="Maximum FPS Ingame" min="0" max="1000" convar="fps_max" />
+                                </TooltipPanel>
+                                <Panel class="horizontal-separator" />
+                                <TooltipPanel class="SettingsMenuDropdownContainer" tooltip="The maximum FPS that you allow to have in the main menu. 0 is unlimited, 1000 is max FPS">
+                                    <CSGOSettingsSlider id="FPSMaxUI" text="Maximum FPS In The Main Menu" min="0" max="1000" convar="fps_max_menu" />
+                                </TooltipPanel>
 				</Panel>
 			</Panel>
 		</CSGOVideoSettings>
