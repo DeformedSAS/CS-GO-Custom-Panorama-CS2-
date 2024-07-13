@@ -1,14 +1,36 @@
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
 
-# Main menu
-Well since i don't really know js or css or xml i only did the basic stuff like change the agent position and stuff..
+# Whole ui
+- All of the core UI changes.
+![image](https://github.com/user-attachments/assets/b6e73b1c-8dee-40b2-976c-e4a3ca7595b9)
+![image](https://github.com/user-attachments/assets/1e2823fd-e467-4c40-819f-75339ad350a9)
+![image](https://github.com/user-attachments/assets/9b357f84-9c6b-4b26-9033-19d5efd2245c)
+![image](https://github.com/user-attachments/assets/57b9b770-167d-4166-9b25-39e7cd662998)
+![image](https://github.com/user-attachments/assets/7eca39ba-8da1-4774-9264-1ef4e1d46195)
+![image](https://github.com/user-attachments/assets/c5e6b540-e018-4e38-a9cf-5ed04463cf77)
 
-# Maps in the main menu should be possible since the engine supports that kind of stuff, but as i've said i don't know how to do it.
+
+# Hud changes
+Radar and hud Alerts have been changed. Vote panel resembles the CS2 vote look too!
+![image](https://github.com/user-attachments/assets/837145b4-361c-48cc-98c8-731884048e8b)
+![image](https://github.com/user-attachments/assets/6e0de865-623c-40e6-baeb-01e61cd23169)
+
+# Why aren't there more hud changes?
+- There are.. just very minor such as the killfeed..
+- Stuff like the deathpanel or killfeed are supposed to have a blurred background but for some reason.. It doesn't work the same way as for the alert..
+- The hint panel does not work and i am unsure why as there seems to be nothing wrong with the layout and CSS.. If anyone found a fix for that, make a issue and give the changed there and i'll credit you.
+
+# Main menu stuff changes
+- At the launch of the game you will hear the CS2 intro logo, this is ignored if you have -novid.
+- You will always hear the ambient sounds from the main menu in all panels except loading screen.
+- Obviously the changes are visible on the first few screenshots.
+
+# Inventory
+- Well it wouldn't really be like cs2 if the inspecting stuff isn't like in CS2. So i added it!
+
+https://github.com/user-attachments/assets/19e1afba-f4dc-4300-b37a-bd24c5db00d1
 
 
-# News and Store
-For now only the News is from CS2 as i couldn't get the Store to work at all. It only gave me a lot of JS errors in the console which didn't help a lot.
 
 
-# That's it basically. If you know anything about CS:GO's ui modding could you help out please? If so contact me on Discord: deformedsas
