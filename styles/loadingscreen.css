@@ -461,7 +461,49 @@
   margin-bottom: 50px;
   margin-right: 35px;
  }
-
+ 
+ .AspectRatio4x3 #ProgressBar{
+	 
+  width: 19%;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.671);
+  border: 0px solid rgb(58, 58, 58);
+  border-radius: 0px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  box-shadow: none;
+  margin-bottom: 50px;
+  margin-right: 35px;
+ }
+ 
+ .AspectRatio5x4 #ProgressBar{
+	 
+  width: 20%;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.671);
+  border: 0px solid rgb(58, 58, 58);
+  border-radius: 0px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  box-shadow: none;
+  margin-bottom: 50px;
+  margin-right: 35px;
+ }
+ 
+  .AspectRatio16x10 #ProgressBar{
+	 
+  width: 16%;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.671);
+  border: 0px solid rgb(58, 58, 58);
+  border-radius: 0px;
+  vertical-align: bottom;
+  horizontal-align: right;
+  box-shadow: none;
+  margin-bottom: 50px;
+  margin-right: 35px;
+ }
+ 
  .loading-screen-fade--dark{
 
   width: 100%;

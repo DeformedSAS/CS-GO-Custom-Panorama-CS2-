@@ -197,6 +197,8 @@ Label,TextEntry
 @define stratum2Font: Stratum2, "Arial Unicode MS";
 @define stratum2monoFont: Stratum2 Regular Monodigit, "Arial Unicode MS";
 @define stratum2monoFontBold: Stratum2 Bold Monodigit, "Arial Unicode MS";
+@define stratum2condensedbold: ST2BDCOND Bold Monodigit, "Arial Unicode MS";
+@define stratum2regularcondensed: ST2RGCOND Bold Monodigit, "Arial Unicode MS";
 Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 {
 	font-family: Stratum2 Regular Monodigit, 'Arial Unicode MS';
@@ -259,7 +261,11 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 
 .stratum-light
 {
-	font-family: Stratum2 Light, "Arial Unicode MS";
+	font-family: ST2RGCOND, "Arial Unicode MS";
+}
+.stratum-bold-condensed
+{
+	font-family: ST2BDCOND, "Arial Unicode MS";
 }
 
 .stratum-light-italic
@@ -333,11 +339,6 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 	font-family: Stratum2, "Arial Unicode MS";
 	font-weight: bold;
 	font-style: italic;
-}
-
-.stratum-bold-condensed
-{
-	font-family: Stratum2 Bold Condensed, "Arial Unicode MS";
 }
 
 .stratum-bold-tf

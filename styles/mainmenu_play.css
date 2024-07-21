@@ -8,7 +8,6 @@
 {
 	visibility: collapse;
 }
-
                                                                                
                                                                            
                                                                                
@@ -190,8 +189,8 @@
 .directchallenge-explanation
 {
 	horizontal-align: left;
-	font-size: 14px;
-	font-family: notosans;	
+	font-size: 16px;
+	font-family: Stratum2;	
 
 }
 
@@ -365,7 +364,7 @@
 	width: height-percentage( 100% );
 }
 
-.directchallenge-status__header__avatar:hover,
+.directchallenge-status__header__avatar:hover
 {
 	brightness: 1.5;
 	transform: scale3d( 1.05, 1.05, 1.05 );
@@ -382,7 +381,7 @@
 }
 
 
-.directchallenge-status__header__codesourcelabel,
+.directchallenge-status__header__codesourcelabel
 {
 	font-family: Stratum2;
 	font-size: 16px;
@@ -395,7 +394,7 @@
 	margin-bottom: 8px;
 }
 
-.directchallenge-status__header__codesource,
+.directchallenge-status__header__codesource
 {
 	font-family: Stratum2;
 	font-size: 28px;
@@ -844,7 +843,7 @@
 {
 	font-family: stratum2Font;
 	vertical-align:center;
-	font-weight: lighter;
+	font-weight: medium;
 	font-size: 28px;
 	                       
 	color: white;
@@ -1160,11 +1159,15 @@
 .map-selection-info__map-name.fontSize-l
 {
 	font-size: 24px;
+	font-family: Stratum2;
+	font-weight: medium;
 }
 
 .map-selection-info__map-name.fontSize-m
 {
 	font-size: 18px;
+	font-family: Stratum2;
+	font-weight: medium;
 }
 
 .map-selection-info__new
@@ -1173,6 +1176,7 @@
 	background-color: blueColor;
 	color: white;
 	font-weight: medium;
+	font-family: Stratum2;
 	vertical-align: top;
 	horizontal-align: left;
 	border: 1px solid rgb(100, 180, 223);
@@ -1367,268 +1371,258 @@ RadioButton .map-selection-info__new
 
 .play-menu-controls-actions-bar
 {
-	background-color: contentPanelBackground;
-	width: 100%;
-	height: 96px;
-	padding-left: 64px;
-	vertical-align: bottom;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: contentPanelBackground;
+    width: 97%;
+    height: 96px;
+    padding-left: 64px;
+    vertical-align: bottom;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .settings-container
 {
-	flow-children: right;
-	vertical-align: center;
-	padding-left: 32px;
-	padding-right: 32px;
-	height: 64px;
-	width: 100%;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flow-children: right;
+    vertical-align: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    height: 64px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .play-settings-gamemodeflags
 {
-	visibility: collapse;
+    visibility: collapse;
 }
-
 
 .play-menu-controls-lobby-count
 {
-	width: fit-children;
-	flow-children: right;
-	vertical-align: center;
-	margin-right: -25px;
-	padding: 10px;
+    width: fit-children;
+    flow-children: right;
+    vertical-align: center;
+    margin-right: -25px;
+    padding: 10px;
 }
 
 .play-menu-controls-lobby-count .play-menu-controls-lobby-icon
 {
-	margin-left: 2px;
-	visibility: collapse;
+    margin-left: 2px;
+    visibility: collapse;
 }
 
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-1 .play-menu-controls-lobby-icon,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2 .play-menu-controls-lobby-icon,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3 .play-menu-controls-lobby-icon,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4 .play-menu-controls-lobby-icon,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5 .play-menu-controls-lobby-icon
+.play-menu-controls-lobby-count.play-menu-controls-lobby-count-1 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5 .play-menu-controls-lobby-icon
 {
-	visibility: visible;
-	wash-color: disabledColor;
+    visibility: visible;
+    wash-color: disabledColor;
 }
 
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-1 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
-{	                                                                                            
-	wash-color: white;
+.play-menu-controls-lobby-count.play-menu-controls-lobby-count-1 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
+{
+    wash-color: white;
 }
 
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-1.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
-{	                                                                                          
-	wash-color: positiveColor;
+.play-menu-controls-lobby-count.play-menu-controls-lobby-count-1.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
+{
+    wash-color: positiveColor;
 }
 
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
-{	                                                               
-	animation-name: play-menu-controls-lobby-count-full-team;
-	animation-duration: 1.8s;
+.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
+{
+    animation-name: play-menu-controls-lobby-count-full-team;
+    animation-duration: 1.8s;
     animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
-	                         
-	
-	transition-property: border;
-	opacity:1.0;
+    animation-iteration-count: infinite;
+    transition-property: border;
+    opacity:1.0;
 }
 
-@keyframes play-menu-controls-lobby-count-full-team
+@keyframes 'play-menu-controls-lobby-count-full-team'
 {
-    0% {
-		transform: scale3d( .9, .9, .9);
-		              
-	}
-    55% {
-		img-shadow: 1px 1px 1px 1.0 #ffffff;
-		transform: scale3d( 1, 1, 1);
-		brightness:1.8;
-	}
-	100% {
-		transform: scale3d( .9, .9, .9);
-	}
-}
-
-.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host
-{	                                                                                          
-	                          
+    0%
+    {
+        transform: scale3d( .9, .9, .9);
+    }
+    
+    55%
+    {
+        img-shadow: 1px 1px 1px 1.0 #ffffff;
+        transform: scale3d( 1, 1, 1);
+        brightness:1.8;
+    }
+    
+    100%
+    {
+        transform: scale3d( .9, .9, .9);
+    }
+    
 }
 
 .play-menu-controls-actions-bar__right
 {
-	flow-children :right;
-	height: 100%;
-	horizontal-align: right;
+    flow-children:right;
+    height: 100%;
+    horizontal-align: right;
+    margin-right: 20px;
 }
 
 .play-menu-controls-action-bar__right__go-cancel
 {
-	padding-right: 24px;
-	height: 100%;
-	vertical-align: center;
-	padding-left: 16px;
-
+    height: 100%;
+    vertical-align: center;
 }
 
 .play-menu__playbtn
 {
-	horizontal-align: right;
-	vertical-align: center;
-	box-shadow: -2px -2px 12px 4px #0000009d;
-	transform: scale3D( 1, 1, 1 );
-
-	background-repeat: repeat;
-	background-position: 38% 50%;
-	background-size: 100%;
-	background-image: url( "file://{resources}/videos/gobutton.webm" );
-
-	min-width: 256px;
-	flow-children: right;
-
-	transition-property: opacity, box-shadow, wash-color, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
- #JsDirectChallengeBtn
- {
-	 visibility: collapse;
- }
-
-.competitive.official #JsDirectChallengeBtn,
-{
-	visibility: visible;
+    horizontal-align: right;
+    vertical-align: center;
+    min-width: 300px;
+    margin: 12px 0px;
+    box-shadow: 0px 0px 16px 0px #00000041;
+    border: 1px solid rgba(9, 219, 9, 0.336);
+    background-color: rgba(9, 49, 9, 0.651);
+    perspective: 200px;
+    perspective-origin: 0% 0%;
+    transition-property: opacity, box-shadow, wash-color, transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn:hover
 {
-	sound: "UIPanorama.mainmenu_rollover";
+    sound: "UIPanorama.mainmenu_rollover";
+}
+
+.play-menu__playbtn:hover .play-menu__playbtn__bar
+{
+    brightness: 2;
+    box-shadow: 0px 0px 124px 5px rgba(4, 179, 4, 0.637);
+    transition-property: brightness, box-shadow;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.pressed
 {
-	                           
-	opacity: 0;
-	transform: scale3D( 1.2, 2, 2 );
-
-	transition-property: opacity, box-shadow, wash-color, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+    transform: translateY( -0px ) rotateX(100deg);
+    opacity: 0;
+    transition-property: opacity, box-shadow, wash-color, transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.hidden
 {
-	opacity: 0;
-	visibility: collapse;
+    opacity: 0;
+    visibility: collapse;
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
 
-	transition-property: opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+.play-menu__playbtn:disabled
+{
+    box-shadow: none;
+    wash-color: disabledColor;
 }
 
 .play-menu__playbtn Label
 {
-	margin: 2px 6px;
-	
-	horizontal-align: center;
-	vertical-align: center;
-
-	font-family: stratum2Font;
-	text-transform: uppercase;
-	color: gradient( linear, 0% 0%, 100% 0%, from( positiveColor ), to( positiveColor) );
-	font-weight: bold;
-	padding-top: 3px;
-	letter-spacing: 4px;
-	font-size: 32px;
-	text-align: center;
-	text-shadow: 2px 2px 2px #000000;
+    horizontal-align: center;
+    vertical-align: center;
+    padding: 8px 0px;
+    font-family: stratum2Font;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(85, 228, 20);
+    font-weight: bold;
+    font-size: 32px;
+    letter-spacing: 4px;
+    transition-property: brightness;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
-.play-menu__playbtn CCSGOSteamInputAction .steam-button-glyph 
+.play-menu__playbtn .play-menu__playbtn__bar
 {
-	width: 28px;
-	height: 28px;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.075);
+    box-shadow: 0px 0px 64px 5px rgba(6, 141, 6, 0.767);
+    transition-property: brightness, box-shadow;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
-.play-menu__playbtn Label.steam-button-name
+.play-menu__playbtn .play-menu__playbtn__bg
 {
-	visibility: collapse;
+    width: 100%;
+    height: 100%;
+    wash-color: rgb(33, 180, 33);
+    brightness: 1.5;
+    background-repeat: repeat;
+    background-position: 20% 60%;
+    background-size: auto auto;
+    background-image: url("file://{resources}/videos/linemap.webm");
+    background-img-opacity: .5;
+    transition-property: transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
-
-.play-menu__playbtn:hover
+.play-menu__playbtn .play-menu__playbtn__bg CCSGOSteamInputAction .steam-button-glyph
 {
-	box-shadow: 0px 0px 12px 0px #5abd5d69;
-
-	transition-property: opacity, box-shadow, wash-color, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+    width: 28px;
+    height: 28px;
 }
 
-.play-menu__playbtn--startsearch:disabled
+.play-menu__playbtn .play-menu__playbtn__bg Label.steam-button-name
 {
-	box-shadow: none;
-	wash-color: disabledColor;
+    visibility: collapse;
 }
 
-.group-text-with-steam-button
+.play-menu__playbtn .group-text-with-steam-button
 {
-	horizontal-align: center;
-	flow-children:right;
+    horizontal-align: center;
+    flow-children:right;
+    z-index: 2;
 }
 
-
-.play-menu__playbtn--stopsearch
+.play-menu__playbtn.play-menu__playbtn--stopsearch
 {
-	transform: translateY( 0% );
-	opacity: 1;
-	wash-color: negativeColor;
-	background-image: none;
-	background-color: #424242;
-	
-	transition-property: transform, opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+    border: 1px solid rgba(204, 11, 11, 0.336);
 }
 
-.play-menu__playbtn--stopsearch Label
+.play-menu__playbtn.play-menu__playbtn--stopsearch:disabled
 {
-	font-size: 32px;
-	text-shadow: none;
-	color:white;
+    transform: translateY( 64px );
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
-.play-menu__playbtn--stopsearch:hover
+.play-menu__playbtn.play-menu__playbtn--stopsearch:hover .play-menu__playbtn__bar
 {
-	box-shadow: 0px 0px 12px 0px negativeColor;
+    box-shadow: 0px 0px 124px 5px rgba(179, 39, 4, 0.637);
 }
 
-.play-menu__playbtn--stopsearch:disabled
+.play-menu__playbtn.play-menu__playbtn--stopsearch .play-menu__playbtn__bar
 {
-	transform: translateY( 100% );
-	opacity: 0;
+    background-color: rgba(190, 16, 16, 0.24);
+    box-shadow: 0px 0px 64px 5px rgba(109, 34, 34, 0.767);
+}
 
-	transition-property: transform, opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+.play-menu__playbtn.play-menu__playbtn--stopsearch .play-menu__playbtn__bg
+{
+    wash-color: rgb(180, 33, 33);
+}
+
+.play-menu__playbtn.play-menu__playbtn--stopsearch Label
+{
+    color: negativeColor;
+    font-size: 24px;
+    padding: 12px 0px;
+    text-overflow: ellipsis;
 }
 
 
@@ -1786,6 +1780,7 @@ ToggleButton.play-menu-option-btn:selected Label
 .content-navbar__tabs--small .play-menu-get-prime
 {
 	height: 38px;
+	margin-right: 50px;
 }
 
 .content-navbar__tabs--small .play-menu-get-prime Label

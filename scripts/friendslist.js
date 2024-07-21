@@ -131,44 +131,6 @@ var friendsList = (function() {
 
 		_UpdateHeightOpenSection();
 
-		                                                         
-		                                                                                      
-		                                                                                            
-		
-		                                                     
-
-		                         
-		    
-		   	                                 
-		   	                                            
-		   	                           
-		   	       
-		    
-
-		                                       
-		                                               
-		                            
-
-		                                        
-		    
-		   	                                                     
-		   	                             
-		    
-
-		                                                                 
-
-		                                                     
-		    
-		   	                              
-		   	                                                         
-		   	                                            
-			
-		   	             
-		   		                                                                  
-		   	    
-		   		                                                                                   
-		    
-
 		                                              
 	}
 

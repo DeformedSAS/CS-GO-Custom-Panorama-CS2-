@@ -232,7 +232,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 #VanityControls Button
 {
-	vertical-align:center;
+	vertical-align:right;
 	brightness: 0.5;
 
 	width: 60px;
@@ -284,7 +284,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .AspectRatio16x10 .mainmenu-vanity
 {
-	transform: translateX(8%) translateY(0);
+	transform: translateX(5%) translateY(0);
 }
 
 .AspectRatio16x9 .mainmenu-vanity
@@ -312,7 +312,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .AspectRatio5x4 .mainmenu-vanity
 {
-	transform: translateX(0%) translateY(0);
+	transform: translateX(6%) translateY(0);
 	width: 1080px;
 }
 
@@ -550,7 +550,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .mainmenu-top-navbar__radio-btn__label
 {
     margin: 0px;
-	font-size: 17.4;
+	width: 150px;
     vertical-align: center;
     horizontal-align: center;
     text-align: center;
@@ -1454,6 +1454,10 @@ RadioButton.content-navbar__tabs__btn--small Label
 {
 	visibility: collapse;
 }
+.DEVModeONLY
+{
+	visibility: collapse;
+}
 
 .MainMenuRootPanel--PauseMenuMode .PauseMenuModeOnly,
 {
@@ -1517,7 +1521,7 @@ RadioButton.content-navbar__tabs__btn--small Label
 
 .mainmenu-top-navbar__radio-btn
 {
-	width: 78px;
+	width: 90px;
 	flow-children: none;
 	tooltip-position: bottom;
 	transition-property: background-color;

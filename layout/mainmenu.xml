@@ -202,6 +202,17 @@
 									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarVote', '#tooltip_navbar_vote' );"
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/check.svg" />
+							
+						</RadioButton>
+						
+                       <RadioButton id="MainMenuNavBarTests"
+									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn DEVModeONLY"
+									group="NavBar" 
+									onactivate="MainMenu.NavigateToTab('Jstests', 'mainmenu_tests');">
+									<Label class="mainmenu-top-navbar__radio-btn__label stratum-light fontSize-l" style="font-size: 28; width: 150px; letter-spacing: 1px;" text="DEV UI" />
+									<Panel id="MainMenuInvAlert" class="navbar-btn__notification hidden">
+								<Label id="MainMenuInvAlertText" class="navbar-btn__notification-text" text=""/>
+							</Panel>
 
 						</RadioButton>
 						
@@ -209,10 +220,11 @@
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar" 
 									onactivate="MainMenu.NavigateToTab('JsInventory', 'mainmenu_inventory');">
-									<Label class="mainmenu-top-navbar__radio-btn__label stratum-medium fontSize-l" text="#CSGO_MainMenu_Inventory" />
+									<Label class="mainmenu-top-navbar__radio-btn__label stratum-light fontSize-l" style="font-size: 28; width: 150px; letter-spacing: 1px;" text="#CSGO_MainMenu_Inventory" />
 									<Panel id="MainMenuInvAlert" class="navbar-btn__notification hidden">
 								<Label id="MainMenuInvAlertText" class="navbar-btn__notification-text" text=""/>
 							</Panel>
+							
 
 							
 						</RadioButton>
@@ -221,7 +233,7 @@
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
 									onactivate="$.DispatchEvent('OpenPlayMenu');">
-									<Label class="mainmenu-top-navbar__radio-btn__label stratum-medium" text="#CSGO_MainMenu_Play" />
+									<Label class="mainmenu-top-navbar__radio-btn__label stratum-light fontSize-l" style="font-size: 32; width: 150px; letter-spacing: 1px;" text="#CSGO_MainMenu_Play" />
 							<Panel id="MainMenuPlayAlert" class="navbar-btn__notification hidden">
 							</Panel>
 
@@ -232,8 +244,19 @@
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
 									onactivate="MainMenu.NavigateToTab('JsNews', 'mainmenu_news_fullscreen');">
-							<Label class="mainmenu-top-navbar__radio-btn__label stratum-medium" text="NEWS" />
+							<Label class="mainmenu-top-navbar__radio-btn__label stratum-light fontSize-l" style="font-size: 28; width: 150px; letter-spacing: 1px;" text="NEWS" />
 							<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
+							</Panel>
+							
+						</RadioButton>
+						
+                       <RadioButton id="MainMenuNavBarControlsLibrary"
+									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn DEVModeONLY"
+									group="NavBar" 
+									onactivate="MainMenu.NavigateToTab('JsControls', 'controlslibrary');">
+									<Label class="mainmenu-top-navbar__radio-btn__label stratum-light fontSize-l" style="font-size: 28; width: 150px; letter-spacing: 1px;" text="TESTS" />
+									<Panel id="MainMenuInvAlert" class="navbar-btn__notification hidden">
+								<Label id="MainMenuInvAlertText" class="navbar-btn__notification-text" text=""/>
 							</Panel>
 
 						</RadioButton>
