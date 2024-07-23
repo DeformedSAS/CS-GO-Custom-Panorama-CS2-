@@ -588,7 +588,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 }
 .mainmenu-top-navbar__radio-iconbtn:hover
 {
-	background-color: #82d7ff1a;
+	color: #82D8FF;
 	transition-property: background-color;
 	transition-duration: .15s;
 	transition-timing-function: ease-in;
@@ -625,8 +625,8 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .chat-panel:selected .chat-panel-icon Image,
 .mainmenu-navbar__btn-play:selected Image
 {
-	wash-color: rgb(24, 24, 24);
-	background-color: #82d7ff1a;
+	wash-color: #82D8FF;
+	color: #82D8FF;
 	box-shadow: none;
 
 	transition-property:  wash-color, background-color, brightness;
@@ -650,7 +650,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .chat-panel:selected .chat-panel-icon Image,
 .mainmenu-top-navbar__center-container__btn-play:selected Image
 {
-	wash-color: rgb(24, 24, 24);
+	wash-color: #82D8FF;
 	background-color: none;
 	box-shadow: none;
 
@@ -793,7 +793,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	sound-trans: "";
 
 	transition-property:  position, clip;
-	transition-duration: .33s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -874,17 +874,21 @@ CSGOEndOfMatch.mainmenu-content__container
 	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
 	
 	transition-property: opacity, transform;
-	transition-duration: .33s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
 .mainmenu-content--popuptab
 {
-	transform: translatey( 0% );
-	height: 100%;
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
+    transform: translatey( 0% );
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    transition-property: opacity, transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .mainmenu-content--popuptab.mainmenu-content--hidden
@@ -894,7 +898,7 @@ CSGOEndOfMatch.mainmenu-content__container
 	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
 	
 	transition-property: opacity, transform;
-	transition-duration: .33s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -913,7 +917,7 @@ CSGOEndOfMatch.mainmenu-content__container
 	height: 984px;
 
 	transition-property: height;
-	transition-duration: .33s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -921,13 +925,13 @@ CSGOEndOfMatch.mainmenu-content__container
 {
 	background-color: contentPanelBackground;
 	transition-property: background-color;
-	transition-duration: .33s;
+	transition-duration: .25s;
 }
 
 .mainmenu-content__background-color--dark
 {
 	transition-property: background-color;
-	transition-duration: .33s;
+	transition-duration: .25s;
 }
 
                                                                                

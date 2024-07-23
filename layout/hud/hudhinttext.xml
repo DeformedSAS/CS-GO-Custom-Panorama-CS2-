@@ -3,7 +3,6 @@
 		<include src="file://{resources}/styles/csgostyles.css" />
 		<include src="file://{resources}/styles/hud/hudhinttext.css" />
 	</styles>
-
     <CSGOHudHintText hittest="false" class="hud-hint">
         <Panel class="hud-hint-bar-side cl-hud-wash-color" />
         <Panel class="hud-hint-bar-side horizontal-align-right cl-hud-wash-color" />
@@ -13,12 +12,14 @@
             <Panel class="vertical-center">
                 <Panel class="vertical-center left-right-flow">
                     <Panel class="hud-hint_top cl-hud-wash-color additive">
-                        <Image src="file://{images}/icons/ui/info.svg" class="hud-hint__icon info-icon" />
-                        <Image src="file://{images}/icons/ui/alert.svg" class="hud-hint__icon alert-icon" />
+                        <Image src="s2r://panorama/images/icons/ui/info.svg" class="hud-hint__icon info-icon" />
+                        <Image src="s2r://panorama/images/icons/ui/alert.svg" class="hud-hint__icon alert-icon" />
                     </Panel>
-                    <Label id="JsHintLabel" html="true" class="hud-hint__label additive stratum-medium-tf" />
+                    <Label id="HintLabel" html="true" class="hud-hint__label mono-spaced-font-bold"/>
                 </Panel>
             </Panel>
         </Panel>
     </CSGOHudHintText>
 </root>
+
+

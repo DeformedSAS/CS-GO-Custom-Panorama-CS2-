@@ -1,4 +1,4 @@
-/* Prettified by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io */
+
 
 .hud-vote
 {
@@ -6,7 +6,6 @@
     visibility: collapse;
     width: 300px;
     opacity: 1.0;
-    world-blur: hudWorldBlur;
     background-image: url("file://{images}/backgrounds/bluedots_large.png");
     background-size: 30px auto;
     background-img-opacity: .01;

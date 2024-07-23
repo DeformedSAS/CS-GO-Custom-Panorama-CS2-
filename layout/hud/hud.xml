@@ -7,7 +7,7 @@
 	<CSGOHud hittest="false">
 		                                                                           
 		
-		<CSGOHudBlurTarget blurrects="HudVote HudRadar HudHintText HudDeathNotice HudProgressBar HudAlerts RoundImpactScoreMain MapDraft" class="HudBlur" hittest="false" hittestchildren="false">
+		<CSGOHudBlurTarget blurrects="HudVote HudHintText HudDeathNotice HudProgressBar HudAlerts RoundImpactScoreMain MapDraft" class="HudBlur" hittest="false" hittestchildren="false">
 			<CSGOBackbufferImagePanel class="full-width full-height" />
 		</CSGOHudBlurTarget>
 
@@ -75,8 +75,8 @@
 			<CSGOOutOfAmmo id="OutOfAmmo"/>
 			<CSGOHudMoney id="HudMoney"/>
 			<CSGOHudProgressBar id="HudProgressBar"/>
-			<CSGOHudAlerts id="HudAlerts"/>
-			<CSGOHudHintText id="HudHintText"/>
+                <CSGOHudHintText id="HudHintText" priority="high" class="high-priority" />
+                <CSGOHudAlerts id="HudAlerts" />
 			<CSGOShieldDamageAlert id="ShieldDamageAlert"/>
 			                                                               
 			            

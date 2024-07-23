@@ -15,7 +15,6 @@
 .ris__main
 {
     background-color: hud-blur-bg-color;
-    world-blur: hudWorldBlur;
 }
 
 .ris__main__container
