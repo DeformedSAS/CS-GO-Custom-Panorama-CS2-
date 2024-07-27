@@ -21,7 +21,7 @@ Radar and hud Alerts have been changed. Vote panel resembles the CS2 vote look t
 # Why aren't there more hud changes?
 - There are.. just very minor such as the killfeed..
 - Stuff like the deathpanel or killfeed are supposed to have a blurred background but for some reason.. It doesn't work the same way as for the alert..
-- The hint panel does not work and i am unsure why as there seems to be nothing wrong with the layout and CSS.. If anyone found a fix for that, make a issue and give the changed code there and i'll credit you.
+- Hint Panel works albeit it for the picked up weapon panel it only works for the c4 and i am quite unsure why it does that.. i'll figure it out
 
 # Main menu stuff changes
 - At the launch of the game you will hear the CS2 intro logo, this is ignored if you have -novid.
