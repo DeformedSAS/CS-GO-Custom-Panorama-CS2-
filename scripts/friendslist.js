@@ -149,7 +149,7 @@ var friendsList = (function() {
 			m_activeSection = sectionId;
 		}
 
-		_UpdateSection( sectionId, false );
+		_UpdateSection( sectionId, true );
 	}
 
 	var _UpdateAllSections = function()

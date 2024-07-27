@@ -16,10 +16,13 @@
                 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsAudioSettings&apos;)" group="SettingsAudio">
                     <Label text="#settings_audio_section" />
 				</RadioButton>
+				 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsMusicSettings&apos;)" group="SettingsAudio">
+                    <Label text="#settings_music_section" />
+					</RadioButton>
 			</Panel>
 		</Panel>
 		
-		<CSGOAudioSettings class="SettingsMenuTabContent vscroll">
+		<CSGOAudioSettings class="SettingsMenuTabContent vscroll" rememberchildfocus="true" >
 			                               
 			<Panel id="SettingsAudioSettings" class="SettingsBackground">
 				<Panel class="SettingsSectionTitleContianer">
@@ -77,6 +80,14 @@
 							<Label text="#GameUI_Yes" id="audiohwcompat0" value="0"/>
 							<Label text="#GameUI_No"  id="audiohwcompat1" value="1" />
 						</CSGOSettingsEnumDropDown>
+						</TooltipPanel>
+						<Panel class="horizontal-separator"/>
+                    <TooltipPanel id="enablemicmonitor-container" class="SettingsMenuDropdownContainer" tooltip="Test mic audio. This only works while in a lobby or while playing on a map. Use your mic bind to get started.">
+                        <Label text="Test your own mic" class="half-width" />
+                        <CSGOSettingsEnumDropDown id="enableconsoledropdown" class="PopupButton White" convar="voice_loopback">
+                            <Label text="#GameUI_On" id="enablemicmonitor0" value="1" />
+                            <Label text="#GameUI_Off" id="enablemicmonitor1" value="0" />
+                        </CSGOSettingsEnumDropDown>
 					</TooltipPanel>
 
 					<Panel class="horizontal-separator"/>

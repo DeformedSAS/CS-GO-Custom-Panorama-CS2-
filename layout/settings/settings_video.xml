@@ -280,15 +280,6 @@
 
 				</TooltipPanel>
 
-									<Panel class="horizontal-separator"/>
-				                                <Panel class="horizontal-separator" id="ReflexSeparator" />
-                                <TooltipPanel class="SettingsMenuDropdownContainer" tooltip="The maximum FPS that you allow to have ingame. 0 is unlimited, 1000 is max FPS">
-                                    <CSGOSettingsSlider id="FPSMax" text="Maximum FPS Ingame" min="0" max="1000" convar="fps_max" />
-                                </TooltipPanel>
-                                <Panel class="horizontal-separator" />
-                                <TooltipPanel class="SettingsMenuDropdownContainer" tooltip="The maximum FPS that you allow to have in the main menu. 0 is unlimited, 1000 is max FPS">
-                                    <CSGOSettingsSlider id="FPSMaxUI" text="Maximum FPS In The Main Menu" min="0" max="1000" convar="fps_max_menu" />
-                                </TooltipPanel>
 				</Panel>
 			</Panel>
 		</CSGOVideoSettings>
