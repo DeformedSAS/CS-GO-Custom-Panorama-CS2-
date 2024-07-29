@@ -10,7 +10,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/common/iteminfo.js" />
 		<include src="file://{resources}/scripts/loadout.js" />
-		<include src="file://{resources}/scripts/common/characteranims2.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
 		<include src="file://{resources}/scripts/characterbuttons.js" />
 	</scripts>
 
@@ -54,7 +54,7 @@
                     <Panel class="fourslot" id="Contents" />
                 </RadioButton>
                 <RadioButton class="radial-button w3">
-                    <Image class="wedge w90" src="file://{images}/test_images/wedge90.pngx" />
+                    <Image class="wedge w90" src="file://{images}/test_images/wedge90.png" />
                     <Panel class="fourslot" id="Contents" />
                 </RadioButton>
                 <RadioButton class="radial-button w4">
@@ -79,39 +79,48 @@
             </Panel>
         </snippet>
     </snippets>
-    <CSGOLoadout class="loadout">
+	<CSGOLoadout class="loadout">
         <Panel class="content-navbar content-navbar__tabs--dark content-navbar__tabs--dark content-navbar__tabs--noflow">
             <Panel id="LoadoutSlotSelectionRadios" class="content-navbar__tabs__center-container">
-                <RadioButton id="LoadoutPistols" onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="secondary" data-wedge="true" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_Secondary" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="smg" data-wedge="true" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_SMG" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="rifle" data-wedge="true" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_Rifle" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="heavy" data-wedge="true" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_Heavy" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="melee" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_Melee" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="clothing_hands" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_clothing" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="spray" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_Spray" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="musickit" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_MusicKit" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="flair" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_Flair" />
-                </RadioButton>
-                <RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="customplayer" class="content-navbar__tabs__btn">
-                    <Label class="" text="#LoadoutSlot_customplayer" />
-                </RadioButton>
+				<RadioButton id="LoadoutPistols" onactivate="Loadout.ShowItemsForSelectedSlot()"  group="LoadoutSlots" data-slot="secondary" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Secondary"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="smg" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_SMG"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="rifle" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Rifle"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="heavy" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Heavy"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="melee" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Melee"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="clothing_hands" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_clothing"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="spray0" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Spray"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="musickit" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_MusicKit"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="flair0" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Flair"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="customplayer" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_customplayer"/>
+				</RadioButton>
             </Panel>
             <Panel class="horizontal-align-right vertical-center left-right-padding">
                 <Image id="LoadoutInfo" class="loadout-info" src="file://{images}/icons/ui/info.svg" texturewidth="32" textureheight="32" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;LoadoutInfo&apos;, &apos;#tooltip_loadout&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" />
@@ -125,25 +134,43 @@
                         <Image id="TeamLogo" class="" src="file://{images}/icons/ct_logo.svg" />
                     </ToggleButton>
                 </Panel>
-                <Panel id="LoadoutSingleItem" class="loadout-single-item-container">
-                    <Label id="LoadoutSingleItemLabel" class="loadout-single-item-title" text="" />
-                    <Panel id="LoadoutSingleItemRarity" class="loadout-single-item-rarity" />
-                    <Panel class="full-width full-height">
-                        <Image id="loadout-single-item__bg" class="loadout-single-item-bg" textureheight="768" texturewidth="-1" src="file://{images}/backgrounds/inspect.svg" scaling="stretch-to-fit-y-preserve-aspect" />
-                        <Frame id="melee" class="" src="file://{resources}/layout/inspect.xml" onload="Loadout.InitPreviewPanel( &apos;melee&apos; );" />
-                        <Frame id="clothing_hands" class="" src="file://{resources}/layout/inspect.xml" onload="Loadout.InitPreviewPanel( &apos;clothing_hands&apos; );" />
-                        <Frame id="spray0" class="" src="file://{resources}/layout/inspect.xml" onload="Loadout.InitPreviewPanel( &apos;spray0&apos; );" />
-                        <Frame id="musickit" class="" src="file://{resources}/layout/inspect.xml" onload="Loadout.InitPreviewPanel( &apos;musickit&apos; );" />
-                        <Frame id="flair0" class="" src="file://{resources}/layout/inspect.xml" onload="Loadout.InitPreviewPanel( &apos;flair0&apos; );" />
-                        <Frame id="customplayer" class="extra-tall" src="file://{resources}/layout/inspect.xml" onload="Loadout.InitPreviewPanel( &apos;customplayer&apos; );" />
-                        <Panel class="popup-inspect-border" hittest="false" />
-                        <Panel id="id-character-buttons-container" class="popup-button-row">
-                            <Frame id="id-character-buttons" src="file://{resources}/layout/characterbuttons.xml" />
-                        </Panel>
-                        <Button id="LoadoutResetFlair" class="IconButton vertical-align-top horizontal-align-right" onactivate="Loadout.ResetFlair();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;LoadoutResetFlair&apos;, &apos;#tooltip_unequip_flair&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-                            <Image src="file://{images}/icons/ui/remove.svg" />
-                        </Button>
-                    </Panel>
+				<Panel id="LoadoutSingleItem" class="loadout-single-item-container">
+		
+					<Label id="LoadoutSingleItemLabel" class="loadout-single-item-title" text=""/>
+					<Panel id="LoadoutSingleItemRarity" class="loadout-single-item-rarity"/>
+						<Panel class="full-width full-height">
+							                                                                                                                                                
+							<Image id="loadout-single-item__bg"
+									class="loadout-single-item-bg" 
+									textureheight="768"
+									texturewidth="-1"
+									src="file://{images}/backgrounds/inspect.svg"
+									scaling="stretch-to-fit-y-preserve-aspect" />
+
+							<Panel class="full-width full-height">
+								<ItemPreviewPanel id="LoadoutSingleItemModel"
+										class="loadout-single-item"
+										manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+										item="img://inventory_4295015926"
+										enable_floorshadow="true"
+										mouse_rotate="true">
+									
+								</ItemPreviewPanel>
+								                                             
+								<Panel id="id-character-buttons-container" class="popup-button-row">
+									<Frame id="id-character-buttons" src="file://{resources}/layout/characterbuttons.xml"/>
+								</Panel>
+							</Panel>
+
+
+							<Button id="LoadoutResetFlair" 
+									class="IconButton vertical-align-top horizontal-align-right" 
+									onactivate="Loadout.ResetFlair();"
+									onmouseover="UiToolkitAPI.ShowTextTooltip( 'LoadoutResetFlair', '#tooltip_unequip_flair' );"
+									onmouseout="UiToolkitAPI.HideTextTooltip();">
+								<Image src="file://{images}/icons/ui/remove.svg" />
+							</Button> 
+						</Panel>
                 </Panel>
                 <Panel id="LoadoutSelectTeam" class="loadout-team-selector">
                     <RadioButton id="LoadoutTeamCt" onactivate="Loadout.ShowItemsForSelectedSlot();" group="LoadoutTeam" class="PopupButton" data-team="3">
@@ -178,4 +205,3 @@
         </Panel>
     </CSGOLoadout>
 </root>
-

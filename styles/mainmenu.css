@@ -427,7 +427,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	height: 64px;
 	width: 100%;
 	padding-right: 200px;
-	background-color:blurBackgroundColor;
+	background-color:blurBackgroundColor, rgba(0, 0, 0, 0.75);
 	background-image: url("file://{images}/backgrounds/linemap.png");
     background-size: auto auto;
     background-img-opacity: .08;
@@ -759,6 +759,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .mainmenu-sidebar__container
 {
 	flow-children:down;
+	background-color:blurBackgroundColor, rgba(0, 0, 0, 0.75);
 }
 
 .mainmenu-sidebar-fullscreen
@@ -830,7 +831,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	width: 100%;
 	height: 100%;
 	opacity: 1;
-	background-color: rgba(0, 0, 0, 0.50);
+	background-color: rgba(0, 0, 0, 0.75);
     background-image: url("file://{images}/backgrounds/bluedots_large.png");
 	background-size: backgroundDotsSize;
     background-img-opacity: .01;

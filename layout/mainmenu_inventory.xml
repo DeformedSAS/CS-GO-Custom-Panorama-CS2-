@@ -102,6 +102,9 @@
 									<Label id="" class="navbar-btn__notification-text" text="1" />
 								</Panel>
 							</Button>
+ <RadioButton id="InvLoadoutBtn" group="inv-top-nav" class="content-navbar__tabs__btn" onactivate="InventoryPanel.NavigateToTab( &apos;loadout&apos;)">
+                                <Label text="#inv_nav_loadout" />
+                            </RadioButton>
 							<RadioButton id="InvCraftingBtn" group="inv-top-nav" class="content-navbar__tabs__btn left-right-flow visible-if-not-limitedbeta" onactivate="InventoryPanel.NavigateToTab( &apos;tradeup&apos; );">
 								<Label text="#inv_nav_tradeup" />
 							</RadioButton>
@@ -118,6 +121,8 @@
 				<Panel id="InventoryMain" class="mainmenu-content__container__inventory" />
 				<Frame id="InvCraftingPanel" src="file://{resources}/layout/crafting.xml" />
 				<Frame id="InvSearchPanel" src="file://{resources}/layout/mainmenu_inv_search.xml" />
+				<Panel id="InvLoadoutPanel" class="mainmenu-content--popuptab mainmenu-content__container mainmenu-content--hidden">
+                <CSGOLoadout id="Loadout" registerforreadyevents="true" readyfordisplay="false" />
 				<Panel id="SelectItemForCapabilityPopup" class="mainmenu-content--popuptab mainmenu-content__container mainmenu-content--hidden">
 					<Panel id="CapabilityPopupTitleBar" class="content-navbar inv-popup content-navbar__tabs--noflow">
 						<Panel class="content-navbar__extra-buttons">
@@ -135,5 +140,6 @@
 				</Panel>
 			</Panel>
 		</Panel>
+	</Panel>
 	</Panel>
 </root>

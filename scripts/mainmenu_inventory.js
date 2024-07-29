@@ -262,22 +262,23 @@ var InventoryPanel = ( function (){
 		elNavBar.GetChild( 0 ).checked = true;
 	};
 
-	var _UpdateActiveInventoryList = function()
-	{
-		if ( _m_activeCategory === "tradeup" )
-		{
-			return;
-		}
-		
-		var activePanel = _m_elInventoryMain.FindChildInLayoutFile( _m_activeCategory );
-		InventoryPanel.UpdateActiveItemList(
-			_GetActiveCategoryLister( activePanel ),
-			_m_activeCategory,
-			_GetSelectedSubCategory( activePanel ),
-			_GetSelectedSort( activePanel ),
-			''
-		);
-	};
+  var _UpdateActiveInventoryList = function()
+    {
+        if ( _m_activeCategory === "loadout" || _m_activeCategory === "tradeup" )
+        {
+            return;
+        }
+        
+        var activePanel = _m_elInventoryMain.FindChildInLayoutFile( _m_activeCategory );
+        InventoryPanel.UpdateActiveItemList(
+            _GetActiveCategoryLister( activePanel ),
+            _m_activeCategory,
+            _GetSelectedSubCategory( activePanel ),
+            _GetSelectedSort( activePanel ),
+            ''
+        );
+    };
+
 
 	var _NameFromTag = function( tag )
 	{
@@ -297,64 +298,73 @@ var InventoryPanel = ( function (){
 	                                                                                                    
 	                
 	                                                                                                    
-	var _NavigateToTab = function( category )
-	{
-		                                                  
-		if ( _m_activeCategory !== category )
-		{
-			if ( _m_activeCategory )
-			{
-				if( _m_activeCategory === 'tradeup' )
-				{
-					InventoryPanel.UpdateCraftingPanelVisibility( false );
-				}
-				else if( _m_activeCategory === 'search')
-				{
-					_UpdateSearchPanelVisibility( false );
-				}
-				else
-				{
-					var panelToHide = _m_elInventoryMain.FindChildInLayoutFile( _m_activeCategory );
-					panelToHide.RemoveClass( 'Active' );
-					                                           
-				}
-			}
+  var _NavigateToTab = function( category )
+    {
+                                                          
+        if ( _m_activeCategory !== category )
+        {
+            if ( _m_activeCategory )
+            {
+                if ( _m_activeCategory === 'loadout' )
+                {
+                    _CloseLoadout();
+                }
+                else if( _m_activeCategory === 'tradeup' )
+                {
+                    InventoryPanel.UpdateCraftingPanelVisibility( false );
+                }
+                else if( _m_activeCategory === 'search')
+                {
+                    _UpdateSearchPanelVisibility( false );
+                }
+                else
+                {
+                    var panelToHide = _m_elInventoryMain.FindChildInLayoutFile( _m_activeCategory );
+                    panelToHide.RemoveClass( 'Active' );
+                                                               
+                }
+            }
 
-			_m_activeCategory = category;
+            _m_activeCategory = category;
 
-			                   
-			if( category === "tradeup" )
-			{
-				InventoryPanel.UpdateCraftingPanelVisibility( true );
-				$.GetContextPanel().FindChildInLayoutFile( 'InvCraftingBtn' ).checked = true;
-			}
-			else if ( _m_activeCategory === 'search' )
-			{
-				_UpdateSearchPanelVisibility( true );
-				$.GetContextPanel().FindChildInLayoutFile( 'InvSearchPanel' ).checked = true;
-			}
-			else
-			{
-				var activePanel = _m_elInventoryMain.FindChildInLayoutFile( category );
-				activePanel.AddClass( 'Active' );
-	
-				                                                                         
-				activePanel.visible = true;
-				activePanel.SetReadyForDisplay( true );
-				                                  
+                               
+            if ( category === 'loadout' )
+            {
+                _ShowLoadout();
+                $.GetContextPanel().FindChildInLayoutFile( 'InvLoadoutBtn' ).checked = true;
+            }
+            else if( category === "tradeup" )
+            {
+                InventoryPanel.UpdateCraftingPanelVisibility( true );
+                $.GetContextPanel().FindChildInLayoutFile( 'InvCraftingBtn' ).checked = true;
+            }
+            else if ( _m_activeCategory === 'search' )
+            {
+                _UpdateSearchPanelVisibility( true );
+                $.GetContextPanel().FindChildInLayoutFile( 'InvSearchPanel' ).checked = true;
+            }
+            else
+            {
+                var activePanel = _m_elInventoryMain.FindChildInLayoutFile( category );
+                activePanel.AddClass( 'Active' );
+    
+                                                                                         
+                activePanel.visible = true;
+                activePanel.SetReadyForDisplay( true );
+                                                  
 
-				_m_activeCategory = category;
+                _m_activeCategory = category;
 
-				_UpdateActiveItemList(
-					_GetActiveCategoryLister( activePanel ),
-					category,
-					_GetSelectedSubCategory( activePanel ),
-					_GetSelectedSort( activePanel ),
-					''
-					);
-			}
-		}
-	};
+                _UpdateActiveItemList(
+                    _GetActiveCategoryLister( activePanel ),
+                    category,
+                    _GetSelectedSubCategory( activePanel ),
+                    _GetSelectedSort( activePanel ),
+                    ''
+                    );
+            }
+        }
+    };
 
 	                                                                                                    
 	                               
@@ -455,14 +465,38 @@ var InventoryPanel = ( function (){
 			$.DispatchEvent( "ShowXrayCasePopup", keyId, oData.case, false );
 		} );
 	}
+	
+    var _ShowLoadout = function ()
+    {
+        var elLoadoutContainer = $.GetContextPanel().FindChildInLayoutFile( 'InvLoadoutPanel' );
+        elLoadoutContainer.RemoveClass( _m_HiddenContentClassname );
 
+        var elLoadoutInner = $.GetContextPanel().FindChildInLayoutFile( 'Loadout' );
+        elLoadoutInner.SetReadyForDisplay( true );
+    };
+
+    var _CloseLoadout = function()
+    {
+        var elLoadout = $.GetContextPanel().FindChildInLayoutFile( 'InvLoadoutPanel' );
+        elLoadout.AddClass( _m_HiddenContentClassname );
+        var elLoadoutInner = $.GetContextPanel().FindChildInLayoutFile( 'Loadout' );
+        elLoadoutInner.SetReadyForDisplay( false );
+
+        return true;
+    };
+
+    var _ShowLoadoutForItem = function( slot, subSlot, team )
+    {
+        _NavigateToTab( 'loadout' );
+    };
 	                                                                                                    
 	                   
 	                                                                                                    
-	var _GotoTradeUpPanel = function()
-	{
-		_NavigateToTab( 'tradeup' );
-	};
+    var _GotoTradeUpPanel = function()
+    {
+        _NavigateToTab( 'tradeup' );
+    };
+
 
 	var _HideInventoryMainListers = function ()
 	{
@@ -488,48 +522,48 @@ var InventoryPanel = ( function (){
 		}
 	};
 
-	var _UpdateCraftingPanelVisibility = function( bShow )
-	{
-		var elCrafting = $( '#InvCraftingPanel' );
+    var _UpdateCraftingPanelVisibility = function( bShow )
+    {
+        var elCrafting = $( '#InvCraftingPanel' );
 
-		                                 
-		if ( bShow )
-		{
-			if ( elCrafting.BHasClass( _m_HiddenContentClassname ) )
-			{
-				elCrafting.RemoveClass( _m_HiddenContentClassname );
-				elCrafting.SetFocus();
+                                         
+        if ( bShow )
+        {
+            if ( elCrafting.BHasClass( _m_HiddenContentClassname ) )
+            {
+                elCrafting.RemoveClass( _m_HiddenContentClassname );
+                elCrafting.SetFocus();
 
-				                               
-				_CloseSelectItemForCapabilityPopup();
+                                               
+                _CloseSelectItemForCapabilityPopup();
 
-				$.GetContextPanel().FindChildTraverse( 'Crafting-Items' ).SetReadyForDisplay( true );
-				$.GetContextPanel().FindChildTraverse( 'Crafting-Ingredients' ).SetReadyForDisplay( true );
+                $.GetContextPanel().FindChildTraverse( 'Crafting-Items' ).SetReadyForDisplay( true );
+                $.GetContextPanel().FindChildTraverse( 'Crafting-Ingredients' ).SetReadyForDisplay( true );
 
-				              
-				var RecipeId = InventoryAPI.GetTradeUpContractItemID();
-				var strCraftingFilter = InventoryAPI.GetItemAttributeValue( RecipeId, "recipe filter" );
-				InventoryAPI.ClearCraftIngredients();
-				InventoryAPI.SetCraftTarget( strCraftingFilter );
+                              
+                var RecipeId = InventoryAPI.GetTradeUpContractItemID();
+                var strCraftingFilter = InventoryAPI.GetItemAttributeValue( RecipeId, "recipe filter" );
+                InventoryAPI.ClearCraftIngredients();
+                InventoryAPI.SetCraftTarget( strCraftingFilter );
 
-				$.DispatchEvent( 'UpdateTradeUpPanel' );
-			}
-		}
-		else
-		{
-			elCrafting.AddClass( _m_HiddenContentClassname );
+                $.DispatchEvent( 'UpdateTradeUpPanel' );
+            }
+        }
+        else
+        {
+            elCrafting.AddClass( _m_HiddenContentClassname );
 
-			_m_elInventoryMain.SetFocus();
+            _m_elInventoryMain.SetFocus();
 
-			$.GetContextPanel().FindChildTraverse( 'Crafting-Items' ).SetReadyForDisplay( false );
-			$.GetContextPanel().FindChildTraverse( 'Crafting-Ingredients' ).SetReadyForDisplay( false );
+            $.GetContextPanel().FindChildTraverse( 'Crafting-Items' ).SetReadyForDisplay( false );
+            $.GetContextPanel().FindChildTraverse( 'Crafting-Ingredients' ).SetReadyForDisplay( false );
 
-			                                         
-			InventoryAPI.ClearCraftIngredients();
+                                                     
+            InventoryAPI.ClearCraftIngredients();
 
-			return true;
-		}
-	}
+            return true;
+        }
+    }
 
 	var _UpdateSearchPanelVisibility = function( bShow )
 	{
@@ -744,6 +778,7 @@ var InventoryPanel = ( function (){
 	{
 		_RunEveryTimeInventoryIsShown();
 		_UpdateActiveInventoryList();
+		 _UpdateLoadoutButtonState();
 
 		if ( !_m_elInventoryMain.updatePlayerEquipSlotChangedHandler )
 		{
@@ -763,35 +798,54 @@ var InventoryPanel = ( function (){
 		}
 	};
 
-	var _InventoryUpdated = function()
-	{
-		_ShowHideXrayBtn();
-		
-		                                           
-		if( $.GetContextPanel().BHasClass( _m_HiddenContentClassname ) || _m_isCapabliltyPopupOpen )
-			return;
-	
-		_OnShowAcknowledgePanel();
+    var _InventoryUpdated = function()
+    {
+        _ShowHideXrayBtn();
+        
+                                                   
+        if( $.GetContextPanel().BHasClass( _m_HiddenContentClassname ) || _m_isCapabliltyPopupOpen )
+            return;
+    
+        _OnShowAcknowledgePanel();
 
-		if ( !_m_elInventorySearch.BHasClass( _m_HiddenContentClassname ) )
-		{
-			InventorySearch.UpdateItemList();
-		}
-		else if ( _m_activeCategory )
-		{
-			_UpdateActiveInventoryList();
-		}
-	};
+        if ( !_m_elInventorySearch.BHasClass( _m_HiddenContentClassname ) )
+        {
+            InventorySearch.UpdateItemList();
+        }
+        else if ( _m_activeCategory )
+        {
+            _UpdateActiveInventoryList();
+        }
+    };
 
-	var _OnShowAcknowledgePanel = function()
-	{
-		var itemsToAcknowledge = AcknowledgeItems.GetItems();
-		
-		if ( itemsToAcknowledge.length > 0 )
-		{
-			$.DispatchEvent( 'ShowAcknowledgePopup', '', '' );
-		}
-	};
+    var _OnShowAcknowledgePanel = function()
+    {
+        var itemsToAcknowledge = AcknowledgeItems.GetItems();
+        
+        if ( itemsToAcknowledge.length > 0 )
+        {
+            $.DispatchEvent( 'ShowAcknowledgePopup', '', '' );
+        }
+    };
+
+    var _UpdateLoadoutButtonState = function()
+    {
+        var elInvLoadoutBtn = $.GetContextPanel().FindChildTraverse( "InvLoadoutBtn" );
+        if ( elInvLoadoutBtn )
+        {
+            elInvLoadoutBtn.enabled = LoadoutAPI.IsLoadoutAllowed();
+
+            elInvLoadoutBtn.SetPanelEvent( 'onmouseover', elInvLoadoutBtn.enabled ? function() {} : function()
+            {
+                UiToolkitAPI.ShowTextTooltip( elInvLoadoutBtn.id, "#tooltip_loadout_disabled" );
+            } );
+
+            elInvLoadoutBtn.SetPanelEvent( 'onmouseout', elInvLoadoutBtn.enabled ? function() {} : function()
+            {
+                UiToolkitAPI.HideTextTooltip();
+            } );
+        }   
+    }
 
 	                                                                                                    
 	                                
@@ -1161,6 +1215,9 @@ var InventoryPanel = ( function (){
 		ShowResetMusicConfirmation: _ShowResetMusicConfirmation,
 		ShowNotification: _ShowNotification,
 		GotoTradeUpPanel: _GotoTradeUpPanel,
+		CloseLoadout: _CloseLoadout,
+		ShowLoadoutForItem: _ShowLoadoutForItem,
+		ShowLoadout: _ShowLoadout,
 		UpdateCraftingPanelVisibility: _UpdateCraftingPanelVisibility,
 		UpdateSearchPanelVisibility: _UpdateSearchPanelVisibility,
 		ClosePopups : _ClosePopups,
@@ -1191,6 +1248,7 @@ var InventoryPanel = ( function (){
 	$.RegisterForUnhandledEvent( 'ShowDeleteItemConfirmationPopup', InventoryPanel.ShowDeleteItemConfirmation );
 	$.RegisterForUnhandledEvent( 'ShowUseItemOnceConfirmationPopup', InventoryPanel.ShowUseItemOnceConfirmation );
 	$.RegisterForUnhandledEvent( 'ShowResetMusicVolumePopup', InventoryPanel.ShowResetMusicConfirmation );
+	$.RegisterForUnhandledEvent( 'ShowLoadoutForItem', InventoryPanel.ShowLoadoutForItem );
 	                                                                                     
 	$.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_CraftIngredientAdded', function() { InventoryPanel.NavigateToTab( 'tradeup' ) } );
 	$.RegisterForUnhandledEvent( 'ShowTradeUpPanel', InventoryPanel.GotoTradeUpPanel );
