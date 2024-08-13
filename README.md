@@ -2,6 +2,7 @@
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
 
 # NOTE: Always download the updated source code from the home page of the repo instead of the one from releases tab. 
+# SECOND NOTE: Put the font files from the fonts folder from the code zip into the fonts folder of migi or csgo. depending if you have symlinks. This is required for the center navbar font aka the play button and other.
 
 # Whole ui
 - All of the core UI changes.
