@@ -728,9 +728,6 @@ var MainMenu = ( function() {
 
 		_BetaEnrollmentStatusChange();
 		
-		                             
-		var elNews = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsNewsPanel' );
-		elNews.BLoadLayout( 'file://{resources}/layout/mainmenu_news.xml', false, false );
 
 		                             
 		var elLastMatch = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsLastMatch' );

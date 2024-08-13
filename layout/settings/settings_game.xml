@@ -12,7 +12,7 @@
 
     <Panel useglobalcontext="true" class="SettingsMenuTab">
         <Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--dark content-navbar__tabs--noflow">
-            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container">
+            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container content-navbar__tabs--small">
                 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsGameSettings&apos;)" group="SettingsGame">
                     <Label text="#settings_game_settings_section" />
                 </RadioButton>
@@ -792,35 +792,37 @@
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="Viewmodel Preset Position" class="half-width"/>
 						<CSGOSettingsEnumDropDown class="PopupButton White" convar="viewmodel_presetpos">
+						     <Label text="No Preset" value="0" id ="noviewmodelpreset"/>
 							<Label text="#SFUI_Settings_ViewmodelPosDesktop" value="1" id ="viewmodelpreset0"/>
-							<Label text="#SFUI_Settings_ViewmodelPosClassic" value="3" id ="viewmodelpreset3"/>
+							<Label text="#SFUI_Settings_ViewmodelPosCouch" value="2" id ="viewmodelpreset1"/>
+							<Label text="#SFUI_Settings_ViewmodelPosClassic" value="3" id ="viewmodelpreset2"/>
 						</CSGOSettingsEnumDropDown>
 					</Panel>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="ViewmodelFOV" text="Viewmodel FOV" tooltip="Determines your viewmodel FOV" displayprecision="1" max="68.0" min="54.0" convar="viewmodel_fov"/>
+					<CSGOSettingsSlider id="v_fov" text="Viewmodel FOV" tooltip="Determines your viewmodel FOV" displayprecision="1" max="68.0" min="54.0" convar="viewmodel_fov"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="ViewmodelOFX" text="Viewmodel Offset X" tooltip="Determines how far on the left or right your viewmodel is" displayprecision="1" max="2.5" min="-2.0" convar="viewmodel_offset_x"/>
+					<CSGOSettingsSlider id="v_offset_X" text="Viewmodel Offset X" tooltip="Determines how far on the left or right your viewmodel is" displayprecision="1" max="2.5" min="-2.0" convar="viewmodel_offset_x"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="ViewmodelOFY" text="Viewmodel Offset Y" tooltip="Determines how far away or near the viewmodel is" displayprecision="1" max="2.0" min="-2.0" convar="viewmodel_offset_y"/>
+					<CSGOSettingsSlider id="v_offset_y" text="Viewmodel Offset Y" tooltip="Determines how far away or near the viewmodel is" displayprecision="1" max="2.0" min="-2.0" convar="viewmodel_offset_y"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="ViewmodelOFZ" text="Viewmodel Offset Z" tooltip="Determines how high or low the viewmodel is" max="2.0" min="-2.0" displayprecision="1" convar="viewmodel_offset_z"/>
+					<CSGOSettingsSlider id="v_offset_x" text="Viewmodel Offset Z" tooltip="Determines how high or low the viewmodel is" max="2.0" min="-2.0" displayprecision="1" convar="viewmodel_offset_z"/>
 					<Panel class="horizontal-separator"/>
 
 					                      
-					<CSGOSettingsSlider id="ViewmodelRCL" text="Viewmodel Recoil" max="1" min="0" displayprecision="1" convar="viewmodel_recoil"/>
+					<CSGOSettingsSlider id="v_recoil" text="Viewmodel Recoil" max="1" min="0" displayprecision="1" convar="viewmodel_recoil"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="ViewbobLower" text="Lowering Amount" max="30" min="5" displayprecision="1" convar="cl_bob_lower_amt"/>
+					<CSGOSettingsSlider id="vb_low" text="Lowering Amount" max="30" min="5" displayprecision="1" convar="cl_bob_lower_amt"/>
 					<Panel class="horizontal-separator"/>
 					
-					<CSGOSettingsSlider id="Viewbobgunlow" text="Gun Sway Horizontal" max="2.0" displayprecision="1" min="0.1" convar="cl_bobamt_lat"/>
+					<CSGOSettingsSlider id="vb_sh" text="Gun Sway Horizontal" max="2.0" displayprecision="1" min="0.1" convar="cl_bobamt_lat"/>
 					<Panel class="horizontal-separator"/>
 					
-					<CSGOSettingsSlider id="Viewbobgunhigh" text="Gun Sway Vertical" max="2.0" displayprecision="1" min="0.1" convar="cl_bobamt_vert"/>
+					<CSGOSettingsSlider id="vb_sv" text="Gun Sway Vertical" max="2.0" displayprecision="1" min="0.1" convar="cl_bobamt_vert"/>
 					<Panel class="horizontal-separator"/>
 					
 

@@ -113,9 +113,9 @@
 
 .loading-screen-hint__text
 {
-	font-size: 18px;
+	font-size: 17px;
 	font-family: Stratum2;
-	font-weight: regular;
+	font-weight: medium;
 	                       
 	color: #eece60;
 	text-overflow: shrink;
@@ -329,7 +329,7 @@
 
    font-size: 16px;
    font-family: Stratum2;
-   font-weight: regular;
+   font-weight: medium;
    color: white;
    text-overflow: shrink;
    vertical-align: top;

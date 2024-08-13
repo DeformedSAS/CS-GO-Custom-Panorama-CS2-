@@ -1,20 +1,20 @@
-<!-- xml reconstructed by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io -->
+<!-- xml reconstructed by Source 2 Viewer 10.0.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
-		<include src="file://{resources}/styles/csgostyles.css" />
-		<include src="file://{resources}/styles/mainmenu.css" />
-		<include src="file://{resources}/styles/mainmenu_inventory.css" />
-		<include src="file://{resources}/styles/popups/popup_subscription_upsell.css" />
-		<include src="file://{resources}/styles/mainmenu_store_fullscreen.css" />
+		<include src="file://{resources}styles/csgostyles.css" />
+		<include src="file://{resources}styles/mainmenu.css" />
+		<include src="file://{resources}styles/mainmenu_inventory.css" />
+		<include src="file://{resources}styles/popups/popup_subscription_upsell.css" />
+		<include src="file://{resources}styles/mainmenu_store_fullscreen.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/common/formattext.js" />
-		<include src="file://{resources}/scripts/common/iteminfo.js" />
-		<include src="file://{resources}/scripts/common/prime_button_action.js" />
-		<include src="file://{resources}/scripts/common/tint_spray_icon.js" />
-		<include src="file://{resources}/scripts/common/store_items.js" />
-		<include src="file://{resources}/scripts/itemtile_store.js" />
-		<include src="file://{resources}/scripts/mainmenu_store_fullscreen.js" />
+		<include src="file://{resources}scripts/common/formattext.js" />
+		<include src="file://{resources}scripts/common/iteminfo.js" />
+		<include src="file://{resources}scripts/common/prime_button_action.js" />
+		<include src="file://{resources}scripts/common/tint_spray_icon.js" />
+		<include src="file://{resources}scripts/common/store_items.js" />
+		<include src="file://{resources}scripts/itemtile_store.js" />
+		<include src="file://{resources}scripts/mainmenu_store_fullscreen.js" />
 	</scripts>
 	<snippets>
 		<snippet name="InvSearchSnippet">
@@ -41,7 +41,7 @@
 		<snippet name="InvEmptyLister">
 			<Panel class="full-width full-height mainmenu-content__background-color">
 				<Panel class="left-right-flow horizontal-center vertical-center">
-					<Image class="left-right-padding" src="file://{resources}/images/icons/ui/info.vsvg" texturewidth="32" textureheight="32" />
+					<Image class="left-right-padding" src="file://{images}/icons/ui/info.svg" texturewidth="32" textureheight="32" />
 					<Label id="JsInvEmptyListerLabel" class="inv-category__empty-list-text" text="" />
 				</Panel>
 			</Panel>
@@ -54,7 +54,7 @@
 					<Panel class="content-navbar__tabs__center-container">
 						<Panel class="left-right-flow vertical-center">
 							<RadioButton id="id-store-nav-home" group="store-top-nav" class="content-navbar__tabs__btn" onactivate="MainMenuStore.NavigateToTab( &apos;id-store-page-home&apos; );">
-								<Label text="HOME" />
+								<Label text="#store_nav_home" />
 							</RadioButton>
 							<Panel id="id-store-lister-tabs" class="left-right-flow vertical-center horizontal-center full-height" />
 						</Panel>
@@ -67,12 +67,12 @@
 					<Panel class="store-home-container">
 						<Panel id="id-rewards-background" class="store-home-rewards-section">
 							<CSGOBlurTarget id="id-rewards-background-blur" class="store-home-rewards-section-bg" />
-							<Frame class="rrs-popup__frame" src="file://{resources}/layout/rankup_redemption_store.xml" />
+							<Frame class="rrs-popup__frame" src="file://{resources}layout/rankup_redemption_store.vxml_c" />
 						</Panel>
 						<Panel id="id-prime-background" class="store-home-prime-section">
 							<Panel class="full-width full-height left-right-flow">
 								<Panel class="store-home-prime-top">
-									<Image class="store-home-prime__logo" src="file://{resources}/images/icons/ui/prime_active.png" texturewidth="32" textureheight="-1" />
+									<Image class="store-home-prime__logo" src="file://{images}/icons/ui/prime_activepng" texturewidth="32" textureheight="-1" />
 									<Label class="store-home-prime__title" text="#popup_elevated_status_title" />
 									<TextButton id="id-store-buy-prime" class="PopupButton Positive" text="#elevated_status_btn" />
 								</Panel>
@@ -82,7 +82,7 @@
 										<Label class="stratum-regular-condensed store-home-prime-section__title" text="#popup_elevated_status_xp_title" />
 										<Label class="stratum-regular store-home-prime-section__desc" text="#popup_elevated_status_xp_desc" />
 									</Panel>
-									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_xp.png" />
+									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_xppng" />
 								</Panel>
 								<Panel class="store-home-prime-seperator" />
 								<Panel class="store-home-prime-section-container">
@@ -91,7 +91,7 @@
 										<Label class="stratum-regular-condensed store-home-prime-section__title" text="#popup_elevated_status_drops_title" />
 										<Label class="stratum-regular store-home-prime-section__desc" text="#popup_elevated_status_drops_desc" />
 									</Panel>
-									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_drops.png" />
+									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_drops_psd.vtex" />
 								</Panel>
 								<Panel class="store-home-prime-seperator" />
 								<Panel class="store-home-prime-section-container">
@@ -100,7 +100,7 @@
 										<Label class="stratum-regular-condensed store-home-prime-section__title" text="#popup_elevated_status_rank_title" />
 										<Label class="stratum-regular store-home-prime-section__desc" text="#popup_elevated_status_rank_desc" />
 									</Panel>
-									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_ranks.png" />
+									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_ranks_psd.vtex" />
 								</Panel>
 							</Panel>
 						</Panel>

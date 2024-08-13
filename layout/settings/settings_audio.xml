@@ -12,7 +12,7 @@
 
     <Panel useglobalcontext="true" class="SettingsMenuTab">
         <Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--dark content-navbar__tabs--noflow">
-            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container">
+            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container   content-navbar__tabs--small">
                 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsAudioSettings&apos;)" group="SettingsAudio">
                     <Label text="#settings_audio_section" />
 				</RadioButton>

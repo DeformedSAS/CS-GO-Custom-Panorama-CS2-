@@ -1,17 +1,14 @@
 
-.news-panel--store-container
+
+.news-panel--store-container,
+.mainmenu-news-container-stream-active .news-panel.news-panel--store-container,
+.news-panel-style-feature-panel-visible .news-panel.news-panel--store-container
 {
-	                                                                       
-	max-height: 300px;
-	height: 256px;
+    margin-top: 740px;     
+	height: 288px;
+	width: 256px;
 	margin-bottom: 0px;
 }
-
-                                                                        
-                                                                   
- 
-	                               
-    
 
 .store-panel__carousels
 {
@@ -63,8 +60,9 @@
 
 .store-panel__carousel__item
 {
-	width: 172px;
+	width: 200px;
 	padding-bottom: 8px;
+	margin-left: 15px;
 	flow-children: down;
 	vertical-align: top;
 	transform-origin: 50% 50%;
@@ -183,6 +181,7 @@
 {
 	height: fill-parent-flow( 1 );
 	padding-top: 4px;
+	padding-left: 8px;
 	horizontal-align: center;
 	img-shadow: 2px 2px 6px #000000;
 
@@ -330,7 +329,7 @@
 {
 	vertical-align: bottom;
 	margin-left: 8px;
-	font-size: 14px;
+	font-size: 17px;
 	font-weight: medium;
 	horizontal-align: left;
 	text-overflow: ellipsis;
@@ -346,7 +345,7 @@
 
 .store-panel__carousel__item__header
 {
-	font-size: 16px;
+	font-size: 17px;
 	height: 0px;
 	font-weight:bold;
 	padding: 8px 0px;
@@ -356,7 +355,7 @@
 
 .store-panel__carousel__item__name.saleprice
 {
-	font-size: 12px;
+	font-size: 15px;
 	color: rgb(141, 141, 141);
 	font-weight: medium;
 	text-decoration: line-through;
@@ -374,7 +373,7 @@
 
 .store-panel__carousel__item__name.price
 {
-	font-size: 12px;
+	font-size: 15px;
 	margin-bottom: 0px;
 	color: positiveColor;
 }

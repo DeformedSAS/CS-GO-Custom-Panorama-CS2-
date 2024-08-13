@@ -27,8 +27,8 @@
 	</snippets>
 
     <Panel useglobalcontext="true" class="SettingsMenuTab">
-        <Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--dark content-navbar__tabs--noflow">
-            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container">
+        <Panel id="id-navbar-tabs" class="content-navbar content-navbar__tabs--noflow content-navbar__tabs">
+            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container   content-navbar__tabs--small">
                 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsKeyboardMouse&apos;)" group="SettingsKbMouse">
                     <Label text="#settings_keyboard_mouse_section" />
                 </RadioButton>
