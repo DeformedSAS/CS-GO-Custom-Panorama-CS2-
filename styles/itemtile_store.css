@@ -63,7 +63,7 @@
 	height:width-percentage( 80%);
 	vertical-align: center;
 	pre-transform-scale2d: 4, 4;
-	blur: mipmapgaussian( 2, 2, 2);
+	blur: fastgaussian( 2, 2, 2);
 	saturation: .9;
 	opacity: .35;
 	transition-property: brightness;
@@ -312,7 +312,7 @@
 .itemtile-store.item-claimed,.store-closed .itemtile-store
 {
 	background-color: rgba(0, 0, 0, 0.532);
-	background-image: url("s2r://panorama/images/backgrounds/bluedots_large_png.vtex");
+	background-image: url("file://{images}/backgrounds/bluedots_large.png");
 	background-size: backgroundDotsSize;
 	background-img-opacity: .01;
 	border: 5px solid rgba(151, 141, 125, 0.177);
@@ -365,7 +365,7 @@
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #231202 ), to( #81450d ) );
 	opacity: .5;
 	saturation: 1;
-	blur: mipmapgaussian( 2, 2, 0);
+	blur: fastgaussian( 2, 2, 0);
 	pre-transform-scale2d: 1, 1;
 	height: 100%;
 }
@@ -422,7 +422,7 @@
 	pre-transform-scale2d: 4, 3.76;
 	transform: translateY( -60px ) translatex( -40px );
 	margin-bottom: 250px;
-	blur: mipmapgaussian( 2, 2, 2);
+	blur: fastgaussian( 2, 2, 2);
 	opacity: 1;
 	brightness: .5;
 	visibility: visible;

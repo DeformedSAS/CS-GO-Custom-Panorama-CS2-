@@ -28,7 +28,7 @@
 		</snippet>
 
 		<snippet name="snippet_navbar-button">
-			<RadioButton group="eom-nav" class="hidden">
+			<RadioButton group="eom-nav" class="content-navbar__tabs__btn hidden">
 				<Label id="id-navbar-button__label" />
 			</RadioButton>
 		</snippet>

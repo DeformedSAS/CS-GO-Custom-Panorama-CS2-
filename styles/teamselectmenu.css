@@ -1,426 +1,398 @@
+/* Prettified by Source 2 Viewer 10.0.0.0 - https://valveresourceformat.github.io */
 
-#loadingscreen__blur-target.teamselect-bg {
-	width:100%;
-	height:100%;
-
-	background-color: gradient( radial, 50% 100%, 0% 0%, 70% 30%, from( #ffffff10 ), to( #00000000 ) );
-  	                                                                                                 	
-  	                                 
-	z-index: -11;
-
-	transition-property: opacity, brightness;
-	transition-duration: 0.1s;
-}
-
-          
-                
-	                          
-	              
- 
-  
-
-  
-                                          
-	                      
- 
-  
-
-.mainmenu-content  
+.team-select-fallback-hidden
 {
-  	width: 100%;
-	height: 100%;
-	background-color: gradient( linear, 0% 80%, 0% 0%, from( #000000 ), to( #00000033 )); 
+    opacity: 0;
 }
 
 .team-select
 {
-	width: 100%;
-	height: 100%;
-  	                                                                                                                       
-	visibility: collapse;
+    width: 100%;
+    height: 100%;
+    visibility: collapse;
 }
 
-.team-select-list-container
+.mainmenu-content
 {
-	width: 100%;
-	height: fit-children;
-  	                     
-	vertical-align: middle;
-	horizontal-align: center;
-
-	transition-property: position;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+	    width: 100%;
+    height: 100%;
+    background-color: gradient( linear, 0% 91.5%, 0% 90.5%, from( #00000080 ), to( #00000000 ));
 }
 
-.WindowRoot_TripleMonitor .team-select-list-container
+#BtnSelectTeam-TERRORIST.team-select-button
 {
-	horizontal-align: center;
-	width: 33%;
+    background-color: gradient( linear, 0% 0%, 0% 30%, from( rgba(92, 74, 33, 1) ), to( rgba(92, 74, 33, 0) ));
+    z-index: -10;
 }
 
-.team-select-list
+#BtnSelectTeam-TERRORIST.team-select-button:hover
 {
-	width: 512px;
-	height: fit-children;
-  	                         
-	flow-children: down;
+    background-color: gradient( linear, 0% 0%, 0% 40%, from( rgba(92, 74, 33, 1) ), to( rgba(92, 74, 33, 0) ));
+}
+
+#BtnSelectTeam-CT.team-select-button
+{
+    background-color: gradient( linear, 0% 0%, 0% 30%, from( rgba(37, 75, 105, 1) ), to( rgba(37, 75, 105, 0) ));
+    z-index: -10;
+}
+
+#BtnSelectTeam-CT.team-select-button:hover
+{
+    background-color: gradient( linear, 0% 0%, 0% 40%, from( rgba(37, 75, 105, 1) ), to( rgba(37, 75, 105, 0) ));
+}
+
+.TeamSelectBtnDivider
+{
+    width: .2%;
+    height: 90%;
 }
 
 .teamselect-blur
 {
-	height: 100%;
-	width: 100%;
-	brightness: 0.7;
-	blur: fastgaussian( 6, 6, 3 );
-}
-
-.team-select-icon-title
-{
-	flow-children: down;
-	width: fit-children;
-	horizontal-align: center;
-	vertical-align: middle;
-
-	height: 850px;
-
-	transition-property: brightness;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-list__title
-{
-	vertical-align: top;
-	font-weight: bold;
-	horizontal-align: center;
-	text-transform: uppercase;
-
-	transition-property: color;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-list__title--ct
-{
-	color:color-CT;
-	font-family: Stratum2, 'Noto Sans';
-	font-size: 32px;
-}
-
-.team-select-list__title--t
-{
-	color: color-T;
-	font-family: Stratum2, 'Noto Sans';
-	font-size: 32px;
-}
-
-.team-select-list__subtitle
-{
-	vertical-align: top;
-	font-weight: lighter;
-	text-transform: none;
-	font-weight: normal;
-	horizontal-align: center;
-	text-align: center;
-
-	transition-property: color;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-icon-title.team-select-icon-title-highlight .team-select-list__title,
-.team-select-icon-title.team-select-icon-title-highlight .team-select-list__subtitle
-{
-	color: white;	
-	transition-property: color;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-
-.team-select-icon-title-t
-{
-	position: -240px 0px 0px;
-}
-
-.team-select-icon-title-ct
-{
-	position: 240px 0px 0px;
-}
-
-
-.team-select-icon-title__labels
-{
-	flow-children: down;
-	                      
-	width: 100%;
-	margin: 0px 16px 64px 16px;
-	vertical-align: middle;
-	horizontal-align: center;
-}
-
-.team-select-icon
-{
-	width: 390px;
-	height: 390px;
-	horizontal-align: center;
-	vertical-align: top;
-	position: -440px 0px 0px;
-  	               
-	opacity: .3;
-	ui-scale: 95%;
-
-	transition-property: opacity, ui-scale;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-
-	sound-trans: "UIPanorama.team_select_rolloff";
-}
-
-.team-select-icon--t
-{
-	wash-color: color-T;
-}
-
-.team-select-icon--ct
-{
-	wash-color: color-CT;
-}
-
-  
-                           
-	                                    
-	                         
-	                 
-	                  	
-	                                 
-	            
-
-  	                         
-	             
-	             
-	                         
-	                   
-	                      
- 
-  
-
-.team-select-icon:hover
-{
-	sound-trans: "UIPanorama.team_select_rollover";
-
-	transition-property: opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-icon-title.team-select-icon-title-highlight .team-select-icon
-{
-  	              
-	opacity: 1;
-  	               
-
-	transition-property: opacity, ui-scale;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-
-
-               
-
-.team-select-list__teammates
-{
-	flow-children: down;
-	width: 512px;
-	height: fit-children;
-	overflow: clip;
-}
-
-.team-select-teammate
-{
-	visibility: visible;
-	transform: scaleY( 1 );
-	background-color: none;
-	
-	transition-property: opacity, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-list--t .team-select-teammate {
-	background-color: none;
-	flow-children: left;
-	horizontal-align: left;
-  	                  
-	padding-left: 16px;
-	transform-origin: 0% 50%;
-
-}
-
-.team-select-list--t .team-select-teammate:hover{
-
-	background-color: gradient( linear, 0% 0%, 100% 0%, from( white ), color-stop( 0.025, white ), color-stop( 0.025, #ffffff40 ), color-stop( 0.035, #00000080 ), to( #00000000 ) );
-	sound: "UIPanorama.sidemenu_rollover";
-	
-	brightness: 1.5;
-  	                                         
-}
-
-.team-select-list--ct .team-select-teammate {
-	background-color: none;
-	flow-children: right;
-	horizontal-align: right;
-	padding-right: 16px;
-	transform-origin: 0% 50%;
-}
-
-.team-select-list--ct .team-select-teammate:hover{
-
-	background-color: gradient( linear, 100% 0%, 0% 0%, from( white ), color-stop( 0.025, white ), color-stop( 0.025, #ffffff40 ), color-stop( 0.03, #00000080 ), to( #00000000 ) );
-	sound: "UIPanorama.sidemenu_rollover";
-	
-	brightness: 1.5;
-  	                                         
-}
-
-.team-select-teammate.hidden
-{
-	opacity:0;
-	transform: scaleY( 0 );
-	
-	transition-property: opacity, transform, position;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-teammate__name
-{
-	vertical-align: center;
-	margin-left: 8px;
-  	                    
-	height: 24px;
-	text-overflow: ellipsis;
-	font-size: 17px;
-	font-weight: bold;
-	font-family: stratum2Font;
-	letter-spacing: .35px;
-	text-shadow: 1px 1px 2px #000000;
-
-}
-
-.team-select-vertical-separator
-{
-	height:100%;
-	width: 1px;
-	margin: 0px 16px;
-	horizontal-align: center;
-	background-color: gradient( linear, 0% 0%, 0% 80%, from( rgba(255, 255, 255, 0.158) ), to( rgba(255, 255, 255, 0 )));
+    height: 100%;
+    width: 100%;
+    brightness: 0.7;
+    blur: fastgaussian( 6, 6, 3 );
 }
 
 .team-select__timer
 {
-	horizontal-align: center;
-	vertical-align: top;
-  	                   
-	margin-top: 48px;
-	height: fit-children;
-	flow-children: right;
+    width: 60px;
+    height: 60px;
+    horizontal-align: center;
+    vertical-align: top;
+    margin-top: 40px;
+    z-index: 20;
 }
 
-.team-select__timer Image
+.team-select__timer__bg
 {
-	width: 20px;
-	height: 20px;
-	margin-right: 8px;
-	vertical-align: middle;
-	wash-color: White;
+    width: 100%;
+    height:100%;
+    horizontal-align: center;
+    border-radius: 50%;
+    opacity: 0.6;
+    border: 2px solid #333;
+}
+
+@keyframes 'teamselect-animation'
+{
+    0%
+    {
+        clip:radial(50% 50%, 0deg, 0deg);
+        opacity: 1;
+    }
+    
+    60%
+    {
+        wash-color: #fff;
+    }
+    
+    98%
+    {
+        opacity: 1;
+    }
+    
+    100%
+    {
+        clip:radial(50% 50%, 0deg, 360deg);
+        wash-color: red;
+        opacity: 0;
+    }
+    
+}
+
+.team-select__timer__bar
+{
+    width: 60px;
+    height: 60px;
+    horizontal-align: center;
+    vertical-align: center;
+    border: 8px solid #333;
+    border-radius: 50%;
+    z-index: 22;
+    animation-duration: 15.01s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-name: teamselect-animation;
 }
 
 .team-select__timer Label
 {
-	font-size: 22px;
-	font-weight: bold;
-	horizontal-align: left;
-	vertical-align: center;
-	color: White;
+    horizontal-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    vertical-align: center;
+    color: #ffffff;
+    z-index: 22;
+    animation-duration: 15s;
 }
 
-.team-select-error
+.Language_vietnamese .team-select__timer Label
 {
-	flow-children: right;
-	padding:16px;
-	border-radius: 2px;
-	vertical-align: center;
-	horizontal-align: center;
-  	                    
-	wash-color: warningColor;
-	background-color: rgba(0, 0, 0, 0.50);
-	opacity: 1;
-
-	transition-property: opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+    font-family: 'Noto Mono', 'Arial Unicode MS';
+    font-size: 16px;
 }
 
-.team-select-error.hidden
+.team-select__timer Label Countdown.CountdownAfterEnd
 {
-	opacity: 0;
-	
-	transition-property: opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
-.team-select-error__label
-{
-	margin-left: 8px;
-	color:white;
-}
-
-Countdown.CountdownAfterEnd
-{
-	visibility: collapse;
-}
-
-.join-spec-button
-{
-	vertical-align: bottom;
-	horizontal-align: center;
-	border-radius: 4px;
-	margin-bottom: 32px;
-	font-weight: bold;
-}
-
-.team-select-actionbar
-{
-	height: 96px;
-	width: 100%;
-	vertical-align: bottom;
-	horizontal-align: center;
-	flow-children: down;
-}
-
-.team-select-actionbar > .mainmenu-navbar
-{
-	flow-children: left;
-}
-
-.WindowRoot_TripleMonitor #TeamSelectButtons
-{
-	horizontal-align: center;
-	width: 33%;
+    visibility: collapse;
 }
 
 .WindowRoot_TripleMonitor #AutojoinTimer
 {
-	width: 33%;
+    width: 33%;
 }
+
+.team-select__timer Image
+{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    wash-color: White;
+}
+
+.team-select-icon-container
+{
+    width: 100px;
+    height: 100px;
+    horizontal-align: center;
+    opacity: 0.4;
+    ignore-parent-flow: true;
+    padding: 20px;
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.team-select-icon
+{
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    horizontal-align:center;
+    padding: 10px;
+    brightness: 0.5;
+    img-shadow: 0px 0px 10px 0px #000000;
+    transition-property: brightness;
+}
+
+.team-select-button:hover .team-select-icon
+{
+    brightness: 1.5;
+}
+
+.team-select-button
+{
+    width: 50%;
+    height: 90%;
+}
+
+.team-select-list,.team-select-list__title,.team-select-list__subtitle,.team-select-icon-title,.team-select__timer Label
+{
+    -s2-mix-blend-mode: normal;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.team-select-icon-title
+{
+    width: 800px;
+    height: 100%;
+    vertical-align: middle;
+    flow-children: down;
+    transition-property: brightness;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.team-select-icon-title__labels
+{
+    flow-children: down;
+    horizontal-align: center;
+    width: 407px;
+    padding: 10px;
+}
+
+.team-select-button:hover .team-select-icon-title__labels,.team-select-button:hover .team-select-teammate
+{
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    z-index: 10;
+}
+
+.team-select-button:hover .team-select-teammate
+{
+    opacity:1.0;
+    z-index: 10;
+}
+
+.team-select-list__title
+{
+    vertical-align: top;
+    horizontal-align: center;
+    text-transform: uppercase;
+    font-family: Stratum2, 'Noto Sans';
+	font-weight: bold;
+    font-size: 50px;
+}
+
+.team-select-list__subtitle
+{
+    vertical-align: top;
+    font-weight: lighter;
+    text-transform: none;
+    font-weight: normal;
+    horizontal-align: center;
+    text-align: center;
+}
+
+.WindowRoot_TripleMonitor .team-select-list-container
+{
+    horizontal-align: center;
+    width: 33%;
+}
+
+.team-select-list
+{
+    width: fit-children;
+    max-height: 280px;
+    flow-children: down-wrap;
+    horizontal-align:center;
+    z-index: 10;
+}
+
+.team-select-teammate
+{
+    visibility: visible;
+    transform: scaleY( 1 );
+    transition-property: transform, position;
+    transition-duration: .15s;
+    transition-timing-function: ease-in-out;
+    width: 200px;
+    flow-children:right;
+    margin: 4px;
+    opacity: 0.8;
+}
+
+.team-select-teammate:not(.bot) Label
+{
+    color:black;
+    -s2-mix-blend-mode: normal;
+}
+
+#Teammate.team-select-teammate.bot
+{
+    background-color:#303030;
+    opacity:0.8;
+}
+
+.team-select-list--t .team-select-teammate
+{
+    background-color: t-color;
+    box-shadow: #0000005e 0px 0px 6px 0px;
+}
+
+.team-select-list--ct .team-select-teammate
+{
+    background-color: ct-color;
+    box-shadow: #0000005e 0px 0px 6px 0px;
+}
+
+.team-select-list__subtitle.fontSize-m
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+Label
+{
+    -s2-mix-blend-mode: additive;
+    font-weight: bold;
+    font-family: stratum2Font;
+    text-overflow: ellipsis;
+}
+
+.team-select-teammate__name
+{
+    vertical-align: center;
+    margin-left: 8px;
+    height: 24px;
+    font-size: 17px;
+    letter-spacing: .35px;
+}
+
+#TeamSelectButtons
+{
+    border-top: 0px;
+}
+
+.WindowRoot_TripleMonitor #TeamSelectButtons
+{
+    horizontal-align: center;
+    width: 33%;
+}
+
+.team-select-error
+{
+    flow-children: right;
+    padding:16px;
+    border-radius: 2px;
+    vertical-align: center;
+    horizontal-align: center;
+    wash-color: warningColor;
+    background-color: rgba(0, 0, 0, 0.50);
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.team-select-error__label
+{
+    margin-left: 8px;
+    color:white;
+}
+
+.team-select-error.hidden
+{
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.team-select-fade
+{
+    background-color: black;
+    transition-property: opacity;
+}
+
+.team-select-fade.hidden
+{
+    opacity: 0;
+}
+
+@keyframes 'ping'
+{
+    0%
+    {
+        brightness: .5;
+    }
+    
+    100%
+    {
+        brightness: 1;
+    }
+    
+}
+/* agents in loading screen panel */
 
 .loading-screen-model
 {
-	width: 700px;
+	width: 850px;
 	height: 100%;
 	horizontal-align: center;
 	vertical-align: middle;
@@ -438,12 +410,12 @@ Countdown.CountdownAfterEnd
 
 .loading-screen-model--right
 {
-	position: 260px -120px 0px;
+	position: 420px -120px 0px;
 }
 
 .loading-screen-model--left
 {
-	position: -220px -120px 0px;
+	position: -360px -120px 0px;
 }
 
 .loading-screen-model--right.highlight,
@@ -481,3 +453,4 @@ Countdown.CountdownAfterEnd
 		brightness: 1;
 	}
 }
+

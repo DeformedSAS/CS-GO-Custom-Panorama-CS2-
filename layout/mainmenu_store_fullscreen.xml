@@ -60,67 +60,67 @@
 						</Panel>
 					</Panel>
 				</Panel>
-				<TextButton id="id-store-nav-wallet" class="stratum-regular-tf store-home-wallet" onactivate="StoreAPI.OpenAccountWalletAddFundsURL();" selected="false" text="#Store_Wallet_Balance_dv" />
+				<TextButton id="id-store-nav-wallet" class="stratum-medium store-home-wallet" onactivate="StoreAPI.OpenAccountWalletAddFundsURL();" selected="false" text="#Store_Wallet_Balance_dv" />
 			</Panel>
 			<Panel id="id-store-pages" class="full-width full-height">
 				<Panel id="id-store-page-home" class="inv-category">
 					<Panel class="store-home-container">
 						<Panel id="id-rewards-background" class="store-home-rewards-section">
 							<CSGOBlurTarget id="id-rewards-background-blur" class="store-home-rewards-section-bg" />
-							<Frame class="rrs-popup__frame" src="file://{resources}layout/rankup_redemption_store.vxml_c" />
+							<Frame class="rrs-popup__frame" src="file://{resources}layout/rankup_redemption_store.xml" />
 						</Panel>
 						<Panel id="id-prime-background" class="store-home-prime-section">
 							<Panel class="full-width full-height left-right-flow">
 								<Panel class="store-home-prime-top">
-									<Image class="store-home-prime__logo" src="file://{images}/icons/ui/prime_activepng" texturewidth="32" textureheight="-1" />
+									<Image class="store-home-prime__logo" src="file://{images}/icons/ui/prime_active.png" texturewidth="32" textureheight="-1" />
 									<Label class="store-home-prime__title" text="#popup_elevated_status_title" />
 									<TextButton id="id-store-buy-prime" class="PopupButton Positive" text="#elevated_status_btn" />
 								</Panel>
 								<Panel class="store-home-prime-section-container">
 									<Panel class="store-home-prime-section_base store-home-prime-section__1" />
 									<Panel class="store-home-prime-section__text-block">
-										<Label class="stratum-regular-condensed store-home-prime-section__title" text="#popup_elevated_status_xp_title" />
-										<Label class="stratum-regular store-home-prime-section__desc" text="#popup_elevated_status_xp_desc" />
+										<Label class="stratum-medium store-home-prime-section__title" text="#popup_elevated_status_xp_title" />
+										<Label class="stratum-medium store-home-prime-section__desc" text="#popup_elevated_status_xp_desc" />
 									</Panel>
-									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_xppng" />
+									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_xp.png" />
 								</Panel>
 								<Panel class="store-home-prime-seperator" />
 								<Panel class="store-home-prime-section-container">
 									<Panel class="store-home-prime-section_base store-home-prime-section__2" />
 									<Panel class="store-home-prime-section__text-block">
-										<Label class="stratum-regular-condensed store-home-prime-section__title" text="#popup_elevated_status_drops_title" />
-										<Label class="stratum-regular store-home-prime-section__desc" text="#popup_elevated_status_drops_desc" />
+										<Label class="stratum-medium store-home-prime-section__title" text="#popup_elevated_status_drops_title" />
+										<Label class="stratum-medium store-home-prime-section__desc" text="#popup_elevated_status_drops_desc" />
 									</Panel>
-									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_drops_psd.vtex" />
+									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_drops.png" />
 								</Panel>
 								<Panel class="store-home-prime-seperator" />
 								<Panel class="store-home-prime-section-container">
 									<Panel class="store-home-prime-section_base store-home-prime-section__3" />
 									<Panel class="store-home-prime-section__text-block">
-										<Label class="stratum-regular-condensed store-home-prime-section__title" text="#popup_elevated_status_rank_title" />
-										<Label class="stratum-regular store-home-prime-section__desc" text="#popup_elevated_status_rank_desc" />
+										<Label class="stratum-medium store-home-prime-section__title" text="#popup_elevated_status_rank_title" />
+										<Label class="stratum-medium store-home-prime-section__desc" text="#popup_elevated_status_rank_desc" />
 									</Panel>
-									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_ranks_psd.vtex" />
+									<Image class="store-home-prime-section__image" src="file://{images}/store/prime_ranks.png" />
 								</Panel>
 							</Panel>
 						</Panel>
 						<Panel id="id-store-home-section-coupon" class="store-home-section">
 							<Panel class="store-home-popular__info">
-								<Label class="store-home-section__title stratum-regular-condensed fontSize-xxl" text="#store_nav_popular" />
+								<Label class="store-home-section__title stratum-medium fontSize-xxl" text="#store_nav_popular" />
 							</Panel>
 							<Panel id="id-store-popular-items" class="store-home-popular__items" />
 							<Button id="" class="store-home-popular__btn" onactivate="MainMenuStore.GotoStorePage(&apos;id-store-nav-coupon&apos;)">
-								<Label class="stratum-regular-tf" text="#store_nav_more" />
+								<Label class="stratum-mediumf" text="#store_nav_more" />
 								<Image src="file://{images}/icons/ui/expand.svg" texturewidth="20" textureheight="-1" />
 							</Button>
 						</Panel>
 						<Panel id="id-store-home-section-tournament" class="store-home-section">
 							<Panel class="store-home-popular__info">
-								<Label class="stratum-regular-condensed fontSize-xxl" text="#store_nav_tournament_22" />
+								<Label class="stratum-medium fontSize-xxl" text="#store_nav_tournament_22" />
 							</Panel>
 							<Panel id="id-store-tournament-items" class="store-home-popular__items" />
 							<Button id="" class="store-home-popular__btn" onactivate="MainMenuStore.GotoStorePage(&apos;id-store-nav-tournament&apos;)">
-								<Label class="stratum-regular-tf" text="#store_nav_more" />
+								<Label class="stratum-medium" text="#store_nav_more" />
 								<Image src="file://{images}/icons/ui/expand.svg" texturewidth="20" textureheight="-1" />
 							</Button>
 						</Panel>

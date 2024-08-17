@@ -114,10 +114,11 @@
 
 #id-eom-layout{
 
-	height: 300px;
-	width: 100%;
-	z-index: 10;
-	vertical-align: top;
+    height: 300px;
+    width: 100%;
+    z-index: 10;
+    vertical-align: top;
+    margin-top: 48px;
 
 	                                    
 }
@@ -129,7 +130,7 @@
 
 .content-navbar{
 
-	height: 96px;
+	height: 48px;
 	flow-children: none;
 }
 
@@ -244,7 +245,7 @@
 	vertical-align: bottom;
 
 	margin-left: 100px;
-	margin-top: 10px;
+	margin-top: 0px;
 
 	transition-property:  position;
 	transition-duration: 1s;
