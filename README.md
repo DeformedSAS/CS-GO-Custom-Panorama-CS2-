@@ -1,14 +1,10 @@
+# Deprecated. No longer supported. Reasons will not be specified.
+
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
 
 # NOTE: Always download the updated source code from the home page of the repo instead of the one from releases tab. 
 # SECOND NOTE: Put the font files from the fonts folder from the code zip into the fonts folder of migi or csgo. depending if you have symlinks. This is required for the center navbar font aka the play button and other.
-
-# Planned things for the future:
-i have gotten the cs2 playmenu to work with the same issue as on the store panel, the maps appear only when a gamemode button is pressed and i don't know why.
-what i won't be planning is remaking the hud from cs2 in csgo, i only put some cs2 hud elements as they are good and the other ones are not. blur on the radar in csgo is simply not possible because fastgaussian does not support rounded things.
-![image](https://github.com/user-attachments/assets/c71e4f9c-44da-4c17-8ec6-7f13cd8b28da)
-
 
 # Whole ui
 - All of the core UI changes.
