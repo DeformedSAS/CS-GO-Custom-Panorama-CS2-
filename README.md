@@ -1,4 +1,4 @@
-# Deprecated. No longer supported. Reasons will not be specified.
+# Development has been continued.
 
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
