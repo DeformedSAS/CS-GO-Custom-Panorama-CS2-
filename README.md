@@ -1,4 +1,4 @@
-# Development has been continued.
+# Development has been continued. New version will come in a few days.
 
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
