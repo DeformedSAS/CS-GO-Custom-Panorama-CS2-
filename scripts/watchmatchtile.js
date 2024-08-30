@@ -66,6 +66,7 @@ var watchMatchTile = ( function (){
 					)
 					elContextMenuPanel.AddClass( "ContextMenu_NoArrow" );
 					elContextMenuPanel.AddClass( "ContextMenu_Centered" );
+					StoreAPI.RecordUIEvent( "WatchMatchTilePopupActivated", parseInt( matchId ) );
 
 					$.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.sidemenu_select', 'MOUSE' );
 				}

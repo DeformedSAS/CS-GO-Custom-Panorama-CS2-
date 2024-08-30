@@ -16,7 +16,7 @@
                     class="team-logo"
                     texturewidth="32"
                     textureheight="-1"
-                    defaultsrc="file://{images}/icons/ui/map_ghost.svg"
+                    defaultsrc=""
                 />
 
                 <Panel class="top-bottom-flow">

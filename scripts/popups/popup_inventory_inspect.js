@@ -2,7 +2,9 @@
 
 var InventoryInspect = ( function()
 {
-	var _Init = function ()
+	var _m_PanelRegisteredForEvents;
+	
+	var _Init = function()
 	{
 		var itemId = $.GetContextPanel().GetAttributeString( "itemid", null );
 
@@ -16,10 +18,44 @@ var InventoryInspect = ( function()
 		                                
 		                                                                        
 		                                                                                                     
+		if ( !_m_PanelRegisteredForEvents )
+		{
+			_m_PanelRegisteredForEvents = $.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_PlayerEquipSlotChanged', InventoryInspect.ShowNotification );
+			$.RegisterForUnhandledEvent( 'PanoramaComponent_Store_PurchaseCompleted', InventoryInspect.ItemAcquired );
+		}
+
+		_UpdatePanelData( itemId );
+		_PlayShowPanelSound( itemId );
+		_SetupLootlistNavPanels( itemId );
+		_LoadEquipNotification();
+
+		var styleforPopUpInspectFullScreenHostContainer = $.GetContextPanel().GetAttributeString( 'extrapopupfullscreenstyle', null );
+		if ( styleforPopUpInspectFullScreenHostContainer )
+		{
+			var elPopUpInspectFullScreenHostContainer = $.GetContextPanel().FindChildInLayoutFile( 'PopUpInspectFullScreenHostContainer' );
+			elPopUpInspectFullScreenHostContainer.AddClass( styleforPopUpInspectFullScreenHostContainer );
+		}
+
+		var blurOperationPanel = ( $.GetContextPanel().GetAttributeString( 'bluroperationpanel', 'false' ) === 'true' ) ? true : false;
+		if ( blurOperationPanel )
+		{
+			$.DispatchEvent( 'BlurOperationPanel' );
+		}
+
+		var defIdx = InventoryAPI.GetItemDefinitionIndex( itemId );
+		if ( defIdx > 0 )
+		{
+			StoreAPI.RecordUIEvent( "Inventory_Inspect", defIdx );
+		}
+	};
+
+	var _UpdatePanelData = function( itemId )
+	{
 		var elItemModelImagePanel = $.GetContextPanel().FindChildInLayoutFile( 'PopUpInspectModelOrImage' );
 		InspectModelImage.Init( elItemModelImagePanel, itemId, _GetSettingCallback );
-
+		
 		var elActionBarPanel = $.GetContextPanel().FindChildInLayoutFile( 'PopUpInspectActionBar' );
+
 		InspectActionBar.Init(
 			elActionBarPanel,
 			itemId,
@@ -44,29 +80,8 @@ var InventoryInspect = ( function()
 		var elPurchasePanel = $.GetContextPanel().FindChildInLayoutFile( 'PopUpInspectPurchaseBar' );
 		InpsectPurchaseBar.Init( elPurchasePanel, itemId, _GetSettingCallback );
 
-		PlayShowPanelSound( itemId );
 		_SetDescription( itemId );
-		_LoadEquipNotification();
-
-		var styleforPopUpInspectFullScreenHostContainer = $.GetContextPanel().GetAttributeString( 'extrapopupfullscreenstyle', null );
-		if ( styleforPopUpInspectFullScreenHostContainer )
-		{
-			var elPopUpInspectFullScreenHostContainer = $.GetContextPanel().FindChildInLayoutFile( 'PopUpInspectFullScreenHostContainer' );
-			elPopUpInspectFullScreenHostContainer.AddClass( styleforPopUpInspectFullScreenHostContainer );
-		}
-
-		var blurOperationPanel = ( $.GetContextPanel().GetAttributeString( 'bluroperationpanel', 'false' ) === 'true' ) ? true : false;
-		if ( blurOperationPanel )
-		{
-			$.DispatchEvent( 'BlurOperationPanel' );
-		}
-
-		var defIdx = InventoryAPI.GetItemDefinitionIndex( itemId );
-		if ( defIdx > 0 )
-		{
-			StoreAPI.RecordUIEvent( "Inventory_Inspect", defIdx );
-		}
-	};
+	}
 
 	var m_Inspectpanel = $.GetContextPanel();
 	var _GetSettingCallback = function( settingname, defaultvalue )
@@ -79,7 +94,7 @@ var InventoryInspect = ( function()
 		return m_Inspectpanel.GetAttributeInt( settingname, defaultvalue );
 	};
 
-	var PlayShowPanelSound = function ( itemId )
+	var _PlayShowPanelSound = function ( itemId )
 	{
 		var slot = ItemInfo.GetSlot( itemId );
 		var slotSubPosition = ItemInfo.GetSlotSubPosition( itemId );
@@ -117,7 +132,7 @@ var InventoryInspect = ( function()
 
 	var _SetDescription = function (id)
 	{
-	    $.GetContextPanel().SetDialogVariable( 'item_description', '' );
+		$.GetContextPanel().SetDialogVariable( 'item_description', '' );
 
 		if ( !InventoryAPI.IsValidItemID( id ) )
 		{
@@ -150,6 +165,158 @@ var InventoryInspect = ( function()
 		}
 	};
 
+	var m_lootlistItemIndex = 0;
+
+	var _SetupLootlistNavPanels = function( itemId )
+	{
+		m_lootlistItemIndex = 0;
+		var aLootlistIds = _GetLootlistItems();
+		if ( aLootlistIds.length < 1 )
+		{
+			$.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-btns-container' ).visible = false;
+			$.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-title-container' ).visible = false;
+			return;
+		}
+
+		$.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-btns-container' ).visible = true;
+		$.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-title-container' ).visible = true;
+
+		m_lootlistItemIndex = aLootlistIds.indexOf( itemId );
+
+		var btnNext = $.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-next' );
+		var btnPrev = $.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-prev' );
+
+		var count = aLootlistIds.length;
+		_EnableNextPrevBtns( aLootlistIds );
+		_UpdateLootlistTitleBar( count );
+
+		btnNext.SetPanelEvent( 'onactivate', function()
+		{
+			m_lootlistItemIndex = ( m_lootlistItemIndex < ( count - 1 ) ) ? m_lootlistItemIndex + 1 : m_lootlistItemIndex;
+			_EnableNextPrevBtns( aLootlistIds );
+			_UpdatePanelData( aLootlistIds[ m_lootlistItemIndex ] );
+			_UpdateCharacterModelPanel( aLootlistIds[ m_lootlistItemIndex ] );
+			_PrecacheCustomMaterials( aLootlistIds, count, false, true );
+		} );
+
+		btnPrev.SetPanelEvent( 'onactivate', function()
+		{
+			m_lootlistItemIndex = m_lootlistItemIndex > 0 ? m_lootlistItemIndex - 1 : m_lootlistItemIndex;
+			_EnableNextPrevBtns( aLootlistIds );
+			_UpdatePanelData( aLootlistIds[ m_lootlistItemIndex ] );
+			_UpdateCharacterModelPanel( aLootlistIds[ m_lootlistItemIndex ] );
+			_PrecacheCustomMaterials( aLootlistIds, count, true, false );
+		} );
+
+		btnNext.SetPanelEvent( 'onmouseover', function()
+		{
+			_PrecacheCustomMaterials( aLootlistIds, count, false, true );
+		} );
+
+		btnPrev.SetPanelEvent( 'onmouseover', function()
+		{
+			_PrecacheCustomMaterials( aLootlistIds, count, true, false );
+		} );
+	}
+
+	var _UpdateCharacterModelPanel = function( itemId )
+	{
+		if ( !ItemInfo.IsWeapon(itemId) )
+		{
+			return;
+		}
+		
+		var elActionBarPanel = $.GetContextPanel().FindChildInLayoutFile( 'PopUpInspectActionBar' );
+		InspectActionBar.OnUpdateCharModel( false,
+			elActionBarPanel.FindChildInLayoutFile( 'InspectDropdownCharModels' ),
+			itemId );
+	}
+
+	var _PrecacheCustomMaterials = function( aLootlistIds, count, bPrev, bNext )
+	{
+		if ( bNext )
+		{
+			if ( m_lootlistItemIndex + 1 < ( count - 1 ) )
+			{
+				InventoryAPI.PrecacheCustomMaterials( aLootlistIds[ m_lootlistItemIndex + 1 ] );
+			}
+		}
+
+		if ( bPrev )
+		{
+			if ( m_lootlistItemIndex - 1 > 0 )
+			{
+				InventoryAPI.PrecacheCustomMaterials( aLootlistIds[ m_lootlistItemIndex - 1 ] );
+			}
+		}
+	}
+
+	var _EnableNextPrevBtns = function( aLootlistIds )
+	{
+		var btnNext = $.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-next' );
+		var btnPrev = $.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-prev' );
+		
+		btnNext.enabled = ( m_lootlistItemIndex < aLootlistIds.length - 1 ) && ( aLootlistIds[ m_lootlistItemIndex + 1 ] !== '0' );
+		btnPrev.enabled = m_lootlistItemIndex > 0;
+		_SetBtnLabel( btnNext, btnPrev, aLootlistIds );
+		_UpdateLootlistTitleBar( aLootlistIds.length );
+	}
+
+	var _SetBtnLabel = function( btnNext, btnPrev, aLootlistIds )
+	{
+		if ( btnNext.enabled )
+		{
+			btnNext.FindChildInLayoutFile( 'id-lootlist-label' ).text = InventoryAPI.GetItemName( aLootlistIds[ m_lootlistItemIndex + 1 ] );
+			var rarityColor = ItemInfo.GetRarityColor( aLootlistIds[ m_lootlistItemIndex + 1 ] );
+
+			if ( rarityColor )
+			{
+				btnNext.FindChildInLayoutFile( 'id-lootlist-rarity' ).style.washColor = rarityColor;
+			}
+		}
+
+		if ( btnPrev.enabled )
+		{
+			btnPrev.FindChildInLayoutFile( 'id-lootlist-label' ).text = InventoryAPI.GetItemName( aLootlistIds[ m_lootlistItemIndex - 1 ] );
+			var rarityColor = ItemInfo.GetRarityColor( aLootlistIds[ m_lootlistItemIndex - 1 ] );
+
+			if ( rarityColor )
+			{
+				btnPrev.FindChildInLayoutFile( 'id-lootlist-rarity' ).style.washColor = rarityColor;
+			}
+		}
+	}
+
+	var _GetLootlistItems = function()
+	{
+		m_lootlistItemIndex = 0;
+		var aLootlistIds = [];
+		
+		var caseId = $.GetContextPanel().GetAttributeString( "caseidforlootlist", "" );
+		if ( !caseId )
+		{
+			return aLootlistIds;
+		}
+
+		var count = ItemInfo.GetLootListCount( caseId );
+		for ( var i = 0; i < count; i++ )
+		{
+			aLootlistIds.push( ItemInfo.GetLootListItemByIndex( caseId, i ) );
+		}
+
+		return aLootlistIds;
+	}
+
+	var _UpdateLootlistTitleBar = function( count )
+	{
+		var caseId = $.GetContextPanel().GetAttributeString( "caseidforlootlist", "" );
+
+		var elPanel = $.GetContextPanel().FindChildInLayoutFile( 'id-lootlist-title-container' );
+		elPanel.SetDialogVariable( 'container', InventoryAPI.GetItemName( caseId ) );
+		elPanel.SetDialogVariableInt( 'index', m_lootlistItemIndex + 1);
+		elPanel.SetDialogVariableInt( 'total', count );
+	};
+
 	var _ItemAcquired = function( ItemId )
 	{
 		var storeItemId = $.GetContextPanel().GetAttributeString( "storeitemid", "" );
@@ -166,7 +333,7 @@ var InventoryInspect = ( function()
 				if( nCoinRank === 1 && nSeasonAccess === acquiredItemSeasonAccess )
 				{
 					_ClosePopup();
-					$.DispatchEvent( 'HideStoreStatusPanel', '' );
+					$.DispatchEvent( 'HideStoreStatusPanel' );
 	
 					UiToolkitAPI.ShowCustomLayoutPopupParameters(
 						'',
@@ -188,14 +355,14 @@ var InventoryInspect = ( function()
 				                                                        
 				_ClosePopup();
 				$.DispatchEvent( 'ShowAcknowledgePopup', '', '' );
-				$.DispatchEvent( 'HideStoreStatusPanel', '' );
+				$.DispatchEvent( 'HideStoreStatusPanel');
 
 				return;
 			}
 
 			_ClosePopup();
 			$.DispatchEvent( 'ShowAcknowledgePopup', '', ItemId );
-			$.DispatchEvent( 'HideStoreStatusPanel', '' );
+			$.DispatchEvent( 'HideStoreStatusPanel' );
 		}
 	};
 
@@ -227,8 +394,4 @@ var InventoryInspect = ( function()
 	};
 } )();
 
-( function()
-{
-	$.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_PlayerEquipSlotChanged', InventoryInspect.ShowNotification );
-	$.RegisterForUnhandledEvent( 'PanoramaComponent_Store_PurchaseCompleted', InventoryInspect.ItemAcquired );
-} )();
+

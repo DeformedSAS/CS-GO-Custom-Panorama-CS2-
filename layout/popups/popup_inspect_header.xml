@@ -20,7 +20,7 @@
             <Image id="InspectSetImage" class="vertical-center right-padding"/>
             <Panel class="top-bottom-flow vertical-center" >
                 <Label id="InspectName" class="popup-capability__name"/>
-                <Label id="InspectCollection" class="fontSize-l"/>
+                <Label id="InspectCollection" class="popup-capability__collection-name"/>
             </Panel>
         </Panel>
         <Panel id="InspectBar" class="popup-inspect-raritybar"/>

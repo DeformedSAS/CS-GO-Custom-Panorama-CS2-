@@ -69,9 +69,9 @@ var ItemContextEntires = ( function (){
 			},
 			AvailableForItem: function ( id ) {
 				                              
-				var defName = InventoryAPI.GetItemDefinitionName( id );
-				if ( defName === 'casket' )
-					return InventoryAPI.GetItemAttributeValue( id, 'modification date' ) ? true : false;
+				                                                         
+				                             
+					                                                                                      
 
 				                                                                 
 				return ItemInfo.IsPreviewable( id );
@@ -617,7 +617,7 @@ var ItemContextEntires = ( function (){
 					else
 					{
 						UiToolkitAPI.ShowCustomLayoutPopupParameters(
-							'',
+							'popup-inspect-' + id,
 							'file://{resources}/layout/popups/popup_capability_decodable.xml',
 							'key-and-case=,' + id +
 							'&' + 'asyncworktype=decodeable'
@@ -643,7 +643,7 @@ var ItemContextEntires = ( function (){
 				if ( !ItemInfo.IsTool( id ) && InventoryAPI.GetDecodeableRestriction( id ) === 'xray' )
 				{
 					UiToolkitAPI.ShowCustomLayoutPopupParameters(
-						'',
+						'popup-inspect-'+ id,
 						'file://{resources}/layout/popups/popup_capability_decodable.xml',
 						'key-and-case=,' + id +
 						'&' + 'asyncworktype=decodeable'

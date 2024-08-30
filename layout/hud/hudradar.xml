@@ -51,7 +51,7 @@
         <snippet name="RadarPlayerSoundSnippet">
             <Panel class="PlayerIcons" acceptsinput="false" force-no-composition-layer="true">
                 <Panel id="PI_NonRotated">
-                    <Panel class="PlayerSound hud-colorize-wash" />
+                    <Panel class="PlayerSound cl-hud-color" />
                 </Panel>
             </Panel>
         </snippet>
@@ -68,14 +68,14 @@
                 	<Panel id="Radar__Round--Border" class="Radar__Round--BorderClass cl-hud-wash-color"/>
 					<Panel id="Radar__Round--Overlay"/>
             </Panel>
-            <Panel id="Radar__Square" antialias="true">
+            <Panel id="Radar__Square">
                 <Panel id="Radar__Square--Inner">
-                    <Panel id="Radar__Square--InnerTransform" force-no-composition-layer="true" />
+                    <Panel id="Radar__Square--InnerTransform" force-no-composition-layer="true" class="additive" />
                 </Panel>
-                <Panel id="Radar__Square--Border" class="Radar__Square--BorderClass cl-hud-wash-color" />
+                <Panel id="Radar__Square--Border" class="Radar__Square--BorderClass cl-hud-color" />
 			<Panel id="Radar__Square--Overlay"/>
             </Panel>
-			<Image id="DirectionArrow" force-no-composition-layer="true" src="file://{images}/hud/direction.vtf" />
+			<Image id="DirectionArrow" force-no-composition-layer="true" src="file://{images}/hud/direction.vtf" class="cl-hud-color" />
 
 			<Panel id="RI_BombDefuserPackage">
 				<Image id="BombPlantedIcon" src="file://{images}/icons/ui/bomb_c4.svg"/>	
@@ -105,7 +105,7 @@
         <Panel id="Radar__Invisible" class="Invisible" />
         <Panel>
             <Panel class="hrBotrad additive" />
-            <Label id="DashboardLabel" class="cl-hud-wash-color additive stratum-medium" />
+            <Label id="DashboardLabel" class="cl-hud-color additive stratum-medium" />
         </Panel>
     </CSGOHudRadar>
 </root>

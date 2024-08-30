@@ -216,8 +216,8 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	opacity: 0.5;
 	vertical-align: bottom;
 	horizontal-align: right;
-	flow-children: right;
-	margin-left: 450px;
+	flow-children: left;
+	padding-left: 900px;
 	margin-bottom: 14px;
 
 	transition-property:  opacity, brightness;
@@ -232,7 +232,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 #VanityControls Button
 {
-	vertical-align:right;
+	vertical-align: bottom;
 	brightness: 0.5;
 
 	width: 60px;
@@ -260,7 +260,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 #VanityControls Button:hover
 {
 	brightness: 2;
-	vertical-align:right;
+	vertical-align: bottom;
 	wash-color: white;
 }
 
@@ -269,7 +269,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	width: 300px;
 	height: 800px;
 	                            
-	vertical-align:right;
+	vertical-align:bottom;
 	horizontal-align:right;
 	position: 0px 100px 0px;
 }
@@ -383,7 +383,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .mainmenu-top-navbar__center-container
 {
-	horizontal-align:top;
+	horizontal-align: center;
 	vertical-align: top;
 	flow-children: right;
 	height: 60px;

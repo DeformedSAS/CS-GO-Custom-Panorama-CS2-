@@ -1,4 +1,4 @@
-<!-- xml reconstructed by Source 2 Viewer 10.0.0.0 - https://valveresourceformat.github.io -->
+
 <root>
 	<styles>
 		<include src="file://{resources}styles/csgostyles.css" />
@@ -106,20 +106,10 @@
 						</Panel>
 						<Panel id="id-store-home-section-coupon" class="store-home-section">
 							<Panel class="store-home-popular__info">
-								<Label class="store-home-section__title stratum-medium fontSize-xxl" text="#store_nav_popular" />
+								<Label class="store-home-section__title stratum-light fontSize-xxl" text="#store_nav_popular" />
 							</Panel>
 							<Panel id="id-store-popular-items" class="store-home-popular__items" />
 							<Button id="" class="store-home-popular__btn" onactivate="MainMenuStore.GotoStorePage(&apos;id-store-nav-coupon&apos;)">
-								<Label class="stratum-mediumf" text="#store_nav_more" />
-								<Image src="file://{images}/icons/ui/expand.svg" texturewidth="20" textureheight="-1" />
-							</Button>
-						</Panel>
-						<Panel id="id-store-home-section-tournament" class="store-home-section">
-							<Panel class="store-home-popular__info">
-								<Label class="stratum-medium fontSize-xxl" text="#store_nav_tournament_22" />
-							</Panel>
-							<Panel id="id-store-tournament-items" class="store-home-popular__items" />
-							<Button id="" class="store-home-popular__btn" onactivate="MainMenuStore.GotoStorePage(&apos;id-store-nav-tournament&apos;)">
 								<Label class="stratum-medium" text="#store_nav_more" />
 								<Image src="file://{images}/icons/ui/expand.svg" texturewidth="20" textureheight="-1" />
 							</Button>

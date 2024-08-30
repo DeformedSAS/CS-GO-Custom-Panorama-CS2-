@@ -1,0 +1,16 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_license.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/licenseutil.js" />
+		<include src="file://{resources}/scripts/mainmenu_license.js" />
+	</scripts>
+	<Panel class="mainmenu-license-container">
+		<Label class="mainmenu-license__text mainmenu-license__text--title fontSize-l stratum-medium-condensed" text="{s:restriction_act}" html="true" />
+		<Label class="mainmenu-license__text fontSize-sm stratum-regular-tf" text="{s:restriction}" html="true" />
+		<TextButton id="id-mainmenu-license" class="PopupButton vertical-align-bottom Positive" onactivate="MainMenulicense.ActionBuyLicense();" selected="false" html="true" text="#Store_Get_License" />
+	</Panel>
+</root>

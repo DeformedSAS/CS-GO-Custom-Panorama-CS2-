@@ -10,11 +10,13 @@ var InspectActionBar = ( function (){
 	var m_showCert = true;
 	var m_showEquip = true;
 	var m_insideCasketID = '';
+	var m_capability = '';
 	var m_showSave = true;
 	var m_showMaketLink = false;
 	var m_showCharSelect = true;
 	var m_blurOperationPanel = false;
 	var m_previewingMusic = false;
+	var m_isSelected = false;
 	var m_schfnMusicMvpPreviewEnd = null;
 	
 	var _Init = function( elPanel, itemId, funcGetSettingCallback, funcGetSettingCallbackInt, elItemModelImagePanel )
@@ -30,9 +32,11 @@ var InspectActionBar = ( function (){
 		m_showCert = ( funcGetSettingCallback( 'showitemcert', 'true' ) === 'false' );
 		m_showEquip = ( funcGetSettingCallback( 'showequip', 'true' ) === 'false' );
 		m_insideCasketID = funcGetSettingCallback( 'insidecasketid', '' );
+		m_capability = funcGetSettingCallback( 'capability', '' );
 		m_showSave = ( funcGetSettingCallback( 'allowsave', 'true' ) === 'true' );
 		m_showMaketLink = ( funcGetSettingCallback( 'showmarketlink', 'false' ) === 'true' );
 		m_showCharSelect = ( funcGetSettingCallback( 'showcharselect', 'true' ) === 'true' );
+		m_isSelected = ( funcGetSettingCallback( 'isselected', 'false' ) === 'true' ); 
 		m_blurOperationPanel = ( $.GetContextPanel().GetAttributeString( 'bluroperationpanel', 'false' ) === 'true' ) ? true : false;
 		
 		_SetUpItemCertificate( elPanel, itemId );
@@ -126,8 +130,8 @@ var InspectActionBar = ( function (){
 		{
 			elMoreActionsBtn.AddClass( 'hidden' );
 			elSingleActionBtn.RemoveClass( 'hidden' );
-			elSingleActionBtn.text = '#popup_casket_action_remove';
-			elSingleActionBtn.SetPanelEvent( 'onactivate', _OnMoveItemFromCasketToInventory.bind( this, m_insideCasketID, id ) );
+			elSingleActionBtn.text = !m_isSelected ? '#UI_Select' : '#UI_Unselect';
+			elSingleActionBtn.SetPanelEvent( 'onactivate', _OnActivateUpdateSelectionForMultiSelect.bind( this, id ) );
 			return;
 		}
 		
@@ -208,19 +212,25 @@ var InspectActionBar = ( function (){
 		entry.OnSelected( id );
 	};
 
-	var _OnMoveItemFromCasketToInventory = function( idCasket, idSubjectItem )
+	var _OnActivateUpdateSelectionForMultiSelect = function( idSubjectItem )
 	{
 		_CloseBtnAction();
-		
-		UiToolkitAPI.ShowCustomLayoutPopupParameters(
-			'', 
-			'file://{resources}/layout/popups/popup_casket_operation.xml',
-			'op=remove' +
-			'&nextcapability=casketcontents' +
-			'&spinner=1' +
-			'&casket_item_id=' + idCasket +
-			'&subject_item_id=' + idSubjectItem
+
+		$.DispatchEvent( 'UpdateSelectItemForCapabilityPopup',
+			m_capability,
+			idSubjectItem,
+			!m_isSelected
 		);
+		
+		                                                
+		   	    
+		   	                                                              
+		   	             
+		   	                                  
+		   	              
+		   	                               
+		   	                                   
+		     
 	};
 
 	                                                                                                    
@@ -253,7 +263,7 @@ var InspectActionBar = ( function (){
 						ItemInfo.IsItemAnyTeam(id);
 				});
 			
-			if ( list && ( list.length > 0 ) )
+			if ( list && ( list.length > 0 )  && !elPanel.FindChildInLayoutFile( 'InspectDropdownCharModels' ).Data().selectedId )
 				_SetDropdown( elPanel, list, id );
 		}
 	};
@@ -313,7 +323,7 @@ var InspectActionBar = ( function (){
 			var newEntry = $.CreatePanel( 'Label', elDropdown, entry.itemId, {
 				'class': 'DropDownMenu',
 				'html': 'true',
-			    'text': "<font color='" + rarityColor + "'>•</font> " + entry.label,
+				'text': "<font color='" + rarityColor + "'>•</font> " + entry.label,
 				'data-team': ( entry.team === 'any' ) ? ( ( ItemInfo.IsItemT(id) || ItemInfo.IsItemAnyTeam(id) ) ? 't' : 'ct' ) : entry.team
 			});
 	
@@ -328,6 +338,8 @@ var InspectActionBar = ( function (){
 	var _OnUpdateCharModel = function ( bPlaySound, elDropdown, weaponItemId )
 	{
 		var characterItemId = elDropdown.GetSelected().id;
+		elDropdown.Data().selectedId = elDropdown.GetSelected().id;
+		
 		InspectModelImage.SetCharScene( m_modelImagePanel, characterItemId, weaponItemId );
 		
 		                                                                                     

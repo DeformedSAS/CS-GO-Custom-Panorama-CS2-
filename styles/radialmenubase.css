@@ -1,10 +1,14 @@
 
-@define RADIAL_BACKDROP_COLOR_GRADIENT: 		gradient( radial, 50% 50%, 0% 0%, 100% 100%, 	from( #13131300 ),	color-stop(0.209, #13131366),	color-stop(0.210, #13131300),	to( #00000000 ) );
+@define RADIAL_BACKDROP_COLOR_GRADIENT: 		gradient( radial, 50% 50%, 0% 0%, 100% 100%, 	from( #000000f5 ),	color-stop(0.209, #000000f5),	color-stop(0.210, #13131300),	to( #00000000 ) );
 
-@define RADIAL_SEGMENT_CANSELECT: 				gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300), 	color-stop(0.22, #13131366),    color-stop(0.46, #131313FF),	color-stop(0.46, #AAAAAA00),	color-stop(0.5, #AAAAAA00),		color-stop(0.5, #00000000),	to( #00000000 ) );
-@define RADIAL_SEGMENT_CANSELECT_HOVERED: 		gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300), 	color-stop(0.22, #13131366),    color-stop(0.455, #131313FF),   color-stop(0.455, #DDDDDDFF),	color-stop(0.457, #DDDDDDFF),	color-stop(0.457, #00000000),	to( #00000000 ) );
-@define RADIAL_SEGMENT_CANNOT_SELECT: 			gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300),	color-stop(0.22, #13131366),    color-stop(0.46, #13131300),	color-stop(0.46, #00000000),    color-stop(0.5, #00000000),		color-stop(0.5, #00000000),	to( #00000000 ) );
-@define RADIAL_SEGMENT_CANNOT_SELECT_HOVERED: 	gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300), 	color-stop(0.22, #13131366),    color-stop(0.455, #131313DD),	color-stop(0.455, #FF0000FF),	color-stop(0.457, #FF0000FF),	color-stop(0.457, #FF000000),	to( #00000000 ) );
+@define RADIAL_SEGMENT_CANSELECT: 				gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300), 	color-stop(0.22, #000000e6),    color-stop(0.46, #000000e6),	color-stop(0.46, #AAAAAA00),	color-stop(0.5, #AAAAAA00),		color-stop(0.5, #00000000),	to( #00000000 ) );
+  
+               
+                                          		                                            	                                                 	                                                                                          	                             	                             	                     
+@define RADIAL_SEGMENT_CANSELECT_HOVERED: 		gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.21, #FFFFFF00), color-stop(0.21, #FFFFFF), color-stop(0.22, #FFFFFF), 	color-stop(0.22, #000000f5,    color-stop(0.48, #000000f5), color-stop(0.48, #00000000),  color-stop(0.455, #DDDDDD00),	color-stop(0.457, #DDDDDD00),	color-stop(0.457, #00000000),	to( #00000000 ) );
+@define RADIAL_SEGMENT_CANNOT_SELECT: 			gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300),	color-stop(0.22, #232323),    color-stop(0.46, #232323),	color-stop(0.46, #00000000),    color-stop(0.5, #00000000),		color-stop(0.5, #00000000),	to( #00000000 ) );
+
+@define RADIAL_SEGMENT_CANNOT_SELECT_HOVERED: 	gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.22, #13131300), 	color-stop(0.22, #121212),    color-stop(0.455, #121212),	color-stop(0.455, #FF0000FF),	color-stop(0.457, #FF0000FF),	color-stop(0.457, #FF000000),	to( #00000000 ) );
 
 
 @define ANALOGUE_CURSOR_GRADIENT: 				gradient( radial, 50% 50%, 0% 0%, 100% 100%,	from( #13131300 ),  color-stop(0.21, #13131300), 	color-stop(0.21, #AAAAAAFF),	color-stop(0.219, #AAAAAAFF), 	color-stop(0.219, #FFFFFF00), 	to( #00000000 ) );
@@ -19,23 +23,26 @@
 	                                        
 }
 
+
+.IsFading .RadialFadeIn,
+.RadialFadeIn.IsFading
+{
+	transition-duration: 0.125s;
+	transition-delay: 0.08s;                                                                   
+	opacity: 0;
+	transform: scale3d( 1.05,  1.05, 1 );
+}
+
 .RadialFadeIn
 {
 	transform: scale3d( 1, 1, 1 );
 	opacity: 1;
 	transition-property: opacity, transform;
-	transition-duration: 0.06125s;
-	                                                     
+	transition-duration: 0.1s;
+	transition-delay: 0.0s;
 	transition-timing-function: ease-out;
 }
 
-.IsFading .RadialFadeIn,
-.RadialFadeIn.IsFading
-{
-	                                                   
-	opacity: 0;
-	transform: scale3d( 1.2,  1.2, 1 );
-}
 
 
 CSGORadialRadio .RadialSegment
@@ -47,8 +54,8 @@ CSGORadialRadio .RadialSegment
 .RadialBackdrop
 {
 	
-	width: 900px;
-	height: 900px;
+	width: 800px;
+	height: 800px;
 
 	vertical-align: center;
 	horizontal-align: center;
@@ -60,8 +67,6 @@ CSGORadialRadio .RadialSegment
 {
 	width: 100%;
 	height: 100%;
-
-
     background-color: RADIAL_BACKDROP_COLOR_GRADIENT;
 }
 
@@ -114,9 +119,9 @@ CSGORadialRadio .RadialSegment
 	horizontal-align: center;
 	                                                         
 	width: 50%;
-                  
+	                
 	font-family: Stratum2, 'Arial Unicode MS';
-	color: #CCCCCC00;
+	color: #FFFFFF;
 	
 	font-size: 14px;
     font-weight: bold;
@@ -124,6 +129,14 @@ CSGORadialRadio .RadialSegment
 	text-shadow:1px 1px 1px #000000;
 	               
 	text-overflow: shrink;
+	y:62px;
+}
+
+CCSGOQuickUtilityItemRadial .RadialSegment-text,
+CCSGOQuickGrenadesRadial .RadialSegment-text,
+CSGOQuickInventory .RadialSegment-text
+{
+	visibility: collapse;
 }
 
 .RadialSegment-text-large
@@ -134,17 +147,17 @@ CSGORadialRadio .RadialSegment
 
 .RadialSegment--hover .RadialSegment-text
 {
-	color: #CCCCCCFF;
+	color: #FFFFFF;
 }
 
 .RadialSegment--hover.RadialSegment--canSelect .RadialSegment-text
 {
-	color: #FFFFFFFF;
+	color: #FFFFFF;
 }
 
 .RadialSegment.RadialSegment--canSelect .RadialSegment-text
 {
-	color: #CCCCCCFF;
+	color: #FFFFFF;
 }
 
 
@@ -154,14 +167,15 @@ CSGORadialRadio .RadialSegment
     width: fit-children;
     height: 28px;
 
-    font-weight: medium;
+	font-family: Stratum2, 'Arial Unicode MS';
+	font-weight: medium;
     visibility:collapse;
 	horizontal-align: center;
 	vertical-align: center;
-    y:28px;
+    y:36px;
     x:30px;
     font-size: 14px;
-    color:#CCCCCC;
+    color:#ffffff;
 }
 
 .item--has-multiple .RadialSegment-item-count
@@ -217,7 +231,7 @@ CCSGOQuickBuyRadial .RadialSegment-item-count
 	vertical-align: center;
 	width:fit-children;
 	font-family: Stratum2 Monodigit, Stratum2Bold, 'Arial Unicode MS';
-	color: #ffffffFF;
+	color: #FFFFFF;
 	font-size: 24px;
     font-weight: normal;
 	text-align: center;
@@ -240,29 +254,29 @@ CCSGOQuickBuyRadial .RadialSegment-item-count
 	
 	background-color:RADIAL_SEGMENT_CANNOT_SELECT ;
 	
-	opacity: 0.8;
+	opacity: 0.9;
 	transform: scale3d( 1, 1, 1 );
-	transition-property: background-color, transform, opacity;
-	
-	transition-duration: 0.06125s;
-	transition-timing-function: ease-out;
+	                                               
+	                                                            
+	                                
+	                                       
 }
 
 CCSGOQuickBuyRadial .RadialSegment
 {
-	wash-color-fast: #00FF00;
+	wash-color-fast: #ffffff;
 }
 .RadialSegment.RadialSegment--hover
 {
     background-color: RADIAL_SEGMENT_CANNOT_SELECT_HOVERED;
-    transform: scale3d( 1, 1, 1 );
+                                    
 }
 
 .RadialSegment.RadialSegment--canSelect
 {
 	opacity: 1;
 	background-color: RADIAL_SEGMENT_CANSELECT;
-	transform: scale3d( 1, 1, 1 );
+	                                
 }
 
 .RadialSegment.RadialSegment--canSelect.RadialSegment--hover
@@ -280,50 +294,52 @@ CCSGOQuickBuyRadial .RadialSegment
                                                                              
 .RadialSegment.RadialSegment--canSelect.RadialSegment--hover.Chosen
 {
-	wash-color-fast: #00FF00;       
+	wash-color-fast: #FFFFFF;       
 }
 
 .IsFading .RadialSegment.RadialSegment--canSelect.RadialSegment--hover
 {
-	 transform: scale3d( 0.3333333333, 0.3333333333, 1 );                                                                                                      
+	                                                                                                                                             
 }
 
 .RadialSegment-image
 {
     width: 400px;
-    height: 100px;
+	height: 200px;
+	                       
+	transform: scale3d( .95, .95, 1 );
 
 	horizontal-align: center;
 	vertical-align: center;
 
 	img-shadow: 0px 0px 0px 0.1 #000000;
 
-	wash-color-fast: #000000;
+	wash-color-fast: #666666e6;
 	
 	transition-property: transform, img-shadow;
-	transition-duration: 0.25s;
+	transition-duration: 0.1s;
 	transition-timing-function: ease-out;
 
 }
 
 .RadialSegment--hover .RadialSegment-image
 {
-	wash-color-fast: #CC000055;
+	                             
 	img-shadow: 0px 0px 50px 0.1 #FF0000;
 	
 }
 
 .RadialSegment--canSelect .RadialSegment-image
 {
-	wash-color-fast: #AAAAAA;
+	wash-color-fast: #F0F0F0;
 	img-shadow: 0px 0px 20px 0.1 #000000;
 }
 
 .RadialSegment--canSelect.RadialSegment--hover .RadialSegment-image
 {
 	wash-color-fast: #FFFFFF;
-	img-shadow: 1px 1px 40px 0.1 #FFFFFF;
-	transform: scale3d( 1.1, 1.1, 1 );
+	img-shadow: 1px 1px 40px 0.1 #BEBEBE;
+	transform: scale3d( 1.05, 1.05, 1 );
 }
 
 .RadialSegment.AnalogueCursor
@@ -347,25 +363,27 @@ CCSGOQuickBuyRadial .RadialSegment
 }
 
                                     
-.RadialSegmentOnHover
-{
-	animation-name: HoverFlashAnim;
-	animation-duration: 0.24s;
-	animation-timing-function: ease-out;
-	animation-iteration-count: 1.2;
-}
+  
+                     
+ 
+	                               
+	                          
+	                                    
+	                               
+ 
 
-@keyframes 'HoverFlashAnim'
-{
-	0%
-	{
-        opacity: 1.5;
-	}
-	100%
-	{
-		opacity: 1.0;
-	}
-}
+                           
+ 
+	  
+	 
+                     
+	 
+	    
+	 
+		             
+	 
+ 
+  
 
 .RadialSegmentSelectedFlashAnim 
 {

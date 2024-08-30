@@ -23,7 +23,7 @@
 @define itemBackgroundGradient: gradient( linear, 0% 0%, 0% 100%, from( #1e2a38dd ), to( #19232fdd ) );
 @define contextMenuBackground: rgba(38, 38, 38, 1);
 @define backgroundDotsSize: 360px 360px;
-@define btnBorderRadius: 3px;
+@define btnBorderRadius: 2px;
 @define backgroundGradient: gradient( linear, 75% 100%, 0% 0%, from( #14202b ), to( #1e2d3d ) );
 @define textBlueGradient: gradient( linear, 0% 100%, 0% 0%, from( blueColor ), to( blueColorDark ) );
 @define baseText: #ccccccff;
@@ -99,6 +99,7 @@
 @define debug4: 1px solid blue;
 @define alert-width: 300px;
 @define spec-width: 460px;
+
 Label,TextEntry
 {
 	font-family: notosans, 'Arial Unicode MS';
@@ -241,6 +242,11 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 	font-family: Stratum2 Thin Italic, "Arial Unicode MS";
 }
 
+.stratum-thin-condensed
+{
+	font-family: Stratum2 Thin Condensed, "Arial Unicode MS";
+}
+
 .stratum-thin-tf
 {
 	font-family: Stratum2 Thin TF, "Arial Unicode MS";
@@ -250,10 +256,19 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 {
 	font-family: ST2RGCOND, "Arial Unicode MS";
 }
+.stratum-bold-condensed
+{
+	font-family: ST2BDCOND, "Arial Unicode MS";
+}
 
 .stratum-light-italic
 {
 	font-family: Stratum2 Light Italic, "Arial Unicode MS";
+}
+
+.stratum-light-condensed
+{
+	font-family: Stratum2 Light Condensed, "Arial Unicode MS";
 }
 
 .stratum-light-tf
@@ -274,6 +289,12 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 	font-weight: normal;
 }
 
+.stratum-regular-condensed
+{
+	font-family: Stratum2 Condensed, "Arial Unicode MS";
+	font-weight: normal;
+}
+
 .stratum-regular-tf
 {
 	font-family: Stratum2 TF, "Arial Unicode MS";
@@ -288,6 +309,11 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 .stratum-medium-italic
 {
 	font-family: Stratum2 Medium Italic, "Arial Unicode MS";
+}
+
+.stratum-medium-condensed
+{
+	font-family: Stratum2 Medium Condensed, "Arial Unicode MS";
 }
 
 .stratum-medium-tf
@@ -321,6 +347,11 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 .stratum-black-italic
 {
 	font-family: Stratum2 Black Italic, "Arial Unicode MS";
+}
+
+.stratum-black-condensed
+{
+	font-family: Stratum2 Black Condensed, "Arial Unicode MS";
 }
 
 .stratum-black-tf
@@ -515,7 +546,7 @@ CSGOAvatarImage .AvatarImage
 
 CSGOAvatarImage.team--CT
 {
-	background-image: url("file://{images}/hud/teamcounter/teamcounter_alivebgct.png");
+	background-image: url("s2r://panorama/images/hud/teamcounter/teamcounter_alivebgct.png");
 	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -523,7 +554,7 @@ CSGOAvatarImage.team--CT
 
 CSGOAvatarImage.team--TERRORIST
 {
-	background-image: url("file://{images}/hud/teamcounter/teamcounter_alivebgt.png");
+	background-image: url("s2r://panorama/images/hud/teamcounter/teamcounter_alivebgt.png");
 	background-size: 100% 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1105,7 +1136,7 @@ ToggleButton.ExpandCollapseToggleButton
 	width: 19px;
 	height: 19px;
 	vertical-align: middle;
-	background-image: url("file://{images}/control_icons/expand_collapse_psd.vtex");
+	background-image: url("s2r://panorama/images/control_icons/expand_collapse_psd.vtex");
 	background-size: 100% 100%;
 	background-color: none;
 	box-shadow: none;
@@ -1126,7 +1157,7 @@ ToggleButton.ExpandCollapseToggleButton
 	width: 19px;
 	height: 19px;
 	vertical-align: middle;
-	background-image: url("file://{images}/control_icons/expand_collapse_psd.vtex");
+	background-image: url("s2r://panorama/images/control_icons/expand_collapse_psd.vtex");
 	background-size: 100% 100%;
 	background-color: none;
 	box-shadow: none;
@@ -1135,44 +1166,6 @@ ToggleButton.ExpandCollapseToggleButton
 	transform: rotateZ( 0deg );
 	transition-property: transform;
 	transition-duration: 0.2s;
-}
-
-.small-toggle-btn Label
-{
-	position: 28px 0px 0px;
-	font-size: 16px;
-	horizontal-align: left;
-	text-align: left;
-}
-
-.small-toggle-btn .TickBox
-{
-	width: 16px;
-	height: 16px;
-	position: 0px 0px 0px;
-	vertical-align: center;
-	background-color: None;
-	border-radius: 2px;
-	z-index: 1;
-	margin-left: 4px;
-	border: 1.5px solid white;
-	box-shadow: #00000000 0px 0px 2px 2px ;
-	transition-property: background-color, wash-color;
-	transition-duration: 0.20s;
-	transition-timing-function: ease-in-out;
-}
-
-.small-toggle-btn:selected .TickBox
-{
-	position: 0px 0px 0px;
-	height: 16px;
-	background-image: url("file://{images}/icons/ui/checkbox.svg");
-	background-size: 16px 16px;
-	background-color: None;
-	box-shadow: #00000000 2px 0px 3px 0px;
-	transition-property: wash-color, background-color;
-	transition-duration: 0.20s;
-	transition-timing-function: ease-in-out;
 }
 
 RadioButton
@@ -1264,7 +1257,7 @@ RadioButton:disabled:selected .RadioBox
 
 .ExternalIcon
 {
-	background-image: url("file://{images}/control_icons/arrow_popout.png");
+	background-image: url("s2r://panorama/images/control_icons/arrow_popout_png.vtex");
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	wash-color: white;
@@ -1555,20 +1548,6 @@ Button.PopupButton.Activated
 	background-color: negativeColor;
 }
 
-.PopupButton.Blue
-{
-	background-color: blueColor;
-}
-
-.PopupButton.Blue:hover
-{
-	background-color: blueColor;
-	brightness: 1.4;
-	transition-property: brightness;
-	transition-duration: 0s;
-	transition-timing-function: ease-in-out;
-}
-
 .PopupButton .TickBox,.map-selection-btn .TickBox,.setting-toggle .TickBox
 {
 	width: 24px;
@@ -1600,12 +1579,12 @@ Button.PopupButton.Activated
 
 .PopupButton.Zoom .TickBox
 {
-	width: 28px;
-	height: 28px;
+	width: 36px;
+	height: 36px;
 	margin: 8px;
 	background-image: url("file://{images}/icons/ui/zoom_in.svg");
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: 36px 36px;
 	box-shadow: #00000000 0px 0px 2px 2px ;
 	border: 0px solid white;
 	transition-property: background-color, wash-color;
@@ -1617,7 +1596,7 @@ Button.PopupButton.Activated
 {
 	background-image: url("file://{images}/icons/ui/zoom_out.svg");
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: 36px 36px;
 	background-color: None;
 	box-shadow: #00000000 2px 0px 3px 0px;
 	transition-property: wash-color, background-color;
@@ -1857,16 +1836,6 @@ DropDownMenu Label Image
 	wash-color: white;
 }
 
-.IconButton:selected
-{
-	background-color: white;
-}
-
-.IconButton:selected Image
-{
-	wash-color: black;
-}
-
 .IconButton:disabled
 {
 	wash-color: disabledColor;
@@ -1880,11 +1849,6 @@ DropDownMenu Label Image
 .IconButton:active
 {
 	sound: "UIPanorama.generic_button_press";
-}
-
-.IconButton .RadioBox
-{
-	visibility: collapse;
 }
 
 .text-external-Link-button
@@ -2276,7 +2240,7 @@ ProgressBar
 	width: 24px;
 	height: 24px;
 	wash-color: #888888;
-	background-image: url("file://{images}/control_icons/x_close.png");
+	background-image: url("s2r://panorama/images/control_icons/x_close_png.vtex");
 	background-size: 24px 24px;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -2324,7 +2288,7 @@ ProgressBar
 	width: 28px;
 	height: 28px;
 	wash-color: #888888;
-	background-image: url("file://{images}/control_icons/competitive_logo.png");
+	background-image: url("s2r://panorama/images/control_icons/competitive_logo_png.vtex");
 	background-size: 100% 100%;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
@@ -2348,7 +2312,7 @@ ProgressBar
 
 .SettingsButton
 {
-	background-image: url("file://{images}/control_icons/gear.png");
+	background-image: url("s2r://panorama/images/control_icons/gear_png.vtex");
 }
 
 .SettingsButton.Activated
@@ -2376,7 +2340,7 @@ ProgressBar
 
 .RefreshButton
 {
-	background-image: url("file://{images}/control_icons/icon_refresh.png");
+	background-image: url("s2r://panorama/images/control_icons/icon_refresh_png.vtex");
 }
 
 .RefreshButton.Activated
@@ -2405,7 +2369,7 @@ ProgressBar
 
 .EditButton
 {
-	background-image: url("file://{images}/control_icons/edit.png");
+	background-image: url("s2r://panorama/images/control_icons/edit_png.vtex");
 	background-size: 65%;
 }
 
@@ -2457,7 +2421,7 @@ ProgressBar
 	height: 60px;
 	vertical-align: middle;
 	wash-color: #9db1b7;
-	background-image: url("file://{images}/control_icons/arrow_right.png");
+	background-image: url("s2r://panorama/images/control_icons/arrow_right_png.vtex");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -2608,13 +2572,13 @@ EdgeScrollBar.Horizontal .EdgeScrollButton
 EdgeScrollBar.Horizontal #MinButton
 {
 	horizontal-align: left;
-	background-image: url("file://{images}/control_icons/arrow_solid_left.png");
+	background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
 }
 
 EdgeScrollBar.Horizontal #MaxButton
 {
 	horizontal-align: right;
-	background-image: url("file://{images}/control_icons/arrow_solid_right.png");
+	background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
 }
 
 EdgeScrollBar.Vertical .EdgeScrollButton
@@ -2626,13 +2590,13 @@ EdgeScrollBar.Vertical .EdgeScrollButton
 EdgeScrollBar.Vertical #MinButton
 {
 	vertical-align: top;
-	background-image: url("file://{images}/control_icons/arrow_solid_up.png");
+	background-image: url("s2r://panorama/images/control_icons/arrow_solid_up_png.vtex");
 }
 
 EdgeScrollBar.Vertical #MaxButton
 {
 	vertical-align: bottom;
-	background-image: url("file://{images}/control_icons/arrow_solid_down.png");
+	background-image: url("s2r://panorama/images/control_icons/arrow_solid_down_png.vtex");
 }
 
 .PaginationArrow:active
@@ -2720,31 +2684,6 @@ EdgeScrollBar.Vertical #MaxButton
 	border-radius: 50%;
 }
 
-.mini-store-container .PaginationArrow
-{
-	background-image: url("file://{images}/icons/ui/arrowhead.svg");
-	background-repeat: no-repeat;
-	background-size: 12px 12px;
-	width: 12px;
-	height: 12px;
-	vertical-align: middle;
-	margin-left: 48px;
-	transform: rotateZ( -90deg );
-	border-radius: 0px;
-}
-
-.mini-store-container .PaginationArrow:disabled
-{
-	wash-color: rgb(0, 0, 0);
-	opacity: .5;
-}
-
-.mini-store-container .PaginationArrow.Right
-{
-	margin-right: 54px;
-	transform: rotateZ( 90deg );
-}
-
 @keyframes 'OpacityPulse'
 {
 	0%
@@ -2769,7 +2708,7 @@ EdgeScrollBar.Vertical #MaxButton
 	width: 150%;
 	height: 150%;
 	transform: translateX(-6px) translateY(-6px);
-	background-image: url("file://{images}/fades/radialsweep_psd.vtex");
+	background-image: url("s2r://panorama/images/fades/radialsweep_psd.vtex");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 100%;
@@ -3098,11 +3037,6 @@ EdgeScrollBar.Vertical #MaxButton
 	margin-bottom: 12px;
 }
 
-.right-margin-4
-{
-	margin-right: 4px;
-}
-
 .right-margin
 {
 	margin-right: 8px;
@@ -3133,11 +3067,6 @@ EdgeScrollBar.Vertical #MaxButton
 	margin-left: 8px;
 }
 
-.left-margin-6
-{
-	margin-left: 6px;
-}
-
 .left-margin-medium
 {
 	margin-left: 16px;
@@ -3153,24 +3082,9 @@ EdgeScrollBar.Vertical #MaxButton
 	margin-left: 16px;
 }
 
-.top-margin-8
-{
-	margin-top: 8px;
-}
-
-.top-margin-16
-{
-	margin-top: 16px;
-}
-
 .top-margin-24
 {
 	margin-top: 24px;
-}
-
-.top-margin-32
-{
-	margin-top: 32px;
 }
 
 .bottom-margin-32
@@ -3183,11 +3097,6 @@ EdgeScrollBar.Vertical #MaxButton
 	margin: 16px;
 }
 
-.margin-12
-{
-	margin: 12px;
-}
-
 .margin-8
 {
 	margin: 8px;
@@ -3198,24 +3107,9 @@ EdgeScrollBar.Vertical #MaxButton
 	margin: 32px;
 }
 
-.z-index-1
-{
-	z-index: 1;
-}
-
 .z-index-2
 {
 	z-index: 2;
-}
-
-.z-index-3
-{
-	z-index: 3;
-}
-
-.z-index-4
-{
-	z-index: 5;
 }
 
 .flip-horizontal

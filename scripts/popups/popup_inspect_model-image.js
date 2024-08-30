@@ -5,7 +5,6 @@ var InspectModelImage = ( function (){
 	var m_charAnimIsPlaying = false;
 	var m_bCanShowCertificateInfo = true;
 	var m_bCanShowEquipControls = true;
-	var m_elPanel = null;
 
 	var _Init = function ( elPanel, itemId, funcGetSettingCallback)
 	{
@@ -22,7 +21,7 @@ var InspectModelImage = ( function (){
 		}
 
 		var model = ItemInfo.GetModelPathFromJSONOrAPI( itemId );
-		m_elPanel = elPanel;
+
 
 		if ( model )
 		{

@@ -1,4 +1,4 @@
-<!-- xml reconstructed by Source 2 Viewer 10.0.0.0 - https://valveresourceformat.github.io -->
+
 <root>
 	<styles>
 		<include src="file://{resources}styles/csgostyles.css" />
@@ -34,12 +34,12 @@
 			<Panel class="itemtile-store__bottomrow">
 				<Panel id="id-itemtile-store-price" class="itemtile-store__price-container">
 					<Panel class="itemtile-store__price-reduction-container">
-						<Label class="itemtile-store__price-reduction stratum-regular-tf" text="{s:reduction}" />
+						<Label class="itemtile-store__price-reduction stratum-medium" text="{s:reduction}" />
 					</Panel>
 					<Panel class="itemtile-store__price-labels">
 						<Panel class="top-bottom-flow vertical-center">
-							<Label class="itemtile-store__price-original stratum-regular-tf" text="{s:original-price}" />
-							<Label class="itemtile-store__price-sale stratum-regular-tf" html="true" text="{s:sale-price}" />
+							<Label class="itemtile-store__price-original stratum-medium" text="{s:original-price}" />
+							<Label class="itemtile-store__price-sale stratum-medium" html="true" text="{s:sale-price}" />
 						</Panel>
 					</Panel>
 				</Panel>

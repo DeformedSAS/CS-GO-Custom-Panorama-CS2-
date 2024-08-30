@@ -24,10 +24,29 @@
 		<Panel class="mainmenu-content__container mainmenu-content__container--inspect" useglobalcontext="true">
 			<Panel class="full-width full-height top-bottom-flow vertical-center">
 				<Panel id="PopUpInspectFullScreenHostContainer" class="full-width full-height">
-				
 					<Frame id="PopUpInspectModelOrImage" src="file://{resources}/layout/popups/popup_inspect_model-image.xml" />
 					<Frame id="PopUpInspectHeader" class='hidden' src="file://{resources}/layout/popups/popup_inspect_header.xml" />
 					<Frame id="PopUpCapabilityHeader" class='hidden' src="file://{resources}/layout/popups/popup_capability_header.xml" />
+					<Panel id="id-lootlist-title-container" class="inv-lootlist-title-container">
+						<Label class="fontSize-sm stratum-medium" text="#popup_inv_lootlist_header"/>
+						<Label class="fontSize-m fontWeight-Bold stratum-medium left-margin" text="#popup_inv_lootlist_count"/>
+					</Panel>
+					<Panel id="id-lootlist-btns-container" class="inv-lootlist-btns-container">
+						<Button id="id-lootlist-next" class="inv-arrow-btn">
+							<Image class="inv-arrow-btn__image" src="file://{images}/icons/ui/expand.svg" textureheight="64" texturewidth="-1"/>
+							<Panel class="left-right-flow">
+								<Label id="id-lootlist-label" class="inv-arrow-btn__text text-align-right" text="Item name and color"/>
+								<Panel id="id-lootlist-rarity" class="inv-arrow-btn__rarity"/>
+							</Panel>
+						</Button>
+						<Button id="id-lootlist-prev" class="inv-arrow-btn inv-arrow-btn--left">
+							<Image class="inv-arrow-btn__image inv-arrow-btn__image--left" src="file://{images}/icons/ui/expand.svg" textureheight="64" texturewidth="-1"/>
+							<Panel class="left-right-flow">
+								<Panel id="id-lootlist-rarity" class="inv-arrow-btn__rarity"/>
+								<Label id="id-lootlist-label" class="inv-arrow-btn__text text-align-left" text="Item name and color"/>
+							</Panel>
+						</Button>
+					</Panel>
 
 					<Panel class="bottom-top-flow vertical-align-bottom full-width horizontal-center">
 						<Frame id="PopUpInspectActionBar" class="hidden" src="file://{resources}/layout/popups/popup_inspect_action-bar.xml" />

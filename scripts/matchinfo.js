@@ -1051,6 +1051,10 @@ var matchInfo = ( function() {
             {   
                 var playerXuid = MatchInfoAPI.GetMatchPlayerXuidByIndexForTeam( elParentPanel.matchId, teamId, i );
                 var elPlayerRow = $.CreatePanel( 'Panel', elTeam, 'id-player-' + playerXuid );
+                if ( !playerXuid )
+                {
+                    elTeam.AddClass( 'with-empty-rows' );
+                }
                 elPlayerRow.playerXuid = playerXuid;
                 elPlayerRow.teamId = teamId;
                 if ( elParentPanel.matchListDescriptor != 'live' )

@@ -110,7 +110,7 @@ var CharacterAnims = ( function()
 				if ( settings.team == 'ct' )
 					settings.model = "models/player/custom_player/legacy/ctm_sas.mdl";
 				else
-					settings.model = "models/player/custom_player/legacy/tm_leet_variantb.mdl";
+					settings.model = "models/player/custom_player/legacy/tm_phoenix.mdl";
 			}
 		}
 
@@ -120,7 +120,7 @@ var CharacterAnims = ( function()
 		_CancelScheduledAnim( playerPanel );
 		_ResetLastRandomAnimHandle( playerPanel );
 		
-		playerPanel.ResetAnimation( true );
+		playerPanel.ResetAnimation( false );
 		playerPanel.SetSceneAngles( 0, 0, 0, false );
 
 		if ( settings.manifest )

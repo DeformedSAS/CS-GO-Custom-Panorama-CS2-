@@ -96,6 +96,7 @@
     $.DefineEvent( 'UnblurOperationPanel', 0, '', 'Fires when other popup panels close to unblur the operation panel' );
 
     $.DefineEvent( 'MainMenu_OnGoToCharacterLoadoutPressed', 0, '', '' );
+    $.DefineEvent( 'MainMenu_OnBetaEnrollmentButtonPressed', 0, '', '' );
     $.DefineEvent( 'MainMenu_OnLockVanityModelToggle', 0, '', '' );
 	$.DefineEvent( 'SettingsMenu_NavigateToSetting', 2, 'category, settingPanelID', 'Takes cateogry eg "GAME" or "KBMOUSE" and contained setting ID, opens that category and scrolls to the settting matching the id.' );
 	$.DefineEvent( 'SettingsMenu_NavigateToSettingPanel', 2, 'category, settingPanel', 'Navigates to a setting by panel handle' );
@@ -113,7 +114,6 @@
     $.DefineEvent( 'DirectChallenge_CopyKey', 0, "", "" );
     $.DefineEvent( 'DirectChallenge_ChooseClanKey', 0, "", "" );
     $.DefineEvent( 'DirectChallenge_ClanChallengeKeySelected', 1, "challengekey", "" );    
-
 
 
 } )();

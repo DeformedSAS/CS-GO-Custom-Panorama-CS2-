@@ -146,7 +146,16 @@
 				</Panel>
 
 				<Panel id="DecodableLootlistContainer" class="popup-decodable-lootlist-container hidden" >
-					<Label id="CanDecodableDesc" html="true" class="fontSize-m horizontal-align-left bottom-padding" text="#SFUI_InvUse_Items_InContainer_Header"/>
+					<Panel class="full-width">
+						<Label id="CanDecodableDesc" html="true" class="popup-decodable-lootlist-single-reward" text="#SFUI_InvUse_Items_InContainer_Header"/>
+						<Panel id="CanDecodableDescMulti" class="left-right-flow horizontal-center">
+							<Image class="popup-decodable-lootlist-multi-reward-icon" texturewidth="24" textureheight="24" src="file://{images}/icons/ui/info.svg"/>
+							<Label id="CanDecodableDescMulti" html="true" class="popup-decodable-lootlist-multi-reward" text="#SFUI_InvUse_Items_InContainer_Header_multi"/>
+						</Panel>
+						<Button id="CanDecodableBrowseBtn" class="popup-browse-btn" >
+							<Label class="stratum-font fontSize-sm fontWeight-Medium text-uppercase text-align-center fontcolor-white" text="#popup_inv_lootlist_inspect_all"/>
+						</Button>
+					</Panel>	
 					<Panel id="DecodableLootlist" class="popup-decodable-lootlist" hittest="true">
 						                          
 					</Panel>

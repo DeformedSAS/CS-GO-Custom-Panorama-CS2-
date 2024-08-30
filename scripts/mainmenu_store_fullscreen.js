@@ -12,7 +12,6 @@ var MainMenuStore;
     let _m_activePanelId = '';
     let _m_pagePrefix = 'id-store-page-';
     let _m_inventoryUpdatedHandler;
-
     function ReadyForDisplay() {
         if (!ConnectedToGcCheck()) {
             return;
@@ -24,7 +23,6 @@ var MainMenuStore;
             let storeItems = StoreItems.GetStoreItems();
             if (_m_activePanelId === '' || !_m_activePanelId || (storeItems.coupon && storeItems.coupon.length < 1)) {
                 StoreItems.MakeStoreItemList();
-                storeItems = StoreItems.GetStoreItems(); // Re-fetch after making the list
             }
 
             if (!storeItems || typeof storeItems !== 'object') {
@@ -139,7 +137,7 @@ var MainMenuStore;
         let elParent = _m_cp.FindChildInLayoutFile('id-store-home-section-' + category);
 
         if (elParent && elPanel) {
-            elParent.style.backgroundImage = 'url("file://{images}/backgrounds/store_home_' + category + '.psd")';
+            elParent.style.backgroundImage = 'url("file://{images}/backgrounds/store_home_' + category + '.png")';
             elParent.style.backgroundPosition = '50% 50%';
             elParent.style.backgroundSize = 'cover';
 

@@ -22,6 +22,7 @@ var CapabilityDecodable = ( function()
 	var m_styleforPopUpInspectFullScreenHostContainer = '';
 	var m_isXrayMode = false;
 	var m_blurOperationPanel = false;
+	var m_elImageOrModel = null;
 	
 	var _Init = function()
 	{
@@ -251,19 +252,19 @@ var CapabilityDecodable = ( function()
 	                                                                                                    
 	var _SetCaseModelImage = function( caseId, PanelId )
 	{
-		var elItemModelImagePanel = $.GetContextPanel().FindChildInLayoutFile( PanelId );
-		InspectModelImage.Init( elItemModelImagePanel, caseId, _GetSettingCallback );
+		m_elImageOrModel = $.GetContextPanel().FindChildInLayoutFile( PanelId );
+		InspectModelImage.Init( m_elImageOrModel, caseId, _GetSettingCallback );
 	};
 
 	var _PlayCaseModelAnim = function( anim )
 	{
-		var elModel = InspectModelImage.GetModelPanel();
+		var elModel = m_elImageOrModel.FindChildInLayoutFile( 'InspectItemModel' );
 		elModel.PlaySequence( anim, true );
 	};
 
 	var _SetCaseModelCamera = function( preset, shouldTransition )
 	{
-		var elModel = InspectModelImage.GetModelPanel();
+		var elModel = m_elImageOrModel.FindChildInLayoutFile( 'InspectItemModel' );
 		elModel.SetCameraPreset( preset, shouldTransition );
 	};
 
@@ -306,10 +307,12 @@ var CapabilityDecodable = ( function()
 			return;
 		}
 
-		var elImage = InspectModelImage.GetImagePanel();
+		var elImage = m_elImageOrModel.FindChildInLayoutFile( 'InspectItemImage' );
 		elImage.AddClass( 'y-offset' );
 
 		_ShowHideLootList( true );
+		_SetLootlistHintText( caseId, count );
+		
 		for ( var i = 0; i < count; i++ )
 		{
 			var itemid = ItemInfo.GetLootListItemByIndex( caseId, i );
@@ -317,8 +320,6 @@ var CapabilityDecodable = ( function()
 			
 			if ( !elItem )
 			{
-				                                                            
-
 				var elItem = $.CreatePanel( 'Panel', elLootList, itemid );
 				elItem.SetAttributeString( 'itemid', itemid );
 				elItem.BLoadLayoutSnippet( 'LootListItem' );
@@ -327,6 +328,11 @@ var CapabilityDecodable = ( function()
 				var funcActivation = m_isAllowedToInteractWithLootlistItems ? _OnActivateLootlistTile : _OnActivateLootlistTileDummy;
 				elItem.SetPanelEvent( 'onactivate', funcActivation.bind( undefined, itemid, caseId, keyId ) );
 				elItem.SetPanelEvent( 'oncontextmenu', funcActivation.bind( undefined, itemid, caseId, keyId ) );
+
+				if ( i === 0 && m_isAllowedToInteractWithLootlistItems )
+				{
+					$.GetContextPanel().FindChildInLayoutFile( 'CanDecodableBrowseBtn' ).SetPanelEvent( 'onactivate', callBackFunc.bind( undefined, itemid, caseId, keyId ) );
+				}
 
 				if ( itemid !== '0' )
 				{
@@ -351,31 +357,6 @@ var CapabilityDecodable = ( function()
 		                                 
 		InventoryAPI.PrecacheCustomMaterials( itemid );
 
-		var callBackFunc = function( itemid, caseId, keyId )
-		{
-			$.DispatchEvent( 'ContextMenuEvent', '' );
-			_ClosePopUp();
-
-			var storeid = ( m_storeItemId ) ? m_storeItemId : '';
-			var bluroperationpanel = m_blurOperationPanel ? 'bluroperationpanel=true' : '';
-
-			                                                                
-			var additionalParams = _GetSettingCallback( 'inspectonly', 'false' ) === 'true' ? 'inspectonly=true,' : '';
-			additionalParams = _GetSettingCallback( 'asyncworkbtnstyle', 'positive' ) === 'hidden' ? additionalParams + 'asyncworkbtnstyle=hidden' : '';
-			additionalParams = m_blurOperationPanel ? additionalParams + ',' + 'bluroperationpanel=true' : '';
-			
-			$.DispatchEvent(
-				"LootlistItemPreview",
-				itemid,
-				keyId +
-				',' + caseId +
-				',' + storeid +
-				',' + bluroperationpanel +
-				',' + m_styleforPopUpInspectFullScreenHostContainer +
-				',' + additionalParams
-			);
-		};
-
 		var items = [];
 		items.push( { label: '#UI_Inspect', jsCallback: callBackFunc.bind( undefined, itemid, caseId, keyId ) } );
 
@@ -387,6 +368,31 @@ var CapabilityDecodable = ( function()
 		UiToolkitAPI.ShowSimpleContextMenu( '', 'ControlLibSimpleContextMenu', items );
 	};
 
+	var callBackFunc = function( itemid, caseId, keyId )
+	{
+		$.DispatchEvent( 'ContextMenuEvent', '' );
+		                 
+		_HidePanelForLootlistItemPreview();
+
+		var storeid = ( m_storeItemId ) ? m_storeItemId : '';
+		var bluroperationpanel = m_blurOperationPanel ? 'bluroperationpanel=true' : '';
+
+		                                                                
+		var additionalParams = _GetSettingCallback( 'inspectonly', 'false' ) === 'true' ? 'inspectonly=true,' : '';
+		additionalParams = _GetSettingCallback( 'asyncworkbtnstyle', 'positive' ) === 'hidden' ? additionalParams + 'asyncworkbtnstyle=hidden' : '';
+		additionalParams = m_blurOperationPanel ? additionalParams + ',' + 'bluroperationpanel=true' : '';
+		
+		$.DispatchEvent(
+			"LootlistItemPreview",
+			itemid,
+			keyId +
+			',' + caseId +
+			',' + storeid +
+			',' + bluroperationpanel +
+			',' + m_styleforPopUpInspectFullScreenHostContainer +
+			',' + additionalParams
+		);
+	};
 	var _ViewOnMarket = function( id )
 	{
 		SteamOverlayAPI.OpenURL( ItemInfo.GetMarketLinkForLootlistItem( id ) );
@@ -425,6 +431,19 @@ var CapabilityDecodable = ( function()
 		elLootListContainer.SetHasClass( 'hidden', !bshow );
 	};
 
+	var _SetLootlistHintText = function( caseId, count )
+	{
+		var bAllItems = InventoryAPI.GetLootListAllEntriesAreAdditionalDrops( caseId );
+	
+		$.GetContextPanel().FindChildInLayoutFile( 'CanDecodableDesc' ).visible = !bAllItems;
+
+		if ( count > 1 || bAllItems )
+		{
+			$.GetContextPanel().FindChildInLayoutFile( 'CanDecodableDescMulti' ).SetDialogVariableInt( 'num_items', count );
+			$.GetContextPanel().FindChildInLayoutFile( 'CanDecodableDescMulti' ).visible = ( count > 1 && bAllItems );
+		}
+	}
+
 	var _UpdateUnusualItemInfo = function( elItem, caseId, unusualItemImagePath )
 	{
 		elItem.FindChildInLayoutFile( 'ItemImage' ).SetImage( "file://{images_econ}/" + unusualItemImagePath );
@@ -447,7 +466,7 @@ var CapabilityDecodable = ( function()
 	{
 		_ShowHideLootList( false );
 
-		var elImage = InspectModelImage.GetImagePanel();
+		var elImage = m_elImageOrModel.FindChildInLayoutFile( 'InspectItemImage' );
 		var elCase = null;
 		var delay = 0;
 		
@@ -462,7 +481,7 @@ var CapabilityDecodable = ( function()
 			$.Schedule( 1, _PlayCaseModelAnim.bind( undefined, 'open' ) );
 			_SetCaseModelCamera( 3, true );
 			
-			elCase = InspectModelImage.GetModelPanel();
+			elCase = m_elImageOrModel.FindChildInLayoutFile( 'InspectItemModel' );
 			delay = 2.3;
 		}
 
@@ -1006,7 +1025,7 @@ var CapabilityDecodable = ( function()
 			if (  ItemInfo.ItemMatchDefName( ItemId, matchtingKeyDefName ) )
 			{
 				m_keyId = ItemId;
-				$.DispatchEvent( 'HideStoreStatusPanel', '' );
+				$.DispatchEvent( 'HideStoreStatusPanel' );
 				_AcknowlegeMatchingKeys( matchtingKeyDefName );
 				_SetUpPanelElements();
 			}
@@ -1015,7 +1034,7 @@ var CapabilityDecodable = ( function()
 		{
 			_ClosePopUp();
 			$.DispatchEvent( 'ShowAcknowledgePopup', '', ItemId );
-			$.DispatchEvent( 'HideStoreStatusPanel', '' );
+			$.DispatchEvent( 'HideStoreStatusPanel' );
 		}
 	};
 
@@ -1074,6 +1093,11 @@ var CapabilityDecodable = ( function()
 		}
 	};
 
+	var _HidePanelForLootlistItemPreview = function()
+	{
+		m_Inspectpanel.visible = false;
+	}
+
 	var _ClosePopUp = function()
 	{
 		InventoryAPI.StopItemPreviewMusic();
@@ -1111,10 +1135,16 @@ var CapabilityDecodable = ( function()
 	};
 } )();
 
+
 ( function()
 {
 	                             
-	$.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_ItemCustomizationNotification', CapabilityDecodable.UpdateScrollResultTile );
-	$.RegisterForUnhandledEvent( 'PanoramaComponent_Store_PurchaseCompleted', CapabilityDecodable.ItemAcquired );
-	$.RegisterForUnhandledEvent( 'StartDecodeableAnim', CapabilityDecodable.ShowUnlockAnimation );
+	var _m_PanelRegisteredForEvents;
+	if ( !_m_PanelRegisteredForEvents )
+	{
+		_m_PanelRegisteredForEvents = $.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_ItemCustomizationNotification', CapabilityDecodable.UpdateScrollResultTile );
+		$.RegisterForUnhandledEvent( 'PanoramaComponent_Store_PurchaseCompleted', CapabilityDecodable.ItemAcquired );
+		$.RegisterForUnhandledEvent( 'StartDecodeableAnim', CapabilityDecodable.ShowUnlockAnimation );
+	}
+
 } )();

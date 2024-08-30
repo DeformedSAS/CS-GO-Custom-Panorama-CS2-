@@ -5,8 +5,9 @@
 	</styles>
 	<scripts>
         <include src="file://{resources}/scripts/notification/notification_equip.js" />
-    </scripts>
+	</scripts>
+
     <Panel class="inv-notification" hittext="false" useglobalcontext="true">
-        <Label id="InvNotificationLabel" class="inv-notification-text" html="true" text="" />
+        <Label  id="InvNotificationLabel" class="inv-notification-text" html="true" text="XXXXXXXXXXXXXXX"/>
     </Panel>
 </root>

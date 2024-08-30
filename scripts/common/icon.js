@@ -14,7 +14,7 @@ var IconUtil = ( function ()
         }
         else
         {
-                                                                                                                   
+            $.UnregisterEventHandler( 'ImageFailedLoad', mapIconDetails.m_icon, mapIconDetails.m_handler );
             mapIconDetails.m_icon.SetImage( 'file://{images}/map_icons/map_icon_NONE.png' );                                  
         }
     };

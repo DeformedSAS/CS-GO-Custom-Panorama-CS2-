@@ -28,6 +28,7 @@ var MainMenu = ( function() {
 
 	var _m_jobFetchTournamentData = null;
 	const TOURNAMENT_FETCH_DELAY = 10;
+	let _m_bPreLoadedTabs = false;
 
 	                                         
 	let nNumNewSettings = UpdateSettingsMenuAlert();
@@ -129,6 +130,7 @@ var MainMenu = ( function() {
 	var _OnShowMainMenu = function()
 	{
 		$.DispatchEvent('PlayMainMenuMusic', true, true );
+		 $('#MainMenuNavBarHome').checked = true;
 
 		                                         
 		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
@@ -169,6 +171,12 @@ var MainMenu = ( function() {
 		_UpdateUnlockCompAlert();
 
 		_FetchTournamentData();
+		
+		     if (!_m_bPreLoadedTabs) {
+            _LoadTab('JsSettings', 'settings/settings');
+            _OpenPlayMenu();
+            _m_bPreLoadedTabs = true;
+        }
 	};
 
 	var _TournamentDraftUpdate = function ()
@@ -682,6 +690,7 @@ var MainMenu = ( function() {
 		var vanityPanel = $( '#JsMainmenu_Vanity' );
 		if ( vanityPanel )
 		{
+			 $('#MainMenuNavBarHome').checked = true;
 			vanityPanel.Pause( false );
 		}
 	}
@@ -721,13 +730,15 @@ var MainMenu = ( function() {
 	{	
 		                             
 		_AddStream();
+		
+		var elNews = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsNewsPanel' );
+		elNews.BLoadLayout( 'file://{resources}/layout/mainmenu_news.xml', false, false );
 
 		                             
 		var elLimitedTest = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsLimitedTest' );
 		elLimitedTest.BLoadLayout( 'file://{resources}/layout/mainmenu_limitedtest.xml', false, false );
 
 		_BetaEnrollmentStatusChange();
-		
 
 		                             
 		var elLastMatch = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsLastMatch' );
@@ -735,7 +746,7 @@ var MainMenu = ( function() {
 
 		                             
 		var elStore = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsStorePanel' );
-		elStore.BLoadLayout( 'file://{resources}/layout/mainmenu_store.xml', false, false );
+		elStore.BLoadLayout( 'file://{resources}/layout/mainmenu_left_column.xml', false, false );
 
 		                             
 		                                                                                                            
@@ -758,7 +769,7 @@ var MainMenu = ( function() {
 				}
 			}
 
-			return false;
+			return true;
 		};
 
 		                            
@@ -1123,18 +1134,13 @@ var MainMenu = ( function() {
 	{
 	};
 
-	var _OpenPlayMenu = function ()
-	{
-		                                                      
-		if ( MatchStatsAPI.GetUiExperienceType() )
-			return;
-
-		_InsureSessionCreated();
-		_NavigateToTab( 'JsPlay', 'mainmenu_play' );
-
-		                                           	
-		_PauseMainMenuCharacter();		
-	};
+    function _OpenPlayMenu() {
+        if (MatchStatsAPI.GetUiExperienceType())
+            return;
+        _InsureSessionCreated();
+        _NavigateToTab('JsPlay', 'mainmenu_play');
+        _PauseMainMenuCharacter();
+    }
 
 	var _OpenWatchMenu = function()
 	{
@@ -1148,6 +1154,10 @@ var MainMenu = ( function() {
 		_PauseMainMenuCharacter();
 		_NavigateToTab( 'JsInventory', 'mainmenu_inventory' );
 	};
+    function _OpenFullscreenStore(openToSection) {
+        _PauseMainMenuCharacter();
+        NavigateToTab('JsMainMenuStore', 'mainmenu_store_fullscreen', 'id-store-nav-coupon');
+    }
 
 	var _OpenStatsMenu = function()
 	{
@@ -1190,6 +1200,7 @@ var MainMenu = ( function() {
 				GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
 				$.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' );
 				$.DispatchEvent('PlayMainMenuMusic', true, true );
+				
 			}
 		}
 	};

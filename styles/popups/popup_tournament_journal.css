@@ -41,10 +41,9 @@
 {
 	blur: fastgaussian( 4, 4, 3 );
     -s2-mix-blend-mode: opaque;
-    brightness: .1;
-    saturation: .8;
+    brightness: .2;
 
-    background-image: url( "file://{images}/tournaments/events/bg_18_fullscreen.png" );
+    background-image: url( "file://{images}/tournaments/events/bg_21_fullscreen.png" );
 	background-repeat: no-repeat;
 	background-size: clip_then_cover;
 	background-position: 50% 0%;
@@ -68,6 +67,10 @@
     width: 100%;
     min-height: 72px;
     margin-bottom: 16px;
+}
+.no_items .tournament-journal__titlebar
+{
+    min-height: 180px;
 }
 
 .tournament-journal__titlebar--border
@@ -141,6 +144,11 @@
                                                  
     height: 240px;
     margin-top: 8px;
+}
+
+.no_items .tournament-journal__section
+{
+    height: 380px;
 }
 
 .tournament-journal__column

@@ -228,27 +228,39 @@ CSGOSettingsEnumDropDown:hover
 
 .bkg-dust2
 {
-    background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/de_dust2_png.vtex");
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_dust2.png");
     background-position: left -435px top -470px;
 }
 
-.bkg-aztec
+.bkg-ancient
 {
-    background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/de_aztec_png.vtex");
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_ancient.png");
     background-position: left -642px top -421px;
 }
 
 .bkg-mirage
 {
-    background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/de_mirage_png.vtex");
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_mirage.png");
     background-position: left -855px top -690px;
 }
 
-.bkg-office
+.bkg-overpass
 {
-    background-image: url("s2r://panorama/images/map_icons/screenshots/1080p/cs_office_png.vtex");
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_overpass.png");
     background-position: left -887px top -585px;
 }
+.bkg-anubis
+{
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_anubis.png");
+    background-position: left -887px top -585px;
+}
+
+.bkg-inferno
+{
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_inferno.png");
+    background-position: left -887px top -585px;
+}
+
 
 .dynamic-crosshair
 {

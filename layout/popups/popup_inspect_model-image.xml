@@ -31,7 +31,7 @@
 							manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
 							item="models/player/custom_player/legacy/ctm_sas.mdl"
 							enable_floorshadow="true"
-							mouse_rotate="false"/>
+							mouse_rotate="true"/>
 		</Panel>
 	</Panel>
 </root>

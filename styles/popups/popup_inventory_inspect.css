@@ -134,6 +134,7 @@
 .popup-inspect__desc
 {
 	font-size: 18px;
+	font-family: Stratum2;
 	max-width: 900px;
 	max-height: 205px;
 	padding: 16px 28px 0px 28px;
@@ -141,7 +142,6 @@
 	horizontal-align: center;
 	vertical-align: center;
 	font-weight: medium;
-	font-family: stratum2;
 }
 
 .popup-inspect__certificate
@@ -180,4 +180,105 @@
 {
 	margin-left: 25px;
 	margin-right: 25px;
+}
+
+                                        
+
+.inv-lootlist-btns-container
+{
+	width: 100%;
+	margin-top: 48px;
+}
+
+.inv-arrow-btn
+{
+	margin: 0px 48px;
+	flow-children: down;
+	opacity: .5;
+	horizontal-align: center;
+	transform-origin: 0% 100%;
+	transform: translateX(500px);
+
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.inv-arrow-btn--left
+{
+	transform-origin: 100% 100%;
+	transform: translateX(-500px);
+}
+
+.inv-arrow-btn:hover:not(:disabled)
+{
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.inv-arrow-btn__image
+{
+	transform: rotateZ(-90deg);
+	margin-bottom: 16px;
+	horizontal-align: right;
+}
+
+.inv-arrow-btn__image--left
+{
+	transform: rotateZ(90deg);
+	horizontal-align: left;
+}
+
+.inv-arrow-btn:disabled
+{
+	wash-color: disabledColor;
+
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.inv-arrow-btn__text
+{
+	color: white;
+	width: 200px;
+	font-size: 14px;
+	font-family: Stratum2;
+	height: 18px;
+	text-overflow: ellipsis;
+	transform: translateY( -1px );
+	horizontal-align: center;
+	
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.inv-arrow-btn__rarity
+{
+	border-radius: 50%;
+	height: 12px;
+	width: 12px;
+	background-color: white;
+	margin: 6px;
+	box-shadow: shadowOffset;
+}
+
+.inv-arrow-btn:disabled .inv-arrow-btn__text,
+.inv-arrow-btn:disabled .inv-arrow-btn__rarity
+{
+	opacity: 0;
+
+	transition-property: opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.inv-lootlist-title-container
+{
+	horizontal-align: center;
+	flow-children: right;
+	margin-top: 16px;
 }

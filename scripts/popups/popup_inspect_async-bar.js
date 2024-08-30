@@ -15,6 +15,7 @@ var InspectAsyncActionBar = ( function()
 	var m_allowXrayClaim = false;
 	var m_inspectOnly = false;
 	var m_isSeasonPass = false;
+	var _m_PanelRegisteredForEvents;
 
 	var _Init = function( elPanel, itemId, funcGetSettingCallback, funcCallbackOnAction )
 	{
@@ -55,12 +56,15 @@ var InspectAsyncActionBar = ( function()
 			_OnAccept( elPanel );
 		}
 		
-		$.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_ItemCustomizationNotification', InspectAsyncActionBar.OnItemCustomization );
-		
-		if( m_worktype !== 'decodeable' && m_worktype !== 'nameable' && m_worktype !== 'remove_sticker' )
+		if ( !_m_PanelRegisteredForEvents )
 		{
-			$.RegisterForUnhandledEvent( 'PanoramaComponent_MyPersona_InventoryUpdated', InspectAsyncActionBar.OnMyPersonaInventoryUpdated );
-			$.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_PrestigeCoinResponse', InspectAsyncActionBar.OnInventoryPrestigeCoinResponse );
+			_m_PanelRegisteredForEvents = $.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_ItemCustomizationNotification', InspectAsyncActionBar.OnItemCustomization );
+
+			if( m_worktype !== 'decodeable' && m_worktype !== 'nameable' && m_worktype !== 'remove_sticker' )
+			{
+				$.RegisterForUnhandledEvent( 'PanoramaComponent_MyPersona_InventoryUpdated', InspectAsyncActionBar.OnMyPersonaInventoryUpdated );
+				$.RegisterForUnhandledEvent( 'PanoramaComponent_Inventory_PrestigeCoinResponse', InspectAsyncActionBar.OnInventoryPrestigeCoinResponse );
+			}
 		}
 	};
 

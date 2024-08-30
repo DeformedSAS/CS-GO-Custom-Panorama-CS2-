@@ -1,36 +1,29 @@
 
-@define direct-challenge-color: rgb(71, 179, 230);
 
-                                                                               
-                                                                     
-                                                                               
+@define direct-challenge-color: rgb(71, 179, 230);
+@define play-settings-width: 240px;
 .content-navbar__extra-buttons .PopupButton.hidden
 {
 	visibility: collapse;
 }
-                                                                               
-                                                                           
-                                                                               
+
 .map-selection-list-container
 {
 	width: 100%;
 	height: 100%;
-	                                  
 	overflow: clip;
+	background-color: rgba(0, 0, 0, 0.15);
 }
 
 .map-selection-list
 {
-	width: fill-parent-flow(1);
+	width: 100%;
 	height: fit-children;
-	                                
-	                            
 	opacity: 1;
-	transform: translatex( 0px );
+	transform: translateY( 0px );
 	visibility: visible;
 	horizontal-align: center;
-
-	transition-property:  opacity, transform;
+	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
@@ -42,22 +35,26 @@
 	flow-children: right-wrap;
 	overflow: clip scroll;
 	horizontal-align: center;
+	vertical-align: center;
+	padding: 0px 0px;
+	margin: 0px 0px;
 }
 
-.map-selection-list--official-competitive,
-.map-selection-list--official-scrimcomp2v2,
-.map-selection-list--listen-competitive,
-.map-selection-list--listen-scrimcomp2v2,
-.map-selection-list--listen-casual,
-.map-selection-list--listen-deathmatch,
-.map-selection-list--workshop
+.map-selection-list--official-competitive,.map-selection-list--official-casual,.map-selection-list--official-deathmatch,.map-selection-list--official-scrimcomp2v2,.map-selection-list--official-skirmish,.map-selection-list--listen-competitive,.map-selection-list--listen-scrimcomp2v2,.map-selection-list--listen-skirmish,.map-selection-list--listen-casual,.map-selection-list--listen-deathmatch,.map-selection-list--workshop
 {
-	padding: 0px 96px;
+	padding: 0px 0px;
+	width: 100%;
+	height: 100%;
+	flow-children: right;
+	overflow: clip;
 }
 
-#gameModeButtonContainer_competitive_official_directchallenge.map-selection-list--official-competitive
+.map-selection-list--official-competitive .map-selection-btn,.map-selection-list--official-casual .map-selection-btn,.map-selection-list--official-deathmatch .map-selection-btn,.map-selection-list--official-scrimcomp2v2 .map-selection-btn,.map-selection-list--official-skirmish .map-selection-btn,.map-selection-list--listen-competitive .map-selection-btn,.map-selection-list--listen-scrimcomp2v2 .map-selection-btn,.map-selection-list--listen-skirmish .map-selection-btn,.map-selection-list--listen-casual .map-selection-btn,.map-selection-list--listen-deathmatch .map-selection-btn,.map-selection-list--workshop .map-selection-btn
 {
-	padding: 0px 32px;
+	width: fill-parent-flow(1);
+	height: 90%;
+	margin: 0px 8px;
+	vertical-align: center;
 }
 
 #gameModeButtonContainer_workshop
@@ -65,68 +62,45 @@
 	flow-children: right-wrap;
 }
 
-.AspectRatio5x4 .map-selection-list--official-competitive,
-.AspectRatio5x4 .map-selection-list--official-scrimcomp2v2,
-.AspectRatio5x4 .map-selection-list--listen-competitive,
-.AspectRatio5x4 .map-selection-list--listen-scrimcomp2v2,
-.AspectRatio5x4 .map-selection-list--listen-casual,
-.AspectRatio5x4 .map-selection-list--listen-deathmatch,
-.AspectRatio5x4 .map-selection-list--workshop
-{
-	padding: 0px 52px;
-}
-
-
 .map-selection-list-coop
 {
-	width: 80%; 
+	width: 80%;
 	height: fit-children;
 	flow-children: down;
 	opacity: 1;
 	visibility: visible;
 	horizontal-align: center;
-
-	transition-property:  opacity, transform;
+	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
 .map-selection-list-directchallenge
 {
-	width: 100%; 
+	width: 100%;
 	height: fit-children;
 	max-height: 760px;
 	flow-children: down;
 	opacity: 1;
 	visibility: visible;
 	horizontal-align: center;
-
-	transition-property:  opacity, transform;
+	padding: 0px;
+	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
-
-  	                  
-
 	overflow: clip;
 }
-
 
 .directchallenge-explanation-container
 {
 	margin: 32px;
-
 	horizontal-align: center;
-
 	flow-children: down;
-
-	transition-property:  opacity;
+	transition-property: opacity;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
-
 	width: 630px;
-
 	height: 100%;
-
 }
 
 .directchallenge-explanation-container.hidden
@@ -139,17 +113,23 @@
 	wash-color: direct-challenge-color;
 }
 
-
 .directchallenge-explanation__top
 {
 	flow-children: right;
-		margin-bottom: 30px;
+	margin-bottom: 60px;
+	width: 100%;
 }
 
-.directchallenge-explanation__top Image,
-.directchallenge-explanation__top Label
+.directchallenge-explanation__top .directchallenge-explanation.title
 {
-	vertical-align: bottom;
+	font-size: 18px;
+	font-family:Stratum2;
+	font-weight: Medium;
+}
+
+.directchallenge-explanation__top Image,.directchallenge-explanation__top Label
+{
+	vertical-align: center;
 }
 
 .directchallenge-explanation__top Image
@@ -162,48 +142,51 @@
 .directchallenge-explanation__lower
 {
 	flow-children: right;
-  	                     
-
 	margin-bottom: 30px;
-
-	                                                                        
-	margin-left: 100px;
+	margin-left: 60px;
 }
 
 .directchallenge-explanation__lower Image
 {
 	width: 40px;
 	height: width-percentage( 100% );
-
 	margin-right: 16px;
 }
 
 .directchallenge-explanation.note
 {
 	vertical-align: bottom;
-
 	margin-top: 38px;
 }
-
 
 .directchallenge-explanation
 {
 	horizontal-align: left;
-	font-size: 16px;
-	font-family: Stratum2;	
+	font-size: 14px;
+	font-family: Stratum2;
+	font-weight: medium;
+}
 
+.directchallenge-explanation__lower Label
+{
+	font-size: 12px;
+		font-family: Stratum2;
+	font-weight: medium;
 }
 
 .directchallenge-explanation.title
 {
 	margin-bottom: 4px;
+	font-size: 16px;
+		font-family: Stratum2;
+	font-weight: medium;
 }
 
 .directchallenge-buttons-container
 {
 	horizontal-align: left;
 	flow-children: down;
-	width:440px;
+	width:400px;
 	height:400px;
 	vertical-align: center;
 }
@@ -211,9 +194,8 @@
 .directchallenge-section
 {
 	height:fill-parent-flow( 0.33);
-  	            
 	flow-children:down;
-	horizontal-align: center;
+	horizontal-align: left;
 }
 
 .directchallenge-section .IconButton:hover
@@ -224,13 +206,10 @@
 .directchallenge-section .IconButton
 {
 	width: 350px;
-	height: 100px;
+	height: 150px;
 	vertical-align: center;
 	horizontal-align: center;
 	flow-children: right;
-  	                       
-  	              
-
 	background-color: rgba( 0,0,0,0.2);
 }
 
@@ -239,12 +218,9 @@
 	width: 100px;
 	height: width-percentage( 100% );
 	margin: 0px;
-
 	background-color: rgba( 50, 50, 50, 0.9);
 	padding: 20px;
-
 	wash-color: direct-challenge-color;
-
 	transition-property: background-colo;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
@@ -253,7 +229,6 @@
 .directchallenge-section .IconButton:hover Image
 {
 	background-color: rgba(32, 32, 32, 0.9);
-
 	transition-property: background-colo;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
@@ -273,25 +248,23 @@
 	vertical-align: top;
 	font-weight: bold;
 	font-size: 20px;
-	font-family: Stratum2;	
+	font-family: Stratum2;
 	text-overflow: shrink;
 }
 
 .directchallenge-section__text
 {
 	font-size: 14px;
-	font-family: Stratum2;	
-	horizontal-align: left;	
+	font-family: Stratum2;
+	horizontal-align: left;
 	vertical-align: top;
 	max-width: 280px;
 	margin-top: 4px;
 }
 
-.directchallenge-section .IconButton:hover .directchallenge-section__title,
-.directchallenge-section .IconButton:hover .directchallenge-section__text
+.directchallenge-section .IconButton:hover .directchallenge-section__title,.directchallenge-section .IconButton:hover .directchallenge-section__text
 {
 	color: white;
-
 	transition-property: color;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
@@ -303,7 +276,6 @@
 	margin-bottom: 32px;
 }
 
-
 .directchallenge-status
 {
 	background-color: rgba( 0, 0, 0, 0.2);
@@ -312,25 +284,19 @@
 .directchallenge-status__header
 {
 	background-color: rgba( 0, 0, 0, 0.7);
-
 }
 
 .directchallenge-status__header
 {
-		padding: 32px;
-		padding-bottom: 32px;		
+	padding: 32px;
+	padding-bottom: 32px;
 }
 
 .directchallenge-status__queue-members
 {
-		padding: 32px;
-		padding-bottom: 8px;
-		padding-top: 16px;		
-		
-}
-
-.directchallenge-status__header__avatar
-{
+	padding: 32px;
+	padding-bottom: 8px;
+	padding-top: 16px;
 }
 
 .directchallenge-status__header__text
@@ -338,15 +304,13 @@
 	flow-children: down;
 	vertical-align: center;
 	horizontal-align:left;
-
 	width: fit-children;
-
 	margin-left: 32px;
 }
 
 .directchallenge-status__queue-members
 {
-	transition-property:  opacity;
+	transition-property: opacity;
 	transition-duration: 0.25s;
 	transition-timing-function: ease-in-out;
 }
@@ -356,7 +320,6 @@
 	opacity: 0;
 	visibility: collapse;
 }
-
 
 .directchallenge-status__header__avatar
 {
@@ -368,7 +331,6 @@
 {
 	brightness: 1.5;
 	transform: scale3d( 1.05, 1.05, 1.05 );
-
 	transition-property: brightness, transform;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
@@ -380,17 +342,14 @@
 	height: width-percentage( 100% );
 }
 
-
 .directchallenge-status__header__codesourcelabel
 {
 	font-family: Stratum2;
 	font-size: 16px;
 	font-weight: bold;
-
 	max-width: 350px;
 	text-overflow: shrink;
 	white-space: nowrap;
-
 	margin-bottom: 8px;
 }
 
@@ -399,7 +358,6 @@
 	font-family: Stratum2;
 	font-size: 28px;
 	font-weight: bold;
-
 	max-width: 350px;
 	text-overflow: shrink;
 	white-space: nowrap;
@@ -408,40 +366,35 @@
 .directchallenge-status__header__queuecode
 {
 	width: 320px;
-
 	animation-name: challengecode-pulse;
 	animation-duration: .5s;
-    animation-timing-function: ease-in-out;
-	animation-iteration-count: 1;	
-
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
 	font-family: Stratum2;
 	font-size: 26px;
 	font-weight: bold;
-
 	wash-color: direct-challenge-color;
 }
 
-@keyframes challengecode-pulse
+@keyframes 'challengecode-pulse'
 {
-    0% 
+	0%
 	{
 		opacity: 0;
 	}
-
-	100% 
+	
+	100%
 	{
 		opacity: 1;
-
 	}
+	
 }
-
 
 .directchallenge-status__queue-members__label
 {
 	font-family: Stratum2;
 	font-size: 18px;
 	font-weight: bold;
-
 	margin-bottom: 16px;
 }
 
@@ -455,11 +408,8 @@
 	flow-children: right;
 	horizontal-align: left;
 	vertical-align: bottom;
-
 	padding: 8px;
 	margin: 0px;
-  	                      
-
 	margin-bottom: -8px;
 }
 
@@ -468,14 +418,12 @@
 	margin: 0px;
 }
 
-
 #CopyChallengeKey.IconButton Label
 {
 	font-family: Stratum2;
 	font-size: 18px;
-	font-weight: bold;	
+	font-weight: bold;
 	text-transform: uppercase;
-
 	margin-left: 16px;
 }
 
@@ -491,39 +439,26 @@
 	height: fill-parent-flow( 1.0 );
 	width: 100%;
 	flow-children: down-wrap;
-
 	overflow: scroll clip;
 }
 
-.directchallenge__party 
+.directchallenge__party
 {
 	width: 290px;
 	flow-children: down;
 	margin-right: 30px;
-
 	transition-property: opacity, transform, position;
 	transition-duration: 0.25s;
 	transition-timing-function: ease-in-out;
-
 	margin-bottom: 10px;
-
 	border-radius: 10px;
-
 	background-color: rgba( 0,0,0,0.4);
-
-
 }
 
 .directchallenge__party.multi
 {
-	                                                   
-	                                              
-	                                                    
-
 	padding-top: 6px;
 	padding-bottom: 6px;
-
-
 }
 
 .directchallenge__party.hidden
@@ -533,17 +468,13 @@
 	visibility: collapse;
 }
 
-.directchallenge__party__member 
+.directchallenge__party__member
 {
 	horizontal-align: center;
-	width: 100px;	
-  	                   
+	width: 100px;
 	padding: 4px;
 	padding-left: 10px;
-
 }
-
-                                       
 
 .coop-mission-controls
 {
@@ -593,49 +524,40 @@
 
 .map-selection-list-all
 {
-	width: 100%;
-	height: fill-parent-flow ( 1 );
+	width: 95%;
+	height: 100%;
 	flow-children: none;
 	horizontal-align: center;
-	                            
-
-	padding: 0px 8px;
-
-	background-color: contentPanelBackground;
 }
 
-                                                                                                      
-
-
-.map-selection-list__quick-selection-sets {
+.gamemode-settings-sidebar
+{
 	height: 100%;
-	width: 0px;
-	opacity: 1;
+	margin: 5% 0px;
+}
 
-	background-color: contentPanelBackground;
-	border-right: 1px solid rgba(255, 255, 255, 0.11);
-	
-	transition-property: width, opacity;
+.map-selection-list__quick-selection-sets
+{
+	height: 0%;
+	width: 100%;
+	opacity: 0;
+	transition-property: height, opacity, position;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
-
 	flow-children: down;
 }
 
-.map-selection-list__quick-selection-sets__btns 
+.map-selection-list__quick-selection-sets__btns
 {
 	width:100%;
 	flow-children: down;
-	margin: 0px 12px;
 }
 
-.competitive.official:not(.directchallenge) .map-selection-list__quick-selection-sets 
+.competitive.official:not(.directchallenge) .map-selection-list__quick-selection-sets
 {
-	width: 200px;
+	height: fit-children;
 	opacity: 1;
-	background-color: contentPanelBackground;
-
-	transition-property: width, opacity;
+	transition-property: height, opacity, position;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
 }
@@ -645,18 +567,15 @@
 	height: 1px;
 }
 
-                           
-
 .map-selection__quick-selection-set-title
 {
-	margin-top: 32px;
-	margin-bottom : 8px;
+	margin-bottom: 4px;
+	padding-left: 20px;
 	font-size: 18px;
-	font-family: stratum2Font;
-	font-weight: lighter;
+	font-family: stratum2;
+	font-weight: medium;
 	horizontal-align: left;
 	vertical-align: center;
-	padding-left: 24px;
 	color: rgba(212, 212, 212, 0.671);
 }
 
@@ -668,14 +587,13 @@
 	border-radius: 3px;
 	vertical-align: center;
 	padding-left: 12px;
-
 	transition-property: background-color;
 	transition-duration: .2s;
 	transition-timing-function: ease-in-out;
 }
 
-.map-selection__quick-selection-set.match {
-	
+.map-selection__quick-selection-set.match
+{
 	background-color: rgba(189, 189, 189, 0.288);
 	transition-property: background-color;
 	transition-duration: .2s;
@@ -687,86 +605,189 @@
 	wash-color: black;
 }
 
-.map-selection__quick-selection-set Label,
-.map-selection__quick-selection-set-icon Label {
-  font-size: 16px;
-  font-family: stratum2Font;
-  font-weight: medium;
-  horizontal-align: left;
-  vertical-align: center;
-  width: 280px;
-  color: rgba(255, 255, 255, 0.75);
-  text-overflow: ellipsis;
+.map-selection__quick-selection-set Label,.map-selection__quick-selection-set-icon Label
+{
+	font-size: 16px;
+	font-family: stratum2;
+	font-weight: medium;
+	horizontal-align: left;
+	vertical-align: center;
+	width: 280px;
+	color: rgba(255, 255, 255, 0.75);
+	text-overflow: ellipsis;
 }
 
-.map-selection__quick-selection-set-icon{
+.map-selection__quick-selection-set-icon
+{
 	height: fit-children;
-	width: 166px;
-	margin: 0px 4px;
+	width: fit-children;
 	padding: 8px 10px 10px 10px;
 	border-radius: 3px;
 	vertical-align: center;
 	horizontal-align: left;
 	flow-children: right;
-	
 	transition-property: background-color, transform;
 	transition-duration: .2s;
 	transition-timing-function: ease-in-out;
-  }
+}
 
-  .map-selection__quick-selection-set-icon Image
+.map-selection__quick-selection-set-icon Image
 {
-	margin-right: 8px;
 	height: 18px;
 	width: 18px;
 }
 
-  .map-selection__quick-selection-set:hover:not(:disabled),
-  .map-selection__quick-selection-set-icon:hover:not(:disabled)
-  {
+.map-selection__quick-selection-set:hover:not(:disabled),.map-selection__quick-selection-set-icon:hover:not(:disabled)
+{
 	background-color: rgba(0, 0, 0, 0.342);
-
 	transition-property: background-color, transform;
 	transition-duration: .2s;
 	transition-timing-function: ease-in-out;
-  }
-
-  .map-selection__quick-selection-set-icon.save
-  {
-	animation-name: play-menu-save-favorites;
-	animation-duration: .25s;
-    animation-timing-function: ease-in-out;
-	animation-iteration-count: 1;
-  }
-
-  @keyframes play-menu-save-favorites
-{
-    0% {
-	  	                          
-		transform: scale3d( 1, 1, 1);
-	}
-	50% {
-  		                            
-		transform: scale3d( 1.1, 1.1, 1);
-
-	}
-
-	100% {
-  		                          
-		transform: scale3d( 1, 1, 1);
-
-	}
 }
 
-.map-selection__quick-selection-set:disabled,
-.map-selection__quick-selection-set-icon:disabled
+.map-selection__quick-selection-set-icon.save
+{
+	animation-name: play-menu-save-favorites;
+	animation-duration: .25s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes 'play-menu-save-favorites'
+{
+	0%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+	50%
+	{
+		transform: scale3d( 1.1, 1.1, 1);
+	}
+	
+	100%
+	{
+		transform: scale3d( 1, 1, 1);
+	}
+	
+}
+
+.map-selection__quick-selection-set:disabled,.map-selection__quick-selection-set-icon:disabled
 {
 	wash-color: disabledColor;
 }
 
-.map-selection-list 
+#id-gamemode-flag-competitive,#id-gamemode-flag-deathmatch
 {
-	                  
+	height: 0px;
+	transition-property: height, position;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.competitive:not(.directchallenge) #id-gamemode-flag-competitive
+{
+	height: fit-children;
+	transition-property: height, opacity, position;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.gamemode-settings-sidebar__options
+{
+	flow-children: down;
+	transition-property: height, position;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.gamemode-setting-radiobutton
+{
+	flow-children: left;
+	width: play-settings-width;
+	padding: 6px 20px;
+	transition-property: opacity, position;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.gamemode-setting-radiobutton:hover
+{
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.gamemode-setting-radiobutton Label,.gamemode-setting-radiobutton:disabled Label
+{
+	font-size: 16px;
+	font-family: stratum2;
+	font-weight: medium;
+	width: fill-parent-flow(1);
+	horizontal-align: left;
+	vertical-align: center;
+	color: white;
+	text-overflow: ellipsis;
+	margin: 0px;
+	padding: 0px 7px 0px 0px;
+}
+
+.gamemode-setting-radiobutton .RadioBox
+{
+	min-height: 16px;
+	min-width: 16px;
+	vertical-align: center;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 0% 0%, from( #ffffff00 ), color-stop( 0.8, #ffffff00 ), to( #ffffff00 ) );
+	border-radius: 50%;
+	transform: translateX(-3px);
+	z-index: 1;
+	border: 1px solid white;
+	wash-color: white;
+	box-shadow: #00000000 0px 0px 2px 2px ;
+	transition-property: background-color, wash-color;
+	transition-duration: 0.20s;
+	transition-timing-function: ease-in-out;
+}
+
+.gamemode-setting-radiobutton:selected .RadioBox
+{
+	min-height: 16px;
+	min-width: 16px;
+	background-size: 14px 14px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 35% 35%, from( white ), color-stop( .8, white ), to( #ffffff00 ) );
+	box-shadow: #00000000 2px 0px 3px 0px;
+	border: 1px solid white;
+	transition-property: background-color, wash-color;
+	transition-duration: 0.20s;
+	transition-timing-function: ease-in-out;
+	sound: "UIPanorama.generic_select";
+}
+
+.gamemode-setting-radiobutton:disabled
+{
+	wash-color: disabledColor;
+}
+
+.gamemode-setting-radiobutton:disabled .RadioBox
+{
+	box-shadow: #00000000 0px 0px 0px 0px;
+}
+
+.gamemode-setting-limited-test-warning-container
+{
+	width: 200px;
+	padding-left: 8px;
+	horizontal-align: center;
+	margin: 20px;
+	background-color: rgba(0, 0, 0, 0.418);
+	border-radius: 5px;
+	flow-children: right;
+	transition-property: position;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.gamemode-setting-limited-test-warning
+{
+	padding: 8px;
 }
 
 .map-selection-list RadioButton
@@ -779,13 +800,6 @@
 	margin: 0px;
 }
 
-.map-selection-list .flow-down
-{
-	flow-children: down;
-}
-
-
-                                                             
 .map-selection-list--competitive-section-container
 {
 	flow-children: right;
@@ -802,11 +816,11 @@
 
 .map-selection-list-section
 {
-  width: 100%;
-  height: fit-children;
-  flow-children: right-wrap;
-  overflow: clip noclip;
-  padding: 0px 16px;
+	width: 100%;
+	height: fit-children;
+	flow-children: right-wrap;
+	overflow: clip noclip;
+	padding: 0px 16px;
 }
 
 .AspectRatio16x9 .map-selection-list-section:not(.map-selection-list-section--single-column)
@@ -841,11 +855,10 @@
 
 .map-selection-list-section-header__text
 {
-	font-family: stratum2Font;
+	font-family: stratum2;
 	vertical-align:center;
 	font-weight: medium;
 	font-size: 28px;
-	                       
 	color: white;
 }
 
@@ -865,12 +878,12 @@
 	wash-color: disabledColor;
 }
 
-.map-selection-list-section-header__text.small 
+.map-selection-list-section-header__text.small
 {
 	padding: 0px 8px;
 	font-size: 12px;
 	font-weight: bold;
-	font-family: stratum2Font;
+	font-family: stratum2;
 	color: baseText;
 }
 
@@ -879,7 +892,7 @@
 	vertical-align: center;
 	width: 80%;
 	height: 1px;
-	background-color:  gradient( linear, 0% 0%, 100% 0%, from( #ffffff77 ), to( rgba(255, 255, 255, 0) ) );
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #ffffff77 ), to( rgba(255, 255, 255, 0) ) );
 }
 
 .map-selection-list:disabled .map-selection-list-section-header
@@ -890,14 +903,11 @@
 .map-selection-btn
 {
 	width: 224px;
-  height: width-percentage(117%);
-	margin: 24px 16px;
-	border: 0px solid gray;
-	box-shadow: shadowOffset;
+	height: width-percentage(117%);
+	border: 0px solid rgba(202, 202, 202, 0.10);
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px 0px;
 	tooltip-position: bottom;
-	brightness: .5;
-
-	transition-property: border, box-shadow, brightness;
+	transition-property: border, box-shadow, brightness, opacity;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
@@ -913,36 +923,12 @@
 	width: height-percentage(70%);
 }
 
-.map-selection-btn--large
-{
-	width: 224px;
-	height: fit-children;
-}
-
-.map-selection-btn--wide
-{	                                       
-	brightness:1.0;
-	padding: 0px;
-	width: 430px;
-	height: width-percentage(56%);
-	margin: 20px;
-}
-
-.map-selection-btn--full
-{
-	width: 100%;
-	height: 100%;
-	margin: 0px;
-}
-
 .map-selection-btn__screenshot
 {
 	width: 100%;
 	height: 100%;
 	pre-transform-scale2d: 1, 1;
-	
 	background-repeat: no-repeat;
-
 	transition-property: opacity, pre-transform-scale2d;
 	transition-duration: 2s, .25s;
 	transition-timing-function: ease-in-out;
@@ -953,7 +939,6 @@
 	margin-left: 0px;
 	margin-right: 0px;
 	width: 100%;
-	                                  
 	height: fill-parent-flow( 1 );
 }
 
@@ -962,11 +947,7 @@
 	visibility: collapse;
 }
 
-                                           
-                                                           
-.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt .map-selection-list-section--type-comp .map-selection-list-section__header Label,
-.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt .map-selection-list-section--type-comp .map-selection-list-section__header Button,
-.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt .map-selection-list-section--type-comp ToggleButton .TickBox
+.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt .map-selection-list-section--type-comp .map-selection-list-section__header Label,.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt .map-selection-list-section--type-comp .map-selection-list-section__header Button,.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt .map-selection-list-section--type-comp ToggleButton .TickBox
 {
 	opacity: 0;
 }
@@ -981,16 +962,13 @@
 	opacity: 1;
 	visibility: visible;
 }
-                                                  
 
 .map-selection-btn:enabled:Hover .map-selection-btn__screenshot
 {
 	pre-transform-scale2d: 1.02, 1.02;
-
 	transition-property: opacity, pre-transform-scale2d;
 	transition-duration: 2s, .25s;
 	transition-timing-function: ease-in-out;
-	
 	sound: "UIPanorama.submenu_contents_rollover";
 }
 
@@ -999,23 +977,17 @@
 	sound: "UIPanorama.submenu_contents_rollover";
 }
 
-.map-selection-btn:selected .map-selection-btn__screenshot,
-.play-menu__lobbymapveto_activated .map-selection-btn .map-selection-btn__screenshot
+.map-selection-btn:selected .map-selection-btn__screenshot,.play-menu__lobbymapveto_activated .map-selection-btn .map-selection-btn__screenshot
 {
 	pre-transform-scale2d: 1.2, 1.2;
-
 	transition-property: opacity, pre-transform-scale2d;
 	transition-duration: 2s, .25s;
 	transition-timing-function: ease-in-out;
 }
 
-.map-selection-btn:selected,
-.play-menu__lobbymapveto_activated .map-selection-btn
+.map-selection-btn:selected,.play-menu__lobbymapveto_activated .map-selection-btn
 {
-	border: 7px solid white;
-	box-shadow: white 0px 0px 4px 0px;
-	brightness: 1.0;
-
+	border: 5px solid rgba(255, 255, 255, 0.849);
 	transition-property: border, box-shadow, brightness;
 	transition-duration:.25s;
 	transition-timing-function: ease-in-out;
@@ -1025,19 +997,13 @@
 {
 	width: 100%;
 	height: 100%;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #00000020 ), to( #000000ee ) );
+	background-color: #000000b2;
 }
 
 .map-selection-btn-container
 {
 	width: 100%;
 	height: 100%;
-	flow-children: down;
-}
-
-.map-selection-btn-container--large
-{
-	height: fit-children;
 }
 
 .map-selection-btn__top-icon-row
@@ -1045,7 +1011,7 @@
 	margin-left: 8px;
 	margin-top: 8px;
 	width: 100%;
-  height: 16px;
+	height: 16px;
 	flow-children: right;
 	overflow: noclip;
 }
@@ -1057,11 +1023,15 @@
 
 .map-selection-btn__groupmap-icons
 {
-	width: 92px;
+	width: fit-children;
 	height: fit-children;
 	horizontal-align: middle;
-	flow-children: down;
-	margin: 0px 0px 20px 0px;
+	vertical-align: center;
+}
+
+.map-selection-btn__groupmap-icons .map-selection-btn__map-icon
+{
+	vertical-align: top;
 }
 
 .map-selection-btn__groupmap-icons.map-selection-btn__groupmap-icons-2x
@@ -1080,10 +1050,11 @@
 
 .map-selection-btn__map-icon
 {
-	horizontal-align: middle;
-	width: 116px;
-	height: 116px;
-	margin-top: 15%;
+	horizontal-align: center_nopixelsnap;
+	vertical-align: center_nopixelsnap;
+	height: width-percentage(100%);
+	margin: 10px;
+	img-shadow: 0px 0px 10px 3.0 #000000;
 }
 
 .map-selection-btn--full .map-selection-btn__map-icon
@@ -1093,42 +1064,28 @@
 	vertical-align: center;
 }
 
-.map-selection-btn__map-icon-small
-{
-	width: 72px;
-	height: 72px;
-	margin: 4px;
-}
-
-.map-selection-list:disabled .map-selection-btn,
-.map-selection-list.is-client .map-selection-btn
+.map-selection-list:disabled .map-selection-btn,.map-selection-list.is-client .map-selection-btn
 {
 	opacity: .5;
 	brightness: .3;
 	wash-color: none;
 }
 
-.map-selection-list:disabled .map-selection-btn .map-selection-btn__screenshot,
-.map-selection-list:disabled .map-selection-btn:selected .map-selection-btn__map-icon,
-.map-selection-list.is-client .map-selection-btn:selected .map-selection-btn__map-icon
+.map-selection-list:disabled .map-selection-btn .map-selection-btn__screenshot,.map-selection-list:disabled .map-selection-btn:selected .map-selection-btn__map-icon,.map-selection-list.is-client .map-selection-btn:selected .map-selection-btn__map-icon
 {
 	pre-transform-scale2d: 1, 1;
 	opacity: 1;
 }
 
-.map-selection-list:disabled .map-selection-btn:selected,
-.map-selection-list.is-client .map-selection-btn:selected,
-.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt.map-selection-list:disabled .map-selection-list-section--type-comp .map-selection-btn,
-.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt.map-selection-list.is-client .map-selection-list-section--type-comp .map-selection-btn
+.map-selection-list:disabled .map-selection-btn:selected,.map-selection-list.is-client .map-selection-btn:selected,.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt.map-selection-list:disabled .map-selection-list-section--type-comp .map-selection-btn,.play-menu__lobbymapveto_activated .has-selection-list-section--type-capt.map-selection-list.is-client .map-selection-list-section--type-comp .map-selection-btn
 {
-	border: 7px solid rgb(148, 147, 147);
+	border: 5px solid rgb(148, 147, 147);
 	box-shadow: shadowOffset;
 	brightness: 1;
 	opacity: 1;
 }
 
-.map-selection-list:disabled .map-selection-btn:selected .map-selection-btn__screenshot,
-.map-selection-list.is-client .map-selection-btn:selected .map-selection-btn__screenshot
+.map-selection-list:disabled .map-selection-btn:selected .map-selection-btn__screenshot,.map-selection-list.is-client .map-selection-btn:selected .map-selection-btn__screenshot
 {
 	pre-transform-scale2d: 1.2, 1.2;
 }
@@ -1139,35 +1096,33 @@
 	vertical-align: bottom;
 	width: 100%;
 	height: fit-children;
-	margin-bottom: 24px;
+	margin-bottom: 18px;
+}
+
+RadioButton Label.map-selection-info__map-name
+{
+	margin: 0px;
 }
 
 .map-selection-info__map-name
 {
-	width: 100%;
 	height: 34px;
+	font-size: 32px;
+	margin: 0px;
 	vertical-align: bottom;
+	horizontal-align: center_nopixelsnap;
 	text-align: center;
 	text-overflow: ellipsis;
+}
+
+RadioButton.map-selection-btn Label
+{
+	font-size: 32px;
 }
 
 .map-selection-btn--full .map-selection-info__map-name
 {
 	visibility: collapse;
-}
-
-.map-selection-info__map-name.fontSize-l
-{
-	font-size: 24px;
-	font-family: Stratum2;
-	font-weight: medium;
-}
-
-.map-selection-info__map-name.fontSize-m
-{
-	font-size: 18px;
-	font-family: Stratum2;
-	font-weight: medium;
 }
 
 .map-selection-info__new
@@ -1176,7 +1131,6 @@
 	background-color: blueColor;
 	color: white;
 	font-weight: medium;
-	font-family: Stratum2;
 	vertical-align: top;
 	horizontal-align: left;
 	border: 1px solid rgb(100, 180, 223);
@@ -1195,13 +1149,14 @@
 	font-size: 18px;
 }
 
-.map-selection-list .map-selection-btn .map-selection-info__new--star {
-  height: 100%;
-  width: height-percentage(100%);
-  background-image: url("file://{images}/ui_textures/yellow_star.png");
-  background-size: 100% 100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
+.map-selection-list .map-selection-btn .map-selection-info__new--star
+{
+	height: 100%;
+	width: height-percentage(100%);
+	background-image: url("s2r://panorama/images/ui_textures/yellow_star_png.vtex");
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
 }
 
 .map-selection-list .map-selection-btn .map-selection-info__new--star Label
@@ -1214,26 +1169,17 @@
 	transform: rotateZ(-10deg);
 }
 
-ToggleButton .map-selection-info__new,
-RadioButton .map-selection-info__new
+ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 {
 	position: 0px 0px 0px;
 	margin-left: 0px;
-}
-
-                                                                 
-.map-selection-btn-container--large .map-selection-info__map-name
-{
-	height: fit-children;
-	min-height: 34px;
-	max-height: 68px;
 }
 
 .map-selection-info__wait-time-block
 {
 	height: fit-children;
 	flow-children: right;
-	horizontal-align: center;
+	horizontal-align: center_nopixelsnap;
 	vertical-align: bottom;
 	visibility: visible;
 }
@@ -1275,9 +1221,7 @@ RadioButton .map-selection-info__new
 	visibility: collapse;
 }
 
-.map-selection-info__wait-time-block.hidden,
-.map-selection-info__new.hidden,
-.map-selection-info__new--star.hidden
+.map-selection-info__wait-time-block.hidden,.map-selection-info__new.hidden,.map-selection-info__new--star.hidden
 {
 	visibility: collapse;
 }
@@ -1288,7 +1232,7 @@ RadioButton .map-selection-info__new
 	margin-right: 4px;
 }
 
-.map-selection-btn .RadioBox,
+.map-selection-btn .RadioBox
 {
 	visibility: collapse;
 }
@@ -1303,13 +1247,11 @@ RadioButton .map-selection-info__new
 	visibility: collapse;
 }
 
-.map-selection-list.hidden,
-.map-selection-list-coop.hidden
+.map-selection-list.hidden,.map-selection-list-coop.hidden
 {
 	opacity: 0;
-	transform: translatex( 200px );
-
-	transition-property:  opacity, transform;
+	transform: translateY( 500px );
+	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
@@ -1323,47 +1265,22 @@ RadioButton .map-selection-info__new
 {
 	opacity: 1.0;
 	transform: translatex( 0px );
-	
 	transition-property: opacity, saturation, contrast, pre-transform-scale2d;
 	transition-duration: 2s, .25s, .25s, .25s;
 	transition-timing-function: ease-in-out;
 }
 
-.map-selection-btn__screenshot.LeftOfFocus1,
-.map-selection-btn__screenshot.LeftOfFocus2,
-.map-selection-btn__screenshot.LeftOfFocus3,
-.map-selection-btn__screenshot.LeftOfFocus4,
-.map-selection-btn__screenshot.LeftOfFocus5,
-.map-selection-btn__screenshot.LeftOfFocus6,
-.map-selection-btn__screenshot.LeftOfFocus7,
-.map-selection-btn__screenshot.LeftOfFocus8,
-.map-selection-btn__screenshot.LeftOfFocus9,
-.map-selection-btn__screenshot.LeftOfFocus10,
-.map-selection-btn__screenshot.LeftOfFocus11,
-.map-selection-btn__screenshot.LeftOfFocus12
-{		
+.map-selection-btn__screenshot.LeftOfFocus1,.map-selection-btn__screenshot.LeftOfFocus2,.map-selection-btn__screenshot.LeftOfFocus3,.map-selection-btn__screenshot.LeftOfFocus4,.map-selection-btn__screenshot.LeftOfFocus5,.map-selection-btn__screenshot.LeftOfFocus6,.map-selection-btn__screenshot.LeftOfFocus7,.map-selection-btn__screenshot.LeftOfFocus8,.map-selection-btn__screenshot.LeftOfFocus9,.map-selection-btn__screenshot.LeftOfFocus10,.map-selection-btn__screenshot.LeftOfFocus11,.map-selection-btn__screenshot.LeftOfFocus12
+{
 	opacity: 1;
-
 	transition-property: opacity;
 	transition-duration: 2s;
 	transition-timing-function: ease-in-out;
 }
 
-.map-selection-btn__screenshot.RightOfFocus1,
-.map-selection-btn__screenshot.RightOfFocus2,
-.map-selection-btn__screenshot.RightOfFocus3,
-.map-selection-btn__screenshot.RightOfFocus4,
-.map-selection-btn__screenshot.RightOfFocus5,
-.map-selection-btn__screenshot.RightOfFocus6,
-.map-selection-btn__screenshot.RightOfFocus7,
-.map-selection-btn__screenshot.RightOfFocus8,
-.map-selection-btn__screenshot.RightOfFocus9,
-.map-selection-btn__screenshot.RightOfFocus10,
-.map-selection-btn__screenshot.RightOfFocus11,
-.map-selection-btn__screenshot.RightOfFocus12
-{		
+.map-selection-btn__screenshot.RightOfFocus1,.map-selection-btn__screenshot.RightOfFocus2,.map-selection-btn__screenshot.RightOfFocus3,.map-selection-btn__screenshot.RightOfFocus4,.map-selection-btn__screenshot.RightOfFocus5,.map-selection-btn__screenshot.RightOfFocus6,.map-selection-btn__screenshot.RightOfFocus7,.map-selection-btn__screenshot.RightOfFocus8,.map-selection-btn__screenshot.RightOfFocus9,.map-selection-btn__screenshot.RightOfFocus10,.map-selection-btn__screenshot.RightOfFocus11,.map-selection-btn__screenshot.RightOfFocus12
+{
 	opacity: 0.0;
-
 	transition-property: opacity;
 	transition-duration: 2s;
 	transition-timing-function: ease-in-out;
@@ -1371,260 +1288,267 @@ RadioButton .map-selection-info__new
 
 .play-menu-controls-actions-bar
 {
-    background-color: contentPanelBackground;
-    width: 97%;
-    height: 96px;
-    padding-left: 64px;
-    vertical-align: bottom;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: contentPanelBackground;
+	width: 100%;
+	height: 96px;
+	padding-left: 64px;
+	vertical-align: bottom;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .settings-container
 {
-    flow-children: right;
-    vertical-align: center;
-    padding-left: 32px;
-    padding-right: 32px;
-    height: 64px;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	flow-children: right;
+	vertical-align: center;
+	padding-left: 32px;
+	padding-right: 32px;
+	height: 64px;
+	width: 100%;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .play-settings-gamemodeflags
 {
-    visibility: collapse;
+	visibility: collapse;
 }
 
 .play-menu-controls-lobby-count
 {
-    width: fit-children;
-    flow-children: right;
-    vertical-align: center;
-    margin-right: -25px;
-    padding: 10px;
+	width: fit-children;
+	flow-children: right;
+	vertical-align: center;
+	margin-right: -25px;
+	padding: 10px;
 }
 
 .play-menu-controls-lobby-count .play-menu-controls-lobby-icon
 {
-    margin-left: 2px;
-    visibility: collapse;
+	margin-left: 2px;
+	visibility: collapse;
 }
 
 .play-menu-controls-lobby-count.play-menu-controls-lobby-count-1 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4 .play-menu-controls-lobby-icon,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5 .play-menu-controls-lobby-icon
 {
-    visibility: visible;
-    wash-color: disabledColor;
+	visibility: visible;
+	wash-color: disabledColor;
 }
 
 .play-menu-controls-lobby-count.play-menu-controls-lobby-count-1 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5 .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
 {
-    wash-color: white;
+	wash-color: white;
 }
 
 .play-menu-controls-lobby-count.play-menu-controls-lobby-count-1.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-2.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-3.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-4.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
 {
-    wash-color: positiveColor;
+	wash-color: positiveColor;
 }
 
 .play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-1,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-2,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-3,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-4,.play-menu-controls-lobby-count.play-menu-controls-lobby-count-5.play-menu-controls-lobby-count-host .play-menu-controls-lobby-icon.play-menu-controls-lobby-icon-5
 {
-    animation-name: play-menu-controls-lobby-count-full-team;
-    animation-duration: 1.8s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    transition-property: border;
-    opacity:1.0;
+	animation-name: play-menu-controls-lobby-count-full-team;
+	animation-duration: 1.8s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	transition-property: border;
+	opacity:1.0;
 }
 
 @keyframes 'play-menu-controls-lobby-count-full-team'
 {
-    0%
-    {
-        transform: scale3d( .9, .9, .9);
-    }
-    
-    55%
-    {
-        img-shadow: 1px 1px 1px 1.0 #ffffff;
-        transform: scale3d( 1, 1, 1);
-        brightness:1.8;
-    }
-    
-    100%
-    {
-        transform: scale3d( .9, .9, .9);
-    }
-    
+	0%
+	{
+		transform: scale3d( .9, .9, .9);
+	}
+	
+	55%
+	{
+		img-shadow: 1px 1px 1px 1.0 #ffffff;
+		transform: scale3d( 1, 1, 1);
+		brightness:1.8;
+	}
+	
+	100%
+	{
+		transform: scale3d( .9, .9, .9);
+	}
+	
 }
 
 .play-menu-controls-actions-bar__right
 {
-    flow-children:right;
-    height: 100%;
-    horizontal-align: right;
-    margin-right: 20px;
+	flow-children:right;
+	height: 100%;
+	horizontal-align: right;
+	margin-right: 20px;
 }
 
 .play-menu-controls-action-bar__right__go-cancel
 {
-    height: 100%;
-    vertical-align: center;
+	height: 100%;
+	vertical-align: center;
 }
 
 .play-menu__playbtn
 {
-    horizontal-align: right;
-    vertical-align: center;
-    min-width: 300px;
-    margin: 12px 0px;
-    box-shadow: 0px 0px 16px 0px #00000041;
-    border: 1px solid rgba(9, 219, 9, 0.336);
-    background-color: rgba(9, 49, 9, 0.651);
-    perspective: 200px;
-    perspective-origin: 0% 0%;
-    transition-property: opacity, box-shadow, wash-color, transform;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	horizontal-align: right;
+	vertical-align: center;
+	min-width: 300px;
+	margin: 12px 0px;
+	box-shadow: 0px 0px 16px 0px #00000041;
+	border: 1px solid rgba(9, 219, 9, 0.336);
+	background-color: rgba(9, 49, 9, 0.651);
+	perspective: 200px;
+	perspective-origin: 0% 0%;
+	transition-property: opacity, box-shadow, wash-color, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn:hover
 {
-    sound: "UIPanorama.mainmenu_rollover";
+	sound: "UIPanorama.mainmenu_rollover";
 }
 
 .play-menu__playbtn:hover .play-menu__playbtn__bar
 {
-    brightness: 2;
-    box-shadow: 0px 0px 124px 5px rgba(4, 179, 4, 0.637);
-    transition-property: brightness, box-shadow;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	brightness: 2;
+	box-shadow: 0px 0px 124px 5px rgba(4, 179, 4, 0.637);
+	transition-property: brightness, box-shadow;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.pressed
 {
-    transform: translateY( -0px ) rotateX(100deg);
-    opacity: 0;
-    transition-property: opacity, box-shadow, wash-color, transform;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	transform: translateY( -0px ) rotateX(100deg);
+	opacity: 0;
+	transition-property: opacity, box-shadow, wash-color, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.hidden
 {
-    opacity: 0;
-    visibility: collapse;
-    transition-property: opacity;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	opacity: 0;
+	visibility: collapse;
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn:disabled
 {
-    box-shadow: none;
-    wash-color: disabledColor;
+	box-shadow: none;
+	wash-color: disabledColor;
 }
 
 .play-menu__playbtn Label
 {
-    horizontal-align: center;
-    vertical-align: center;
-    padding: 8px 0px;
-    font-family: stratum2Font;
-    text-align: center;
-    text-transform: uppercase;
-    color: rgb(85, 228, 20);
-    font-weight: bold;
-    font-size: 32px;
-    letter-spacing: 4px;
-    transition-property: brightness;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	horizontal-align: center;
+	vertical-align: center;
+	padding: 8px 0px;
+	font-family: stratum2;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgb(85, 228, 20);
+	font-weight: bold;
+	font-size: 32px;
+	letter-spacing: 4px;
+	transition-property: brightness;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn .play-menu__playbtn__bar
 {
-    width: 1px;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.075);
-    box-shadow: 0px 0px 64px 5px rgba(6, 141, 6, 0.767);
-    transition-property: brightness, box-shadow;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	width: 1px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.075);
+	box-shadow: 0px 0px 64px 5px rgba(6, 141, 6, 0.767);
+	transition-property: brightness, box-shadow;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn .play-menu__playbtn__bg
 {
-    width: 100%;
-    height: 100%;
-    wash-color: rgb(33, 180, 33);
-    brightness: 1.5;
-    background-repeat: repeat;
-    background-position: 20% 60%;
-    background-size: auto auto;
-    background-image: url("file://{resources}/videos/linemap.webm");
-    background-img-opacity: .5;
-    transition-property: transform;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	width: 100%;
+	height: 100%;
+	wash-color: rgb(33, 180, 33);
+	brightness: 1.5;
+	background-repeat: repeat;
+	background-position: 20% 60%;
+	background-size: auto auto;
+	background-image: url("file://{resources}/videos/linemap.webm");
+	background-img-opacity: .5;
+	transition-property: transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn .play-menu__playbtn__bg CCSGOSteamInputAction .steam-button-glyph
 {
-    width: 28px;
-    height: 28px;
+	width: 28px;
+	height: 28px;
 }
 
 .play-menu__playbtn .play-menu__playbtn__bg Label.steam-button-name
 {
-    visibility: collapse;
+	visibility: collapse;
 }
 
 .play-menu__playbtn .group-text-with-steam-button
 {
-    horizontal-align: center;
-    flow-children:right;
-    z-index: 2;
+	horizontal-align: center;
+	flow-children:right;
+	z-index: 2;
 }
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch
 {
-    border: 1px solid rgba(204, 11, 11, 0.336);
+	border: 1px solid rgba(204, 11, 11, 0.336);
 }
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch:disabled
 {
-    transform: translateY( 64px );
-    opacity: 0;
-    transition-property: transform, opacity;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+	transform: translateY( 64px );
+	opacity: 0;
+	transition-property: transform, opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch:hover .play-menu__playbtn__bar
 {
-    box-shadow: 0px 0px 124px 5px rgba(179, 39, 4, 0.637);
+	box-shadow: 0px 0px 124px 5px rgba(179, 39, 4, 0.637);
 }
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch .play-menu__playbtn__bar
 {
-    background-color: rgba(190, 16, 16, 0.24);
-    box-shadow: 0px 0px 64px 5px rgba(109, 34, 34, 0.767);
+	background-color: rgba(190, 16, 16, 0.24);
+	box-shadow: 0px 0px 64px 5px rgba(109, 34, 34, 0.767);
 }
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch .play-menu__playbtn__bg
 {
-    wash-color: rgb(180, 33, 33);
+	wash-color: rgb(180, 33, 33);
 }
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch Label
 {
-    color: negativeColor;
-    font-size: 24px;
-    padding: 12px 0px;
-    text-overflow: ellipsis;
+	color: negativeColor;
+	font-size: 24px;
+	padding: 12px 0px;
+	text-overflow: ellipsis;
 }
 
+.play-menu__botdifficulty
+{
+	width: 200px;
+	horizontal-align: center;
+	margin-top: 0px;
+	margin-bottom: 26px;
+}
 
 .play-menu__botdifficulty.hidden
 {
@@ -1633,11 +1557,11 @@ RadioButton .map-selection-info__new
 
 .map-selection-no-subscriptions-label
 {
-    padding-top: 150px;
-    padding-left: 200px;
-    padding-right: 200px;
-    font-size: 40px;
-    text-align: center;
+	padding-top: 150px;
+	padding-left: 200px;
+	padding-right: 200px;
+	font-size: 40px;
+	text-align: center;
 }
 
 .game-mode-selection-radios-spacer
@@ -1650,28 +1574,39 @@ RadioButton .map-selection-info__new
 	vertical-align: center;
 }
 
+.workshop-search-textentry-container
+{
+	margin-bottom: 12px;
+	width: play-settings-width;
+	height: 48px;
+}
+
 .workshop-search-textentry
 {
-	height: 54px;
-	width: 512px;
-	vertical-align: bottom;
+	height: 48px;
+	width: 200px;
+	vertical-align: center;
 	horizontal-align: center;
 	padding-top: 10px;
-	font-size: 20px;
+	font-size: 16px;
 	color: white;
 	border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0.308);
 	border: 0px solid rgba(255, 255, 255, 1);
 	border-bottom: 2px solid rgba(255, 255, 255, 1);
-
 	transition-property: border;
 	transition-duration: 0.2s;
+}
+
+.workshop-search-textentry-container TextEntry
+{
+	padding: 12px 8px;
 }
 
 .workshop-search-textentry:focus
 {
 	border-bottom: 6px solid rgba(255, 255, 255, 1);
 	box-shadow: none;
-
 	transition-property: border;
 	transition-duration: 0.2s;
 }
@@ -1679,7 +1614,7 @@ RadioButton .map-selection-info__new
 .workshop-search-textentry #PlaceholderText
 {
 	color: rgb(221, 221, 221);
-	font-size: 20px;
+	font-size: 16px;
 	height: 64px;
 }
 
@@ -1707,25 +1642,19 @@ RadioButton .map-selection-info__new
 	{
 		transform: translateY(100%);
 	}
-
+	
 	100%
 	{
 		transform: translateY(0%);
 	}
+	
 }
-
 
 .play-menu-option-btn
 {
 	flow-children:right;
 	vertical-align: center;
-	margin: 12px 12px 12px 0px;
-	min-height: 72px;
-	width: fit-children;
-	                       
-	background-color: rgba(0, 0, 0, 0.151);
-	border-radius: 20px;
-
+	width:play-settings-width;
 	transition-property: background-color;
 	transition-duration: .20s;
 	transition-timing-function: ease-in-out;
@@ -1734,33 +1663,44 @@ RadioButton .map-selection-info__new
 .play-menu-option-btn:hover:not(.play-menu-option-btn:disabled)
 {
 	background-color: rgba(0, 0, 0, 0.418);
-	
 	transition-property: background-color;
 	transition-duration: .20s;
 	transition-timing-function: ease-in-out;
 }
 
-.play-menu-option-btn:disabled 
+.play-menu-option-btn:disabled
 {
 	wash-color: disabledColor;
 }
 
-.play-menu-option-btn Label,
-ToggleButton.play-menu-option-btn Label,
-ToggleButton.play-menu-option-btn:selected Label
+.play-menu-option-btn Label,ToggleButton.play-menu-option-btn Label,ToggleButton.play-menu-option-btn:selected Label
 {
 	font-size: 16px;
-	font-family: stratum2Font;
+	font-family: stratum2;
 	font-weight: medium;
 	color:white;
 	text-overflow: shrink;
 	padding-right: 14px;
 }
 
-.play-menu-option-btn Image
+#PrimeStatusPanel
 {
-	vertical-align: center;
-	margin: 0px 8px;
+	padding-left:16px;
+	padding-right:16px;
+	width: play-settings-width;
+	margin-bottom: 32px;
+	flow-children: down;
+}
+
+.play-menu-prime
+{
+	horizontal-align:center;
+	flow-children: right;
+}
+
+.play-menu-prime.disabled
+{
+	wash-color: disabledColor;
 }
 
 .play-menu-prime Image
@@ -1770,45 +1710,66 @@ ToggleButton.play-menu-option-btn:selected Label
 	margin-right: 0px;
 }
 
-
-                             
- 
-	                 
-	                 
-    
-
-.content-navbar__tabs--small .play-menu-get-prime
+.play-menu-prime-text
 {
-	height: 38px;
-	margin-right: 50px;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-left: 4px;
+	letter-spacing: 1.5px;
+	color: white;
 }
 
-.content-navbar__tabs--small .play-menu-get-prime Label
+.play-menu-prime-warning
 {
-	margin:0px;
+	font-size: 14px;
 	text-align: center;
+	horizontal-align: center;
+	margin-left: 4px;
+	color: rgba(250, 248, 248, 0.671);
+	visibility: collapse;
 }
 
 .play-menu-get-prime
 {
-	max-width: 300px;
-	background-color: blueColor;
+	width: 150px;
+	background-color: blueColorDark;
 	vertical-align: center;
 	horizontal-align: center;
-	padding: 8px;
-	border-radius: 2px;
-	box-shadow: shadowOffset;
-	margin-left: 8px;
-
+	padding: 12px;
+	border-radius: 10px;
+	border: 1.5px solid blueColor;
+	box-shadow: #00000044 4px 4px 8px 0px;
+	flow-children: down;
+	background-image: url("s2r://panorama/images/backgrounds/linemap_png.vtex");
+	background-size: auto auto;
+	background-position: 0% 50%;
+	background-img-opacity: .05;
 	transition-property: brightness;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
+.play-menu-get-prime Image
+{
+	width: 64px;
+	height: 64px;
+}
+
+.play-menu-get-prime Label
+{
+	font-size: 16px;
+	font-family: stratum2;
+	horizontal-align: center;
+	text-align: center;
+	font-weight: bold;
+	color:white;
+	text-overflow: shrink;
+}
+
 .play-menu-get-prime:hover
 {
 	brightness: 1.5;
-
 	transition-property: brightness;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -1826,12 +1787,9 @@ ToggleButton.play-menu-option-btn:selected Label
 	brightness: 1;
 }
 
-.content-navbar Button.play-menu-get-prime Label,
-.content-navbar ToggleButton.play-menu-toggle-prime Label
+.content-navbar Button.play-menu-get-prime Label,.content-navbar ToggleButton.play-menu-toggle-prime Label
 {
 	margin: 0px;
-	                   
-	                                
 	font-size: 18px;
 	max-height: 32px;
 	text-overflow: shrink;
@@ -1840,7 +1798,7 @@ ToggleButton.play-menu-option-btn:selected Label
 .play-menu-primestatus-image
 {
 	margin: 0px;
-	background-image: url("file://{images}/icons/ui/prime_disabled.png");
+	background-image: url("s2r://panorama/images/icons/ui/prime_disabled_png.vtex");
 	background-position: 50% 50%;
 	background-size: 100% 100%;
 	vertical-align: center;
@@ -1851,14 +1809,13 @@ ToggleButton.play-menu-option-btn:selected Label
 
 .play-menu-prime-logo-bg .play-menu-primestatus-image
 {
-	background-image: url("file://{images}/icons/ui/prime_active.png");
+	background-image: url("s2r://panorama/images/icons/ui/prime_active_png.vtex");
 }
 
 .content-navbar ToggleButton.play-menu-toggle-prime
 {
 	flow-children: right;
 	vertical-align: center;
-	                   
 }
 
 .play-menu-toggle-prime .TickBox
@@ -1869,15 +1826,12 @@ ToggleButton.play-menu-option-btn:selected Label
 .play-menu-toggle-prime:selected .play-menu-prime-toggle__slider-pill
 {
 	background-color: gradient( radial, 50% 60%, 0% 0%, 90% 70%, from( #22a527 ), color-stop( .7, #22a527), to( rgb(10, 88, 10) ) );
-
 	border: 1.5px solid #147717;
 	transition-property: background-color, box-shadow;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
-                                                                            
-                                                                                    
 .play-menu-prime-toggle__slider-pill
 {
 	height: 20px;
@@ -1889,7 +1843,6 @@ ToggleButton.play-menu-option-btn:selected Label
 	margin: 2px 2px 2px 12px;
 	background-color: gradient( radial, 50% 60%, 0% 0%, 90% 70%, from( rgba(0, 0, 0, 0.363) ), color-stop( .7, rgba(0, 0, 0, 0.363)), to( rgba(0, 0, 0, 0.363) ) );
 	horizontal-align: left;
-
 	transition-property: background-color;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -1903,7 +1856,6 @@ ToggleButton.play-menu-option-btn:selected Label
 	width: height-percentage( 100% );
 	vertical-align: center;
 	box-shadow: shadowOffset;
-
 	transition-property: transform, background-color;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -1912,30 +1864,9 @@ ToggleButton.play-menu-option-btn:selected Label
 .play-menu-toggle-prime:selected .play-menu-prime-toggle__slider
 {
 	transform: translateX( 50% );
-
 	transition-property: transform, background-color;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
-}
-
-                                                                   
- 
-	                        
-	             
-
-	                                                 
-	                          
-	                                        
-    
-
-.play-menu-prime-mode-not-prime-label
-{
-	color: white;
-}
-
-.play-menu-prime-mode-not-prime-label.disabled
-{
-	color: disabledColor;
 }
 
 .play-menu-mapandlbs-container
@@ -1980,265 +1911,40 @@ ToggleButton.play-menu-option-btn:selected Label
 
 .play-menu-map-rotation-timer-label
 {
-	font-family: stratum2Font;
-	font-weight: lighter;
-	font-size: 20px;
-}
-
-/* navbar temp fix */
-.content-navbar
-{
-	flow-children: right;
-	padding: 0px 0px 0px 32px;
-	height: 0px;
-	width: 100%;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.content-navbar--short
-{
-	background-color: rgba( 0, 0, 0, 0.6 );
-	padding-right: 50px;
-	height: 54px;
-}
-
-.content-navbar--dropdown
-{
-	padding-left: 5px;
-	vertical-align: center;
-	background-color: rgba(0, 0, 0, 0.25);
-}
-
-.content-navbar--dropdown DropDown
-{
-	min-width: 300px;
-	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000), color-stop( 0, #00000030 ), to( #00000030 ) );
-}
-
-.content-navbar__title
-{
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 32px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	color: grey;
-	vertical-align: center;
-	-s2-mix-blend-mode: SRGBadditive;
-	font-family: stratum2Font;
-}
-
-                                                                               
-                                                                            
-    	                                        
-                                                                               
-.content-navbar__tabs
-{
-	flow-children: right;
-	width: fit-children;
-	vertical-align: middle;
-	horizontal-align: center;
-}
-
-.content-navbar__tabs RadioButton, 
-.content-navbar__tabs DropDown, 
-.content-navbar__tabs ToggleButton, 
-.content-navbar__tabs TextButton,
-.content-navbar__tabs Button,
-{
-	margin: 0px 28px 0px 0px;
-	width: fit-children;
-	height: 54px;
-	horizontal-align: center;
-	vertical-align: middle;
-	tooltip-position: right;
-	tooltip-body-position: 50% 100%;
-	background-color: gradient( linear, 0% 100%, 0% 99%, from( white ), color-stop( 0, #ffffff00 ), to( #ffffff00 ) );
-	flow-children: right;
-	sound-trans: "";
-}
-
-.content-navbar RadioButton Label, 
-TextButton Label, 
-ToggleButton Label,
-.content-navbar Button Label
-{
-	font-size: 20px;
+	font-family: stratum2;
 	font-weight: medium;
-	color: white;
-	margin-left: 8px;
-	font-family: stratum2Font;
-}
-
-.content-navbar__tabs--small RadioButton, 
-.content-navbar__tabs--small DropDown, 
-.content-navbar__tabs--small ToggleButton, 
-.content-navbar__tabs--small TextButton,
-.content-navbar__tabs--small Button
-{
-	height: 54px;
-}
-
-.content-navbar__tabs--small Image
-{
-	height: 18px;
-	width: 18px;
-}
-
-.content-navbar__tabs--small Button Label,
-.content-navbar__tabs--small RadioButton Label,
-.content-navbar__tabs--small ToggleButton Label
-{
-	font-size: 16px;
-	text-transform: none;
-}
-
-.content-navbar__tabs RadioButton:enabled:hover,
-.content-navbar__tabs Button:enabled:hover,
-.content-navbar__tabs DropDown:enabled:hover,
-.news-panel-navbar-btn:enabled:hover
-{
-	background-color: gradient( linear, 0% 100%, 0% 98%, from( white ), color-stop( .9, white ), to( #ffffff00 ) );
-
-	transition-property:  background-color, wash-color;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-	sound-trans: "UIPanorama.submenu_rollover";
-}
-
-.content-navbar__tabs RadioButton:selected,
-.content-navbar__tabs Button:selected,
-.news-panel-navbar-btn:selected
-{
-	background-color: gradient( linear, 0% 100%, 0% 92%, from( white ), color-stop( .9, white ), to( #ffffff00 ) );
-
-	transition-property:  background-color, wash-color;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-	sound-trans: "UIPanorama.submenu_dropdown_option_select";
-}
-
-.content-navbar__tabs RadioButton:disabled,
-.news-panel-navbar-btn:disabled
-{
-	wash-color: disabledColor;
-}
-
-.content-navbar__tabs RadioButton:disabled Label,
-.news-panel-navbar-btn:disabled Label
-{
 	font-size: 20px;
 }
 
-.content-navbar__tabs RadioButton Image
+.play-maps-controls-contianer
 {
-	vertical-align: middle;
+	flow-children: down;
 	width: 100%;
+	border-top: 1px solid rgba(255, 255, 255, 0.11);
+	margin-right: 64px;
+	height: 100%;
+}
+
+.play-lobby-leader-container
+{
+	flow-children: right;
+	visibility: collapse;
+	padding-left: 16px;
+	margin-bottom: 24px;
+}
+
+.lobby-leader-avatar
+{
 	height: 48px;
-	img-shadow: 2px 2px 2px #000000;
+	Width: 48px;
+	margin-right: 8px;
+	border-radius: 3px;
 }
 
-RadioButton.content-navbar__tabs--small-image Image,
-Button.content-navbar__tabs--small-image Image
+.lobby-leader-text
 {
-	height: 28px;
-	width: height-percentage( 100% );
-	vertical-align: middle;
-	img-shadow: none;
-}
-
-.content-navbar__tabs .RadioBox
-{
-	visibility: collapse;
-}
-
-
-                                                                               
-                                                                         
-    	                                                                      
-   		                                       
-                                                                               
-.content-navbar__extra-buttons
-{
-	horizontal-align: left;
-	vertical-align: middle;
-	flow-children: left;
-	height: 54px;
-	padding: 0px 16px 0px 0px;
-}
-
-.content-navbar__extra-buttons .PopupButton
-{
-	margin: 0px 8px;
-}
-
-.content-navbar__seperator
-{
-	height: 1px;
-	width: 100%;
-	opacity: .25;
-	background-color: #ffffff;
-}
-
-.content-navbar__seperator--dark
-{
-	height: 1px;
-	width: 100%;
-	background-color: #3E3E3E;
-}
-
-.content-controls-actions-bar
-{
-	background-color: contentPanelBackground;
-	width: 96.7%;
-	height: 64px;
-	vertical-align: bottom;
-	z-index: 0;
-	border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.Language_schinese .TopBarMenuItem Label
-{
-	font-size: 32px;
-}
-
-.Language_russian .TopBarMenuItem Label
-{
-	letter-spacing: 0px;
-}
-
-                                                                               
-                                                                               
-                                                                               
-
-.MainMenuModeTrunkOnly
-{
-	visibility: collapse;
-}
-
-.TrunkOnly .MainMenuModeTrunkOnly
-{
-	visibility: visible;
-}
-
-.popup-blur 
-{
-	blur: fastgaussian( 6, 6, 4);
-
-}
-.blur-background 
-{
-	blur: fastgaussian( 4, 4, 5 );
-	opacity: 0;
-}
-
-.content-navbar__seperator-tournament
-{
-	position: 0px 63.9px 0px;
-}
-
-.margins
-{
-	padding-right: 0px;
+	text-overflow: ellipsis;
+	max-height: 20px;
+	letter-spacing: 1px;
 }
 
