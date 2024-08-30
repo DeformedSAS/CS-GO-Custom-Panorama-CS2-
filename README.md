@@ -1,4 +1,8 @@
-# Development has been continued. New version will come in a few days.
+# New content added:
+- Redesigned Play Menu
+- Mini Store in the main menu.
+- Navbar changes colour when esc is pressed.
+- Fixed a bug with radar being transparent on 4:3, 16:10, 21:9 aspect ratios
 
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
