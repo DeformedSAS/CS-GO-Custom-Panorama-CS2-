@@ -3,12 +3,12 @@
 - Mini Store in the main menu.
 - Navbar changes colour when esc is pressed.
 - Fixed a bug with radar being transparent on 4:3, 16:10, 21:9 aspect ratios
+- CS2 Nightmode music kits.
 
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
 
 # NOTE: Always download the updated source code from the home page of the repo instead of the one from releases tab. 
-# SECOND NOTE: Put the font files from the fonts folder from the code zip into the fonts folder of migi or csgo. depending if you have symlinks. This is required for the center navbar font aka the play button and other.
 
 # Whole ui
 - All of the core UI changes.
