@@ -16,9 +16,6 @@ var MainMenuMiniStore;
             _m_StorePanel.SetHasClass('hidden', true);
             return;
         }
-        $.GetContextPanel().FindChildInLayoutFile('id-open-fullscreen-store-btn').SetPanelEvent('onactivate', () => {
-            $.DispatchEvent('MainMenuGoToStore', '');
-        });
         _GetStoreItems();
     }
     function _GetStoreItems() {
@@ -42,7 +39,7 @@ var MainMenuMiniStore;
             let elTile = elParent.FindChildInLayoutFile('id-mini-store-tile' + aItemsList[i].id);
             if (!elTile) {
                 elTile = $.CreatePanel('Button', elParent, 'id-mini-store-tile' + aItemsList[i].id);
-                elTile.BLoadLayout('file://{resources}/layout/itemtile_store.xml', false, false);
+                elTile.BLoadLayout('file://{resources}/layout/itemtile_store.xml', true, false);
             }
             ItemTileStore.Init(elTile, aItemsList[i]);
         }

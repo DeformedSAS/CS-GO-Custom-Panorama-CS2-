@@ -8,6 +8,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/common/characteranims.js" />
 		<include src="file://{resources}/scripts/loadingscreen.js" />
+		<include src="file://{resources}/scripts/versus.js" />
 	</scripts>
 
 	<Panel class="loading-root">

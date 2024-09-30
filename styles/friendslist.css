@@ -437,8 +437,7 @@ RadioButton.toggle-active Image
             wash-color: rgb(10, 110, 157);
             background-size: 310% auto;
             background-position: 0% 50%;
-            box-shadow: -10px -15px 12px 30px rgba(6, 141, 6, 0.767);
-            transition-property: brightness, box-shadow;
+            transition-property: brightness;
             transition-duration: 0.25s;
             transition-timing-function: ease-in-out;
 

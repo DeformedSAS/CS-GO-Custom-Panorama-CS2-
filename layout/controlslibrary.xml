@@ -18,65 +18,65 @@
 	</snippets>
 
 	<Panel class="mainmenu-content__container" >
-		<Panel class="content-navbar" >
-			<Panel class="content-navbar__tabs">
-				<RadioButton id="JsControlStyleGuide" selected="true" group="nav" onactivate="NavigateToTab('ControlLibStyleGuide', 'JsStyleGuide')">
+		<Panel class="content-navbar__tabs content-navbar__tabs--noflow" >
+			<Panel class="content-navbar__tabs__center-container">
+				<RadioButton id="JsControlStyleGuide" class="content-navbar__tabs__btn" selected="true" group="nav" onactivate="NavigateToTab('ControlLibStyleGuide', 'JsStyleGuide')">
 					<Label text="Style"/>
 				</RadioButton>
-				<RadioButton id="JsControlPopups" group="nav" onactivate="NavigateToTab('ControlsLibPopups', 'JsPopups')">
+				<RadioButton id="JsControlPopups" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibPopups', 'JsPopups')">
 					<Label text="Popups"/>
 				</RadioButton>
-				<RadioButton id="JsControlTooltips" group="nav" onactivate="NavigateToTab('ControlsLibTooltips', 'JsControlTooltips')">
+				<RadioButton id="JsControlTooltips" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibTooltips', 'JsControlTooltips')">
 					<Label text="Tooltips"/>
 				</RadioButton> 
-				<RadioButton id="JsControlContext" group="nav" onactivate="NavigateToTab('ControlsLibContextMenu', 'JsControlContext')">
+				<RadioButton id="JsControlContext" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibContextMenu', 'JsControlContext')">
 					<Label text="Context Menu"/>
 				</RadioButton>
-				<RadioButton id="JsControlText" group="nav" onactivate="NavigateToTab('ControlsLibText','JsControlText')">
+				<RadioButton id="JsControlText" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibText','JsControlText')">
 					<Label text="Text"/>
 				</RadioButton>
-				<RadioButton id="JsControlIcons" group="nav" onactivate="NavigateToTab('ControlsLibIcons','JsControlIcons')">
+				<RadioButton id="JsControlIcons" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibIcons','JsControlIcons')">
 					<Label text="Icons"/>
 				</RadioButton>
-				<RadioButton id="JsControlVideo" group="nav" onactivate="NavigateToTab('ControlsLibVideo','JsControlVideo')">
+				<RadioButton id="JsControlVideo" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibVideo','JsControlVideo')">
 					<Label text="Video"/>
 				</RadioButton>
-				<RadioButton id="JsControlScene" group="nav" onactivate="NavigateToTab('ControlsLibScenePanel','JsControlScene');">
+				<RadioButton id="JsControlScene" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibScenePanel','JsControlScene');">
 					<Label text="Scene"/>
 				</RadioButton>
-				<RadioButton id="JsControlScene2" group="nav" onactivate="NavigateToTab('ControlsLibMultiScenePanel','JsControlScene2');">
+				<RadioButton id="JsControlScene2" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibMultiScenePanel','JsControlScene2');">
 					<Label text="Scene2"/>
 				</RadioButton>
-				<RadioButton id="JsControlCanvas" group="nav" onactivate="NavigateToTab('ControlsLibCanvas','JsControlCanvas');">
+				<RadioButton id="JsControlCanvas" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibCanvas','JsControlCanvas');">
 					<Label text="Canvas"/>
 				</RadioButton>
-				<RadioButton id="JsControlOther" group="nav" onactivate="NavigateToTab('ControlsLibOther', 'JsControlOther')">
+				<RadioButton id="JsControlOther" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibOther', 'JsControlOther')">
 					<Label text="Other"/>
 				</RadioButton>
-				<RadioButton id="JsControlVars" group="nav" onactivate="NavigateToTab('ControlsLibDiagVars', 'JsControlVars')">
+				<RadioButton id="JsControlVars" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibDiagVars', 'JsControlVars')">
 					<Label text="Dialog Vars"/>
 				</RadioButton>
 			</Panel>
 		</Panel>
 
 		<Panel class="content-navbar" >
-			<Panel class="content-navbar__tabs">
-				<RadioButton id="JsControlSound" group="nav" onactivate="NavigateToTab('ControlsLibSound', 'JsControlSound')">
+			<Panel class="content-navbar__tabs__center-container">
+				<RadioButton id="JsControlSound" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibSound', 'JsControlSound')">
 					<Label text="Sound"/>
 				</RadioButton>
-				<RadioButton id="JsControlBlur" group="nav" onactivate="NavigateToTab('ControlsLibBlendBlur', 'JsControlBlur')">
-					<Label text="Blend+Blur"/>
+				<RadioButton id="JsControlBlur" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibBlendBlur', 'JsControlBlur')">
+					<Label text="Schizophrenia Panel Basically"/>
 				</RadioButton>
-				<RadioButton id="JsControlPanels" group="nav" onactivate="NavigateToTab('ControlsLibPanels', 'JsControlPanels')">
+				<RadioButton id="JsControlPanels" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibPanels', 'JsControlPanels')">
 					<Label text="Panels"/>
 				</RadioButton>
-				<RadioButton id="JsControlCdn" group="nav" onactivate="NavigateToTab('ControlsLibCdn', 'JsControlCdn')">
+				<RadioButton id="JsControlCdn" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibCdn', 'JsControlCdn')">
 					<Label text="Cdn"/>
 				</RadioButton>
-				<RadioButton id="JsControlBG" group="nav" onactivate="NavigateToTab('ControlsLibBackgroundTest', 'JsControlBG')">
+				<RadioButton id="JsControlBG" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibBackgroundTest', 'JsControlBG')">
 					<Label text="BG"/>
 				</RadioButton>
-				<RadioButton id="JsControlBugs" group="nav" onactivate="NavigateToTab('ControlsLibBugs', 'JsControlBugs')">
+				<RadioButton id="JsControlBugs" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibBugs', 'JsControlBugs')">
 					<Label text="Bugs"/>
 				</RadioButton>
 			</Panel>

@@ -296,7 +296,7 @@ function InitScenePanel()
 
     var playerPanel = $( "#Player1" );
     playerPanel.ResetAnimation( false );
-    playerPanel.SetSceneAngles( 0, 0, 0 );
+    playerPanel.SetSceneAngles( 0, 0, 0, false );
     playerPanel.SetPlayerModel( model );
     playerPanel.PlaySequence( g_sceneanimsList[g_sceneanimindex], true );
     playerPanel.SetCameraPreset( 6, false );
@@ -332,7 +332,7 @@ function ScenePrevAnimSequence()
 
 function GenerateInventoryImages()
 {
-    $( "#Player1" ).GenerateInventoryImages();
+    $( "#Player1" ).GenerateInventoryImages(); // is not functional!
 }
 
 function InitSceneWithContextsPanel()
@@ -344,7 +344,7 @@ function InitSceneWithContextsPanel()
 
     var playerPanel = $( "#MultiPlayer" );
     playerPanel.ResetAnimation( false );
-    playerPanel.SetSceneAngles( 0, 11.5, 0 );
+    playerPanel.SetSceneAngles( 0, 11.5, 0, false );
     playerPanel.SetSceneOffset( 11.08, -18.14, 0.0 );
     playerPanel.SetPlayerModel( model );
     playerPanel.PlaySequence( g_sceneanimsList[23], true );
@@ -355,7 +355,7 @@ function InitSceneWithContextsPanel()
     playerPanel.CreateSceneContexts( g_maxsceneitemcontext );
    
     playerPanel.SetActiveSceneContext( 1 );
-    playerPanel.SetSceneAngles( 0, 13, 0 );
+    playerPanel.SetSceneAngles( 0, 13, 0, false  );
     playerPanel.SetSceneOffset( -8.96, 1.41, 0.0 );
     playerPanel.SetPlayerModel( "models/player/custom_player/legacy/tm_balkan_variante.mdl" );
     playerPanel.PlaySequence( g_sceneanimsList[25], true );
@@ -363,7 +363,7 @@ function InitSceneWithContextsPanel()
     playerPanel.EquipPlayerWithItem( id );
 
     playerPanel.SetActiveSceneContext( 2 );
-    playerPanel.SetSceneAngles( 0, -9.5, 0 );
+    playerPanel.SetSceneAngles( 0, -9.5, 0, false  );
     playerPanel.SetSceneOffset( 14.32, 7.58, 0.0 );
     playerPanel.SetPlayerModel( "models/player/custom_player/legacy/tm_jumpsuit_variantc.mdl" );
     playerPanel.PlaySequence( g_sceneanimsList[27], true );
@@ -371,7 +371,7 @@ function InitSceneWithContextsPanel()
     playerPanel.EquipPlayerWithItem( id );
 
     playerPanel.SetActiveSceneContext( 3 );
-    playerPanel.SetSceneAngles( 0, 13, 0 );
+    playerPanel.SetSceneAngles( 0, 13, 0, false  );
     playerPanel.SetSceneOffset( 22.9, -43.94, 0.0 );
     playerPanel.SetPlayerModel( "models/player/custom_player/legacy/tm_balkan_varianta.mdl" );
     playerPanel.PlaySequence( g_sceneanimsList[28], true );
@@ -379,7 +379,7 @@ function InitSceneWithContextsPanel()
     playerPanel.EquipPlayerWithItem( id );
 
     playerPanel.SetActiveSceneContext( 4 );
-    playerPanel.SetSceneAngles( 0, -183.5, 0 );
+    playerPanel.SetSceneAngles( 0, -183.5, 0, false  );
     playerPanel.SetSceneOffset( 27.59, 19.69, 0.0 );
     playerPanel.SetPlayerModel( "models/player/custom_player/legacy/tm_separatist_variantd.mdl" );
     playerPanel.PlaySequence( g_sceneanimsList[36], true );

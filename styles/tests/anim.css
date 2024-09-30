@@ -1,24 +1,19 @@
-.animateanimate
-{
+.animateanimate {
     opacity: 1.0;
-    x: 0px;
-    y: 0px;
-	animation-name: slidein;
-	animation-duration: 6.0s;
-	animation-timing-function: linear;
-	animation-iteration-count: 1;
+    transform: translateX(0px); /* Use transform for positioning */
+    animation-name: slidein;
+    animation-duration: 6.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
 }
 
-@keyframes 'slidein' {
-	0%
-	{
-        x: 0px;
-        wash-color: none; 
+@keyframes slidein {
+    0% {
+        transform: translateX(0px); /* Adjusts position using transform */
+        wash-color: none; /* Assuming this is valid in your environment */
     }
-    90% 
-	{
-        x: 0px;
-        wash-color: #FFFFFFE6;
-	}
+    90% {
+        transform: translateX(0px); /* Adjust position if needed */
+        wash-color: #FFFFFFE6; /* Assuming this is valid */
+    }
 }
-

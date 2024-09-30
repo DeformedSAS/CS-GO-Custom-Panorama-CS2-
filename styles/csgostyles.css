@@ -248,8 +248,14 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 
 .stratum-light
 {
+	font-family: Stratum2 Light, "Arial Unicode MS";
+}
+
+.stratum-regular-condensed
+{
 	font-family: ST2RGCOND, "Arial Unicode MS";
 }
+
 
 .stratum-light-italic
 {
@@ -344,6 +350,31 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 	font-family: Stratum2 Mono, "Arial Unicode MS";
 	font-weight: bold;
 }
+
+.stratum-regular-condensed {
+  font-family: 'Stratum-Regular-Condensed', "Arial Unicode MS";
+}
+
+.stratum-bold-condensed {
+  font-family: 'Stratum-Bold-Condensed', "Arial Unicode MS";
+}
+
+.stratum-black {
+  font-family: 'Stratum-black', "Arial Unicode MS";
+}
+
+.stratum-black-condensed {
+  font-family: 'Stratum-Black-Condensed', "Arial Unicode MS";
+}
+
+.stratum-light-condensed {
+  font-family: 'Stratum-Light-Condensed', "Arial Unicode MS";
+}
+
+.stratum-medium-condensed {
+  font-family: 'Stratum-Medium-Condensed', "Arial Unicode MS";
+}
+
 
 .digitpanel-font
 {

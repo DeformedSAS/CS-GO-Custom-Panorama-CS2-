@@ -25,13 +25,12 @@ CSGOMainMenu,
 
 CSGOMainMenu.PopupBackgroundBlur #MainMenuCore
 {
-	background-image: url("file://{images}/backgrounds/linemap.png");
 }
 
 #MainMenuInput
 {
-	transition-property: opacity;
-	transition-duration: .2s;
+	transition-property: blur;
+	transition-duration: .15s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -216,8 +215,8 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	opacity: 0.5;
 	vertical-align: bottom;
 	horizontal-align: right;
-	flow-children: left;
-	padding-left: 900px;
+	flow-children: right;
+	margin-left: 300px;
 	margin-bottom: 14px;
 
 	transition-property:  opacity, brightness;
@@ -227,12 +226,12 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 #VanityControls:hover
 {
-	opacity:1;
+	opacity:0.8;
 }
 
 #VanityControls Button
 {
-	vertical-align: bottom;
+	vertical-align:center;
 	brightness: 0.5;
 
 	width: 60px;
@@ -260,17 +259,19 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 #VanityControls Button:hover
 {
 	brightness: 2;
-	vertical-align: bottom;
+	vertical-align:center;
 	wash-color: white;
 }
 
 #id-mainmenu-vanity-hover
 {
-	width: 300px;
-	height: 800px;
+	width: 60px;
+	height: 60px;
 	                            
 	vertical-align:bottom;
 	horizontal-align:right;
+	margin-bottom: 14px;
+	border-radius: 10px;
 	position: 0px 100px 0px;
 }
 
@@ -337,6 +338,31 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	height: 96px;
 	z-index: 2;
 	margin-left: 32px;
+}
+.mainmenu-panel
+{
+	width: 100%;
+	padding-right: 96px;
+	height: 100%;
+	flow-children: right;
+	opacity: 1;
+
+	transform: translatex( 0px );
+
+	transition-property:  opacity, blur, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+
+}
+
+.mainmenu-panel--Hide
+{
+	opacity: 0;
+	transform: translatex( 200px );
+
+	transition-property:  opacity, blur, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
 }
 
                                                                                
@@ -811,7 +837,7 @@ CSGOEndOfMatch.mainmenu-content__container
 .mainmenu-content--hidden
 {
 	opacity: 0;
-	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
+	sound: "UIPanorama.submenu_leveloptions_slidein";
 	
 	transition-property: opacity, transform;
 	transition-duration: .25s;
@@ -880,25 +906,17 @@ CSGOEndOfMatch.mainmenu-content__container
 	height: 100%;
 	margin: 24px 0px 24px 24px;
 	position: 0px 0px 0px;
-	transform: scale3d( 1, 1, 1 );
 	vertical-align: bottom;
 	flow-children: down;
 
 	opacity: 1;
 	visibility: visible;
-
-	transition-property:  opacity, transform, position;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
 }
 
 .mainmenu_news_container-movedown
 {
 	position: 0px 96px 0px;
 
-	transition-property:  opacity, transform, position;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
 }
 
 .mainmenu_news_container.hidden,
@@ -907,10 +925,6 @@ CSGOEndOfMatch.mainmenu-content__container
 {
 	opacity: 0;
 	transform: scale3d( .5, .5, 5 );
-
-	transition-property:  opacity, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
 }
 
 .mainmenu_active-mission-container

@@ -28,6 +28,7 @@ var MainMenu = ( function() {
 
 	var _m_jobFetchTournamentData = null;
 	const TOURNAMENT_FETCH_DELAY = 10;
+	let _m_bPreLoadedTabs = false;
 
 	                                         
 	let nNumNewSettings = UpdateSettingsMenuAlert();
@@ -438,99 +439,72 @@ var MainMenu = ( function() {
 		
 		return true;
 	}
- 	var _NavigateToTab = function( tab, XmlName )
-	{
-		                                                        
-		                                                   
+    function _LoadTab(tab, XmlName, setActiveSection = '') {
+        if (!$.GetContextPanel().FindChildInLayoutFile(tab)) {
+            const newPanel = $.CreatePanel('Panel', _m_elContentPanel, tab);
+            if ('settings/settings' && setActiveSection !== '') {
+                newPanel.SetAttributeString('set-active-section', setActiveSection);
+            }
+            newPanel.BLoadLayout('file://{resources}/layout/' + XmlName + '.xml', false, false);
+            newPanel.SetReadyForDisplay(false);
+            newPanel.RegisterForReadyEvents(true);
+            $.RegisterEventHandler('PropertyTransitionEnd', newPanel, (panel, propertyName) => {
+                if (newPanel.id === panel.id && propertyName === 'opacity') {
+                    if (newPanel.visible === true && newPanel.BIsTransparent()) {
+                        newPanel.SetReadyForDisplay(false);
+                        newPanel.visible = false;
+                        return true;
+                    }
+                    else if (newPanel.visible === true) {
+                        $.DispatchEvent('MainMenuTabShown', tab);
+                    }
+                }
+                return false;
+            });
+            newPanel.AddClass('mainmenu-content--hidden');
+            newPanel.visible = false;
+        }
+    }
 
-		if ( !_BCheckTabCanBeOpenedRightNow( tab ) )
-		{
-			_OnHomeButtonPressed();
-			return;	                                                                               
-		}
-
-		if( tab === 'JsPlayerStats' && !_CanOpenStatsPanel() )
-		{
-			return;
-		}
-
-		$.DispatchEvent('PlayMainMenuMusic', true, false );
-
-		                                    
-		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
-
-		                                      
-		                            
-		if( !$.GetContextPanel().FindChildInLayoutFile( tab ) )
-		{
-			var newPanel = $.CreatePanel('Panel', _m_elContentPanel, tab );
-			
-			newPanel.Data().elMainMenuRoot = $.GetContextPanel();
-			                                                 
-
-			newPanel.BLoadLayout('file://{resources}/layout/' + XmlName + '.xml', false, false );
-			newPanel.RegisterForReadyEvents( true );
-			
-			                                                                          
-			                                                       
-			newPanel.OnPropertyTransitionEndEvent = function ( panelName, propertyName )
-			{
-				if( newPanel.id === panelName && propertyName === 'opacity' )
-				{
-					                                         
-					if( newPanel.visible === true && newPanel.BIsTransparent() )
-					{
-						                                               
-						newPanel.visible = false;
-						newPanel.SetReadyForDisplay( false );
-						return true;
-					}
-					else if ( newPanel.visible === true )
-					{
-						$.DispatchEvent( 'MainMenuTabShown', tab );
-					}
-				}
-
-				return false;
-			};
-
-			$.RegisterEventHandler( 'PropertyTransitionEnd', newPanel, newPanel.OnPropertyTransitionEndEvent );
-		}
-		
-		                                                                               
-		                             
-		if( _m_activeTab !== tab )
-		{
-			                                       
-			if(XmlName) {
-				$.DispatchEvent('PlaySoundEffect', 'tab_' + XmlName.replace('/', '_'), 'MOUSE');
-			}
-			
-			                                 
-			if( _m_activeTab )
-			{
-				var panelToHide = $.GetContextPanel().FindChildInLayoutFile( _m_activeTab );
-				panelToHide.AddClass( 'mainmenu-content--hidden' );
-
-				                                       
-			}
-			
-			                   
-			_m_activeTab = tab;
-			var activePanel = $.GetContextPanel().FindChildInLayoutFile( tab );
-			activePanel.RemoveClass( 'mainmenu-content--hidden' );
-
-			                                                                         
-			activePanel.visible = true;
-			activePanel.SetReadyForDisplay( true );
-			                                      
-
-
-			                                           	
-			_PauseMainMenuCharacter();
-		}
-
-		_ShowContentPanel();
+function NavigateToTab(tab, XmlName, setActiveSection = '') {
+    if (!_BCheckTabCanBeOpenedRightNow(tab)) {
+        OnHomeButtonPressed();
+        return;
+    }
+        if (tab === 'JsPlayerStats') {
+            return;
+        }
+        $.DispatchEvent('PlayMainMenuMusic', true, false);
+        GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
+        _LoadTab(tab, XmlName, setActiveSection);
+        if (_m_activeTab !== tab) {
+            if (XmlName && _m_bPreLoadedTabs) {
+                let soundName = '';
+                if (XmlName === 'settings/settings_video') {
+                    if (setActiveSection !== '') {
+                        $.GetContextPanel().FindChildInLayoutFile(tab).SetAttributeString('set-active-section', setActiveSection);
+                    }
+                    soundName = 'UIPanorama.tab_mainmenu_inventory';
+                }
+                else if (XmlName === 'loadout') {
+                    soundName = 'UIPanorama.inventory_inspect_close';
+                }
+                else {
+                    soundName = 'tab_' + XmlName.replace('/', '_');
+                }
+                $.DispatchEvent('PlaySoundEffect', soundName, 'MOUSE');
+            }
+            if (_m_activeTab) {
+                const panelToHide = $.GetContextPanel().FindChildInLayoutFile(_m_activeTab);
+                panelToHide.AddClass('mainmenu-content--hidden');
+            }
+            _m_activeTab = tab;
+            const activePanel = $.GetContextPanel().FindChildInLayoutFile(tab);
+            activePanel.RemoveClass('mainmenu-content--hidden');
+            activePanel.visible = true;
+            activePanel.SetReadyForDisplay(true);
+        }
+        _ShowContentPanel();
 	};
 
 
@@ -1111,17 +1085,12 @@ var MainMenu = ( function() {
 	{
 	};
 
- 	var _OpenPlayMenu = function ()
-	{
-		                                                      
-		if ( MatchStatsAPI.GetUiExperienceType() )
-			return;
-
-		_InsureSessionCreated();
-		_NavigateToTab( 'JsPlay', 'mainmenu_play' );
-
-		                                           		
-	};
+  function _OpenPlayMenu() {
+        if (MatchStatsAPI.GetUiExperienceType())
+            return;
+        _InsureSessionCreated();
+        NavigateToTab('JsPlay', 'mainmenu_play');
+    }
     function _OpenWatchMenu() {
         NavigateToTab('JsWatch', 'mainmenu_watch');
     }
@@ -1135,7 +1104,7 @@ var MainMenu = ( function() {
         NavigateToTab('JsPlayerStats', 'mainmenu_playerstats');
     }
     function _OpenSettingsMenu() {
-        _NavigateToTab('JsSettings', 'settings/settings');
+        NavigateToTab('JsSettings', 'settings/settings');
     }
     var _UpdateOverwatch = function () {
         var strCaseDescription = OverwatchAPI.GetAssignedCaseDescription();
@@ -1921,7 +1890,7 @@ _DevPopups();
 		OnHideMainMenu	 					: _OnHideMainMenu,
 		OnShowPauseMenu	 					: _OnShowPauseMenu,
 		OnHidePauseMenu	 					: _OnHidePauseMenu,
-		NavigateToTab	 					: _NavigateToTab,
+		NavigateToTab	 					: NavigateToTab,
 		ShowContentPanel	 				: _ShowContentPanel,
 		OnHideContentPanel	 				: _OnHideContentPanel,
 		GetActiveNavBarButton	 			: _GetActiveNavBarButton,

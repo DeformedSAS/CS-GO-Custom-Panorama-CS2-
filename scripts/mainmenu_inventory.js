@@ -794,7 +794,7 @@ var InventoryPanel = ( function (){
 		var vanityPanel = $( '#JsMainmenu_Vanity' );
 		if ( vanityPanel && UiToolkitAPI.IsPanoramaInECOMode() )
 		{
-			vanityPanel.Pause( true );
+			vanityPanel.Pause( false );
 		}
 	};
 
@@ -1190,15 +1190,17 @@ var InventoryPanel = ( function (){
 		elNotification.BLoadLayout( 'file://{resources}/layout/notification/notification_equip.xml', false, false );
 	};
 
-	var _ShowNotification = function( team, slot, oldItemId, newItemId, bNew )
+	var _ShowNotification = function( slotInt, slotString, prevEquippedItemId, newEquippedItemId )
 	{
-		if ( !bNew || _m_isCapabliltyPopupOpen || $.GetContextPanel().BHasClass( _m_HiddenContentClassname ) )
+		                                                                                                                                                             
+		
+		if ( _m_isCapabliltyPopupOpen )
 		{
 			return;
 		}	
 		
 		var elNotification = $.GetContextPanel().FindChildInLayoutFile( 'InvNotificationEquip' );
-		EquipNotification.ShowEquipNotification( elNotification, slot, newItemId );
+		EquipNotification.ShowEquipNotification( elNotification, slotString, newEquippedItemId );
 	};
 
 	return {
@@ -1239,8 +1241,9 @@ var InventoryPanel = ( function (){
 	$.RegisterEventHandler( 'UnreadyForDisplay', elJsInventory, InventoryPanel.ClosePopups );
 	$.RegisterEventHandler( 'Cancelled', elJsInventory, InventoryPanel.ClosePopups );
 
-	$.RegisterForUnhandledEvent( 'PromptShowSelectItemForCapabilityPopup', InventoryPanel.PromptShowSelectItemForCapabilityPopup );
-	$.RegisterForUnhandledEvent( 'ShowSelectItemForCapabilityPopup', InventoryPanel.ShowSelectItemForCapabilityPopup );
+
+	$.RegisterForUnhandledEvent('PromptShowSelectItemForCapabilityPopup', InventoryPanel.PromptShowSelectItemForCapabilityPopup );
+	$.RegisterForUnhandledEvent('ShowSelectItemForCapabilityPopup', InventoryPanel.ShowSelectItemForCapabilityPopup );
 	$.RegisterForUnhandledEvent( 'UpdateSelectItemForCapabilityPopup', InventoryPanel.UpdateSelectItemForCapabilityPopup );
 	$.RegisterForUnhandledEvent( 'HideSelectItemForCapabilityPopup', InventoryPanel.CloseSelectItemForCapabilityPopup );
 	$.RegisterForUnhandledEvent( 'CapabilityPopupIsOpen', InventoryPanel.SetIsCapabilityPopUpOpen );

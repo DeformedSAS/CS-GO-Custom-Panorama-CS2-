@@ -26,11 +26,9 @@ var MainMenuStore;
             }
 
             if (!storeItems || typeof storeItems !== 'object') {
-                $.Msg('StoreItems.GetStoreItems() returned an invalid object:', storeItems);
                 return;
             }
         } catch (e) {
-            $.Msg('Error accessing StoreItems:', e);
             return;
         }
 
@@ -163,7 +161,6 @@ var MainMenuStore;
                     UpdateItem(elTile, category, i);
                 }
             } catch (e) {
-                $.Msg('Error accessing StoreItems in UpdateItemsInHomeSection:', e);
             }
         }
     }
@@ -194,7 +191,6 @@ var MainMenuStore;
                 }
             }
         } catch (e) {
-            $.Msg('Error in MakeTabsBtnsFromStoreData:', e);
         }
     }
 
@@ -249,7 +245,6 @@ function UpdateDynamicLister(elList, typeKey) {
             let oItemData = StoreItems.GetStoreItemData(typeKey, idx);
             ItemTileStore.Init(elPanel, oItemData);
         } catch (e) {
-            $.Msg('Error in UpdateItem:', e);
         }
     }
 
@@ -266,7 +261,6 @@ function UpdateDynamicLister(elList, typeKey) {
         let elBalance = _m_cp.FindChildInLayoutFile('id-store-nav-wallet');
 
         if (!elBalance) {
-            $.Msg('elBalance element not found!');
             return;
         }
 

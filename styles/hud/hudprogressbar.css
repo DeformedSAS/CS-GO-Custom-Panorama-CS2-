@@ -1,4 +1,4 @@
-/* Prettified by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io */
+
 
 .hud-progress-bar
 {
@@ -6,7 +6,7 @@
     width: 500px;
     height: 120px;
     horizontal-align: center;
-    background-color: hud-blur-bg-color;
+    background-color: cl-hud-wash-color;
     border-radius: 10px;
 }
 

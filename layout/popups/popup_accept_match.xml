@@ -33,10 +33,9 @@
 
 	</snippets>
 
-	<PopupCustomLayout class="accept-match Hidden" 
-					popupbackground="dim" 
+	<PopupCustomLayout class="accept-match" popupbackground="dim"
 					onload="PopupAcceptMatch.Init();"
-					oncancel="">                                                                                                        
+					oncancel="PopupAcceptMatch.OnCustomCancelPopup();">                                                                                                        
 		<Panel class="chat-panel-outer" >
 			<Panel id="id-accept-match-chat-container" class="chat-panel"/>
 		</Panel>
@@ -73,7 +72,7 @@
 				</Panel>
 
 				<Panel class="accept-match__slots-count"> 
-					<Panel id="AcceptMatchSlots" class="accept-match__slots hidden">
+					<Panel id="AcceptMatchSlots" class="accept-match__slots">
 
 						                                                              
 
@@ -81,18 +80,18 @@
 					<Label  id="AcceptMatchPlayersAccepted"  class="accept-match__data__title--details" text=""/>
 				</Panel>
 
-				<Button id="AcceptMatchBtn" class="FlatButton Positive hidden" onactivate="PopupAcceptMatch.OnAcceptMatchPressed();">
+				<Button id="AcceptMatchBtn" class="FlatButton Positive" onactivate="PopupAcceptMatch.OnAcceptMatchPressed();">
 					<Label  id="" text="#match_ready_accept"/>
 				</Button>
 
-				<Panel id="AcceptMatchCountdown" class="accept-match__data__time hidden">
+				<Panel id="AcceptMatchCountdown" class="accept-match__data__time">
 					<Label text="" class="accept-match__data__time__text"/>
 				</Panel>
 
 			</Panel>
 
 
-			<Panel id="Agreement" class="accept-match__agreement" style="visibility:collapse;">
+			<Panel id="Agreement" class="accept-match__agreement" style="visibility:visible;">
 			                                                                        
 				<Image class="right-margin-medium" src="file://{images}/icons/ui/info.svg" textureheight="24" texturewidth="24"/>
 				<Panel class="top-bottom-flow vertical-center">

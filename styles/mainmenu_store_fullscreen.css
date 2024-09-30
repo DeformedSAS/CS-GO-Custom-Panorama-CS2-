@@ -2,12 +2,13 @@
 @define store-home-section-width: 1280px;
 .store-dynamic-lister
 {
-	width: store-home-section-width;
+	width: 100%;
 	height:100%;
 	horizontal-align: center;
 	opacity: 0;
 	visibility: collapse;
 	margin-right: 64px;
+	margin-left: 64px;
 	flow-children: right-wrap;
 	overflow: squish scroll;
 	transition-property: opacity;
@@ -26,11 +27,12 @@
 
 .store-home-container
 {
-	width: store-home-section-width;
+	width: 100%;
 	height: 100%;
 	horizontal-align: center;
 	overflow: squish scroll;
 	margin-right: 64px;
+	margin-left: 64px;
 	padding-bottom: 16px;
 	flow-children:down;
 	padding-right: 32px;
@@ -45,6 +47,8 @@
 	horizontal-align: center;
 	margin-right: 32px;
 	box-shadow: shadowOffset;
+	
+	visibility: collapse;
 }
 
 .store-home-rewards-section.hidden

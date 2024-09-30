@@ -30,10 +30,14 @@
                     <Panel id="MapGroupNewTagYellowLarge" class="map-selection-info__new--star">
                         <Label class="" text="#SFUI_Workshop_New_Map" />
                     </Panel>
-                    <Label id="MapGroupUnrankedTag" class="map-selection-info__new map-selection-info__unranked stratum-font" text="#SFUI_RankType_Modifier_Unranked" />
+                    <Label id="MapGroupUnrankedTag" class="map-selection-info__new map-selection-info__unranked stratum-font hidden" text="#SFUI_RankType_Modifier_Unranked" />
                 </Panel>
                 <Panel id="MapSelectionButton" class="map-selection-btn-container" hittest="false">
                     <Panel id="MapGroupCollectionMultiIcons" class="map-selection-btn__groupmap-icons" />
+                    <Panel class="map-selection-btn__wins">
+                        <Image class="map-selection-btn__wins__image" textureheight="22" texturewidth="-1" src="file://{images}/icons/ui/trophy.svg" />
+                        <Label class="map-selection-btn__wins__label" text="{s:map-win-count}" />
+                    </Panel>
                     <Panel class="map-selection-info">
                         <Panel id="MapGroupWaitTime" class="map-selection-info__wait-time-block hidden">
                             <Image class="map-selection-info__wait-icon" texturewidth="12" textureheight="12" src="file://{images}/icons/ui/recent.svg" />
@@ -352,35 +356,35 @@
                         <Panel id="MapSelectionList" class="map-selection-list map-selection-list-all" />
                     </Panel>
                 </Panel>
-                <Panel id="PlayMenuActionBar" class="play-menu-controls-actions-bar">
-                    <Panel class="play-menu-controls-actions-bar__right">
-                        <Panel class="full-height">
-                            <Panel class="play-menu-controls-action-bar__right__go-cancel right-left-flow">
-                                <Panel class="no-flow vertical-center" style="">
-                                    <Button id="PartyCancelBtn" class="play-menu__playbtn play-menu__playbtn--stopsearch">
-                                        <Panel class="play-menu__playbtn__bg" />
-                                        <Panel class="group-text-with-steam-button">
-                                            <CCSGOSteamInputAction actionset="MenuControls" action="menu_start_match" separatortext="/" controllernumber="1" />
-                                            <Label text="#SFUI_Lobby_Cancel_QueueMode_Search" />
-                                        </Panel>
-                                        <Panel class="play-menu__playbtn__bar" />
-                                        <Panel class="play-menu__playbtn__bar horizontal-align-right" />
-                                    </Button>
-                                    <Button id="StartMatchBtn" class="play-menu__playbtn play-menu__playbtn--startsearch">
-                                        <Panel class="play-menu__playbtn__bg" />
-                                        <Panel class="group-text-with-steam-button">
-                                            <CCSGOSteamInputAction actionset="MenuControls" action="menu_start_match" separatortext="/" controllernumber="1" />
-                                            <Label text="#SFUI_Lobby_StartMatchButton" />
-                                        </Panel>
-                                        <Panel class="play-menu__playbtn__bar" />
-                                        <Panel class="play-menu__playbtn__bar horizontal-align-right" />
-                                    </Button>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                </Panel>
-            </Panel>
-        </Panel>
-    </Panel>
+				<Panel class="play-menu-controls-actions-bar">
+
+
+					<Panel class="play-menu-controls-actions-bar__right">
+
+						<Panel class="full-height">
+					
+							<Panel class="play-menu-controls-action-bar__right__go-cancel right-left-flow">
+
+								<Panel class="no-flow vertical-center" style="padding:10px;">
+
+									<Button id="PartyCancelBtn" class="play-menu__playbtn play-menu__playbtn--stopsearch horizontal-center"  >
+										<Panel class="group-text-with-steam-button">
+											<Label text="#SFUI_Lobby_Cancel_QueueMode_Search" />
+										</Panel>
+									</Button>
+									<Button id="StartMatchBtn" class="play-menu__playbtn play-menu__playbtn--startsearch Positive horizontal-center" >
+										<Panel class="group-text-with-steam-button">
+											<Label text="#SFUI_Lobby_StartMatchButton" />
+										</Panel>
+									</Button>
+								</Panel>
+							</Panel>
+						</Panel>
+
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+
+	</Panel>
 </root>
