@@ -16,13 +16,12 @@ function ShowIntroMovie() {
 function PlayIntroMovie() {
     $("#IntroMoviePlayer").Play();
 
-    // Dispatch sound only when the movie starts playing
     $.DispatchEvent('PlaySoundEffect', 'UIPanorama.cs2_logo', 'MOUSE');
 }
 
 function SkipIntroMovie() {
     $("#IntroMoviePlayer").Stop();
-    HideIntroMovie(); // Call to hide movie when skipped
+    HideIntroMovie(); 
 }
 
 function DestroyMoviePlayer() {
@@ -30,14 +29,10 @@ function DestroyMoviePlayer() {
 }
 
 function HideIntroMovie() {
-    // Call the function to destroy the movie player
     $.Schedule(0.0, DestroyMoviePlayer);
-
-    // Dispatch an event to hide the intro movie
     $.DispatchEvent("CSGOHideIntroMovie");
 }
 
-// Register event handlers
 (function() {  
     $.RegisterForUnhandledEvent("CSGOShowIntroMovie", ShowIntroMovie);
     $.RegisterEventHandler("MoviePlayerPlaybackEnded", $("#IntroMoviePlayer"), HideIntroMovie);

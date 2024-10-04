@@ -1200,13 +1200,25 @@ var MainMenu = ( function() {
         _m_bHasPopupNotification = false;
         _msg('_OnRankUpRedemptionStoreClosed');
     }
-    function _UpdateInventoryBtnAlert() {
-        const aNewItems = AcknowledgeItems.GetItems();
-        const count = aNewItems.length;
-        const elNavBar = $.GetContextPanel().FindChildInLayoutFile('MainMenuNavBarTop'), elAlert = elNavBar.FindChildInLayoutFile('MainMenuInvAlert');
-        elAlert.SetDialogVariable("alert_value", count.toString());
-        elAlert.SetHasClass('hidden', count < 1);
-    }
+	var _UpdateInventoryBtnAlert = function()
+	{
+		var aNewItems = AcknowledgeItems.GetItems();
+
+		                                                                                                                
+		                                                                                  
+		                                                                                              
+		                                                                                       
+		    
+		   	                                
+		    
+		
+		var count = aNewItems.length;
+		var elNavBar = $.GetContextPanel().FindChildInLayoutFile('JsMainMenuNavBar'),
+		elAlert = elNavBar.FindChildInLayoutFile('MainMenuInvAlert');
+
+		elAlert.FindChildInLayoutFile('MainMenuInvAlertText').text = count;
+		elAlert.SetHasClass( 'hidden', count < 1 );
+	};
     function _OnInventoryInspect(id, contextmenuparam) {
         let inspectviewfunc = contextmenuparam ? contextmenuparam : 'primary';
         UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml', `itemid=${id}&inspectonly=true&viewfunc=${inspectviewfunc}`);

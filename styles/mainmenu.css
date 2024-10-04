@@ -209,6 +209,12 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	z-index: 1;
 	overflow: noclip;
 }
+.mainmenu-left-column
+{
+	 transition-property: opacity;
+     transition-duration: .25s;
+     transition-timing-function: ease-in-out;
+}
 
 #VanityControls
 {

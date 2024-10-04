@@ -5,7 +5,7 @@
 	</styles>	
 	<scripts>
 		<include src="file://{resources}/scripts/common/promoted_settings.js" />
-		<include src="file://{resources}/scripts/mainmenu.js" />
+		<include src="file://{resources}/scripts/mainmenu2.js" />
 		<include src="file://{resources}/scripts/common/characteranims.js" />
 		<include src="file://{resources}/scripts/common/iteminfo.js" />
 		<include src="file://{resources}/scripts/common/licenseutil.js" />
@@ -119,7 +119,7 @@
 						<RadioButton id="MainMenuNavBarHome"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
 									group="NavBar"
-									onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' ); $.DispatchEvent('PlayMainMenuMusic', true, true); GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');"
+									onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' ); $.DispatchEvent('PlayMainMenuMusic', true, false); GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');"
 									onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHome', '#tooltip_navbar_home');"
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
@@ -142,7 +142,7 @@
 						
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
 									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsWatch', 'mainmenu_watch'); MainMenu.WatchBtnPressedUpdateAlert();"
+									onactivate="MainMenu.NavigateToTab('JsWatch', 'mainmenu_watch'); MainMenu.WatchBtnPressedUpdateAlert(); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_watch', 'MOUSE' );"
 									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarWatch', '#tooltip_navbar_watch' );"
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/watch_tv.svg" />
@@ -157,7 +157,7 @@
 						<RadioButton id="MainMenuNavBarSettings"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
 									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings');"
+									onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings'); $.DispatchEvent( 'PlaySoundEffect', 'tab_settings_settings', 'MOUSE' );"
 									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarSettings', 'Settings' );"
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/settings.svg" />
@@ -220,8 +220,8 @@
                        <RadioButton id="MainMenuNavBarInventory"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar" 
-									onactivate="MainMenu.NavigateToTab('JsInventory', 'mainmenu_inventory');">
-									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 21; width: 150px; letter-spacing: -1px;" text="#CSGO_MainMenu_Inventory" />
+									onactivate="MainMenu.NavigateToTab('JsInventory', 'mainmenu_inventory'); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_inventory', 'MOUSE' );">
+									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 19; width: 150px; letter-spacing: -1px;" text="#CSGO_MainMenu_Inventory" />
 									<Panel id="MainMenuInvAlert" class="navbar-btn__notification hidden">
 								<Label id="MainMenuInvAlertText" class="navbar-btn__notification-text" text=""/>
 							</Panel>
@@ -233,7 +233,7 @@
 						<RadioButton id="MainMenuNavBarPlay"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
-									onactivate="$.DispatchEvent('OpenPlayMenu');">
+									onactivate="$.DispatchEvent('OpenPlayMenu'); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_play', 'MOUSE' );">
 									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 27; width: 150px; letter-spacing: -1px;" text="#CSGO_MainMenu_Play" />
 							<Panel id="MainMenuPlayAlert" class="navbar-btn__notification hidden">
 							</Panel>
@@ -243,7 +243,7 @@
 						<RadioButton id="MainMenuNavBarStore"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
-									 onactivate="MainMenu.NavigateToTab(&apos;JsMainMenuStore&apos;, &apos;mainmenu_store_fullscreen&apos;); $.DispatchEvent( &apos;PlaySoundEffect&apos;, &apos;UIPanorama.mainmenu_store_fullscreen&apos;, &apos;MOUSE&apos; );">
+									 onactivate="MainMenu.NavigateToTab(&apos;JsMainMenuStore&apos;, &apos;mainmenu_store_fullscreen&apos;); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_store_fullscreen', 'MOUSE' );">
 							<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 21; width: 150px; letter-spacing: -1px;" text="STORE"  />
 							<Panel id="MainMenuStoreAlert" class="navbar-btn__notification hidden">
 								<Label id="MainMenuStoreAlertText" class="navbar-btn__notification-text" text=""/>
@@ -255,8 +255,8 @@
 						<RadioButton id="MainMenuNavBarNews"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsNews', 'mainmenu_news_fullscreen');">
-							<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 21; width: 150px; letter-spacing: -1px;" text="NEWS" />
+									onactivate="MainMenu.NavigateToTab('JsNews', 'mainmenu_news_fullscreen'); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_news_fullscreen', 'MOUSE' );">
+							<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 19; width: 150px; letter-spacing: -1px;" text="NEWS" />
 							<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
 							</Panel>
 							

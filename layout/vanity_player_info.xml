@@ -1,4 +1,4 @@
-<!-- xml reconstructed by Source 2 Viewer 7.0.0.0 - https://valveresourceformat.github.io -->
+
 <root>
 	<styles>
 		<include src="file://{resources}/styles/csgostyles.css" />
@@ -11,7 +11,6 @@
 	<Panel hittest="false" hittestchildren="true" useglobalcontext="true">
 		<Image id="vanity-crown-icon" class="vanity-info-crown-icon" src="file://{images}/icons/ui/lobby_leader.svg" />
 		<Panel class="left-right-flow horizontal-center bottom-margin">
-			<Image id="vanity-prime-icon" class="vanity-info-prime-icon" src="file://{images}/icons/ui/prime.svg" />
 			<Label class="stratum-medium-condensed fontSize-ml fontcolor-white vanity-info-name" text="{s:player_name}" />
 		</Panel>
 		<Panel id="vanity-info-container" class="vanity-info-container" hittest="true">
@@ -28,7 +27,6 @@
 			<Panel class="vanity-info-seperator" />
 			<Panel id="vanity-rating-container" class="vanity-info-skill-group-container">
 				<Panel class="vanity-rating__icon-container">
-					<Frame src="s2r://panorama/layout/rating_emblem.vxml_c" />
 				</Panel>
 			</Panel>
 		</Panel>

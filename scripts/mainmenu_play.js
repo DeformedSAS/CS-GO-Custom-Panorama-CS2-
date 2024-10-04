@@ -12,9 +12,9 @@ var PlayMenu;
 (function (PlayMenu) {
     const k_workshopPanelId = 'gameModeButtonContainer_workshop';
     let _m_inventoryUpdatedHandler;
-    const m_mapSelectionButtonContainers = {};
-    let m_gameModeConfigs = {};
-    let m_arrGameModeRadios = [];
+    var m_mapSelectionButtonContainers = {};
+    var m_gameModeConfigs = {};
+    var m_arrGameModeRadios = [];
     let GetMGDetails;
     let GetGameType;
     const m_bPerfectWorld = (MyPersonaAPI.GetLauncherType() === 'perfectworld');
@@ -105,7 +105,7 @@ var PlayMenu;
                     m_singleSkirmishMapGroup = null;
                 }
                 if (entry.id === "JsDirectChallengeBtn") {
-                    m_gameModeSetting = 'competitive';
+                    m_gameModeSetting = 'premier';
                     _OnDirectChallengeBtn();
                     return;
                 }

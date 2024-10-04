@@ -28,17 +28,7 @@ var MainMenuVanityContextMenu = ( function()
 			return elItem;
 		};
 
-		  
-		                                  
-		  
-		fnAddVanityPopupMenuItem( 'GoToMainMenuScenerySettings', '#GameUI_MainMenuMovieScene_Vanity',
-			function( paramTeam )
-			{
-				$.DispatchEvent( 'MainMenuGoToSettings' );
-				$.DispatchEvent( "SettingsMenu_NavigateToSetting", 'VideoSettings', 'MainMenuMovieSceneSelector' );
-				$.DispatchEvent( 'ContextMenuEvent', '' );
-			}.bind( undefined, team )
-		).AddClass( 'BottomSeparator' );
+
 
 		  
 		                                         
