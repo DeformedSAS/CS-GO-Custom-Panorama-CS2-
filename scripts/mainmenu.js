@@ -129,7 +129,7 @@ var MainMenu = ( function() {
 
 	var _OnShowMainMenu = function()
 	{
-		$.DispatchEvent('PlayMainMenuMusic', true, true );
+		$.DispatchEvent('PlayMainMenuMusic', true, false );
 		 $('#MainMenuNavBarHome').checked = true;
 
 		                                         
@@ -385,7 +385,7 @@ var MainMenu = ( function() {
 
 	var _BCheckTabCanBeOpenedRightNow = function( tab )
 	{
-		if ( tab === 'JsInventory' )
+		if ( tab === 'JsStoreFullscreen' )
 		{
 			var restrictions = LicenseUtil.GetCurrentLicenseRestrictions();
 			if ( restrictions !== false )

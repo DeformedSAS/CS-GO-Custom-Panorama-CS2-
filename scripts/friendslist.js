@@ -234,7 +234,7 @@ var friendsList = (function() {
 		_ShowHideCounter( elSection, count );
 		                                                               
 
-		if( oSettings.hasOwnProperty( 'hide_if_empty' ) && oSettings.hide_if_empty === true && count < 1 )
+		if( oSettings.hasOwnProperty( 'hide_if_empty' ) && oSettings.hide_if_empty === true && count < 0 )
 		{
 			elSection.SetHasClass( 'hidden', true );
 			return;

@@ -9,8 +9,8 @@
 		<include src="file://{resources}/scripts/mainmenu_license.js" />
 	</scripts>
 	<Panel class="mainmenu-license-container">
-		<Label class="mainmenu-license__text mainmenu-license__text--title fontSize-l stratum-medium-condensed" text="{s:restriction_act}" html="true" />
-		<Label class="mainmenu-license__text fontSize-sm stratum-regular-tf" text="{s:restriction}" html="true" />
+		<Label class="mainmenu-license__text mainmenu-license__text--title fontSize-l stratum-medium" text="{s:restriction_act}" html="true" />
+		<Label class="mainmenu-license__text fontSize-sm stratum-regular" text="{s:restriction}" html="true" />
 		<TextButton id="id-mainmenu-license" class="PopupButton vertical-align-bottom Positive" onactivate="MainMenulicense.ActionBuyLicense();" selected="false" html="true" text="#Store_Get_License" />
 	</Panel>
 </root>

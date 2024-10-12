@@ -1,4 +1,3 @@
-/* Prettified by Source 2 Viewer 10.0.0.0 - https://valveresourceformat.github.io */
 
 .itemtile-store
 {
@@ -425,7 +424,7 @@
 	blur: fastgaussian( 2, 2, 2);
 	opacity: 1;
 	brightness: .5;
-	visibility: visible;
+	visibility: collapse;
 	transition-property: brightness;
 	transition-duration: .2s;
 	transition-timing-function: ease-in-out;

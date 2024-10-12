@@ -101,32 +101,39 @@ var MainMenu = ( function() {
 			_m_jobFetchTournamentData = null;
 		}
 	}
+var _SetBackgroundMovie = function() {
+    var videoPlayer = $('#MainMenuMovie'); // don't forget to remember the name of the panel id... like i did so it took me a bit to notice that the panel name here is wrong kekw...
+    var background = $('#MainMenuBackground'); // get the background element
+    if (!(videoPlayer && videoPlayer.IsValid() && background && background.IsValid())) {
+        return; // this should exit when the videoplayer is valid.
+    }
+    _PauseMainMenuCharacter();
+    // start fade by adding opacity first
+    background.style.opacity = '0'; // Start fading out
 
-	var _SetBackgroundMovie = function()
-	{
-		var videoPlayer = $( '#MainMenuMovie' );
-		if ( !( videoPlayer && videoPlayer.IsValid() ) )
-			return;
+    // schedule the background movie change after fade-out duration
+    $.Schedule(0.6, function() { // waits for fade-out to complete (matches transition duration)
+        var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
+		
 
-		                                                                                                
-		var backgroundMovie = GameInterfaceAPI.GetSettingString( 'ui_mainmenu_bkgnd_movie' );
+        // sets the new video sorse
+        videoPlayer.SetAttributeString('data-type', backgroundMovie);
+        videoPlayer.SetMovie("file://{resources}/videos/" + backgroundMovie + ".webm");
+        videoPlayer.SetSound('UIPanorama.BG_' + backgroundMovie);
+        videoPlayer.Play();
 
-		                                                                                     
-		videoPlayer.SetAttributeString( 'data-type', backgroundMovie );
+        var vanityPanel = $('#JsMainmenu_Vanity');
+        if (vanityPanel && vanityPanel.IsValid()) {
+            _SetVanityLightingBasedOnBackgroundMovie(vanityPanel);
+            _ForceRestartVanity();
+        }
 
-		                          
-		videoPlayer.SetMovie( "file://{resources}/videos/" + backgroundMovie + ".webm" );
-		videoPlayer.SetSound( 'UIPanorama.BG_' + backgroundMovie );
-		videoPlayer.Play();
-
-		                                                     
-		var vanityPanel = $( '#JsMainmenu_Vanity' );
-		if ( vanityPanel && vanityPanel.IsValid() )
-		{
-			_SetVanityLightingBasedOnBackgroundMovie( vanityPanel );
-			_ForceRestartVanity();
-		}
-	};
+        // schedule the fade-in effect after a small delay
+        $.Schedule(0.1, function() { // small delay before starting to fade in
+            background.style.opacity = '1'; // restores opacity
+        });
+    });
+};
 
 	var _OnShowMainMenu = function()
 	{
@@ -471,41 +478,55 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
         OnHomeButtonPressed();
         return;
     }
-        if (tab === 'JsPlayerStats') {
-            return;
-        }
-        $.DispatchEvent('PlayMainMenuMusic', true, false);
-        GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
-        _LoadTab(tab, XmlName, setActiveSection);
-        if (_m_activeTab !== tab) {
-            if (XmlName && _m_bPreLoadedTabs) {
-                let soundName = '';
-                if (XmlName === 'settings/settings_video') {
-                    if (setActiveSection !== '') {
-                        $.GetContextPanel().FindChildInLayoutFile(tab).SetAttributeString('set-active-section', setActiveSection);
-                    }
-                    soundName = 'UIPanorama.tab_mainmenu_inventory';
+    if (tab === 'JsPlayerStats') {
+        return;
+    }
+    $.DispatchEvent('PlayMainMenuMusic', true, false);
+    GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
+    _LoadTab(tab, XmlName, setActiveSection);
+
+    if (_m_activeTab !== tab) {
+        if (XmlName && _m_bPreLoadedTabs) {
+            let soundName = '';
+            if (XmlName === 'mainmenu_store_fullscreen') {
+                if (setActiveSection !== '') {
+                    $.GetContextPanel().FindChildInLayoutFile(tab).SetAttributeString('set-active-section', setActiveSection);
                 }
-                else if (XmlName === 'loadout') {
-                    soundName = 'UIPanorama.inventory_inspect_close';
-                }
-                else {
-                    soundName = 'tab_' + XmlName.replace('/', '_');
-                }
-                $.DispatchEvent('PlaySoundEffect', soundName, 'MOUSE');
+                soundName = 'UIPanorama.tab_mainmenu_store_fullscreen';
+                $.DispatchEvent('UpdateXpShop');
             }
+            else if (XmlName === 'loadout_grid') {
+                soundName = 'UIPanorama.tab_mainmenu_loadout';
+            }
+            else {
+                soundName = 'tab_' + XmlName.replace('/', '_');
+            }
+            $.DispatchEvent('PlaySoundEffect', soundName, 'MOUSE');
+        }
+
+        // this should fix the stupid sound shit on the panels.. why the fuck did valve even change this shit in cs2... spoiler alert it fixes it... wow such a simple fix that totally didn't take me 2 hours to figure out...
+        if (_m_activeTab !== tab) {
+            if (XmlName) {
+                $.DispatchEvent('PlaySoundEffect', 'tab_' + XmlName.replace('/', '_'), 'MOUSE');
+            }
+
             if (_m_activeTab) {
-                const panelToHide = $.GetContextPanel().FindChildInLayoutFile(_m_activeTab);
+                var panelToHide = $.GetContextPanel().FindChildInLayoutFile(_m_activeTab);
                 panelToHide.AddClass('mainmenu-content--hidden');
             }
+
             _m_activeTab = tab;
-            const activePanel = $.GetContextPanel().FindChildInLayoutFile(tab);
+            var activePanel = $.GetContextPanel().FindChildInLayoutFile(tab);
             activePanel.RemoveClass('mainmenu-content--hidden');
             activePanel.visible = true;
             activePanel.SetReadyForDisplay(true);
+
         }
+
         _ShowContentPanel();
-	};
+    }
+};
+
 
 
 	var _ShowContentPanel = function()
@@ -701,7 +722,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 		_AddStream();
 
 		                             
-		var elStore = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsMiniStorePanel' );
+		var elStore = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsLeftColumn' );
 		elStore.BLoadLayout( 'file://{resources}/layout/mainmenu_left_column.xml', false, false );
 
 		                             
@@ -1089,7 +1110,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
         if (MatchStatsAPI.GetUiExperienceType())
             return;
         _InsureSessionCreated();
-        NavigateToTab('JsPlay', 'mainmenu_play');
+        NavigateToTab('JsPlay', 'mainmenu_play', 'Play-official');
     }
     function _OpenWatchMenu() {
         NavigateToTab('JsWatch', 'mainmenu_watch');
@@ -1132,8 +1153,6 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
     function OnEscapeKeyPressed() {
         if (_m_activeTab)
             OnHomeButtonPressed();
-        else
-            GameInterfaceAPI.ConsoleCommand("gameui_hide");
     }
     function _InventoryUpdated() {
         _ForceRestartVanity();
@@ -1141,8 +1160,6 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
             return;
         }
         _UpdateInventoryBtnAlert();
-        UpdateStoreAlert();
-        _msg('__InventoryUpdated');
     }
     function _CheckRankUpRedemptionStore() {
         if (_m_bHasPopupNotification)
@@ -1151,7 +1168,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
             return;
         if (!$('#MainMenuNavBarHome').checked)
             return;
-        const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex("PersonalStore", 0);
+        const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex("PersonalStore", 1);
         if (!objStore)
             return;
         if (!MyPersonaAPI.IsConnectedToGC() || !MyPersonaAPI.IsInventoryValid())
@@ -1169,13 +1186,25 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
         _m_bHasPopupNotification = false;
         _msg('_OnRankUpRedemptionStoreClosed');
     }
-    function _UpdateInventoryBtnAlert() {
-        const aNewItems = AcknowledgeItems.GetItems();
-        const count = aNewItems.length;
-        const elNavBar = $.GetContextPanel().FindChildInLayoutFile('MainMenuNavBarTop'), elAlert = elNavBar.FindChildInLayoutFile('MainMenuInvAlert');
-        elAlert.SetDialogVariable("alert_value", count.toString());
-        elAlert.SetHasClass('hidden', count < 1);
-    }
+	var _UpdateInventoryBtnAlert = function()
+	{
+		var aNewItems = AcknowledgeItems.GetItems();
+
+		                                                                                                                
+		                                                                                  
+		                                                                                              
+		                                                                                       
+		    
+		   	                                
+		    
+		
+		var count = aNewItems.length;
+		var elNavBar = $.GetContextPanel().FindChildInLayoutFile('JsMainMenuNavBar'),
+		elAlert = elNavBar.FindChildInLayoutFile('MainMenuInvAlert');
+
+		elAlert.FindChildInLayoutFile('MainMenuInvAlertText').text = count;
+		elAlert.SetHasClass( 'hidden', count < 1 );
+	};
     function _OnInventoryInspect(id, contextmenuparam) {
         let inspectviewfunc = contextmenuparam ? contextmenuparam : 'primary';
         UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml', `itemid=${id}&inspectonly=true&viewfunc=${inspectviewfunc}`);
@@ -1696,7 +1725,7 @@ _DevPopups();
 
 		if ( vanityPanel && UiToolkitAPI.IsPanoramaInECOMode() )
 		{
-			vanityPanel.Pause( false );
+			vanityPanel.Pause( true );
 		}
 	}
 

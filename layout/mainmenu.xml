@@ -142,7 +142,7 @@
 						
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
 									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsWatch', 'mainmenu_watch'); MainMenu.WatchBtnPressedUpdateAlert(); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_watch', 'MOUSE' );"
+									onactivate="MainMenu.NavigateToTab('JsWatch', 'mainmenu_watch'); MainMenu.WatchBtnPressedUpdateAlert();"
 									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarWatch', '#tooltip_navbar_watch' );"
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/watch_tv.svg" />
@@ -157,7 +157,7 @@
 						<RadioButton id="MainMenuNavBarSettings"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
 									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings'); $.DispatchEvent( 'PlaySoundEffect', 'tab_settings_settings', 'MOUSE' );"
+									onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings');"
 									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarSettings', 'Settings' );"
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/settings.svg" />
@@ -220,7 +220,7 @@
                        <RadioButton id="MainMenuNavBarInventory"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar" 
-									onactivate="MainMenu.NavigateToTab('JsInventory', 'mainmenu_inventory'); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_inventory', 'MOUSE' );">
+									onactivate="MainMenu.NavigateToTab('JsInventory', 'mainmenu_inventory');">
 									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 19; width: 150px; letter-spacing: -1px;" text="#CSGO_MainMenu_Inventory" />
 									<Panel id="MainMenuInvAlert" class="navbar-btn__notification hidden">
 								<Label id="MainMenuInvAlertText" class="navbar-btn__notification-text" text=""/>
@@ -233,7 +233,7 @@
 						<RadioButton id="MainMenuNavBarPlay"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
-									onactivate="$.DispatchEvent('OpenPlayMenu'); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_play', 'MOUSE' );">
+									onactivate="$.DispatchEvent('OpenPlayMenu');">
 									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 27; width: 150px; letter-spacing: -1px;" text="#CSGO_MainMenu_Play" />
 							<Panel id="MainMenuPlayAlert" class="navbar-btn__notification hidden">
 							</Panel>
@@ -243,7 +243,7 @@
 						<RadioButton id="MainMenuNavBarStore"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
-									 onactivate="MainMenu.NavigateToTab(&apos;JsMainMenuStore&apos;, &apos;mainmenu_store_fullscreen&apos;); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_store_fullscreen', 'MOUSE' );">
+									onactivate="MainMenu.NavigateToTab('JsMainMenuStore', 'mainmenu_store_fullscreen');">
 							<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 21; width: 150px; letter-spacing: -1px;" text="STORE"  />
 							<Panel id="MainMenuStoreAlert" class="navbar-btn__notification hidden">
 								<Label id="MainMenuStoreAlertText" class="navbar-btn__notification-text" text=""/>
@@ -255,7 +255,7 @@
 						<RadioButton id="MainMenuNavBarNews"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn"
 									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsNews', 'mainmenu_news_fullscreen'); $.DispatchEvent( 'PlaySoundEffect', 'tab_mainmenu_news_fullscreen', 'MOUSE' );">
+									onactivate="MainMenu.NavigateToTab('JsNews', 'mainmenu_news_fullscreen');">
 							<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 19; width: 150px; letter-spacing: -1px;" text="NEWS" />
 							<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
 							</Panel>

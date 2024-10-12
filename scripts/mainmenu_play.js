@@ -1904,7 +1904,7 @@ function _ShowCancelSearchButton(isSearching, isHost) {
 	{
 		UiToolkitAPI.HideTextTooltip();
 	};
-function _LazyCreateWorkshopTab()
+	function _LazyCreateWorkshopTab()
 	{
 		var panelId = k_workshopPanelId;
 

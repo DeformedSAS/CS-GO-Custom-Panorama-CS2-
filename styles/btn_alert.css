@@ -58,7 +58,9 @@
 
 .navbar-btn__notification-text
 {
-	font-size: 12px;
+	font-size: 16px;
+	font-family: Stratum2;
+	font-weight: medium;
 	vertical-align: middle;
 	horizontal-align: center;
 	text-align: center;

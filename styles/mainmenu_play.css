@@ -1475,76 +1475,72 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 
 .play-menu-controls-actions-bar__right
 {
-	flow-children :right;
-	height: 100%;
-	horizontal-align: right;
+    flow-children:right;
+    height: 100%;
+    horizontal-align: right;
+    margin-right: 20px;
 }
 
 .play-menu-controls-action-bar__right__go-cancel
 {
-	padding-right: 24px;
-	height: 100%;
-	vertical-align: center;
-	padding-left: 16px;
-
+    height: 100%;
+    vertical-align: center;
 }
 
 .play-menu__playbtn
 {
-	horizontal-align: right;
-	vertical-align: center;
-	box-shadow: 0px 0px 12px 0px rgba(4, 120, 4, 0.767));
-	transform: scale3D( 1, 1, 1 );
-
-    wash-color: rgb(33, 180, 33);
-    brightness: 1.5;
-    background-repeat: repeat;
-    background-position: 20% 60%;
-    background-size: auto auto;
-    background-image: url("file://{resources}/videos/linemap.webm");
-    background-img-opacity: .5;
-
-	min-width: 300px;
-	flow-children: right;
-
-	transition-property: opacity, box-shadow, wash-color, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
-}
-
- #JsDirectChallengeBtn
- {
-	 visibility: collapse;
- }
-
-.competitive.official #JsDirectChallengeBtn,
-{
-	visibility: visible;
+    horizontal-align: right;
+    vertical-align: center;
+    min-width: 300px;
+    margin: 12px 0px;
+    box-shadow: 0px 0px 16px 0px #00000041;
+	    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(9, 219, 9, 0.336);
+    background-color: rgba(9, 49, 9, 0.651);
+	overflow: visible;
+    transition-property: opacity, box-shadow, wash-color, transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn:hover
 {
-	sound: "UIPanorama.mainmenu_rollover";
+    sound: "UIPanorama.mainmenu_rollover";
+}
+
+.play-menu__playbtn:hover .play-menu__playbtn__bar
+{
+    brightness: 2;
+    box-shadow: 0px 0px 124px 5px rgba(4, 179, 4, 0.637);
+	overflow: visible;
+    transition-property: brightness, box-shadow;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.pressed
 {
-	                           
-	transform: translateY( -0px ) rotateX(100deg);
-	opacity: 0;
-	transition-property: opacity, box-shadow, wash-color, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+    transform: translateY( -0px ) rotateX(100deg);
+    opacity: 0;
+    transition-property: opacity, box-shadow, wash-color, transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
 .play-menu__playbtn.hidden
 {
-	opacity: 0;
-	visibility: collapse;
+    opacity: 0;
+    visibility: collapse;
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
 
-	transition-property: opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+.play-menu__playbtn:disabled
+{
+    box-shadow: none;
+    wash-color: disabledColor;
 }
 
 .play-menu__playbtn Label
@@ -1564,47 +1560,85 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     transition-timing-function: ease-in-out;
 }
 
-.play-menu__playbtn CCSGOSteamInputAction .steam-button-glyph 
+.play-menu__playbtn .play-menu__playbtn__bar
 {
-	width: 28px;
-	height: 28px;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.075);
+    box-shadow: 0px 0px 64px 5px rgba(6, 141, 6, 0.767);
+	overflow: visible;
+	    position: relative;
+    z-index: 1;
+    transition-property: brightness, box-shadow;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
-.play-menu__playbtn Label.steam-button-name
+.play-menu__playbtn .play-menu__playbtn__bg
 {
-	visibility: collapse;
+    width: 100%;
+    height: 100%;
+    wash-color: rgb(33, 180, 33);
+    brightness: 1.5;
+    background-repeat: repeat;
+    background-position: 20% 60%;
+    background-size: auto auto;
+    background-image: url("file://{resources}/videos/linemap.webm");
+    background-img-opacity: .5;
+    transition-property: transform;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
 }
 
-
-.play-menu__playbtn:hover
+.play-menu__playbtn .play-menu__playbtn__bg CCSGOSteamInputAction .steam-button-glyph
 {
-	box-shadow: 0px 0px 12px 0px rgba(4, 179, 4, 0.637);
-
-	transition-property: opacity, box-shadow, wash-color, transform;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
+    width: 28px;
+    height: 28px;
 }
 
-.play-menu__playbtn--startsearch:disabled
+.play-menu__playbtn .play-menu__playbtn__bg Label.steam-button-name
 {
-	box-shadow: none;
-	wash-color: disabledColor;
+    visibility: collapse;
 }
 
-.group-text-with-steam-button
+.play-menu__playbtn .group-text-with-steam-button
 {
-	horizontal-align: center;
-	flow-children:right;
+    horizontal-align: center;
+    flow-children:right;
+    z-index: 2;
 }
-
 
 .play-menu__playbtn.play-menu__playbtn--stopsearch
+{
+    border: 1px solid rgba(204, 11, 11, 0.336);
+}
+
+.play-menu__playbtn.play-menu__playbtn--stopsearch:disabled
+{
+    transform: translateY( 64px );
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.play-menu__playbtn.play-menu__playbtn--stopsearch:hover .play-menu__playbtn__bar
+{
+    box-shadow: 0px 0px 124px 5px rgba(179, 39, 4, 0.637);
+	overflow: visible;
+	    position: relative;
+    z-index: 1;
+}
+
+.play-menu__playbtn.play-menu__playbtn--stopsearch .play-menu__playbtn__bar
 {
     background-color: rgba(190, 16, 16, 0.24);
-    box-shadow: 0px 0px 12px 0px rgba(109, 34, 34, 0.767);
+    box-shadow: 0px 0px 64px 5px rgba(109, 34, 34, 0.767);
+	    position: relative;
+    z-index: 1;
 }
 
-.play-menu__playbtn.play-menu__playbtn--stopsearch
+.play-menu__playbtn.play-menu__playbtn--stopsearch .play-menu__playbtn__bg
 {
     wash-color: rgb(180, 33, 33);
 }
@@ -1615,21 +1649,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     font-size: 24px;
     padding: 12px 0px;
     text-overflow: ellipsis;
-}
-
-.play-menu__playbtn--stopsearch:hover
-{
-	box-shadow: 0px 0px 12px 0px rgba(150, 34, 34, 0.767);
-}
-
-.play-menu__playbtn--stopsearch:disabled
-{
-	transform: translateY( 100% );
-	opacity: 0;
-
-	transition-property: transform, opacity;
-	transition-duration: .25s;
-	transition-timing-function: ease-in-out;
 }
 
 .play-menu__botdifficulty

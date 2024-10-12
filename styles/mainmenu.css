@@ -78,7 +78,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	width: 100%;
 	height: 32px;
 	tooltip-position: bottom;
-	tooltip-body-position: 50% 100%;
+	tooltip-body-position: 50% 50%;
 }
 
 .MainMenuNotification.hidden
@@ -150,29 +150,36 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
                                                                                
                                                                         
                         
-#MainMenuBackground
-{
-	horizontal-align: center;
-	vertical-align: middle;
-	brightness: 1;
-
-	transition-property: brightness;
-	transition-duration: .6s;
-	transition-timing-function: ease-in-out;
+#MainMenuBackground {
+    width: 1920px; 
+    height: 1080px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    opacity: 1;
+    transition-property: opacity; 
+    transition-duration: 0.6s; 
+    transition-timing-function: ease-in-out; 
 }
+
 
 #MainMenuBackground.Blur,
 #MainMenuBackground.Dim
 {
 }
 
-.mainmenu-movie
-{
-	                                                                                                                                                               
-	width: 1920px;
-	height: 1080px;
-	overflow: noclip;
-	                       
+.mainmenu-movie {
+    width: 1920px;
+    height: 1080px;
+    overflow: noclip;
+    filter: brightness(1); 
+    transition-property: filter; 
+    transition-duration: 1.0s; 
+    transition-timing-function: ease-in-out; 
+}
+
+.fade {
+    filter: brightness(0); 
 }
 
 .AspectRatio4x3 .mainmenu-movie,
@@ -209,7 +216,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	z-index: 1;
 	overflow: noclip;
 }
-.mainmenu-left-column
+#id-mainmenu-mini-store-panel
 {
 	 transition-property: opacity;
      transition-duration: .25s;
@@ -525,6 +532,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
     vertical-align: center;
     horizontal-align: center;
     text-align: center;
+	text-shadow: 1px 2px 1px;
     letter-spacing: 0px;
     transform: translateY(0px);
 	transition-property: background-color;
@@ -746,12 +754,13 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .mainmenu-content
 {
-	horizontal-align: left;
-	vertical-align: bottom;
-	width: 100%;
-	height: 94.1%;
-	visibility: visible;
-	margin-left: 0px;
+    horizontal-align: left;
+    vertical-align: bottom;
+    width: 100%;
+    height: 100%;
+    position: 0px 0px 0px;
+    visibility: visible;
+    margin-left: 0px;
 	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
 
 	transition-property: position, clip, height;
@@ -796,86 +805,74 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	background-color: blurBackgroundColor;
 }
 
-.mainmenu-content__container
-{
+.mainmenu-content__container {
 	flow-children: down;
 	width: 100%;
 	height: 100%;
 	opacity: 1;
+	padding-top: 64px;
 	background-color: rgba(0, 0, 0, 0.75);
-    background-image: url("file://{images}/backgrounds/bluedots_large.png");
+	background-image: url("file://{images}/backgrounds/bluedots_large.png");
 	background-size: backgroundDotsSize;
-    background-img-opacity: .01;
-	transform: translatex( 0% );
-
+	background-img-opacity: .01;
+	transform: translateX(0%); /* Default: panel is in place */
 	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
-.mainmenu-content__container--nopadding
-{
-	padding-right:0px;
+.mainmenu-content__container--nopadding {
+	padding-right: 0px;
 	padding-left: 0px;
-
 	transition-property: none;
 	transition-duration: 0.0s;
 }
 
-CSGOEndOfMatch.mainmenu-content__container
-{
+CSGOEndOfMatch.mainmenu-content__container {
 	padding-right: 0px;
 	padding-left: 0px;
 }
 
-.mainmenu-content__container--inspect
-{
+.mainmenu-content__container--inspect {
 	padding-right: 0px;
 	padding-left: 0px;
+	padding-top: 0px;
 }
 
-.mainmenu-content__container VerticalScrollBar
-{
+.mainmenu-content__container VerticalScrollBar {
 	margin-right: 16px;
 }
 
-                                                                
-.mainmenu-content--hidden
-{
+.mainmenu-content--hidden {
 	opacity: 0;
 	sound: "UIPanorama.submenu_leveloptions_slidein";
-	
 	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
-.mainmenu-content--popuptab
-{
-    transform: translatey( 0% );
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    background-color: rgba(0, 0, 0, 0);
-    transition-property: opacity, transform;
-    transition-duration: .25s;
-    transition-timing-function: ease-in-out;
+.mainmenu-content--popuptab {
+	transform: translateY(0%);
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgba(0, 0, 0, 0);
+	transition-property: opacity, transform;
+	transition-duration: .5s;
+	transition-timing-function: ease-in-out;
 }
 
-.mainmenu-content--popuptab.mainmenu-content--hidden
-{
+.mainmenu-content--popuptab.mainmenu-content--hidden {
 	opacity: 0;
-	transform: translatey( 100% );
+	transform: translateY(100%);
 	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
-	
 	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
-.mainmenu-content--popuptab__title
-{
+.mainmenu-content--popuptab__title {
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 20px;
@@ -884,53 +881,62 @@ CSGOEndOfMatch.mainmenu-content__container
 	font-family: stratum2Font;
 }
 
-.mainmenu-content--shrunk
-{
+.mainmenu-content--shrunk {
 	height: 984px;
-
 	transition-property: height;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
-.mainmenu-content__background-color
-{
+.mainmenu-content__background-color {
 	background-color: contentPanelBackground;
 	transition-property: background-color;
 	transition-duration: .25s;
 }
 
-.mainmenu-content__background-color--dark
-{
+.mainmenu-content__background-color--dark {
 	transition-property: background-color;
 	transition-duration: .25s;
 }
 
-.mainmenu_news_container
-{
-	width: 720px;
-	height: 100%;
-	margin: 24px 0px 24px 24px;
-	position: 0px 0px 0px;
-	vertical-align: bottom;
-	flow-children: down;
+.mainmenu_news_container {
+    width: 720px;
+    height: 100%;
+    margin: 24px 0px 24px 24px;
+    position: relative;
+    transform: translateX(0);
+    opacity: 1; 
+    visibility: visible;
 
-	opacity: 1;
-	visibility: visible;
+    transition-property: opacity, transform;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
 }
 
-.mainmenu_news_container-movedown
-{
-	position: 0px 96px 0px;
-
+.mainmenu_news_container-movedleft {
+    transform: translateX(-100%);
 }
 
 .mainmenu_news_container.hidden,
 .mainmenu_active-mission-container.hidden,
-.mainmenu_stream_container.hidden
-{
-	opacity: 0;
-	transform: scale3d( .5, .5, 5 );
+.mainmenu_stream_container.hidden {
+    opacity: 0; 
+    transform: translateX(-100%); 
+}
+
+.mainmenu-left_column {
+  width: 200px;
+  height: 100px;
+  background-color: lightblue;
+  position: absolute;
+  left: 0;
+  transition: transform 1s ease;
+  transform: translateX(0);
+}
+
+
+.mainmenu-left_column:hover {
+  transform: translateX(100%); 
 }
 
 .mainmenu_active-mission-container
@@ -1190,7 +1196,7 @@ RadioButton.content-navbar__tabs__btn--small Label
 .content-navbar__tabs__toggle-button:selected .TickBox
 {
 	height: 18px;
-	background-image: url("s2r://panorama/images/icons/ui/checkbox.vsvg");
+	background-image: url("file://{images}/icons/ui/checkbox.svg");
 	background-size: 18px 18px;
 	background-color: None;
 	box-shadow: #00000000 2px 0px 3px 0px;

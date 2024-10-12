@@ -297,14 +297,8 @@
                                 <TooltipPanel tooltip="#tooltip_permission_settings_explain" class="vertical-center">
                                     <Frame id="PermissionsSettings" class="btn-toggle-slider--playmenu" src="file://{resources}/layout/slider_toggle.xml" />
                                 </TooltipPanel>
-                                <TooltipPanel id="id-play-menu-toggle-ranked-tooltip" tooltip="#tooltip_prime_only_3" class="vertical-center">
-                                    <Frame id="id-play-menu-toggle-ranked" class="btn-toggle-slider--playmenu" src="file://{resources}/layout/slider_toggle.xml" />
-                                </TooltipPanel>
-                                <TooltipPanel id="Infinite Ammo" class="vertical-center">
-                                    <Frame id="id-play-menu-practicesettings-infammo" class="btn-toggle-slider--playmenu" src="file://{resources}/layout/slider_toggle.xml" />
-                                </TooltipPanel>
-                                <TooltipPanel id="Infinite Warmup" class="vertical-center">
-                                    <Frame id="id-play-menu-practicesettings-infwarmup" class="btn-toggle-slider--playmenu" src="file://{resources}/layout/slider_toggle.xml" />
+                                <TooltipPanel id="id-play-menu-toggle-prime" html="true" class="vertical-center">
+                                    <Frame id="id-play-menu-toggle-slider" class="btn-toggle-slider--playmenu" src="file://{resources}/layout/slider_toggle.xml" />
                                 </TooltipPanel>
                                 <Button id="PlayMenulLeaderboards" class="play-menu-option-btn" style="horizontal-align:left;">
                                     <Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/graph.svg" />
@@ -356,35 +350,36 @@
                         <Panel id="MapSelectionList" class="map-selection-list map-selection-list-all" />
                     </Panel>
                 </Panel>
-				<Panel class="play-menu-controls-actions-bar">
-
-
-					<Panel class="play-menu-controls-actions-bar__right">
-
-						<Panel class="full-height">
-					
-							<Panel class="play-menu-controls-action-bar__right__go-cancel right-left-flow">
-
-								<Panel class="no-flow vertical-center" style="padding:10px;">
-
-									<Button id="PartyCancelBtn" class="play-menu__playbtn play-menu__playbtn--stopsearch horizontal-center"  >
-										<Panel class="group-text-with-steam-button">
-											<Label text="#SFUI_Lobby_Cancel_QueueMode_Search" />
-										</Panel>
-									</Button>
-									<Button id="StartMatchBtn" class="play-menu__playbtn play-menu__playbtn--startsearch Positive horizontal-center" >
-										<Panel class="group-text-with-steam-button">
-											<Label text="#SFUI_Lobby_StartMatchButton" />
-										</Panel>
-									</Button>
-								</Panel>
-							</Panel>
-						</Panel>
-
-					</Panel>
-				</Panel>
-			</Panel>
-		</Panel>
-
-	</Panel>
+                <Panel id="PlayMenuActionBar" class="play-menu-controls-actions-bar">
+                    <Panel class="play-menu-controls-actions-bar__right">
+                        <Panel class="full-height">
+                            <Panel class="play-menu-controls-action-bar__right__go-cancel right-left-flow">
+                                <Panel class="no-flow vertical-center" style="">
+                                    <Button id="PartyCancelBtn" class="play-menu__playbtn play-menu__playbtn--stopsearch">
+                                        <Panel class="play-menu__playbtn__bg" />
+                                        <Panel class="group-text-with-steam-button">
+                                            <CCSGOSteamInputAction actionset="MenuControls" action="menu_start_match" separatortext="/" controllernumber="1" />
+                                            <Label text="#SFUI_Lobby_Cancel_QueueMode_Search" />
+                                        </Panel>
+                                        <Panel class="play-menu__playbtn__bar" />
+                                        <Panel class="play-menu__playbtn__bar horizontal-align-right" />
+                                    </Button>
+                                    <Button id="StartMatchBtn" class="play-menu__playbtn play-menu__playbtn--startsearch">
+                                        <Panel class="play-menu__playbtn__bg" />
+                                        <Panel class="group-text-with-steam-button">
+                                            <CCSGOSteamInputAction actionset="MenuControls" action="menu_start_match" separatortext="/" controllernumber="1" />
+                                            <Label text="#SFUI_Lobby_StartMatchButton" />
+                                        </Panel>
+                                        <Panel class="play-menu__playbtn__bar" />
+                                        <Panel class="play-menu__playbtn__bar horizontal-align-right" />
+                                    </Button>
+                                </Panel>
+                            </Panel>
+                        </Panel>
+                    </Panel>
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
 </root>
+
