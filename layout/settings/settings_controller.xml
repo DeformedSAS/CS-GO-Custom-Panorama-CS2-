@@ -38,7 +38,7 @@
 					                           
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickEnabled" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="joystick_force_disabled_set_from_options">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="joystick_force_disabled_set_from_options">
 							<Label text="#SFUI_Settings_Enabled" id="Ctrlrenablecontroller0" value="0"/>
 							<Label text="#SFUI_Settings_Disabled" id="Ctrlrenablecontroller1" value="1"/>
 						</CSGOSettingsEnumDropDown>
@@ -48,7 +48,7 @@
 					                  
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickLookType" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="joy_inverty">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="joy_inverty">
 							<Label text="#SFUI_JoystickNormal" id="Ctrlrlooktype0" value="0"/>
 							<Label text="#SFUI_JoystickInverted" id="Ctrlrlooktype1" value="1"/>
 						</CSGOSettingsEnumDropDown>
@@ -58,7 +58,7 @@
 					                         
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickMoveLookSticks" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="joy_movement_stick">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="joy_movement_stick">
 							<Label text="#SFUI_Right_Handed" id="Ctrlrmovelook0" value="0"/>
 							<Label text="#SFUI_Left_Handed" id="Ctrlrmovelook1" value="1"/>
 							<Label text="#SFUI_Joystick_Legacy" id="Ctrlrmovelook2" value="2"/>
@@ -69,7 +69,7 @@
 					                  
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickDuckMode" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="option_duck_method">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="option_duck_method">
 							<Label text="#SFUI_Hold" id="Ctrlrduckmode0" value="0"/>
 							<Label text="#SFUI_Toggle" id="Ctrlrduckmode1" value="1"/>
 						</CSGOSettingsEnumDropDown>
@@ -79,7 +79,7 @@
 					                   
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickSpeedMode" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="option_speed_method">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="option_speed_method">
 							<Label text="#SFUI_Hold" id="Ctrlrspeedmode0" value="0"/>
 							<Label text="#SFUI_Toggle" id="Ctrlrspeedmode1" value="1"/>
 						</CSGOSettingsEnumDropDown>

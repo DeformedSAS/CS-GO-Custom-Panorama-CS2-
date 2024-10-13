@@ -116,67 +116,69 @@
 				<CSGOBlurTarget id="MainMenuNavBarTop" class="mainmenu-navbar-container" blurrects="CSGOLoadingScreen">
 					<Panel id="JsMainMenuNavBar" class="mainmenu-navbar">
 						                                            
-						<RadioButton id="MainMenuNavBarHome"
-									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
-									group="NavBar"
-									onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' ); $.DispatchEvent('PlayMainMenuMusic', true, false); GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');"
-									onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHome', '#tooltip_navbar_home');"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
-							
-							
-							</RadioButton>
-							
-							<RadioButton id="MainMenuNavBarHomePause mainmenu-top-navbar__radio-iconbtn"
-									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn PauseMenuModeOnly"
-									group="NavBar"
-									onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' );"
-									onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHome', '#tooltip_navbar_home');"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
-							
-							
-						</RadioButton>
-						                                             
-						<RadioButton id="MainMenuNavBarWatch"
-						
-									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
-									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsWatch', 'mainmenu_watch'); MainMenu.WatchBtnPressedUpdateAlert();"
-									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarWatch', '#tooltip_navbar_watch' );"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/watch_tv.svg" />
-							<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
-								<Label id="MainMenuWatchAlertText" class="navbar-btn__notification-text" text="#Store_Price_New"/>
-							</Panel>
-							
-							
-							
-						</RadioButton>
-						                          
-						<RadioButton id="MainMenuNavBarSettings"
-									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
-									group="NavBar"
-									onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings');"
-									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarSettings', 'Settings' );"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/settings.svg" />
-							<Panel id="MainMenuSettingsAlert" class="navbar-btn__notification settings-notification">
-								<Label class="navbar-btn__notification-text" text="{d:num_settings}"/> 
-							</Panel>
-							
-						</RadioButton>
-						                          
-						<RadioButton id="MainMenuNavBarQuit"
-									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
-									group="NavBar"
-									onactivate="MainMenu.OnQuitButtonPressed(); $.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.mainmenu_press_quit', 'MOUSE' );"
-									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarQuit', '#tooltip_navbar_quit' );"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/power.svg" />
-							<Panel id="MainMenuSettingsAlert" class="navbar-btn__notification settings-notification">
-								<Label class="navbar-btn__notification-text" text="{d:num_settings}"/> 
-							</Panel>
+                   <RadioButton id="MainMenuNavBarHome"
+                   class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
+                   group="NavBar"
+                   onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent('PlaySoundEffect', 'mainmenu_press_home', 'MOUSE'); $.DispatchEvent('PlayMainMenuMusic', true, false); GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');"
+                   onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHome', '#tooltip_navbar_home');"
+                   onmouseout="UiToolkitAPI.HideTextTooltip();">
+                   <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
+                    </RadioButton>
+
+                    <RadioButton id="MainMenuNavBarHomePause"
+                    class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn PauseMenuModeOnly"
+                    group="NavBar"
+                    onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent('PlaySoundEffect', 'mainmenu_press_home', 'MOUSE');"
+                    onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHomePause', '#tooltip_navbar_home');"
+                    onmouseout="UiToolkitAPI.HideTextTooltip();">
+                    <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
+                   </RadioButton>
+
+                       <RadioButton id="MainMenuNavBarWatch"
+                       class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
+                       group="NavBar"
+                       onactivate="MainMenu.NavigateToTab('JsWatch', 'mainmenu_watch'); MainMenu.WatchBtnPressedUpdateAlert();"
+                       onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarWatch', '#tooltip_navbar_watch');"
+                       onmouseout="UiToolkitAPI.HideTextTooltip();">
+                       <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/watch_tv.svg" />
+                       <Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
+                       <Label id="MainMenuWatchAlertText" class="navbar-btn__notification-text" text="#Store_Price_New"/>
+                       </Panel>
+                             </RadioButton>
+
+                             <RadioButton id="MainMenuNavBarSettings"
+                             class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
+                             group="NavBar"
+                             onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings');"
+                             onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarSettings', 'Settings');"
+                             onmouseout="UiToolkitAPI.HideTextTooltip();">
+                             <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/settings.svg" />
+                             <Panel id="MainMenuSettingsAlert" class="navbar-btn__notification settings-notification">
+                             <Label class="navbar-btn__notification-text" text="{d:num_settings}"/> 
+                             </Panel>
+                                </RadioButton>
+
+                                    <Button id="ShowBuildWarning"
+                                 class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
+                                 onactivate="MainMenu.showBuildWarning();"
+                                 onmouseover="UiToolkitAPI.ShowTextTooltip('ShowBuildWarning', 'UI Build Warning.');"
+                                 onmouseout="UiToolkitAPI.HideTextTooltip();">
+                                <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/warning.svg" />
+                                </Button>
+
+                       <RadioButton id="MainMenuNavBarQuit"
+                       class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
+                           group="NavBar"
+                             onactivate="MainMenu.OnQuitButtonPressed(); $.DispatchEvent('PlaySoundEffect', 'UIPanorama.mainmenu_press_quit', 'MOUSE');"
+                            onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarQuit', '#tooltip_navbar_quit');"
+                           onmouseout="UiToolkitAPI.HideTextTooltip();">
+                           <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/power.svg" />
+                           <Panel id="MainMenuQuitAlert" class="navbar-btn__notification settings-notification">
+                           <Label class="navbar-btn__notification-text" text="{d:num_settings}"/> 
+                           </Panel>
+    
+
+
 							
 							/* Centered Navbar Stuff */
 

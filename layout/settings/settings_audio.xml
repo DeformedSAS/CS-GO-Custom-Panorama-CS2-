@@ -47,7 +47,7 @@
 					                                   
 					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Audio_Device_Tip">
 						<Label text="#SFUI_Settings_Speaker_Config" class="half-width"/>
-						<CSGOSettingsEnumDropDown id ="SpeakerConfigurationEnum" class="PopupButton White" convar="snd_surround_speakers" oninputsubmit="CSGOSpeakerConfigurationChanged()">
+						<CSGOSettingsEnumDropDown id ="SpeakerConfigurationEnum" class="content-navbar__tabs__dropdown" convar="snd_surround_speakers" oninputsubmit="CSGOSpeakerConfigurationChanged()">
 							<Label text="#SFUI_Settings_Headphones" id="speakerconfig1" value="0"/>
 							<Label text="#SFUI_Settings_2_Speakers" id="speakerconfig2" value="2"/>
 							<Label text="#SFUI_Settings_4_Speakers" id="speakerconfig3" value="4"/>
@@ -57,7 +57,7 @@
 
 					<TooltipPanel id="DeviceConfigurationPanel" class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Speaker_Config_Tip">
 						<Label text="#SFUI_Settings_Audio_Device" class="half-width"/>
-						<CSGOSettingsEnumDropDown id="DeviceConfigurationEnum" class="PopupButton White" convar="sound_device_override" oninputsubmit="CSGOAudioDeviceConfigurationChanged()">
+						<CSGOSettingsEnumDropDown id="DeviceConfigurationEnum" class="content-navbar__tabs__dropdown" convar="sound_device_override" oninputsubmit="CSGOAudioDeviceConfigurationChanged()">
 							                                                                               
 							<Label text="XXXXXX 1" id="audiodeviceconfig1"/>
 							<Label text="XXXXXX 2" id="audiodeviceconfig2"/>
@@ -76,26 +76,18 @@
 					                         
 					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Enable_Audio_HWCompat_Tip">
 						<Label text="#SFUI_Settings_Enable_Audio_HWCompat" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="snd_hwcompat">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="snd_hwcompat">
 							<Label text="#GameUI_Yes" id="audiohwcompat0" value="0"/>
 							<Label text="#GameUI_No"  id="audiohwcompat1" value="1" />
 						</CSGOSettingsEnumDropDown>
 						</TooltipPanel>
-						<Panel class="horizontal-separator"/>
-                    <TooltipPanel id="enablemicmonitor-container" class="SettingsMenuDropdownContainer" tooltip="Test mic audio. This only works while in a lobby or while playing on a map. Use your mic bind to get started.">
-                        <Label text="Test your own mic" class="half-width" />
-                        <CSGOSettingsEnumDropDown id="enableconsoledropdown" class="PopupButton White" convar="voice_loopback">
-                            <Label text="#GameUI_On" id="enablemicmonitor0" value="1" />
-                            <Label text="#GameUI_Off" id="enablemicmonitor1" value="0" />
-                        </CSGOSettingsEnumDropDown>
-					</TooltipPanel>
 
 					<Panel class="horizontal-separator"/>
 
 					                     
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_Settings_Enable_Voice" class="half-width"/>
-						<CSGOSettingsEnumDropDown id="VoiceEnable" class="PopupButton White" oninputsubmit="CSGOVoiceEnable()">
+						<CSGOSettingsEnumDropDown id="VoiceEnable" class="content-navbar__tabs__dropdown" oninputsubmit="CSGOVoiceEnable()">
 							<Label text="#SFUI_Settings_Disabled" id="enablevoice0" value="0"/>
 							<Label text="#SFUI_Settings_Push_To_Talk" id="enablevoice1" value="1"/>
 						</CSGOSettingsEnumDropDown>
@@ -111,7 +103,7 @@
 					                        
 					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_VOIP_Positional_Tip">
 						<Label text="#SFUI_Settings_VOIP_Positional" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="voice_positional">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="voice_positional">
 							<Label text="#GameUI_Yes" id="voippositional0" value="1"/>
 							<Label text="#GameUI_No"  id="voippositional1" value="0" />
 						</CSGOSettingsEnumDropDown>
@@ -122,7 +114,7 @@
 					                           
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_Settings_Enable_Audio_Background" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="snd_mute_losefocus">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="snd_mute_losefocus">
 							<Label text="#GameUI_Yes" id="audionofocus0" value="0"/>
 							<Label text="#GameUI_No"  id="audionofocus1" value="1" />
 						</CSGOSettingsEnumDropDown>
@@ -166,7 +158,7 @@
 					                           
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_Settings_Mute_MVP_Live_Players" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="snd_mute_mvp_music_live_players">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="snd_mute_mvp_music_live_players">
 							<Label text="#GameUI_Yes" id="mutemvpliveplayers1" value="1"/>
 							<Label text="#GameUI_No"  id="mutemvpliveplayers0" value="0"/>
 						</CSGOSettingsEnumDropDown>

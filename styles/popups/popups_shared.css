@@ -1,5 +1,5 @@
 .PopupPanel {
-    background-color: rgba(44, 44, 44, 0.5); 
+    background-color: blurBackgroundColor, rgba(44, 44, 44, 0.5); 
     min-width: 512px;
     max-width: 720px;
     vertical-align: middle;

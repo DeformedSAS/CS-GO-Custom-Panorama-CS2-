@@ -61,7 +61,7 @@
 					                    
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_ReverseMouse" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="m_pitch">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="m_pitch">
 							<Label text="#SFUI_Off" id="reversemouse0" value="0.022"/>
 							<Label text="#SFUI_On"  id="reversemouse1" value="-0.022" />  
 						</CSGOSettingsEnumDropDown>
@@ -70,7 +70,7 @@
 					                
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickDuckMode" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White"  convar="option_duck_method">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown"  convar="option_duck_method">
 							<Label text="#SFUI_Hold"  id="walkmode0" value="0"/>
 							<Label text="#SFUI_Toggle" id="walkmode1" value="1" />
 						</CSGOSettingsEnumDropDown>
@@ -79,7 +79,7 @@
 					                
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_JoystickSpeedMode" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="option_speed_method">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="option_speed_method">
 							<Label text="#SFUI_Hold"  id="duckmode0" value="0"/>
 							<Label text="#SFUI_Toggle" id="duckmode1" value="1" />
 						</CSGOSettingsEnumDropDown>
@@ -94,7 +94,7 @@
 					                
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_RawInput" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="m_rawinput">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="m_rawinput">
 							<Label text="#SFUI_Off"  id="rawinputmode0" value="0"/>
 							<Label text="#SFUI_On" id="rawinputmode1" value="1" />
 						</CSGOSettingsEnumDropDown>
@@ -103,7 +103,7 @@
 					                         
 					<Panel class="SettingsMenuDropdownContainer">
 						<Label text="#SFUI_MouseAcceleration" class="half-width"/>
-						<CSGOSettingsEnumDropDown class="PopupButton White" convar="m_customaccel">
+						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="m_customaccel">
 							<Label text="#SFUI_Off"  id="rawinputmode0" value="0"/>
 							<Label text="#SFUI_On" id="rawinputmode1" value="3" />
 						</CSGOSettingsEnumDropDown>
@@ -394,7 +394,7 @@
 							placeholder="#inv_search_default"
 							ontextentrychange="$.Msg('Search change'); SettingsMenuChatwheel.SearchChanged();" />
 							<Panel  class="horizontal-align-right left-right-padding">
-								<DropDown class="PopupButton White" id="InvSortDropdown" menuclass="DropDownMenu Width-250" oninputsubmit=""></DropDown>
+								<DropDown class="content-navbar__tabs__dropdown" id="InvSortDropdown" menuclass="DropDownMenu Width-250" oninputsubmit=""></DropDown>
 							</Panel>
 						</Panel>
 

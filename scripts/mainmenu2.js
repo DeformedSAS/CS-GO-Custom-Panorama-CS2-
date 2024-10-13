@@ -1662,31 +1662,50 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 		}
 	};
 
-var _DevPopups = function()
-{		
-	UiToolkitAPI.ShowGenericPopupTwoOptions( 
-		'#legacy_support_text_title', 
-		'#legacy_support_text_desc', 
-		'', 
-		$.Localize( "#link_to_steam_support"), 
-		function() { OnLegacyWarningPress('link') }, 
-		$.Localize( "#OK"), 
-		function() { OnLegacyWarningPress('') }
-	);
+let isPopupOpen = false;
+// build info popup that shows some text.
+var showBuildWarning = function() {
+    if (isPopupOpen) {
+        return; 
+    }
+    
+    isPopupOpen = false; 
+
+    UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle(
+        $.Localize("#legacy_support_text_title"),  
+        $.Localize("#legacy_support_text_desc"),   
+        '',                                         
+        $.Localize("#link_to_steam_support"),      
+        function() { 
+            OnshowBuildWarning('link'); 
+            isPopupOpen = false;     
+        },
+        $.Localize("#OK"),                       
+        function() { 
+            OnshowBuildWarning('');       
+            isPopupOpen = false;          
+        },
+        'CS SUPREMACY PROJECT',                   
+        function() {
+            OnshowCSProjectLink();        
+            isPopupOpen = false;         
+        },
+        'dim',  
+        function() {
+            isPopupOpen = false;  
+        },
+    );
 }
 
-function OnLegacyWarningPress( msg )
-{
-	if( msg === 'link' )
-	{
-		SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser( "https://github.com/DeformedSAS/CS-GO-Custom-Panorama-CS2-" );
-		return;
-	}
+function OnshowBuildWarning(msg) {
+    if (msg === 'link') {
+        SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://github.com/DeformedSAS/CS-GO-Custom-Panorama-CS2-");
+    }
 }
 
-// Call the DevPopups function
-_DevPopups();
-
+function OnshowCSProjectLink() {
+    SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://discord.com/invite/aeAEzZXxHu");
+}
 
 
 	var _ShowOperationLaunchPopup = function()
@@ -1955,7 +1974,7 @@ _DevPopups();
 		ResetAcknowlegeHandler				: _ResetAcknowlegeHandler,
 		ShowNotificationBarTooltip			: _ShowNotificationBarTooltip,
 		ShowVote 							: _ShowVote,
-				DevPopups							: _DevPopups,
+		showBuildWarning               : showBuildWarning,
 		ShowStoreStatusPanel				: _ShowStoreStatusPanel,
 		HideStoreStatusPanel				: _HideStoreStatusPanel,
 		SetBackgroundMovie					: _SetBackgroundMovie,

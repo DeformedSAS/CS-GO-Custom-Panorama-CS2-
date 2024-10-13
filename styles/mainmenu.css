@@ -815,7 +815,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	background-image: url("file://{images}/backgrounds/bluedots_large.png");
 	background-size: backgroundDotsSize;
 	background-img-opacity: .01;
-	transform: translateX(0%); /* Default: panel is in place */
+	transform: translateX(0%);
 	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
