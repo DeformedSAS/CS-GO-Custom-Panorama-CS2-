@@ -6,7 +6,7 @@
     width: 500px;
     height: 120px;
     horizontal-align: center;
-    background-color: cl-hud-wash-color;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
