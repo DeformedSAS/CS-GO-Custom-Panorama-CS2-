@@ -1494,11 +1494,9 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     min-width: 300px;
     margin: 12px 0px;
     box-shadow: 0px 0px 16px 0px #00000041;
-	    position: relative;
     z-index: 1;
     border: 1px solid rgba(9, 219, 9, 0.336);
     background-color: rgba(9, 49, 9, 0.651);
-	overflow: visible;
     transition-property: opacity, box-shadow, wash-color, transform;
     transition-duration: .25s;
     transition-timing-function: ease-in-out;
@@ -1513,7 +1511,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 {
     brightness: 2;
     box-shadow: 0px 0px 124px 5px rgba(4, 179, 4, 0.637);
-	overflow: visible;
     transition-property: brightness, box-shadow;
     transition-duration: .25s;
     transition-timing-function: ease-in-out;
@@ -1566,8 +1563,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     height: 100%;
     background-color: rgba(255, 255, 255, 0.075);
     box-shadow: 0px 0px 64px 5px rgba(6, 141, 6, 0.767);
-	overflow: visible;
-	    position: relative;
     z-index: 1;
     transition-property: brightness, box-shadow;
     transition-duration: .25s;
@@ -1625,8 +1620,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 .play-menu__playbtn.play-menu__playbtn--stopsearch:hover .play-menu__playbtn__bar
 {
     box-shadow: 0px 0px 124px 5px rgba(179, 39, 4, 0.637);
-	overflow: visible;
-	    position: relative;
     z-index: 1;
 }
 
@@ -1634,7 +1627,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 {
     background-color: rgba(190, 16, 16, 0.24);
     box-shadow: 0px 0px 64px 5px rgba(109, 34, 34, 0.767);
-	    position: relative;
     z-index: 1;
 }
 
@@ -1850,7 +1842,7 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     border: 1.5px solid blueColor;
     box-shadow: #00000044 4px 4px 8px 0px;
     flow-children: down;
-    background-image: url("s2r://panorama/images/backgrounds/linemap_png.vtex");
+    background-image: url("file://{images}/backgrounds/linemap.png");
     background-size: auto auto;
     background-position: 0% 50%;
     background-img-opacity: .05;
@@ -2032,7 +2024,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     border-top: 1px solid rgba(255, 255, 255, 0.11);
     margin-right: 64px;
     height: 100%;
-    ignore-parent-flow: false;
 }
 
 .play-lobby-leader-container

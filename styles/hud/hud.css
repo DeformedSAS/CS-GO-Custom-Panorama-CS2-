@@ -98,6 +98,13 @@ CSGOHud,
 
 #HudLowerLeft
 {
+	padding-left: 300px;
+    horizontal-align: left;
+    vertical-align: bottom;
+                                                                                                                                         
+}
+#HudLowerLeftChatStatus
+{
     horizontal-align: left;
     vertical-align: bottom;
                                                                                                                                          
@@ -143,6 +150,15 @@ CSGOHud,
 }
 
 #HudBottomRight
+{
+	padding-right: 300px;
+	horizontal-align: right;
+	vertical-align: bottom;
+    flow-children: down;
+    height:100%;
+    width:100%;
+}
+#HudBottomRightSelection
 {
 	horizontal-align: right;
 	vertical-align: bottom;

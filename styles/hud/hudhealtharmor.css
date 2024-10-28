@@ -205,7 +205,7 @@ CSGOHudHealthArmor Label
 
 .hud-HA-text Label
 {
-    font-size: 42px;
+    font-size: 50px;
     font-weight: bold;
     color: defaultColor;
     letter-spacing: 0px;

@@ -228,7 +228,7 @@ var SettingsMenuShared = ( function () {
 		if ( elBkg )
 		{
 			let nBkgIdx = elBkg.GetAttributeInt( "bkg-id", 0 );
-			let arrBkgs = [ "bkg-dust2", "bkg-aztec", "bkg-mirage", "bkg-office" ];
+			let arrBkgs = [ "bkg-dust2", "bkg-ancient", "bkg-mirage", "bkg-office", "bkg-nuke", "bkg-overpass", "bkg-anubis", "bkg-inferno", "bkg-train", "bkg-agency", ];
 			nBkgIdx = ( arrBkgs.length + nBkgIdx + delta ) % arrBkgs.length;
 			elBkg.SwitchClass( "bkg-style", arrBkgs[ nBkgIdx ] );
 			elBkg.SetAttributeInt( "bkg-id", nBkgIdx );

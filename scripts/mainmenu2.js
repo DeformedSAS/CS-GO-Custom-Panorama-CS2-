@@ -107,12 +107,12 @@ var _SetBackgroundMovie = function() {
     if (!(videoPlayer && videoPlayer.IsValid() && background && background.IsValid())) {
         return; // this should exit when the videoplayer is valid.
     }
-    _PauseMainMenuCharacter();
     // start fade by adding opacity first
     background.style.opacity = '0'; // Start fading out
+	_PauseMainMenuCharacter();
 
     // schedule the background movie change after fade-out duration
-    $.Schedule(0.6, function() { // waits for fade-out to complete (matches transition duration)
+    $.Schedule(1.0, function() { // waits for fade-out to complete (matches transition duration)
         var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
 		
 
@@ -135,53 +135,37 @@ var _SetBackgroundMovie = function() {
     });
 };
 
-	var _OnShowMainMenu = function()
-	{
-		$.DispatchEvent('PlayMainMenuMusic', true, true );
-		 $('#MainMenuNavBarHome').checked = true;
+var _OnShowMainMenu = function() {
 
-		                                         
-		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
 
-		                                                                  
-		                                          
-		GameInterfaceAPI.SetSettingString( 'dsp_room', '29' );
-		GameInterfaceAPI.SetSettingString( 'snd_soundmixer', 'MainMenu_Mix' );
+    $.Schedule(0.5, function() {
+        $.DispatchEvent('PlayMainMenuMusic', true, true);
+        $('#MainMenuNavBarHome').checked = true;
 
-		_m_bVanityAnimationAlreadyStarted = false;                                               
-		_InitVanity();
-		_OnInitFadeUp();
-		_SetBackgroundMovie();
+        GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
+        GameInterfaceAPI.SetSettingString('dsp_room', '29');
+        GameInterfaceAPI.SetSettingString('snd_soundmixer', 'MainMenu_Mix');
 
-		                                                   
-		$( '#MainMenuNavBarPlay' ).SetHasClass( 'mainmenu-navbar__btn-small--hidden', false );
+        _m_bVanityAnimationAlreadyStarted = false;
+        _InitVanity();
+        _OnInitFadeUp();
+        _SetBackgroundMovie();
 
-		                                                    
+        $('#MainMenuNavBarPlay').SetHasClass('mainmenu-navbar__btn-small--hidden', false);
 
-		_UpdateNotifications();
-		_ShowWeaponUpdatePopup();
-		_UpdateInventoryBtnAlert();
+        _UpdateNotifications();
+        _ShowWeaponUpdatePopup();
+        _UpdateInventoryBtnAlert();
+        _GcLogonNotificationReceived();
+        _BetaEnrollmentStatusChange();
+        _DeleteSurvivalEndOfMatch();
+        _DeletePauseMenuMissionPanel();
+        _ShowHideAlertForNewEventForWatchBtn();
+        _UpdateUnlockCompAlert();
+        _FetchTournamentData();
 
-		                              
-		_GcLogonNotificationReceived();
-		_BetaEnrollmentStatusChange();
-
-		                                                                          
-		_DeleteSurvivalEndOfMatch();
-
-		                                 
-		_DeletePauseMenuMissionPanel();
-
-		                                                               
-		_ShowHideAlertForNewEventForWatchBtn();
-
-		                                                         
-		_UpdateUnlockCompAlert();
-
-		_FetchTournamentData();
-		
-	};
-
+    });
+};
 	var _TournamentDraftUpdate = function ()
 	{
 		if ( !m_TournamentPickBanPopup || !m_TournamentPickBanPopup.IsValid() )
@@ -349,7 +333,7 @@ var _SetBackgroundMovie = function() {
 		var elContextPanel = $.GetContextPanel();
 		
 		elContextPanel.AddClass( 'MainMenuRootPanel--PauseMenuMode' );
-		$('#MainMenuNavBarHome').checked = true;
+		 $('#MainMenuNavBarHome').checked = true;
 
 		var bMultiplayer = elContextPanel.IsMultiplayer();
 		var bQueuedMatchmaking = GameStateAPI.IsQueuedMatchmaking();
@@ -656,7 +640,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 		                                                                                       
 		$.Schedule( 0.25, ContextMenuClosedOutsideSidebar );
 
-		_DimMainMenuBackground( false );
+		_DimMainMenuBackground( true );
 	};
 
 	var _DimMainMenuBackground = function( removeDim )

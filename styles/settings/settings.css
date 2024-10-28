@@ -260,6 +260,26 @@ CSGOSettingsEnumDropDown:hover
     background-image: url("file://{images}/map_icons/screenshots/1080p/de_inferno.png");
     background-position: left -887px top -585px;
 }
+.bkg-office
+{
+    background-image: url("file://{images}/map_icons/screenshots/1080p/cs_office.png");
+    background-position: left -887px top -585px;
+}
+.bkg-nuke
+{
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_nuke.png");
+    background-position: left -887px top -585px;
+}
+.bkg-train
+{
+    background-image: url("file://{images}/map_icons/screenshots/1080p/de_train.png");
+    background-position: left -887px top -585px;
+}
+.bkg-agency
+{
+    background-image: url("file://{images}/map_icons/screenshots/1080p/cs_agency.png");
+    background-position: left -887px top -585px;
+}
 
 
 .dynamic-crosshair

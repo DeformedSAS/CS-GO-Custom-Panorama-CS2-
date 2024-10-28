@@ -37,7 +37,7 @@
 									class="full-width full-height hidden"
 									manifest="resource/ui/econ/ItemModelPanelCharMainMenu.res"
 									item="models/player/custom_player/legacy/ctm_sas.mdl"
-									mouse_rotate="false"
+									mouse_rotate="true"
 									hittest="false">
 						<Panel id="id-mainmenu-vanity-hover" hittest="true"/>
 					</ItemPreviewPanel>
@@ -117,21 +117,13 @@
 					<Panel id="JsMainMenuNavBar" class="mainmenu-navbar">
 						                                            
                    <RadioButton id="MainMenuNavBarHome"
-                   class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
+                   class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
                    group="NavBar"
-                   onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent('PlaySoundEffect', 'mainmenu_press_home', 'MOUSE'); $.DispatchEvent('PlayMainMenuMusic', true, false); GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');"
+                   onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent( 'PlaySoundEffect', 'mainmenu_press_home', 'MOUSE' ); $.DispatchEvent('PlayMainMenuMusic', true, false); GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');"
                    onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHome', '#tooltip_navbar_home');"
                    onmouseout="UiToolkitAPI.HideTextTooltip();">
                    <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
-                    </RadioButton>
-
-                    <RadioButton id="MainMenuNavBarHomePause"
-                    class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn PauseMenuModeOnly"
-                    group="NavBar"
-                    onactivate="MainMenu.OnHomeButtonPressed(); $.DispatchEvent('PlaySoundEffect', 'mainmenu_press_home', 'MOUSE');"
-                    onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarHomePause', '#tooltip_navbar_home');"
-                    onmouseout="UiToolkitAPI.HideTextTooltip();">
-                    <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/home.svg" />
+				   
                    </RadioButton>
 
                        <RadioButton id="MainMenuNavBarWatch"

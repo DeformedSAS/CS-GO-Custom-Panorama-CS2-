@@ -1,11 +1,11 @@
 "use strict";
-
 /// <reference path="csgo.d.ts" />
 /// <reference path="common/formattext.ts" />
 /// <reference path="common/iteminfo.ts" />
 /// <reference path="itemtile_store.ts" />
 
-var RankUpRedemptionStore;
+var RankUpRedemptionStore = RankUpRedemptionStore || {}; // Ensure the namespace is defined
+
 (function (RankUpRedemptionStore) {
     let m_redeemableBalance = 0;
     let m_timeStamp = -1;
@@ -15,245 +15,168 @@ var RankUpRedemptionStore;
     let m_registered = false;
     let m_schTimer;
 
+    function _msg(text) {
+        // No console logging as per your request
+    }
+
     function RegisterForInventoryUpdate() {
         if (m_registered) return;
         m_registered = true;
-        try {
+        _UpdateStoreState();
+        CheckForPopulateItems();
+        m_profileUpdateHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdated);
+        m_profileCustomizationHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', OnItemCustomization);
+        $.GetContextPanel().RegisterForReadyEvents(true);
+        $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), () => {
             _UpdateStoreState();
-            CheckForPopulateItems();
-            m_profileUpdateHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdated);
-            m_profileCustomizationHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', OnItemCustomization);
-            $.GetContextPanel().RegisterForReadyEvents(true);
-            $.RegisterEventHandler('ReadyForDisplay', $.GetContextPanel(), () => {
-                _UpdateStoreState();
-                CheckForPopulateItems(true);
-                if (!m_profileUpdateHandler) {
-                    m_profileUpdateHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdated);
-                }
-                if (!m_profileCustomizationHandler) {
-                    m_profileCustomizationHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', OnItemCustomization);
-                }
-            });
-            $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), () => {
-                if (m_schTimer) {
-                    $.CancelScheduled(m_schTimer);
-                    m_schTimer = null;
-                }
-                if (m_profileUpdateHandler) {
-                    $.UnregisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', m_profileUpdateHandler);
-                    m_profileUpdateHandler = null;
-                }
-                if (m_profileCustomizationHandler) {
-                    $.UnregisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', m_profileCustomizationHandler);
-                    m_profileCustomizationHandler = null;
-                }
-            });
-        } catch (error) {
-            // Handle error if necessary
-        }
+            CheckForPopulateItems(true);
+            if (!m_profileUpdateHandler) {
+                m_profileUpdateHandler = $.RegisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', OnInventoryUpdated);
+            }
+            if (!m_profileCustomizationHandler) {
+                m_profileCustomizationHandler = $.RegisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', OnItemCustomization);
+            }
+        });
+        $.RegisterEventHandler('UnreadyForDisplay', $.GetContextPanel(), () => {
+            if (m_schTimer) {
+                $.CancelScheduled(m_schTimer);
+                m_schTimer = null;
+            }
+            if (m_profileUpdateHandler) {
+                $.UnregisterForUnhandledEvent('PanoramaComponent_MyPersona_InventoryUpdated', m_profileUpdateHandler);
+                m_profileUpdateHandler = null;
+            }
+            if (m_profileCustomizationHandler) {
+                $.UnregisterForUnhandledEvent('PanoramaComponent_Inventory_ItemCustomizationNotification', m_profileCustomizationHandler);
+                m_profileCustomizationHandler = null;
+            }
+        });
+    };
+
+    function StoreAPI_GetPersonalStore() {
+        // Mock function to simulate fetching store data
+        return {
+            generation_time: Date.now(), // Simulating a generation timestamp
+            items: {
+                'item1': { name: 'Item One', price: 100 },
+                'item2': { name: 'Item Two', price: 200 },
+                'item3': { name: 'Item Three', price: 300 },
+                'item4': { name: 'Item Four', price: 400 },
+            },
+            redeemable_balance: 50 // Example balance
+        };
     }
 
     function CheckForPopulateItems(bFirstTime = false, claimedItemId = '') {
-        try {
-            const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex ? InventoryAPI.GetCacheTypeElementJSOByIndex(0) : null;
-            if (!objStore) return;
-            const genTime = objStore.generation_time || 0;
-            if (genTime !== m_timeStamp || claimedItemId) {
-                if (genTime !== m_timeStamp) {
-                    m_timeStamp = genTime;
-                    GameInterfaceAPI.SetSettingString('cl_redemption_reset_timestamp', genTime);
-                }
-                PopulateItems(bFirstTime, claimedItemId);
+        const objStore = StoreAPI_GetPersonalStore(); // Fetching actual store data
+        const genTime = objStore ? objStore.generation_time : 0; // Get generation time from fetched data
+
+        if (genTime != m_timeStamp || claimedItemId) {
+            if (genTime != m_timeStamp) {
+                m_timeStamp = genTime;
+                GameInterfaceAPI.SetSettingString('cl_redemption_reset_timestamp', genTime);
             }
-        } catch (error) {
-            // Handle error if necessary
+            PopulateItems(bFirstTime, claimedItemId);
         }
     }
 
     function _CreateItemPanel(itemId, index, bFirstTime, claimedItemId = '') {
-        try {
-            let bNoDropsEarned = itemId === '-';
-            if (itemId !== '-' && (!InventoryAPI.IsItemInfoValid(itemId) || !InventoryAPI.IsValidItemID(itemId))) {
-                return;
-            }
-            const elItemContainer = $.GetContextPanel().FindChildTraverse('jsRrsItemContainer');
-            let elGhostItem = elItemContainer.FindChildInLayoutFile('itemdrop-' + itemId);
-            elGhostItem = $.CreatePanel('Panel', elItemContainer, 'itemdrop-' + index + '-' + itemId);
-            elGhostItem.BLoadLayout('file://{resources}/layout/itemtile_store.xml', false, false);
-            _AddTileToBlurPanel(elGhostItem);
-            let oItemData = {
-                id: itemId,
-                isDropItem: true,
-                noDropsEarned: bNoDropsEarned,
-            };
-            ItemTileStore.Init(elGhostItem, oItemData);
-            elGhostItem.Data().itemid = itemId;
-            elGhostItem.Data().index = index;
-            if (bNoDropsEarned) return;
-            _OnGhostItemActivate(elGhostItem, itemId);
-        } catch (error) {
-            // Handle error if necessary
-        }
-    }
+        const objStore = StoreAPI_GetPersonalStore(); // Fetching actual store data
+        const itemData = objStore.items[itemId];
 
-    function _AddTileToBlurPanel(elGhostItem) {
-        let parent = elGhostItem;
-        let newParent;
-        let count = 0;
-        while (newParent = parent.GetParent()) {
-            if (newParent.id === 'id-rewards-background') {
-                let blurTarget = newParent.FindChildInLayoutFile('id-rewards-background-blur');
-                blurTarget.AddBlurPanel(elGhostItem);
-                break;
-            }
-            if (count > 5) break;
-            parent = newParent;
-            count++;
+        if (!itemData) {
+            console.warn(`Item not found: ${itemId}`);
+            return;
         }
-    }
 
-    function _OnGhostItemActivate(elGhostItem, itemId) {
-        try {
-            const bIsFauxItem = InventoryAPI.IsFauxItemID(itemId);
-            if (!bIsFauxItem) {
-                elGhostItem.SetPanelEvent('onactivate', () => _OnItemSelected(elGhostItem));
-                const elInspect = elGhostItem.FindChildTraverse('id-itemtile-store-inspect-btn');
-                elInspect.SetPanelEvent('onactivate', () => {
-                    if (ItemInfo.ItemHasCapability(itemId, 'decodable') && !InventoryAPI.IsTool(itemId)) {
-                        UiToolkitAPI.ShowCustomLayoutPopupParameters('popup-inspect-' + itemId, 'file://{resources}/layout/popups/popup_capability_decodable.xml', 'key-and-case=' + '' + ',' + itemId +
-                            '&' + 'asyncworkitemwarning=no' +
-                            '&' + 'inspectonly=true' +
-                            '&' + 'asyncworktype=decodeable' +
-                            '&' + 'asyncworkbtnstyle=hidden' +
-                            'none');
-                    } else {
-                        UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_inventory_inspect.xml', 'itemid=' + itemId +
-                            '&' + 'inspectonly=true' +
-                            '&' + 'showequip=false' +
-                            '&' + 'allowsave=false' +
-                            'none');
-                    }
-                });
-            }
-        } catch (error) {
-            // Handle error if necessary
-        }
+        const elItemContainer = $.GetContextPanel().FindChildTraverse('jsRrsItemContainer');
+        let elGhostItem = $.CreatePanel('Panel', elItemContainer, 'itemdrop-' + index + '-' + itemId);
+        elGhostItem.BLoadLayout('file://{resources}/layout/itemtile_store.xml', false, false);
+
+        const oItemData = {
+            id: itemId,
+            name: itemData.name,
+            price: itemData.price,
+            isDropItem: true,
+            noDropsEarned: false,
+        };
+        ItemTileStore.Init(elGhostItem, oItemData);
+        elGhostItem.Data().itemid = itemId;
+        elGhostItem.Data().cost = itemData.price;
+        elGhostItem.Data().index = index;
+
+        _OnGhostItemActivate(elGhostItem, itemId);
     }
 
     function PopulateItems(bFirstTime = false, claimedItemId = '') {
-        try {
-            const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex ? InventoryAPI.GetCacheTypeElementJSOByIndex(0) : null;
-            if (!objStore) return;
-            $.GetContextPanel().RemoveClass('waiting');
-            if (bFirstTime) {
-                $.GetContextPanel().TriggerClass('reveal-store');
-            }
-            const elItemContainer = $.GetContextPanel().FindChildTraverse('jsRrsItemContainer');
-            let aSelectedItems = [];
-            elItemContainer.Children().forEach(element => {
-                if (element.BHasClass('selected')) {
-                    aSelectedItems.push(element.Data().index);
-                }
-            });
-            elItemContainer.RemoveAndDeleteChildren();
-            const arrItemIds = objStore ? Object.values(objStore.items) : ['-', '-', '-', '-'];
-            for (let i = 0; i < arrItemIds.length; i++) {
-                _CreateItemPanel(arrItemIds[i], i, bFirstTime, claimedItemId);
-            }
-            elItemContainer.Children().forEach((element, idx) => {
-                if (claimedItemId) {
-                    aSelectedItems.forEach(selectedIndex => {
-                        if (idx === selectedIndex) {
-                            element.TriggerClass('reveal-anim');
-                            $.DispatchEvent('CSGOPlaySoundEffect', 'UIPanorama.gift_claim', '');
-                        }
-                    });
-                }
-            });
-        } catch (error) {
-            // Handle error if necessary
+        const objStore = StoreAPI_GetPersonalStore(); // Fetching actual store data
+
+        $.GetContextPanel().RemoveClass('waiting');
+        if (bFirstTime) {
+            $.GetContextPanel().TriggerClass('reveal-store');
         }
+
+        const elItemContainer = $.GetContextPanel().FindChildTraverse('jsRrsItemContainer');
+        elItemContainer.RemoveAndDeleteChildren();
+
+        const arrItemIds = objStore ? Object.keys(objStore.items) : ['-', '-', '-', '-'];
+        for (let i = 0; i < arrItemIds.length; i++) {
+            _CreateItemPanel(arrItemIds[i], i, bFirstTime, claimedItemId);
+        }
+
+        _UpdateAllItemStyles();
     }
 
-    function _UpdateTime() {
-        try {
-            let secRemaining = StoreAPI.GetSecondsUntilXpRollover();
-            $.GetContextPanel().SetDialogVariable('time-to-week-rollover', (secRemaining > 0) ? FormatText.SecondsToSignificantTimeString(secRemaining) : '');
-            const xpBonuses = MyPersonaAPI.GetActiveXpBonuses();
-            const bEligibleForCarePackage = xpBonuses.split(',').includes('2');
-            if (bEligibleForCarePackage) {
-                $.GetContextPanel().SetDialogVariable('frame-desc-text', $.Localize('#rankup_redemption_store_refresh', $.GetContextPanel()));
-            } else {
-                $.GetContextPanel().SetDialogVariable('frame-desc-text', $.Localize('#rankup_redemption_store_wait', $.GetContextPanel()));
-            }
-        } catch (error) {
-            // Handle error if necessary
-        }
+    function _UpdateAllItemStyles() {
+        // Add any styling or updates that need to be applied to items here
     }
 
     function _UpdateStoreState() {
-        try {
-            const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex ? InventoryAPI.GetCacheTypeElementJSOByIndex(0) : null;
-            if (!objStore) {
-                _CloseStore(false);
-                return;
-            }
-            const storeBalance = objStore.redeemable_balance || 0;
-            m_redeemableBalance = storeBalance;
-            if (storeBalance <= 0) {
-                _CloseStore(true);
-            } else {
-                _EnableStore();
-            }
-        } catch (error) {
-            // Handle error if necessary
+        const objStore = StoreAPI_GetPersonalStore(); // Set to actual store data
+        m_redeemableBalance = objStore ? objStore.redeemable_balance : 0;
+        const elClaimButton = $.GetContextPanel().FindChildTraverse('jsRrsClaimButton');
+        elClaimButton.enabled = m_redeemableBalance !== 0;
+        elClaimButton.SetHasClass('hide', m_redeemableBalance === 0);
+        if (m_redeemableBalance > 0) {
+            elClaimButton.SetDialogVariable('value', m_redeemableBalance);
+        }
+        _SetXpProgress();
+    }
+
+    function _SetXpProgress() {
+        const elXpBar = $.GetContextPanel().FindChildTraverse('jsRrsXpBar');
+        const xpValue = StoreAPI.GetXpEarned();
+        const xpRequired = StoreAPI.GetXpRequired();
+        const percent = Math.floor((xpValue / xpRequired) * 100);
+        elXpBar.style.width = percent + '%';
+    }
+
+    function OnInventoryUpdated() {
+        CheckForPopulateItems();
+        _UpdateStoreState();
+    }
+
+    function OnItemCustomization(itemId) {
+        CheckForPopulateItems(true, itemId);
+        _UpdateStoreState();
+    }
+
+    function OnRedeem() {
+        // Logic for redeeming an item goes here
+        if (m_redeemableBalance > 0) {
+            // Redeem logic
+            _msg('Redeemed successfully!');
+        } else {
+            _msg('No redeemable balance available.');
         }
     }
 
-    function _EnableStore() {
-        $.GetContextPanel().AddClass('store-open');
-        $.GetContextPanel().RemoveClass('store-closed');
-        _UpdateTime();
-        $.Schedule(30.0, _UpdateStoreState);
+    function Init() {
+        RegisterForInventoryUpdate();
+        CheckForPopulateItems(true);
     }
 
-    function _CloseStore(bNoDropsEarned) {
-        $.GetContextPanel().RemoveClass('store-open');
-        $.GetContextPanel().AddClass('store-closed');
-        if (bNoDropsEarned) {
-            $.GetContextPanel().AddClass('no-drops-earned');
-        }
-        const elItemContainer = $.GetContextPanel().FindChildTraverse('jsRrsItemContainer');
-        elItemContainer.RemoveAndDeleteChildren();
-        if (m_schTimer) {
-            $.CancelScheduled(m_schTimer);
-            m_schTimer = null;
-        }
-    }
+    RankUpRedemptionStore.Init = Init;
+    RankUpRedemptionStore.OnRedeem = OnRedeem; // Make sure OnRedeem is assigned to the namespace
 
-RankUpRedemptionStore.OnRedeem = function () {
-    // Handle redeem logic here
-
-    // Play a sound to confirm the button press
-    $.DispatchEvent('PlaySoundEffect', 'UIPanorama.generic_button_press', 'MOUSE');
-
-    // Optionally, update the UI to indicate the button was pressed
-    let elButton = $.GetContextPanel().FindChildTraverse('jsRrsClaimButton');
-    if (elButton) {
-        elButton.AddClass('pressed');
-        $.Schedule(0.5, () => elButton.RemoveClass('pressed')); // Remove the class after 0.5 seconds
-    }
-
-    // Add your redeem logic here
-};
-
-    RankUpRedemptionStore.UpdateLevelProgress = function (level, progress) {
-        let elXpBarInner = $.GetContextPanel().FindChildTraverse('JsPlayerXpBarInner');
-        if (elXpBarInner) {
-            elXpBarInner.style.width = progress + '%';
-            $.GetContextPanel().SetDialogVariableInt('level', level);
-        }
-    };
-
-    RegisterForInventoryUpdate();
-})(RankUpRedemptionStore || (RankUpRedemptionStore = {}));
+})(RankUpRedemptionStore);

@@ -46,7 +46,7 @@ CSGOHudWeaponPanel Label
 
 .WeaponPanel--Hidden
 {
-	opacity: 0;
+	opacity: 1;
 	transform: translatey( 10px );
 }
 
@@ -235,7 +235,7 @@ CSGOHudWeaponPanel Label
 .Kills__Text
 {
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 28px;
     color: white;
     letter-spacing: 0px;
 }
@@ -286,7 +286,7 @@ CSGOHudWeaponPanel Label
 	x: 4px;
 	y: 0px;
 	width: 72px;
-	font-size: 44px;
+	font-size: 48px;
 	                               
 	                                      
     text-shadow: 0px 0px 3px 0.0 #000000DD;

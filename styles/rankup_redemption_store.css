@@ -1,4 +1,4 @@
-/* Prettified by Source 2 Viewer 10.0.0.0 - https://valveresourceformat.github.io */
+
 
 @define frame-badge-color-left: rgba(235, 146, 38, 1);
 @define frame-badge-color-right: rgba(180, 105, 14, 1);
@@ -168,7 +168,6 @@ Image,Panel
 	vertical-align: bottom;
 	horizontal-align: right;
 	margin: 5px;
-	ignore-parent-flow: true;
 	opacity: 0.5;
 	visibility: collapse;
 }
@@ -228,7 +227,6 @@ Image,Panel
 	padding: 2px;
 	margin: 5px;
 	border-radius: 50%;
-	ignore-parent-flow: true;
 }
 
 .selected .ghost-item__multi-select
@@ -251,7 +249,6 @@ Image,Panel
 {
 	height: 100%;
 	width: 100%;
-	ignore-parent-flow:true;
 	background-color: gradient(radial, 50% 50%, 0% 0%, 100px 100px, from(#000000ff), to(#00000000));
 	opacity: 0;
 }

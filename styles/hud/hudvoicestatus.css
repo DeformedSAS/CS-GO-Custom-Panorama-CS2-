@@ -45,7 +45,7 @@
 	text-align: left;
 	vertical-align: bottom;
 	color: white;
-	font-size: 19px;
+	font-size: 22px;
 	font-weight: medium;
 	letter-spacing: .2px;
 	padding-left: 28px;
@@ -371,7 +371,7 @@ CSGOAvatarImage.SteamAvatar .AvatarImage
 	overflow: noclip;
 	
 	font-family: Stratum2;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: medium;
 	color: #7099DA;
 	letter-spacing: 0px;
@@ -397,7 +397,7 @@ CSGOAvatarImage.SteamAvatar .AvatarImage
 
 .voice-disabled-indicator-label
 {
-	font-size: 12px;
+	font-size: 18px;
 	font-weight: lighter;
 	color: white;
 	font-family: Stratum2 Bold Monodigit, 'Arial Unicode MS';

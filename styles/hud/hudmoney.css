@@ -53,10 +53,11 @@
 {
     width: fit-children;
             
-    height: 140px;
+    height: 160px;
     opacity: 1.0;
-    margin-top: -52px;
-    margin-bottom: -12px;
+	horizontal-align: left;
+	vertical-align: bottom;
+	padding-top: 90px;
     z-index: 1;
     transition-property: opacity;
     transition-timing-function: linear;

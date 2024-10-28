@@ -25,6 +25,7 @@ Label {
 .sb-main {
 	width: fit-children;
 	height: fit-children;
+	border-radius: 6px;
 
 	min-width: 600px;
 

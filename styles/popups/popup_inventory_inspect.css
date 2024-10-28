@@ -12,7 +12,7 @@
 	background-img-opacity: 0.2;
 
 	transition-property: opacity, transform;
-	transition-duration: 0.25s;
+	transition-duration: 0.5s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -43,7 +43,7 @@
 
 	transform: translateY( 0% );
 	transition-property: transform;
-	transition-duration: 0.25s;
+	transition-duration: 0.5s;
 	transition-timing-function: ease-in-out;
 }
 

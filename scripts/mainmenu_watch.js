@@ -321,7 +321,7 @@ var mainmenu_watch = ( function()
 						                                            
 						Scheduler.Schedule( 0.1, function ()
 						{
-							$.DispatchEvent( 'CSGOPlaySoundEffect', 'UIPanorama.mainmenu_rollover', 'MOUSE' );
+							$.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.mainmenu_rollover', 'MOUSE' );
 						}, "player-reveal" );
 
 					}, "player-reveal");

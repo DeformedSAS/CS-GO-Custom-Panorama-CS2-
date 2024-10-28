@@ -103,27 +103,35 @@ var MainMenu = ( function() {
 
 	var _SetBackgroundMovie = function()
 	{
-		var videoPlayer = $( '#MainMenuMovie' );
-		if ( !( videoPlayer && videoPlayer.IsValid() ) )
-			return;
+    var videoPlayer = $('#MainMenuMovie'); // don't forget to remember the name of the panel id... like i did so it took me a bit to notice that the panel name here is wrong kekw...
+    var background = $('#MainMenuBackground'); // get the background element
+    if (!(videoPlayer && videoPlayer.IsValid() && background && background.IsValid())) {
+        return; // this should exit when the videoplayer is valid.
+    }
+    // start fade by adding opacity first
+    background.style.opacity = '0'; // Start fading out
+	_PauseMainMenuCharacter();
 
-		                                                                                                
-		var backgroundMovie = GameInterfaceAPI.GetSettingString( 'ui_mainmenu_bkgnd_movie' );
+    // schedule the background movie change after fade-out duration
+    $.Schedule(1.0, function() { // waits for fade-out to complete (matches transition duration)
+        var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
+		
 
-		                                                                                     
-		videoPlayer.SetAttributeString( 'data-type', backgroundMovie );
+        // sets the new video sorse
+        videoPlayer.SetAttributeString('data-type', backgroundMovie);
+        videoPlayer.SetMovie("file://{resources}/videos/" + backgroundMovie + ".webm");
+        videoPlayer.SetSound('UIPanorama.BG_' + backgroundMovie);
+        videoPlayer.Play();
 
-		                          
-		videoPlayer.SetMovie( "file://{resources}/videos/" + backgroundMovie + ".webm" );
-		videoPlayer.SetSound( 'UIPanorama.BG_' + backgroundMovie );
-		videoPlayer.Play();
+        var vanityPanel = $('#JsMainmenu_Vanity');
+        if (vanityPanel && vanityPanel.IsValid()) {
+            _SetVanityLightingBasedOnBackgroundMovie(vanityPanel);
+            _ForceRestartVanity();
+        }
 
-		                                                     
-		var vanityPanel = $( '#JsMainmenu_Vanity' );
-		if ( vanityPanel && vanityPanel.IsValid() )
-		{
-			_SetVanityLightingBasedOnBackgroundMovie( vanityPanel );
-			_ForceRestartVanity();
+        // schedule the fade-in effect after a small delay
+        $.Schedule(0.1, function() { // small delay before starting to fade in
+            background.style.opacity = '1'; // restores opacity
 		}
 	};
 

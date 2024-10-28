@@ -1,9 +1,7 @@
 .mainmenu-left-column
 {
-    padding: 740px 0px 16px 16px;
+    padding: 750px 0px 0px 5px;
     height: fit-children;
-    vertical-align: bottom;
-	horizontal-align: bottom;
     width: 620px;
     flow-children: up;
     visibility: visible;

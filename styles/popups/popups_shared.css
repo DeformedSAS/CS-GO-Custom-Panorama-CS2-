@@ -1,10 +1,11 @@
-.PopupPanel {
-    background-color: blurBackgroundColor, rgba(44, 44, 44, 0.5); 
+.PopupPanel
+{
+    background-color: rgba(44, 44, 44, 1);
     min-width: 512px;
     max-width: 720px;
     vertical-align: middle;
     horizontal-align: center;
-    opacity: 1.0; 
+    opacity: 1.0;
     box-shadow: shadowOffset;
     padding-bottom: 16px;
     border: 1px solid rgb(65, 65, 65);
@@ -13,9 +14,6 @@
     transition-duration: 0.5s;
     transition-timing-function: ease-in-out;
     flow-children: down;
-
-
-    filter: blur fastgaussian( 6, 6, 4);
 }
 
 

@@ -45,17 +45,20 @@
 			</Panel>
 		</snippet>
 	</snippets>
-	<Panel class="mainmenu-content__container">
-		<Panel id="JsWatchContent" class="full-width full-height" onload="mainmenu_watch.InitMainWatchPanel();">
-			<Panel id="main-content" class="full-width full-height top-bottom-flow mainmenu-watch-content__container">
-				<Panel id="watch-navbar" class="content-navbar__tabs content-navbar__tabs--noflow">
-					<Panel class="content-navbar__tabs__center-container">
-						<RadioButton id="WatchNavBarYourMatches" group="WatchNavBar" class="content-navbar__tabs__btn" onactivate="mainmenu_watch.NavigateToTab(&apos;JsYourMatches&apos;, &apos;yourmatches menu button&apos;);">
-							<Label class="" text="#CSGO_Watch_Cat_YourMatches" />
-						</RadioButton>
-						<RadioButton group="WatchNavBar" class="content-navbar__tabs__btn" onactivate="mainmenu_watch.NavigateToTab(&apos;JsDownloaded&apos;, &apos;downloaded menu button&apos;);">
-							<Label class="" text="#CSGO_Watch_Cat_Downloaded" />
-						</RadioButton>
+    <Panel class="mainmenu-content__container">
+        <Panel id="JsWatchContent" class="full-width full-height" onload="mainmenu_watch.InitMainWatchPanel();">
+            <Panel id="main-content" class="full-width full-height top-bottom-flow mainmenu-watch-content__container">
+                <Panel id="watch-navbar" class="content-navbar__tabs content-navbar__tabs--noflow">
+                    <Panel class="content-navbar__tabs__center-container">
+                        <RadioButton id="WatchNavBarYourMatches" group="WatchNavBar" class="content-navbar__tabs__btn" onactivate="mainmenu_watch.NavigateToTab(&apos;JsYourMatches&apos;, &apos;yourmatches menu button&apos;);">
+                            <Label class="" text="#CSGO_Watch_Cat_YourMatches" />
+                        </RadioButton>
+                        <RadioButton group="WatchNavBar" class="content-navbar__tabs__btn" onactivate="mainmenu_watch.NavigateToTab(&apos;JsDownloaded&apos;, &apos;downloaded menu button&apos;);">
+                            <Label class="" text="#CSGO_Watch_Cat_Downloaded" />
+                        </RadioButton>
+                        <RadioButton id="WatchNavBarButtonTournaments" class="content-navbar__tabs__btn" group="WatchNavBar" onactivate="mainmenu_watch.NavigateToTab(&apos;JsTournaments&apos;, &apos;tournament menu button&apos;);">
+                            <Label class="" text="#CSGO_Watch_Cat_Tournament_0" />
+                        </RadioButton>
 					</Panel>
 					<Panel class="horizontal-align-right vertical-center right-margin-64 left-right-padding">
 						<Button class="IconButton">

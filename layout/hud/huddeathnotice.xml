@@ -21,6 +21,7 @@
                         <Image id="Flashbang" class="DeathNoticeIcon" src="file://{images}/icons/equipment/flashbang_assist.svg" scaling="stretch-to-fit-preserve-aspect" />
                         <Label id="Assister" class="stratum-bold" text="{s:name}" />
                     </Panel>
+					<Image id="AttackerInAir" class="DeathNoticeIcon" src="file://{images}/hud/deathnotice/inairkill.svg" scaling="stretch-to-fit-preserve-aspect" />
                     <Image id="Weapon" class="DeathNoticeIcon" textureheight="24" scaling="none" />
                     <Image id="NoScopeIcon" class="DeathNoticeIcon" src="file://{images}/hud/deathnotice/noscope.svg" scaling="stretch-to-fit-preserve-aspect" />
                     <Image id="ThroughSmokeIcon" class="DeathNoticeIcon" src="file://{images}/hud/deathnotice/smoke_kill.svg" scaling="stretch-to-fit-preserve-aspect" />

@@ -73,7 +73,6 @@
 		                                                                
 		<Panel id="HudBottomCenter" hittest="false" hittestchildren="false">
 			<CSGOOutOfAmmo id="OutOfAmmo"/>
-			<CSGOHudMoney id="HudMoney"/>
 			<CSGOHudProgressBar id="HudProgressBar"/>
                 <CSGOHudHintText id="HudHintText" priority="high" class="high-priority" />
                 <CSGOHudAlerts id="HudAlerts" />
@@ -88,9 +87,16 @@
 		                                                                                      
 		<Panel id="HudLowerLeft" hittest="false" hittestchildren="false">
 		
-			<CSGOHudVoiceStatus id="Status"/>
 			<CSGOHudHealthArmor id="HudHealthArmor"/>
+			
+					</Panel>
+
+		                                                                                      
+		<Panel id="HudLowerLeftChatStatus" hittest="false" hittestchildren="false">
+			<CSGOHudVoiceStatus id="Status"/>
+			<CSGOHudMoney id="HudMoney"/>
 		</Panel>
+		
 
 		                                                                
 		<CSGOHudRadio id="HudRadio" hittest="false" hittestchildren="false" />
@@ -100,9 +106,11 @@
 
 		                                                                   
 		<Panel id="HudBottomRight" hittest="false" hittestchildren="false">
-			<CSGOHudWeaponSelection id="HudWeaponSelection"/>
 			<CSGOHudWeaponPanel id="HudWeaponPanel"/>
 		</Panel>
+				<Panel id="HudBottomRightSelection" hittest="false" hittestchildren="false">
+			<CSGOHudWeaponSelection id="HudWeaponSelection"/>
+			</Panel>
 
 		                                                                           
 		<Panel id="HudTopRight" hittest="false" hittestchildren="false">
@@ -113,7 +121,7 @@
 		                                                                
 		<CSGOHudFreezePanel id="HudFreezePanel" hittest="false" hittestchildren="false" />
 
-		<CSGOHudBlurTarget id="HudBlur" blurrects="HudDeathNotice EndOfMatch Scoreboard sliding-panel--TERRORIST sliding-panel--CT" class="HudBlur" hittest="false" hittestchildren="false">
+		<CSGOHudBlurTarget id="HudBlur" blurrects="HudDeathNotice EndOfMatch sliding-panel--TERRORIST sliding-panel--CT" class="HudBlur" hittest="false" hittestchildren="false">
 			<CSGOBackbufferImagePanel class="full-width full-height" />
 		</CSGOHudBlurTarget>
 
