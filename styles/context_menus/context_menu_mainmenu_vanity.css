@@ -35,5 +35,13 @@
 {
     max-height: 100%;
     height: 100%;
-    width:fit-children;
+    width:10px;
+}
+.content-navbar__tabs__dropdown_vanity
+{
+	height: 30px;
+	width: 190px;
+	margin: 0px 4px 0px 4px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 0px;
 }

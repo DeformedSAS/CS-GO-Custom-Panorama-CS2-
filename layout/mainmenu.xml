@@ -15,98 +15,70 @@
 		<include src="file://{resources}/scripts/operation/operation_active_mission.js" />
 	</scripts>
 
-	<snippets>
-		<snippet name="MainMenuMovieSnippet">
-			<Panel>
-				                                 
-				                                                                                                              
-				<Movie class="mainmenu-movie MainMenuModeOnly" 
-					id="MainMenuMovie"
-					src=""
-					sound=""
-					controls="none"
-					repeat="true"
-					hittest="false">
-				</Movie>
-			</Panel>
-		</snippet>
-		<snippet name="MainMenuVanitySnippet">
-			<Panel>
-				<Panel id="JsMainmenu_Vanity-Container" class="mainmenu-vanity">
-					<ItemPreviewPanel id="JsMainmenu_Vanity"
-									class="full-width full-height hidden"
-									manifest="resource/ui/econ/ItemModelPanelCharMainMenu.res"
-									item="models/player/custom_player/legacy/ctm_sas.mdl"
-									mouse_rotate="true"
-									hittest="false">
-						<Panel id="id-mainmenu-vanity-hover" hittest="true"/>
-					</ItemPreviewPanel>
+<snippets>
+    <snippet name="MainMenuMovieSnippet">
+        <Panel>
+            <Movie class="mainmenu-movie MainMenuModeOnly" 
+                id="MainMenuMovie"
+                src=""
+                sound=""
+                controls="none"
+                repeat="true"
+                hittest="false">
+            </Movie>
+        </Panel>
+    </snippet>
+    <snippet name="MainMenuVanitySnippet">
+        <Panel>
+            <Panel id="JsMainmenu_Vanity-Container" class="mainmenu-vanity">
+                <ItemPreviewPanel id="JsMainmenu_Vanity"
+                    class="full-width full-height hidden"
+                    manifest="resource/ui/econ/ItemModelPanelCharMainMenu.res"
+                    item="models/player/custom_player/legacy/ctm_sas.mdl"
+                    mouse_rotate="true"
+                    hittest="false">
+                    <Panel id="id-mainmenu-vanity-hover" hittest="true"/>
+                </ItemPreviewPanel>
+                <!-- VanityControls panel has been removed -->
+            </Panel>
+        </Panel>
+    </snippet>
+</snippets>
 
-					<Panel id="VanityControls" hittest="true">
-						<Button id="VanityPanelGoToCharacterLoadout"
-							onactivate="$.DispatchEvent( 'MainMenu_OnGoToCharacterLoadoutPressed' )"> 
-							<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/tune.svg" />
-						</Button>
-					</Panel>
-				</Panel>
 
-			</Panel>
-		</snippet>
-	</snippets>
+<CSGOMainMenu class="InitialDisplay MainMenuRootPanel" hittest="false" useglobalcontext="true" oncancel="MainMenu.OnEscapeKeyPressed();">
+    <Panel id="MainMenuContainerPanel" class="MainMenuContainer">
+        <Panel id="NotificationsContainer" class="MainMenuNotification hidden MainMenuModeOnly"
+               onmouseover="MainMenu.ShowNotificationBarTooltip();" onmouseout="UiToolkitAPI.HideTextTooltip();">
+            <Button id="ClickableLinkButton" class="horizontal-center" enabled="false">
+                <Label html="true" id="MainMenuNotificationTitle"/>
+            </Button>
+        </Panel>
+        <Panel id="MainMenuInput">                                              
+            <CSGOBlurTarget id="MainMenuCore" blurrects="ChatLinesContainerBg mainmenu-sidebar__blur-target CSGOLoadingScreen JsMainMenuNavBar eom-winner">
+                <CSGOBlurTarget id="MainMenuBackground" blurrects="id-mainmenu-mission-card-bg id-op-mainmenu-top mainmenu-content__blur-target id-mainmenu-mini-store-panel id-tournament-pass-status JsStorePanel JsStreamPanel JsWatchNoticePanel id-op-mainmenu-rewards id-op-mainmenu-missions JsLastMatch JsActiveMissionPanel id-activemission-tooltip id-active-mission">
+                    <Panel class="mainmenu-vanity__vignette" hittest="false"/>
+                    <CSGOBackbufferImagePanel class="full-width full-height PauseMenuModeOnly" />
 
-	<CSGOMainMenu class="InitialDisplay MainMenuRootPanel" hittest="false" useglobalcontext="true" oncancel="MainMenu.OnEscapeKeyPressed();">
-		<Panel id="MainMenuContainerPanel" class="MainMenuContainer">
-			<Panel	id="NotificationsContainer"
-					class="MainMenuNotification hidden MainMenuModeOnly"
-					onmouseover="MainMenu.ShowNotificationBarTooltip();"
-					onmouseout="UiToolkitAPI.HideTextTooltip();">
-				<Button id="ClickableLinkButton" class="horizontal-center" enabled="false">
-					<Label html="true" id="MainMenuNotificationTitle"/>
-				</Button>
-			</Panel>
-			<Panel id="MainMenuInput">                                              
-				<CSGOBlurTarget id="MainMenuCore" blurrects="ChatLinesContainerBg mainmenu-sidebar__blur-target CSGOLoadingScreen JsMainMenuNavBar eom-winner">
-					<CSGOBlurTarget id="MainMenuBackground" blurrects="id-mainmenu-mission-card-bg id-op-mainmenu-top mainmenu-content__blur-target id-mainmenu-mini-store-panel id-tournament-pass-status JsStorePanel JsStreamPanel JsWatchNoticePanel id-op-mainmenu-rewards id-op-mainmenu-missions JsLastMatch JsActiveMissionPanel id-activemission-tooltip id-active-mission">
-						<Panel class="mainmenu-vanity__vignette" hittest="false"/>
-						                                                      
-						<CSGOBackbufferImagePanel class="full-width full-height PauseMenuModeOnly" />
+                    <Panel id="MainMenuMovieParent"></Panel>          
+                    <Panel id="MainMenuVanityParent"></Panel>
+                </CSGOBlurTarget>
 
-						            
-						                                                       
-						            
-						
-						            
-						<Panel id="MainMenuMovieParent">
-							                                                                                      
-						</Panel>
-						                
-						<Panel id="MainMenuVanityParent">
-							                                                 
-						</Panel>
+                <Panel id="JsLeftColumnContainer" class="mainmenu_left_column_container hidden MainMenuModeOnly"></Panel>
 
-					</CSGOBlurTarget>
+                <!-- Right Column Container Panel -->
+                <Panel id="JsRightColumnContainer" class="mainmenu-right-column  MainMenuModeOnly">
+                    <!-- This container will hold the right column content dynamically loaded from JavaScript -->
+                </Panel>
 
-					<Panel id="JsNewsContainer" class="mainmenu_news_container hidden MainMenuModeOnly" >
-						                                                       
-					</Panel >
+                <Button id="JsStreamContainer" class="mainmenu_stream_container hidden MainMenuModeOnly" hittest="true"></Button>
 
-					<Button id="JsStreamContainer" class="mainmenu_stream_container hidden MainMenuModeOnly" hittest="true" >
-						                                                         
-					</Button >
-					
+                <Panel id="JsActiveMissionPanel" class="mainmenu_active-mission-container PauseMenuModeOnly"></Panel>
 
-					<Panel id="JsActiveMissionPanel"  class="mainmenu_active-mission-container PauseMenuModeOnly" />
-
-					                                                                            
-					                                                                   
-						                                                                                            
-					         
-					   
-					<Panel id="JsMainMenuContent" class="mainmenu-content mainmenu-content--offscreen">
-						<Panel class="mainmenu-content__blur">
-							<Panel id="mainmenu-content__blur-target"/>
-						</Panel>
-						                                                                                    
+                <Panel id="JsMainMenuContent" class="mainmenu-content mainmenu-content--offscreen">
+                    <Panel class="mainmenu-content__blur">
+                        <Panel id="mainmenu-content__blur-target"/>
+                    </Panel>
 					</Panel>
 
 				</CSGOBlurTarget>
@@ -151,9 +123,9 @@
                                 </RadioButton>
 
                                     <Button id="ShowBuildWarning"
-                                 class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
+                                 class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn MainMenuModeOnly"
                                  onactivate="MainMenu.showBuildWarning();"
-                                 onmouseover="UiToolkitAPI.ShowTextTooltip('ShowBuildWarning', 'UI Build Warning.');"
+                                 onmouseover="UiToolkitAPI.ShowTextTooltip('ShowBuildWarning', 'Build Warning');"
                                  onmouseout="UiToolkitAPI.HideTextTooltip();">
                                 <Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/warning.svg" />
                                 </Button>

@@ -93,7 +93,8 @@
 {
 	horizontal-align: left;
 	font-size: 12px;
-	font-weight: bold;
+	font-weight: medium;
+	font-family: Stratum2;
 	color: white;
 	background-color: rgb(172, 146, 0);
 	text-align: center;
@@ -110,6 +111,7 @@
 	horizontal-align: right;
 	vertical-align: top;
 	font-size: 14px;
+	font-family: Stratum2;
 	padding: 4px;
 }
 

@@ -86,7 +86,7 @@
 
  .loading-screen-hint-contents
 {
-    height: 120px;
+    height: 200px;
     width: 100%;
 	horizontal-align: center;
 	vertical-align: center;
@@ -179,7 +179,7 @@
   border: 2px solid rgba(255, 255, 255, 0.233);
   box-shadow: #000000 0px 0px 6px 0px ;
 
-  background-image: url( "s2r://panorama/images/overheadmaps/default_png.vtex");
+  background-image: url( "file://{images}/overheadmaps/default.png");
   background-position: 50% 50%;
   background-size: 100% 100%;
 

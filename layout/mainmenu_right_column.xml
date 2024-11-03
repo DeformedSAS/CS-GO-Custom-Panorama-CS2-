@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/mainmenu_right_column.css" />
+	</styles>
+	<Panel class="mainmenu-right-column">
+		<Frame id="id-mainmenu-stream-panel" src="file://{resources}/layout/mainmenu_stream.xml" />
+		<Panel id="VanityControls" hittest="true">
+			<Button id="VanityPanelGoToCharacterLoadout" onactivate="$.DispatchEvent( &apos;MainMenu_OnGoToCharacterLoadoutPressed&apos; )">
+				<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/settings_sliders.svg" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>

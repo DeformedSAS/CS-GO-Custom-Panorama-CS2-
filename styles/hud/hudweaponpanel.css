@@ -157,14 +157,14 @@ CSGOHudWeaponPanel Label
 
 .Kills
 {
-	                      
+	horizontal-align: center;     
 	height: 100%;
 }
 
 .Kills__Count
 {
 	flow-children: right;
-	horizontal-align: right;
+	horizontal-align: center;
 	padding-top: 4px;
 }
 
@@ -205,6 +205,7 @@ CSGOHudWeaponPanel Label
 .Kills__Icon--Animate
 {
 	animation-name: KillIconShowAnim; 
+	sound: "UIPanorama.kill_doof";
 	animation-duration: .33s;
 	animation-delay: 0s;
 	animation-timing-function: linear;

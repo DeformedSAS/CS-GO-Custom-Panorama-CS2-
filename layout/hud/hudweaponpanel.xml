@@ -6,7 +6,7 @@
 
 	<CSGOHudWeaponPanel class="WeaponPanel" hittest="false">
 		<Panel class="WeaponPanelTop">
-			<Image id="DefuseIcon" class="WeaponPanelTop__Icon WeaponPanelTop__Icon--Defuse" src="file://{images}/hud/weaponpanel/icon-defuser.png" scaling="stretch-to-fit-preserve-aspect" />
+			<Image id="DefuseIcon" class="WeaponPanelTop__Icon WeaponPanelTop__Icon--Defuse hidden" src="file://{images}/hud/weaponpanel/icon-defuser.png" scaling="stretch-to-fit-preserve-aspect" />
 		</Panel>
 		<Panel id="WeaponPanelBottom">
 			                   

@@ -1,0 +1,22 @@
+.mainmenu-right-column
+{
+	height: fit-children;
+	vertical-align: bottom;
+	horizontal-align: right;
+	width: 620px;
+	flow-children: left;
+	visibility: visible;
+	transition-property: opacity;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.mainmenu-right-column.hidden
+{
+	opacity: 0;
+}
+
+.mainmenu-right-column .mainmenu-right-column__thin
+{
+	width: 256px;
+}

@@ -297,7 +297,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .AspectRatio16x9 .mainmenu-vanity
 {
-	transform: translateX(6%) translateY(0);
+	transform: translateX(4%) translateY(0);
 }
 
 .AspectRatio21x9 .mainmenu-vanity
@@ -314,7 +314,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .AspectRatio4x3 .mainmenu-vanity
 {
-	transform: translateX(3%) translateY(0);
+	transform: translateX(5%) translateY(0);
 	width: 1080px;
 }
 
@@ -893,24 +893,44 @@ CSGOEndOfMatch.mainmenu-content__container {
 	transition-duration: .35s;
 }
 
-.mainmenu_news_container {
+.mainmenu_left_column_container {
     width: 720px;
     height: 100%;
-    margin: 24px 0px 2px 5px;
+    margin: 24px 0px -2px 5px;
     transform: translateX(0);
     opacity: 1; 
     visibility: visible;
 
     transition-property: opacity, transform;
-    transition-duration: 0.35s;
+    transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
 }
 
-.mainmenu_news_container-movedleft {
+.mainmenu_left_column_container-movedleft {
     transform: translateX(-100%);
 }
 
-.mainmenu_news_container.hidden,
+.mainmenu-right-column
+{
+	padding: 64px 80px -5px 16px;
+	height: fit-children;
+	vertical-align: bottom;
+	horizontal-align: right;
+	width: 620px;
+	flow-children: left;
+	visibility: visible;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.mainmenu-right-column.hidden
+{
+	opacity: 0;
+}
+
+
+.mainmenu_left_column_container.hidden,
 .mainmenu_active-mission-container.hidden,
 .mainmenu_stream_container.hidden {
     opacity: 0; 

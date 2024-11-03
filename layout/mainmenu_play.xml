@@ -236,9 +236,6 @@
                     <RadioButton id="skirmish" group="gamemodes" class="content-navbar__tabs__btn visible-if-not-limitedbeta">
                         <Label text="#SFUI_GameModeSkirmish" />
                     </RadioButton>
-					<RadioButton id="survival" group="gamemodes" class="content-navbar__tabs__btn">
-                        <Label text="#SFUI_GameModeSurvival" />
-                    </RadioButton>
                     <RadioButton id="cooperative" group="gamemodes" class="content-navbar__tabs__btn visible-if-not-limitedbeta">
                         <Label text="#SFUI_GameModeCooperative" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;cooperative&apos;, &apos;#PlayMenu_guardian_tooltip&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" />
                     </RadioButton>

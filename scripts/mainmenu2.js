@@ -28,7 +28,6 @@ var MainMenu = ( function() {
 
 	var _m_jobFetchTournamentData = null;
 	const TOURNAMENT_FETCH_DELAY = 10;
-	let _m_bPreLoadedTabs = false;
 
 	                                         
 	let nNumNewSettings = UpdateSettingsMenuAlert();
@@ -137,8 +136,6 @@ var _SetBackgroundMovie = function() {
 
 var _OnShowMainMenu = function() {
 
-
-    $.Schedule(0.5, function() {
         $.DispatchEvent('PlayMainMenuMusic', true, true);
         $('#MainMenuNavBarHome').checked = true;
 
@@ -163,8 +160,6 @@ var _OnShowMainMenu = function() {
         _ShowHideAlertForNewEventForWatchBtn();
         _UpdateUnlockCompAlert();
         _FetchTournamentData();
-
-    });
 };
 	var _TournamentDraftUpdate = function ()
 	{
@@ -430,88 +425,71 @@ var _OnShowMainMenu = function() {
 		
 		return true;
 	}
-    function _LoadTab(tab, XmlName, setActiveSection = '') {
-        if (!$.GetContextPanel().FindChildInLayoutFile(tab)) {
-            const newPanel = $.CreatePanel('Panel', _m_elContentPanel, tab);
-            if ('settings/settings' && setActiveSection !== '') {
-                newPanel.SetAttributeString('set-active-section', setActiveSection);
-            }
-            newPanel.BLoadLayout('file://{resources}/layout/' + XmlName + '.xml', false, false);
-            newPanel.SetReadyForDisplay(false);
-            newPanel.RegisterForReadyEvents(true);
-            $.RegisterEventHandler('PropertyTransitionEnd', newPanel, (panel, propertyName) => {
-                if (newPanel.id === panel.id && propertyName === 'opacity') {
-                    if (newPanel.visible === true && newPanel.BIsTransparent()) {
-                        newPanel.SetReadyForDisplay(false);
-                        newPanel.visible = false;
-                        return true;
-                    }
-                    else if (newPanel.visible === true) {
-                        $.DispatchEvent('MainMenuTabShown', tab);
-                    }
-                }
-                return false;
-            });
-            newPanel.AddClass('mainmenu-content--hidden');
-            newPanel.visible = false;
-        }
-    }
-
-function NavigateToTab(tab, XmlName, setActiveSection = '') {
-    if (!_BCheckTabCanBeOpenedRightNow(tab)) {
-        OnHomeButtonPressed();
-        return;
-    }
-    if (tab === 'JsPlayerStats') {
-        return;
-    }
-    $.DispatchEvent('PlayMainMenuMusic', true, false);
-    GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
-    _LoadTab(tab, XmlName, setActiveSection);
-
-    if (_m_activeTab !== tab) {
-        if (XmlName && _m_bPreLoadedTabs) {
-            let soundName = '';
-            if (XmlName === 'mainmenu_store_fullscreen') {
-                if (setActiveSection !== '') {
-                    $.GetContextPanel().FindChildInLayoutFile(tab).SetAttributeString('set-active-section', setActiveSection);
-                }
-                soundName = 'UIPanorama.tab_mainmenu_store_fullscreen';
-                $.DispatchEvent('UpdateXpShop');
-            }
-            else if (XmlName === 'loadout_grid') {
-                soundName = 'UIPanorama.tab_mainmenu_loadout';
-            }
-            else {
-                soundName = 'tab_' + XmlName.replace('/', '_');
-            }
-            $.DispatchEvent('PlaySoundEffect', soundName, 'MOUSE');
-        }
-
-        // this should fix the stupid sound shit on the panels.. why the fuck did valve even change this shit in cs2... spoiler alert it fixes it... wow such a simple fix that totally didn't take me 2 hours to figure out...
-        if (_m_activeTab !== tab) {
-            if (XmlName) {
-                $.DispatchEvent('PlaySoundEffect', 'tab_' + XmlName.replace('/', '_'), 'MOUSE');
-            }
-
-            if (_m_activeTab) {
-                var panelToHide = $.GetContextPanel().FindChildInLayoutFile(_m_activeTab);
-                panelToHide.AddClass('mainmenu-content--hidden');
-            }
-
-            _m_activeTab = tab;
-            var activePanel = $.GetContextPanel().FindChildInLayoutFile(tab);
-            activePanel.RemoveClass('mainmenu-content--hidden');
-            activePanel.visible = true;
-            activePanel.SetReadyForDisplay(true);
-
-        }
-
-        _ShowContentPanel();
-    }
-};
-
-
+ 	var _NavigateToTab = function( tab, XmlName )
+	{
+		if ( !_BCheckTabCanBeOpenedRightNow( tab ) )
+		{
+			_OnHomeButtonPressed();
+			return;	                                                                               
+		}
+		if( tab === 'JsPlayerStats' && !_CanOpenStatsPanel() )
+		{
+			return;
+		}
+		$.DispatchEvent('PlayMainMenuMusic', true, false );                               
+		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
+                    
+		if( !$.GetContextPanel().FindChildInLayoutFile( tab ) )
+		{
+			var newPanel = $.CreatePanel('Panel', _m_elContentPanel, tab );
+			newPanel.Data().elMainMenuRoot = $.GetContextPanel();
+			newPanel.BLoadLayout('file://{resources}/layout/' + XmlName + '.xml', false, false );
+			newPanel.RegisterForReadyEvents( true );
+                                                    
+			newPanel.OnPropertyTransitionEndEvent = function ( panelName, propertyName )
+			{
+				if( newPanel.id === panelName && propertyName === 'opacity' )
+				{
+					                                         
+					if( newPanel.visible === true && newPanel.BIsTransparent() )
+					{
+						                                               
+						newPanel.visible = false;
+						newPanel.SetReadyForDisplay( false );
+						return true;
+					}
+					else if ( newPanel.visible === true )
+					{
+						$.DispatchEvent( 'MainMenuTabShown', tab );
+					}
+				}
+				return false;
+			};
+			$.RegisterEventHandler( 'PropertyTransitionEnd', newPanel, newPanel.OnPropertyTransitionEndEvent );
+		}
+                      
+		if( _m_activeTab !== tab )
+		{                                    
+			if(XmlName) {
+				$.DispatchEvent('PlaySoundEffect', 'tab_' + XmlName.replace('/', '_'), 'MOUSE');
+			}
+			if( _m_activeTab )
+			{
+				var panelToHide = $.GetContextPanel().FindChildInLayoutFile( _m_activeTab );
+				panelToHide.AddClass( 'mainmenu-content--hidden' );          
+			}
+              
+			_m_activeTab = tab;
+			var activePanel = $.GetContextPanel().FindChildInLayoutFile( tab );
+			activePanel.RemoveClass( 'mainmenu-content--hidden' );
+                                                               
+			activePanel.visible = true;
+			activePanel.SetReadyForDisplay( true );
+                                	
+			_PauseMainMenuCharacter();
+		}
+		_ShowContentPanel();
+	};
 
 	var _ShowContentPanel = function()
 	{
@@ -706,8 +684,11 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 		_AddStream();
 
 		                             
-		var elStore = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsLeftColumn' );
-		elStore.BLoadLayout( 'file://{resources}/layout/mainmenu_left_column.xml', false, false );
+		var elLeftColumn = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsLeftColumnContainer' ), 'JsLeftColumn' );
+		elLeftColumn.BLoadLayout( 'file://{resources}/layout/mainmenu_left_column.xml', false, false );
+		
+		var elRightColumn = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsRightColumnContainer' ), 'JsRightColumn' );
+		elRightColumn.BLoadLayout( 'file://{resources}/layout/mainmenu_right_column.xml', false, false );
 
 		                             
 		                                                                                                            
@@ -716,7 +697,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 	  	                                                                                                                                 
 		      
 		
-		$.FindChildInContext( '#JsNewsContainer' ).OnPropertyTransitionEndEvent = function ( panelName, propertyName )
+		$.FindChildInContext( '#JsLeftColumnContainer' ).OnPropertyTransitionEndEvent = function ( panelName, propertyName )
 		{
 			if( elNews.id === panelName && propertyName === 'opacity')
 			{
@@ -774,8 +755,11 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 
 	var _HideMainMenuNewsPanel = function()
 	{
-		var elNews = $.FindChildInContext( '#JsNewsContainer' );
-		elNews.SetHasClass( 'news-panel--hide-news-panel', true );
+		var elLeftColumn = $.FindChildInContext( '#JsLeftColumnContainer' );
+		elLeftColumn.SetHasClass( 'news-panel--hide-news-panel', true );
+		
+		var elRightColumn = $.FindChildInContext( '#JsRightColumnContainer' );
+		elRightColumn.SetHasClass( 'news-panel--hide-news-panel', true );
 
 		if( elNews.BHasClass( 'news-panel-style-feature-panel-visible') )
 		{
@@ -786,13 +770,16 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 	var _AddWatchNoticePanel = function()
 	{
 		var WatchNoticeXML = '';
-		var elPanel = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsWatchNoticePanel' );
+		var elPanel = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsLeftColumnContainer' ), 'JsWatchNoticePanel' );
 		elPanel.BLoadLayout( WatchNoticeXML, false, false );
 	}
 	
 	var _ShowNewsAndStore = function ()
 	{
-		var elPanel = $.FindChildInContext( '#JsNewsContainer' );
+		var elPanel = $.FindChildInContext( '#JsLeftColumnContainer' );
+		elPanel.SetHasClass( 'hidden', false );
+		
+		var elPanel = $.FindChildInContext( '#JsRightColumnContainer' );
 		elPanel.SetHasClass( 'hidden', false );
 
 		elPanel = $.FindChildInContext( '#JsActiveMissionPanel' );
@@ -812,7 +799,10 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 
 	var _HideNewsAndStore = function ()
 	{
-		var elPanel = $.FindChildInContext( '#JsNewsContainer' );
+		var elPanel = $.FindChildInContext( '#JsLeftColumnContainer' );
+		elPanel.SetHasClass( 'hidden', true );
+		
+		var elPanel = $.FindChildInContext( '#JsRightColumnContainer' );
 		elPanel.SetHasClass( 'hidden', true );
 
 		elPanel = $.FindChildInContext( '#JsActiveMissionPanel' );
@@ -833,7 +823,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 	                                                             
 	var _OnSteamIsPlaying = function()
     {
-		var elNewsContainer = $.FindChildInContext( '#JsNewsContainer' );
+		var elNewsContainer = $.FindChildInContext( '#JsLeftColumnContainer' );
 
 		if ( elNewsContainer )
 		{
@@ -843,7 +833,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 
     var _ResetNewsEntryStyle = function()
     {
-		var elNewsContainer = $.FindChildInContext( '#JsNewsContainer' );
+		var elNewsContainer = $.FindChildInContext( '#JsLeftColumnContainer' );
 
 		if ( elNewsContainer )
 		{
@@ -1041,39 +1031,39 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
 		}
 		else if ( backgroundMap === 'blacksite' )
 		{
-			vanityPanel.SetFlashlightAmount( 1 );
+			vanityPanel.SetFlashlightAmount( 2 );
 			                                               
-			                                                           
+			vanityPanel.SetFlashlightFOV( 60 );                                     
 			                                                            
 			vanityPanel.SetFlashlightColor( 4, 4, 4);
-			vanityPanel.SetAmbientLightColor( 0.16, 0.26, 0.30 );
-			
+			vanityPanel.SetAmbientLightColor( 0.25, 0.20, 0.35 );
+
 			vanityPanel.SetDirectionalLightModify( 0 );
-			vanityPanel.SetDirectionalLightColor( 0.26, 0.35, 0.47 );
-			vanityPanel.SetDirectionalLightDirection( -0.50, 0.80, 0.00 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.6, 0.67, -0.71 );
 			
 			vanityPanel.SetDirectionalLightModify( 1 );
-			vanityPanel.SetDirectionalLightColor( 0.74, 1.01, 1.36 );
-			vanityPanel.SetDirectionalLightDirection( 0.47, -0.77, -0.42 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
 
 			vanityPanel.SetDirectionalLightModify( 2 );
-			vanityPanel.SetDirectionalLightColor( 0.75, 1.20, 1.94 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
 			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
 		}
 		else if ( backgroundMap === 'sirocco_night' )
 		{
-			vanityPanel.SetFlashlightAmount( 2 );
+			vanityPanel.SetFlashlightAmount( 5 );
 			                                               
 			                                                            
 			                                                       
-			vanityPanel.SetFlashlightFOV( 45 );
+			vanityPanel.SetFlashlightFOV( 60 );
 			                                                            
 			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
-			vanityPanel.SetAmbientLightColor( 0.13, 0.17, 0.29 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
 			
 			vanityPanel.SetDirectionalLightModify( 0 );
 			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
-			vanityPanel.SetDirectionalLightDirection( 0.22, 0.67, -0.71 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
 			
 			vanityPanel.SetDirectionalLightModify( 1 );
 			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
@@ -1094,7 +1084,7 @@ function NavigateToTab(tab, XmlName, setActiveSection = '') {
         if (MatchStatsAPI.GetUiExperienceType())
             return;
         _InsureSessionCreated();
-        NavigateToTab('JsPlay', 'mainmenu_play', 'Play-official');
+        _NavigateToTab('JsPlay', 'mainmenu_play', 'Play-official');
     }
     function _OpenWatchMenu() {
         NavigateToTab('JsWatch', 'mainmenu_watch');
@@ -1922,7 +1912,7 @@ function OnshowCSProjectLink() {
 		OnHideMainMenu	 					: _OnHideMainMenu,
 		OnShowPauseMenu	 					: _OnShowPauseMenu,
 		OnHidePauseMenu	 					: _OnHidePauseMenu,
-		NavigateToTab	 					: NavigateToTab,
+		NavigateToTab	 					: _NavigateToTab,
 		ShowContentPanel	 				: _ShowContentPanel,
 		OnHideContentPanel	 				: _OnHideContentPanel,
 		GetActiveNavBarButton	 			: _GetActiveNavBarButton,
