@@ -86,16 +86,16 @@
 
  .loading-screen-hint-contents
 {
-    height: 200px;
+    height: 150px;
     width: 100%;
 	horizontal-align: center;
 	vertical-align: center;
-    flow-children: right;
+    flow-children: down;
 
     
 	box-shadow: shadowOffset;
 
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .loading-screen-hint__icon
@@ -106,21 +106,19 @@
 	vertical-align: center;
 	                   
 	wash-color: #eece60;
-    margin: 10px 10px 10px 20px;
+    margin: 10px 2px 2px 2px;
 
     brightness: 1.1;
 }
 
 .loading-screen-hint__text
 {
-	font-size: 17px;
+	font-size: 15px;
 	font-family: Stratum2;
-	font-weight: medium;
 	                       
 	color: #eece60;
-	text-overflow: shrink;
     text-align: left;
-    margin: 10px 10px 10px 4px;
+    margin: 0px 2px 0px 5px;
 
     brightness: 1.1;
 }
