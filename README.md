@@ -10,6 +10,8 @@ This small project that i did for unknown reasons brings the CS2 ui look onto CS
 
 ![image](https://github.com/user-attachments/assets/06f257ff-0b8e-438a-8429-c48b27a7331d)
 
+![image](https://github.com/user-attachments/assets/1297d2e6-7561-4ac0-8214-8b81cf060fe4)
+
 ![image](https://github.com/user-attachments/assets/49d95e87-3d8f-4eca-ad22-d1d4ffa34c05)
 
 ![image](https://github.com/user-attachments/assets/f5ac7586-f744-4b13-8f76-b1e91d3bfab4)
