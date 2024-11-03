@@ -6,31 +6,26 @@ This small project that i did for unknown reasons brings the CS2 ui look onto CS
 
 # Whole ui
 - All of the core UI changes.
-![image](https://github.com/user-attachments/assets/b6e73b1c-8dee-40b2-976c-e4a3ca7595b9)
-![image](https://github.com/user-attachments/assets/1e2823fd-e467-4c40-819f-75339ad350a9)
-![image](https://github.com/user-attachments/assets/9b357f84-9c6b-4b26-9033-19d5efd2245c)
-![image](https://github.com/user-attachments/assets/57b9b770-167d-4166-9b25-39e7cd662998)
-![image](https://github.com/user-attachments/assets/7eca39ba-8da1-4774-9264-1ef4e1d46195)
+![image](https://github.com/user-attachments/assets/9293bc77-9c86-4671-b851-b92729d6c738)
+
+![image](https://github.com/user-attachments/assets/06f257ff-0b8e-438a-8429-c48b27a7331d)
+
+![image](https://github.com/user-attachments/assets/49d95e87-3d8f-4eca-ad22-d1d4ffa34c05)
+
+![image](https://github.com/user-attachments/assets/f5ac7586-f744-4b13-8f76-b1e91d3bfab4)
+
+![image](https://github.com/user-attachments/assets/077edcf3-f314-4ebe-baa1-fc57f5e46477)
+
 ![image](https://github.com/user-attachments/assets/c5e6b540-e018-4e38-a9cf-5ed04463cf77)
 
 
 # Hud changes
-Radar and hud Alerts have been changed. Vote panel resembles the CS2 vote look too!
-![image](https://github.com/user-attachments/assets/837145b4-361c-48cc-98c8-731884048e8b)
-![image](https://github.com/user-attachments/assets/6e0de865-623c-40e6-baeb-01e61cd23169)
+![image](https://github.com/user-attachments/assets/410a03c8-ed3c-4183-ad20-355db112ff17)
 
-# Why aren't there more hud changes?
-- There are.. just very minor such as the killfeed..
-- Stuff like the deathpanel or killfeed are supposed to have a blurred background but for some reason.. It doesn't work the same way as for the alert..
-- Hint Panel works albeit it for the picked up weapon panel it only works for the c4 and i am quite unsure why it does that.. i'll figure it out
-
-# Main menu stuff changes
-- At the launch of the game you will hear the CS2 intro logo, this is ignored if you have -novid.
-- You will always hear the ambient sounds from the main menu in all panels except loading screen.
-- Obviously the changes are visible on the first few screenshots.
+![image](https://github.com/user-attachments/assets/73a93f41-716a-475e-8c21-58fce38b3754)
 
 # Inventory
-- Well it wouldn't really be like cs2 if the inspecting stuff isn't like in CS2. So i added it!
+- Well it wouldn't really be like cs2 if the inspecting stuff isn't like in CS2. So i added it! PS: Knives cannot be inspected like guns, the reason for that is because valve messed up the center axis of all knife models in the game, for some reason they set the tip of all knives to be the center axis which makes no god damn sense.
 
 https://github.com/user-attachments/assets/19e1afba-f4dc-4300-b37a-bd24c5db00d1
 
