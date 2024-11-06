@@ -755,20 +755,19 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
     position: 0px 0px 0px;
     visibility: visible;
     margin-left: 0px;
-	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
 
 	transition-property: position, clip, height;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
 .mainmenu-content--offscreen
 {
 	position: -100% 0% 0%;
-	sound-trans: "";
+	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
 
 	transition-property:  position, clip;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -811,7 +810,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	background-img-opacity: .01;
 	transform: translateX(0%);
 	transition-property: opacity, transform;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -841,7 +840,7 @@ CSGOEndOfMatch.mainmenu-content__container {
 	opacity: 0;
 	sound: "UIPanorama.submenu_leveloptions_slidein";
 	transition-property: opacity, transform;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -853,7 +852,7 @@ CSGOEndOfMatch.mainmenu-content__container {
 	padding: 0px;
 	background-color: rgba(0, 0, 0, 0);
 	transition-property: opacity, transform;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -862,7 +861,7 @@ CSGOEndOfMatch.mainmenu-content__container {
 	transform: translateY(100%);
 	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
 	transition-property: opacity, transform;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -878,19 +877,19 @@ CSGOEndOfMatch.mainmenu-content__container {
 .mainmenu-content--shrunk {
 	height: 984px;
 	transition-property: height;
-	transition-duration: .35s;
+	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
 }
 
 .mainmenu-content__background-color {
 	background-color: contentPanelBackground;
 	transition-property: background-color;
-	transition-duration: .35s;
+	transition-duration: .25s;
 }
 
 .mainmenu-content__background-color--dark {
 	transition-property: background-color;
-	transition-duration: .35s;
+	transition-duration: .25s;
 }
 
 .mainmenu_left_column_container {

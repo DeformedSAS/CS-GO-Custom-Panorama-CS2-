@@ -206,10 +206,6 @@
                             <Label text="#play_setting_offline" />
                             <Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
                         </RadioButton>
-                        <RadioButton id="PlayWorkshop" group="playtype" data-type="workshop" class="content-navbar__tabs__btn visible-if-not-limitedbeta" onactivate="PlayMenu.OnPressWorkshop();">
-                            <Label text="#play_setting_workshop" />
-                            <Panel id="GameModeAlert" class="navbar-btn__notification-dot hidden" />
-                        </RadioButton>
                         <Button id="PlayCommunity" class="mainmenu-top-navbar__radio-iconbtn visible-if-not-limitedbeta" data-type="workshop" onactivate="PlayMenu.OnPressServerBrowser();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;MainMenuNavBarCtrlZoo&apos;, &apos;#tooltip_navbar_zooTESTESTSET&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
                             <Image class="mainmenu-top-navbar__radio-btn__icon" src="file://{images}/icons/ui/community_servers.svg" />
                         </Button>

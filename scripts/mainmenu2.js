@@ -113,8 +113,9 @@ var _SetBackgroundMovie = function() {
     // schedule the background movie change after fade-out duration
     $.Schedule(1.0, function() { // waits for fade-out to complete (matches transition duration)
         var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
+		$.DispatchEvent('PlayMainMenuMusic', true, true);
 		
-
+       _UnPauseMainMenuCharacter();
         // sets the new video sorse
         videoPlayer.SetAttributeString('data-type', backgroundMovie);
         videoPlayer.SetMovie("file://{resources}/videos/" + backgroundMovie + ".webm");
@@ -123,6 +124,7 @@ var _SetBackgroundMovie = function() {
 
         var vanityPanel = $('#JsMainmenu_Vanity');
         if (vanityPanel && vanityPanel.IsValid()) {
+			_InitVanity();
             _SetVanityLightingBasedOnBackgroundMovie(vanityPanel);
             _ForceRestartVanity();
         }
@@ -136,7 +138,6 @@ var _SetBackgroundMovie = function() {
 
 var _OnShowMainMenu = function() {
 
-        $.DispatchEvent('PlayMainMenuMusic', true, true);
         $('#MainMenuNavBarHome').checked = true;
 
         GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
@@ -144,7 +145,6 @@ var _OnShowMainMenu = function() {
         GameInterfaceAPI.SetSettingString('snd_soundmixer', 'MainMenu_Mix');
 
         _m_bVanityAnimationAlreadyStarted = false;
-        _InitVanity();
         _OnInitFadeUp();
         _SetBackgroundMovie();
 
@@ -328,7 +328,7 @@ var _OnShowMainMenu = function() {
 		var elContextPanel = $.GetContextPanel();
 		
 		elContextPanel.AddClass( 'MainMenuRootPanel--PauseMenuMode' );
-		 $('#MainMenuNavBarHome').checked = true;
+		 $('#MainMenuNavBarHomePause').checked = true;
 
 		var bMultiplayer = elContextPanel.IsMultiplayer();
 		var bQueuedMatchmaking = GameStateAPI.IsQueuedMatchmaking();
@@ -486,7 +486,6 @@ var _OnShowMainMenu = function() {
 			activePanel.visible = true;
 			activePanel.SetReadyForDisplay( true );
                                 	
-			_PauseMainMenuCharacter();
 		}
 		_ShowContentPanel();
 	};
@@ -1127,6 +1126,7 @@ var _OnShowMainMenu = function() {
     function OnEscapeKeyPressed() {
         if (_m_activeTab)
             OnHomeButtonPressed();
+		$.DispatchEvent('PlayMainMenuMusic', true, true );
     }
     function _InventoryUpdated() {
         _ForceRestartVanity();
@@ -1636,52 +1636,6 @@ var _OnShowMainMenu = function() {
 		}
 	};
 
-let isPopupOpen = false;
-// build info popup that shows some text.
-var showBuildWarning = function() {
-    if (isPopupOpen) {
-        return; 
-    }
-    
-    isPopupOpen = false; 
-
-    UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle(
-        $.Localize("#legacy_support_text_title"),  
-        $.Localize("#legacy_support_text_desc"),   
-        '',                                         
-        $.Localize("#link_to_steam_support"),      
-        function() { 
-            OnshowBuildWarning('link'); 
-            isPopupOpen = false;     
-        },
-        $.Localize("#OK"),                       
-        function() { 
-            OnshowBuildWarning('');       
-            isPopupOpen = false;          
-        },
-        'CS SUPREMACY PROJECT',                   
-        function() {
-            OnshowCSProjectLink();        
-            isPopupOpen = false;         
-        },
-        'dim',  
-        function() {
-            isPopupOpen = false;  
-        },
-    );
-}
-
-function OnshowBuildWarning(msg) {
-    if (msg === 'link') {
-        SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://github.com/DeformedSAS/CS-GO-Custom-Panorama-CS2-");
-    }
-}
-
-function OnshowCSProjectLink() {
-    SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://discord.com/invite/aeAEzZXxHu");
-}
-
-
 	var _ShowOperationLaunchPopup = function()
 	{
 		if ( _m_hOnEngineSoundSystemsRunningRegisterHandle )
@@ -1712,15 +1666,21 @@ function OnshowCSProjectLink() {
 		}
 	};
 
-	var _PauseMainMenuCharacter = function()
-	{
-		var vanityPanel = $( '#JsMainmenu_Vanity' );
+var _PauseMainMenuCharacter = function() {
+    var vanityPanel = $('#JsMainmenu_Vanity');
 
-		if ( vanityPanel && UiToolkitAPI.IsPanoramaInECOMode() )
-		{
-			vanityPanel.Pause( true );
-		}
-	}
+    if (vanityPanel) {
+        vanityPanel.Pause(true);
+    }
+};
+
+var _UnPauseMainMenuCharacter = function() {
+    var vanityPanel = $('#JsMainmenu_Vanity');
+
+    if (vanityPanel) {
+        vanityPanel.Pause(false);
+    }
+};
 
 	var _ShowTournamentStore = function() 
 	{
@@ -1948,11 +1908,11 @@ function OnshowCSProjectLink() {
 		ResetAcknowlegeHandler				: _ResetAcknowlegeHandler,
 		ShowNotificationBarTooltip			: _ShowNotificationBarTooltip,
 		ShowVote 							: _ShowVote,
-		showBuildWarning               : showBuildWarning,
 		ShowStoreStatusPanel				: _ShowStoreStatusPanel,
 		HideStoreStatusPanel				: _HideStoreStatusPanel,
 		SetBackgroundMovie					: _SetBackgroundMovie,
 		PauseMainMenuCharacter				: _PauseMainMenuCharacter,
+		UnPauseMainMenuCharacter				: _UnPauseMainMenuCharacter,
 		ShowTournamentStore					: _ShowTournamentStore,
 		TournamentDraftUpdate				: _TournamentDraftUpdate,
 		ResetSurvivalEndOfMatch				: _ResetSurvivalEndOfMatch,

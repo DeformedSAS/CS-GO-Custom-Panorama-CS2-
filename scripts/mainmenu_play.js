@@ -1324,7 +1324,7 @@ function _SetDirectChallengeIcons(type, id) {
                 mapImage = $.CreatePanel('Panel', p.FindChildInLayoutFile('MapGroupImagesCarousel'), 'MapSelectionScreenshot');
                 mapImage.AddClass('map-selection-btn__screenshot');
             }
-            mapImage.style.backgroundImage = 'url("file://{images}/map_icons/screenshots/360p/random.png")';
+            mapImage.style.backgroundImage = 'url("file://{images}/map_icons/screenshots/1080p/random.png")';
             mapImage.style.backgroundPosition = '50% 0%';
             mapImage.style.backgroundSize = 'auto 100%';
         }
@@ -2087,7 +2087,7 @@ function _ShowCancelSearchButton(isSearching, isHost) {
 			p.group = 'radiogroup_' + panelId;
 
 			if ( !( mapInfo.imageUrl ) )
-				mapInfo.imageUrl = 'file://{images}/map_icons/screenshots/360p/random.png';
+				mapInfo.imageUrl = 'file://{images}/map_icons/screenshots/1080p/random.png';
 
 			p.SetAttributeString( 'mapname', mapInfo.mapgroup );
 			p.SetPanelEvent( 'onactivate', _OnActivateMapOrMapGroupButton.bind( this, p ) );
