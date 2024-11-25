@@ -212,6 +212,10 @@ CSGOHudDeathNotice
 {
 	visibility: visible;
 }
+.attacker-in-air #AttackerInAir
+{
+	visibility: visible;
+}
 
 .attacker-blind #AttackerBlindIcon
 {

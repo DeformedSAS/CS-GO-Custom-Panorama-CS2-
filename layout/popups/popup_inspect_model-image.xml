@@ -9,7 +9,7 @@
 
 	<scripts>
 		<include src="file://{resources}/scripts/popups/popup_inspect_model-image.js" />
-		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/common/charwpninspect.js" />
 		<include src="file://{resources}/scripts/common/tint_spray_icon.js" />
 	</scripts>
 

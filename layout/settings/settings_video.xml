@@ -46,13 +46,12 @@
 								<Label text="#SFUI_Map_de_ancient" value="ancient" id="ui_mainmenu_bkgnd_movie_ancient"/>
 								<Label text="#SFUI_Map_de_anubis" value="anubis" id="ui_mainmenu_bkgnd_movie_anubis"/>
 								<Label text="#SFUI_Map_de_overpass" value="blacksite" id="ui_mainmenu_bkgnd_movie_blacksite"/>
-								<Label text="#SFUI_Map_de_cbble" value="cbble" id="ui_mainmenu_bkgnd_movie_cbble"/>
+								<Label text="#SFUI_Map_dz_sirocco" value="cbble" id="ui_mainmenu_bkgnd_movie_cbble"/>
 								                                                                                               
 								                                                                                                        
 								<Label text="#SFUI_Map_de_nuke" value="nuke" id="ui_mainmenu_bkgnd_movie_nuke"/>
 								<Label text="#SFUI_Map_de_dust2" value="sirocco_night" id="ui_mainmenu_bkgnd_movie_sirocco_night"/>
 								<Label text="#SFUI_Map_de_vertigo" value="vertigo" id="ui_mainmenu_bkgnd_movie_vertigo"/>
-								<Label text="#SFUI_Map_random" value="random" id="ui_mainmenu_bkgnd_movie_random"/>
 						</CSGOSettingsEnumDropDown>
 					</TooltipPanel>
 					<Panel class="horizontal-separator"/>
@@ -258,16 +257,7 @@
 					</TooltipPanel>
 					<Panel class="horizontal-separator"/>
 
-					                       
-					<TooltipPanel id="TripleMonitor" class="SettingsMenuDropdownContainer" tooltip="#GameUI_TripleMonitor_Tooltip">
-						<Label text="#SFUI_Settings_Triple_Monitor" class="half-width"/>
-						<CSGOSettingsEnumDropDown convar="triple_monitor_mode" class="content-navbar__tabs__dropdown" id ="TripleMonitorDropdown">
-							<Label text="#SFUI_Settings_Disabled" value="0" id="triplemonitor0" />
-							<Label text="#SFUI_Settings_Enabled" value="1" id="triplemonitor1"/>
-						</CSGOSettingsEnumDropDown>
-					</TooltipPanel>
 
-					                     
 					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_UberShader_Info">
 						<Label text="#SFUI_Settings_UberShader" class="half-width"/>
 						<CSGOSettingsEnumDropDown onuserinputsubmit="SettingsMenuShared.VideoSettingsOnUserInputSubmit()" class="content-navbar__tabs__dropdown" id ="UberShader">

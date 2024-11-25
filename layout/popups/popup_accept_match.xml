@@ -42,16 +42,16 @@
 		<Panel id="id-accept-match" class="accept-match accept-match-container">
 			<Panel id="AcceptMatchWarning" class="accept-match-warning hidden">
 				<Image class="vertical-center right-padding" texturewidth="-1" textureheight="24" src="file://{images}/icons/ui/info.svg" />
-				<Label class="accept-match-warning--label" html="true" text="#match_ready_match_unranked_warning_2"/>
+				<Label class="accept-match-warning--label stratum-medium" html="true" text="#match_ready_match_unranked_warning_2"/>
 			</Panel>			
 			<Panel class="accept-match__bg">
 				<Panel id="AcceptMatchMapImage" class="accept-match__map"/>
 				<Panel id="AcceptMatchDataContainer" class="accept-match__data">
-					<Label class="accept-match__data__title" text="#match_ready_title"/>
+					<Label class="accept-match__data__title stratum-medium" text="#match_ready_title"/>
 					<Panel class="accept-match__seperator"/>
 					<Panel class="accept-match__data__details">
 						<Image id="AcceptMatchModeIcon" class="accept-match__top-icon" src="file://{images}/icons/ui/competitive.svg" textureheight="24" texturewidth="24"/>
-						<Label  id="AcceptMatchModeMap" class="accept-match__data__title--details" text=""/>
+						<Label  id="AcceptMatchModeMap" class="accept-match__data__title--details stratum-medium" text=""/>
 					</Panel>
 				</Panel>
 
@@ -77,15 +77,15 @@
 						                                                              
 
 					</Panel>
-					<Label  id="AcceptMatchPlayersAccepted"  class="accept-match__data__title--details" text=""/>
+					<Label  id="AcceptMatchPlayersAccepted"  class="accept-match__data__title--details stratum-medium" text=""/>
 				</Panel>
 
 				<Button id="AcceptMatchBtn" class="FlatButton Positive" onactivate="PopupAcceptMatch.OnAcceptMatchPressed();">
-					<Label  id="" text="#match_ready_accept"/>
+					<Label  class="stratum-medium" text="#match_ready_accept"/>
 				</Button>
 
 				<Panel id="AcceptMatchCountdown" class="accept-match__data__time">
-					<Label text="" class="accept-match__data__time__text"/>
+					<Label text="" class="accept-match__data__time__text stratum-medium"/>
 				</Panel>
 
 			</Panel>

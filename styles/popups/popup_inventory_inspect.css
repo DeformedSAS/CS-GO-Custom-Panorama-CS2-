@@ -24,14 +24,14 @@
 
 .popup-inspect-modelpanel_darken
 {
-	brightness: .25;
+	brightness: 1;
 }
 
 .popup-inspect-modelpanel_darken_blur
 {
 	blur: gaussian( 4, 4, 8 );
 	opacity: .7;
-	brightness: .5;
+	brightness: 1;
 }
 
 .popup-inspect-image
@@ -49,7 +49,7 @@
 
 #id-character-button-container
 {
-	width: 700px;
+	width: 750px;
 
 	transition-property: opacity, width;
 	transition-duration: 0.25s;

@@ -26,7 +26,7 @@
                 <Label text="#SFUI_Map_de_ancient" value="ancient" id="ui_mainmenu_bkgnd_movie_ancient"/>
                 <Label text="#SFUI_Map_de_anubis" value="anubis" id="ui_mainmenu_bkgnd_movie_anubis"/>
                 <Label text="#SFUI_Map_de_overpass" value="blacksite" id="ui_mainmenu_bkgnd_movie_blacksite"/>
-                <Label text="#SFUI_Map_de_cbble" value="cbble" id="ui_mainmenu_bkgnd_movie_cbble"/>
+                <Label text="#SFUI_Map_dz_sirocco" value="cbble" id="ui_mainmenu_bkgnd_movie_cbble"/>
                 <Label text="#SFUI_Map_de_nuke" value="nuke" id="ui_mainmenu_bkgnd_movie_nuke"/>
                 <Label text="#SFUI_Map_de_dust2" value="sirocco_night" id="ui_mainmenu_bkgnd_movie_sirocco_night"/>
                 <Label text="#SFUI_Map_de_vertigo" value="vertigo" id="ui_mainmenu_bkgnd_movie_vertigo"/>

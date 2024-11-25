@@ -406,7 +406,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 }
 .mainmenu-top-navbar
 {
-	height: 60px;
+	height: 64px;
 	width: 100%;
 	background-color:blurBackgroundColor;
 	background-image: url("file://{images}/backgrounds/linemap.png");
@@ -481,7 +481,6 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	horizontal-align: center;
 	wash-color: white;
 	tooltip-position: bottom;
-	tooltip-body-position: 50% 50%;
 	flow-children:none;
 
 	transition-property:  wash-color;
@@ -526,7 +525,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
     vertical-align: center;
     horizontal-align: center;
     text-align: center;
-	text-shadow: 1px 2px 1px;
+	text-shadow: 1px 2px 5px rgba(255, 255, 255, 0.7); /* White glow */
     letter-spacing: 0px;
     transform: translateY(0px);
 	transition-property: background-color;
@@ -544,13 +543,6 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	transition-property:  wash-color, border;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
-}
-
-.mainmenu-navbar__btn-home 
-{
-	width: 64px;
-	height: 64px;
-	border-bottom: 0px solid rgba(255, 255, 255, 0.1);
 }
 
 .mainmenu-navbar__btn-play Image
@@ -764,7 +756,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 .mainmenu-content--offscreen
 {
 	position: -100% 0% 0%;
-	sound-trans: "UIPanorama.submenu_leveloptions_slidein";
+	sound-trans: "UIPanorama.submenu_slidein";
 
 	transition-property:  position, clip;
 	transition-duration: .25s;
@@ -833,12 +825,12 @@ CSGOEndOfMatch.mainmenu-content__container {
 }
 
 .mainmenu-content__container VerticalScrollBar {
-	margin-right: 16px;
+	margin-right: 72px;
 }
 
 .mainmenu-content--hidden {
 	opacity: 0;
-	sound: "UIPanorama.submenu_leveloptions_slidein";
+	sound: "UIPanorama.submenu_slidein";
 	transition-property: opacity, transform;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
@@ -1525,6 +1517,7 @@ RadioButton.content-navbar__tabs__btn--small Label
 {
 	width: 90px;
 	flow-children: none;
+	overflow: noclip;
 	tooltip-position: bottom;
 	transition-property: background-color;
 	transition-duration: .25s;
@@ -1592,21 +1585,43 @@ RadioButton.content-navbar__tabs__btn--small Label
 	transition-duration: .15s;
 	transition-timing-function: ease-in-out;
 }
-
-.mainmenu-top-navbar__radio-btn__label--play
-{
-	transform: translateY(3px);
-	margin-left: 0px;
-	font-size: 36px;
-	letter-spacing: 1px;
+.mainmenu-top-navbar__radio-btn__label {
+    color: #FFFFFF;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+                 0 0 10px rgba(255, 255, 255, 0.5), 
+                 0 0 15px rgba(255, 255, 255, 0.3); 
+    transition-property: transform, text-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
-.mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__label
-{
-	color: #82D8FF;
-	transition-property: color, text-shadow;
-	transition-duration: .15s;
-	transition-timing-function: ease-in-out;
+.mainmenu-top-navbar__radio-btn:hover .mainmenu-top-navbar__radio-btn__label {
+    color: #82D8FF;
+    text-shadow: 0 0 15px rgba(130, 216, 255, 1),
+                 0 0 25px rgba(130, 216, 255, 0.8), 
+                 0 0 35px rgba(130, 216, 255, 0.6);
+    transition-property: transform, text-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.mainmenu-top-navbar__radio-btn:active .mainmenu-top-navbar__radio-btn__label {
+    color: #FFFFFF;
+    text-shadow: 0 0 15px rgba(130, 216, 255, 1),
+                 0 0 25px rgba(130, 216, 255, 0.8), 
+                 0 0 35px rgba(130, 216, 255, 0.6);
+    transition-property: transform, text-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
+}
+
+.mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__label {
+    color: #FFFFFF;
+    text-shadow: 0 0 10px rgba(130, 216, 255, 1),
+                 0 0 20px rgba(130, 216, 255, 0.8);
+    transition-property: transform, text-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 .mainmenu-top-navbar__radio-btn:selected .mainmenu-top-navbar__radio-btn__label--play

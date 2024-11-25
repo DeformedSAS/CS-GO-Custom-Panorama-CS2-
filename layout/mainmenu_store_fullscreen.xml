@@ -8,12 +8,12 @@
 		<include src="file://{resources}styles/mainmenu_store_fullscreen.css" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}scripts/common/formattext.js" />
+		<include src="file://{resources}scripts/itemtile_store.js" />
+		<include src="file://{resources}scripts/common/store_items.js" />
 		<include src="file://{resources}scripts/common/iteminfo.js" />
+		<include src="file://{resources}scripts/common/formattext.js" />
 		<include src="file://{resources}scripts/common/prime_button_action.js" />
 		<include src="file://{resources}scripts/common/tint_spray_icon.js" />
-		<include src="file://{resources}scripts/common/store_items.js" />
-		<include src="file://{resources}scripts/itemtile_store.js" />
 		<include src="file://{resources}scripts/mainmenu_store_fullscreen.js" />
 	</scripts>
 	<snippets>

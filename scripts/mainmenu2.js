@@ -113,7 +113,6 @@ var _SetBackgroundMovie = function() {
     // schedule the background movie change after fade-out duration
     $.Schedule(1.0, function() { // waits for fade-out to complete (matches transition duration)
         var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
-		$.DispatchEvent('PlayMainMenuMusic', true, true);
 		
        _UnPauseMainMenuCharacter();
         // sets the new video sorse
@@ -137,7 +136,7 @@ var _SetBackgroundMovie = function() {
 };
 
 var _OnShowMainMenu = function() {
-
+  $.DispatchEvent('PlayMainMenuMusic', true, true);
         $('#MainMenuNavBarHome').checked = true;
 
         GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
@@ -155,6 +154,7 @@ var _OnShowMainMenu = function() {
         _UpdateInventoryBtnAlert();
         _GcLogonNotificationReceived();
         _BetaEnrollmentStatusChange();
+		_UpdateStoreAlert();
         _DeleteSurvivalEndOfMatch();
         _DeletePauseMenuMissionPanel();
         _ShowHideAlertForNewEventForWatchBtn();
@@ -192,10 +192,8 @@ var _OnShowMainMenu = function() {
 			}
 			else if ( strFatalError === "UnsupportedClientLogon" )
 			{
-				UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( "#SFUI_LoginLicenseAssist_UnsupportedTitle", "#SFUI_LoginLicenseAssist_UnsupportedText", "",
-					"#SFUI_Continue", function () { },
+				UiToolkitAPI.ShowGenericPopupOneOptionBgStyle( "Invalid Steam.inf ClientVersion string", "Change your steam.inf clientversion string to this: ClientVersion=2000449 to be able to use inventory and other online features except matchmaking. The directory of this file is in Counter-Strike Global Offensive > csgo > steam.inf. Have fun!", "",
 					"#GameUI_Quit", function () { GameInterfaceAPI.ConsoleCommand( "quit" ); },
-					"#ShowFAQ", function () { SteamOverlayAPI.OpenURL( "https://support.steampowered.com/kb_article.php?ref=73EF-08A3-0935-6369" ); },
 					"dim" );
 			}
 			else if ( strFatalError === "ShowGameLicenseNeedToLinkAccounts" )
@@ -844,10 +842,10 @@ var _OnShowMainMenu = function() {
 	                     
 	                                                                                                    
 
-	var _ForceRestartVanity = function()
+	var _ForceRestartVanity = function() // fixed issue where vanity would appear frozen upon disconnecting.
 	{
-		_m_bVanityAnimationAlreadyStarted = false;
 		_InitVanity();
+		_m_bVanityAnimationAlreadyStarted = false;
 	};
 
 	                                                                 
@@ -902,7 +900,6 @@ var _OnShowMainMenu = function() {
 		  
 		var oSettings = ItemInfo.GetOrUpdateVanityCharacterSettings();
 		oSettings.activity = 'ACT_CSGO_UIPLAYER_WALKUP';
-		oSettings.arrModifiers.push( 'vanity' );
 
 		                                                                 
 		_ApplyVanitySettingsToLobbyMetadata( oSettings );
@@ -915,39 +912,13 @@ var _OnShowMainMenu = function() {
 		}
 		oSettings.panel = vanityPanel;
 
-		                                         
+		vanityPanel.ResetAnimation( true );                                         
 		vanityPanel.SetSceneAngles( 0, 0, 0, true );
 		
 		                                                                          
 		vanityPanel.hittest = false; 
 
-		  
-		                                                                                        
-		                            
-			                                                                                        
-			 
-		 
-			                                                              
-			           
-			 
-				                                                           
-				                 
-				 
-					                                            
-					                                  
-					                                        
-					                                          
-					                                         
-					                                          
-					                                                                                
-				 
-			 
-		 
-		  
 
-		  
-		                               
-		  
 		                                                        
 		_m_bVanityAnimationAlreadyStarted = true;
 		
@@ -974,20 +945,10 @@ var _OnShowMainMenu = function() {
 			oSettings.loadoutSlot, oSettings.weaponItemId );
 	};
 
-	var _LobbyPlayerUpdated = function()
+	var _LobbyPlayerUpdated = function() // this function does nothing and for some reason the game requires it or otherwise it won't load mainmenu2.js BUG THIS!
 	{
 		  
-		                                                
-		                                                        
-		                                    
-		 
-			                                               
-		 
-		                                            
-		 
-			                                     
-			                      
-		 
+
 		  
 	};
 
@@ -1004,31 +965,7 @@ var _OnShowMainMenu = function() {
 		                                                                                                                 
 		vanityPanel.RestoreLightingState();
 
-		if ( backgroundMap === 'cbble' )
-		{
-			vanityPanel.SetFlashlightAmount( 1.0 );
-			                                               
-			                                                            
-			                                                           
-			vanityPanel.SetFlashlightColor( 0.81, 0.92, 1.00 );
-			vanityPanel.SetAmbientLightColor( 0.12, 0.21, 0.46 );
-
-			vanityPanel.SetDirectionalLightModify( 0 );
-			vanityPanel.SetDirectionalLightColor( 0.13, 0.14, 0.13 );
-			vanityPanel.SetDirectionalLightDirection( -0.81, 0.41, 0.43 );
-			
-			vanityPanel.SetDirectionalLightModify( 1 );
-			vanityPanel.SetDirectionalLightColor( 0.82, 0.19, 0.08 );
-			vanityPanel.SetDirectionalLightDirection( 0.62, 0.74, -0.25 );
-			vanityPanel.SetDirectionalLightPulseFlicker( 0.25, 0.25, 0.25, 0.25 );
-
-			vanityPanel.SetDirectionalLightModify( 2 );
-			vanityPanel.SetDirectionalLightColor( 0.72, 1.40, 1.68 );
-			vanityPanel.SetDirectionalLightDirection( 0.50, -0.69, -0.52 );
-
-			                                                   
-		}
-		else if ( backgroundMap === 'blacksite' )
+		if ( backgroundMap === 'blacksite' )
 		{
 			vanityPanel.SetFlashlightAmount( 2 );
 			                                               
@@ -1058,7 +995,7 @@ var _OnShowMainMenu = function() {
 			vanityPanel.SetFlashlightFOV( 60 );
 			                                                            
 			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
-			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
+			vanityPanel.SetAmbientLightColor( 0.27, 0.3, 0.4 );
 			
 			vanityPanel.SetDirectionalLightModify( 0 );
 			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
@@ -1072,6 +1009,122 @@ var _OnShowMainMenu = function() {
 			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
 			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
 		}
+else if (backgroundMap === 'cbble') {
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.27, 0.3, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
+}
+
+		else if ( backgroundMap === 'nuke' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                               
+		}
+		else if ( backgroundMap === 'vertigo' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                               
+		}
+		else if ( backgroundMap === 'anubis' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                              
+		}
+		else if ( backgroundMap === 'ancient' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.32, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                              
+		}
+		
 	};
 
 	                                                                           
@@ -1123,17 +1176,30 @@ var _OnShowMainMenu = function() {
             LobbyAPI.CreateSession();
         }
     }
-    function OnEscapeKeyPressed() {
-        if (_m_activeTab)
-            OnHomeButtonPressed();
-		$.DispatchEvent('PlayMainMenuMusic', true, true );
-    }
+	var OnEscapeKeyPressed = function( eSource, nRepeats, focusPanel ) // fixed issue with pause menu not closing and mainmenu song playing.
+	{
+		                                
+		if ( $.GetContextPanel().BHasClass( 'MainMenuRootPanel--PauseMenuMode' ) ) {
+			$.DispatchEvent( 'CSGOMainMenuResumeGame' );
+		}
+		else {
+			MainMenu.OnHomeButtonPressed();
+
+			var elPlayButton = $( '#MainMenuNavBarPlay' );
+			if( elPlayButton && !elPlayButton.BHasClass( 'mainmenu-navbar__btn-small--hidden' ) ) {
+
+				GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
+				$.DispatchEvent('PlayMainMenuMusic', true, true );
+			}
+		}
+	};
     function _InventoryUpdated() {
         _ForceRestartVanity();
         if (GameStateAPI.IsLocalPlayerPlayingMatch()) {
             return;
         }
         _UpdateInventoryBtnAlert();
+		_UpdateStoreAlert();
     }
     function _CheckRankUpRedemptionStore() {
         if (_m_bHasPopupNotification)
@@ -1163,15 +1229,6 @@ var _OnShowMainMenu = function() {
 	var _UpdateInventoryBtnAlert = function()
 	{
 		var aNewItems = AcknowledgeItems.GetItems();
-
-		                                                                                                                
-		                                                                                  
-		                                                                                              
-		                                                                                       
-		    
-		   	                                
-		    
-		
 		var count = aNewItems.length;
 		var elNavBar = $.GetContextPanel().FindChildInLayoutFile('JsMainMenuNavBar'),
 		elAlert = elNavBar.FindChildInLayoutFile('MainMenuInvAlert');
@@ -1278,7 +1335,24 @@ var _OnShowMainMenu = function() {
 			'none'
 		);
 	};
-
+function _UpdateStoreAlert() { // this function is for testing and currently does not work. more on that soon.
+    let hideAlert;
+    let objStore;
+    
+    if (InventoryAPI.GetCacheTypeElementJSOByIndex) {
+        objStore = InventoryAPI.GetCacheTypeElementJSOByIndex("PersonalStore", 0);
+    }
+    
+    const gcConnection = MyPersonaAPI.IsConnectedToGC();
+    const validInventory = MyPersonaAPI.IsInventoryValid();
+    
+    // checks if objstore exists but does nothing after that. more on that soon.
+    hideAlert = !gcConnection || !validInventory || !objStore || objStore.redeemable_balance === 0;
+    const elNavBar = $.GetContextPanel().FindChildInLayoutFile('MainMenuNavBarTop');
+    const elAlert = elNavBar.FindChildInLayoutFile('MainMenuStoreAlert');
+    elAlert.SetDialogVariable("alert_value", $.Localize("#Store_Price_New"));
+    elAlert.SetHasClass('hidden', hideAlert);
+}
 	var _UpdateSubscriptionAlert = function()
 	{
 		var elNavBar = $.GetContextPanel().FindChildInLayoutFile('JsMainMenuNavBar'),
@@ -1410,7 +1484,7 @@ var _OnShowMainMenu = function() {
 		  
 		                             
 		  
-		var nIsVacBanned = MyPersonaAPI.IsVacBanned();
+		var nIsVacBanned = MyPersonaAPI.IsVacBanned(); // well well well you sneaky bastard with cheats, this function right here shows the vac ban notification at the top of your screen. cheeky bastard.
 		if ( nIsVacBanned != 0 )
 		{
 			notification.color_class = "NotificationRed";
@@ -1435,7 +1509,7 @@ var _OnShowMainMenu = function() {
 		  
 		                             
 		  
-		var nBanRemaining = CompetitiveMatchAPI.GetCooldownSecondsRemaining();
+		var nBanRemaining = CompetitiveMatchAPI.GetCooldownSecondsRemaining(); // did you kill your teammate at roundstart? or did you kick them too many times because you thought someone was cheating? well this is the function that calls the cooldown notification at the top of your screen.
 		if ( nBanRemaining > 0 )
 		{
 			notification.tooltip = CompetitiveMatchAPI.GetCooldownReason();
@@ -1476,7 +1550,7 @@ var _OnShowMainMenu = function() {
 		return null;
 	}
 
-	function _UpdateNotificationBar()
+	function _UpdateNotificationBar() // updates notification bar for things such as: new client available, ban, gc unable to connect etc.
 	{
 		var notification = _GetNotificationBarData();
 
@@ -1520,7 +1594,7 @@ var _OnShowMainMenu = function() {
 	                    
 	                                                                                                    
 	var _m_acknowledgePopupHandler = null;
-	var _ShowAcknowledgePopup = function( type = '', itemid = '' )
+	var _ShowAcknowledgePopup = function( type = '', itemid = '' ) // inventory acknowledge popup that shows up when you either use a xp boost pack or get a new item in your inventory.
 	{
 		if ( type === 'xpgrant' )
 		{	                                                 
@@ -1556,7 +1630,7 @@ var _OnShowMainMenu = function() {
 		_m_acknowledgePopupHandler = null;
 	};
 
-	var _ShowNotificationBarTooltip = function ()
+	var _ShowNotificationBarTooltip = function () // tooltip for those who really want to know what gave them a cooldown or permanent vac ban. in reality this doesn't really show the actual reason for vac bans.
 	{
 		var notification = _GetNotificationBarData();
 		if ( notification !== null && notification.tooltip )
@@ -1611,7 +1685,7 @@ var _OnShowMainMenu = function() {
 			'&'+'okcmd=' + $.UrlEncode( strOkCmd ) );
 	};
 
-	var _ShowWeaponUpdatePopup = function()
+	var _ShowWeaponUpdatePopup = function() // mp5 weapon update popup, it is broken. does not work even after multiple fixes applied, something seems to be fucked in the game code for this.
 	{
 		return;                                                         
 		var setVersionTo = '1';
@@ -1636,7 +1710,7 @@ var _OnShowMainMenu = function() {
 		}
 	};
 
-	var _ShowOperationLaunchPopup = function()
+	var _ShowOperationLaunchPopup = function() // when is a new operation coming valve? in cs2 it seems to be never sadly, armory is the permanent operation that you get in cs2 now and is never going away unless they change their mind.
 	{
 		if ( _m_hOnEngineSoundSystemsRunningRegisterHandle )
 		{
@@ -1666,7 +1740,7 @@ var _OnShowMainMenu = function() {
 		}
 	};
 
-var _PauseMainMenuCharacter = function() {
+var _PauseMainMenuCharacter = function() { // pauses your agent when changing background or disconnecting from a server.
     var vanityPanel = $('#JsMainmenu_Vanity');
 
     if (vanityPanel) {
@@ -1674,7 +1748,7 @@ var _PauseMainMenuCharacter = function() {
     }
 };
 
-var _UnPauseMainMenuCharacter = function() {
+var _UnPauseMainMenuCharacter = function() { // unpauses your agent after background change.
     var vanityPanel = $('#JsMainmenu_Vanity');
 
     if (vanityPanel) {
@@ -1695,7 +1769,7 @@ var _UnPauseMainMenuCharacter = function() {
 	                                                                                                    
 	                         
 	                                                                                                    
-	function _AddPauseMenuMissionPanel()
+	function _AddPauseMenuMissionPanel() // op mission pausemenu panel that actually never worked in the first place so i have no idea why it's here but removing it breaks the script.
 	{
 		var elPanel = null;
 		var missionId = GameStateAPI.GetActiveQuestID();
@@ -1822,7 +1896,7 @@ var _UnPauseMainMenuCharacter = function() {
 		alert.SetHasClass( 'hidden', bHide );
 	}
 
-	function _SwitchVanity ( team )
+	function _SwitchVanity ( team ) // switches your vanity to your desired team. pretty cool ain't it? ooo
 	{
 		$.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.generic_button_press', 'MOUSE' );
 		GameInterfaceAPI.SetSettingString( 'ui_vanitysetting_team', team );	
@@ -1837,7 +1911,7 @@ var _UnPauseMainMenuCharacter = function() {
 	}
 
 	                                                                                                    
-	function _OnGoToCharacterLoadoutPressed ()
+	function _OnGoToCharacterLoadoutPressed () // opens inventory loadout and shows your weapon or agent loadout.
 	{
 		if ( !MyPersonaAPI.IsInventoryValid() || !MyPersonaAPI.IsConnectedToGC() )
 		{
@@ -1866,7 +1940,7 @@ var _UnPauseMainMenuCharacter = function() {
 	}
 
 
-	return {
+	return { // return functions, this is primarily used when making new scripts that get executed when OnShowMainMenu function loads. also these information tooltips in the script probably made the script twice as large.. sorry but i had to for dev purposes.
 		OnInitFadeUp						: _OnInitFadeUp,
 		OnShowMainMenu						: _OnShowMainMenu,
 		OnHideMainMenu	 					: _OnHideMainMenu,
@@ -1890,6 +1964,7 @@ var _UnPauseMainMenuCharacter = function() {
 		OpenStatsMenu						: _OpenStatsMenu,
 		OpenInventory						: _OpenInventory,
 		OpenSettings						: _OpenSettings,
+		UpdateStoreAlert                    : _UpdateStoreAlert,
 		OnHomeButtonPressed					: OnHomeButtonPressed,
 		OnQuitButtonPressed					: _OnQuitButtonPressed,
 		OnEscapeKeyPressed					: OnEscapeKeyPressed,
@@ -1933,7 +2008,7 @@ var _UnPauseMainMenuCharacter = function() {
                                                                                                     
                                            
                                                                                                     
-(function()
+(function() // useless mumbo jumbo that i still don't know what this actually does.
 {
 	$.RegisterForUnhandledEvent( 'HideContentPanel', MainMenu.OnHideContentPanel );
 	$.RegisterForUnhandledEvent( 'SidebarContextMenuActive', MainMenu.OnSideBarElementContextMenuActive );

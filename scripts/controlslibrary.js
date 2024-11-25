@@ -154,7 +154,7 @@ function OnPopupCustomLayoutOperationHub ( startPage )
 function OnPopupCustomLayoutLoadingScreen()
 {
     ClearPopupsText();
-    UiToolkitAPI.ShowCustomLayoutPopup( 'teams', 'file://{resources}/layout/teamselectmenu.xml');
+    UiToolkitAPI.ShowCustomLayoutPopup( 'teams', 'file://{resources}/layout/loadingscreen.xml');
 }
 
 function OnControlsLibPopupLoadingBarEvent()

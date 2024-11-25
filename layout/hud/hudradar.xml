@@ -70,9 +70,9 @@
             </Panel>
             <Panel id="Radar__Square">
                 <Panel id="Radar__Square--Inner">
-                    <Panel id="Radar__Square--InnerTransform" force-no-composition-layer="true" class="additive" />
+                    <Panel id="Radar__Square--InnerTransform" force-no-composition-layer="true" />
                 </Panel>
-                <Panel id="Radar__Square--Border" class="Radar__Square--BorderClass cl-hud-color" />
+                <Panel id="Radar__Square--Border" class="Radar__Square--BorderClass cl-hud-wash-color" />
 			<Panel id="Radar__Square--Overlay"/>
             </Panel>
 			<Image id="DirectionArrow" force-no-composition-layer="true" src="file://{images}/hud/direction.vtf" class="cl-hud-color" />

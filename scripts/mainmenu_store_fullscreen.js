@@ -214,72 +214,89 @@ function MakePageFromStoreData(typeKey) {
 }
 
 function UpdateDynamicLister(elList, typeKey) {
-    // Check if elList is valid
-    if (!elList || !elList.IsValid()) {
-        console.error('Invalid panel:', elList);
-        return;
-    }
-
-    // Fetch the items list based on typeKey
     let oItemsByCategory = StoreItems.GetStoreItems();
     let aItemsList = oItemsByCategory[typeKey];
 
-    if (!Array.isArray(aItemsList)) {
-        console.error('Items list is not an array for typeKey:', typeKey);
-        return;
+    // Ensure the number of panels matches the number of items
+    let numItems = aItemsList.length;
+
+    // Make sure the panel is visible
+    elList.visible = true;
+
+    // Loop through the items and either create or update panels
+    for (let i = 0; i < numItems; i++) {
+        let item = aItemsList[i];
+        let itemPanel = elList.FindChildInLayoutFile(item.id);
+
+        // If the panel doesn't exist, create a new one
+        if (!itemPanel) {
+            itemPanel = $.CreatePanel("Button", elList, item.id);
+            itemPanel.BLoadLayout('file://{resources}/layout/itemtile_store.xml', false, false);
+        }
+
+        // Update the item in the panel
+        UpdateItem(itemPanel, typeKey, i);
     }
 
-    // Clear existing items in the list
-    elList.RemoveAndDeleteChildren();
+    // Remove extra panels if there are more than necessary
+    for (let i = numItems; i < elList.Children().length; i++) {
+        let extraPanel = elList.Children()[i];
+        if (extraPanel) {
+            extraPanel.DeleteAsync(0);
+        }
+    }
 
-    // Create and add items manually
-    aItemsList.forEach((item, index) => {
-        let itemPanel = $.CreatePanel("Button", elList, item.id);
-        itemPanel.BLoadLayout('file://{resources}/layout/itemtile_store.xml', false, false);
-        UpdateItem(itemPanel, typeKey, index);
+    // Refresh the list to immediately show the updated items
+    elList.SetHasClass('Active', true);
+}
+function activateHomeButton() {
+    // Directly navigate to the home tab and reload the content
+    MainMenuStore.NavigateToTab('id-store-page-home');
+    
+    // Get the parent container of the store pages
+    const storePanel = $.GetContextPanel().FindChildInLayoutFile('id-store-pages');
+    
+    // Temporarily hide the entire store panel to reset it
+    storePanel.SetHasClass('hidden', true);
+    
+    // Use $.Schedule to delay re-showing the panel to ensure content is cleared and reloaded
+    $.Schedule(0.1, function() {
+        storePanel.SetHasClass('hidden', false);  // Show again to trigger reload
+        MainMenuStore.NavigateToTab('id-store-page-home');  // Navigate to home again to ensure fresh load
     });
 }
 
-    function UpdateItem(elPanel, typeKey, idx) {
-        try {
-            let oItemData = StoreItems.GetStoreItemData(typeKey, idx);
-            ItemTileStore.Init(elPanel, oItemData);
-        } catch (e) {
-        }
-    }
+// Trigger the home button press and reload action
+$.Schedule(0.1, function() {
+    activateHomeButton();
+});
 
+    function UpdateItem(elPanel, typeKey, idx) {
+        let oItemData = StoreItems.GetStoreItemData(typeKey, idx);
+        ItemTileStore.Init(elPanel, oItemData);
+    }
     function GotoStorePage(location) {
         let navBtn = _m_cp.FindChildInLayoutFile(location);
-        if (navBtn) {
-            $.DispatchEvent("Activated", navBtn, "mouse");
-            navBtn.checked = true;
-        }
+        $.DispatchEvent("Activated", navBtn, "mouse");
+        navBtn.checked = true;
     }
     MainMenuStore.GotoStorePage = GotoStorePage;
-
     function AccountWalletUpdated() {
-        let elBalance = _m_cp.FindChildInLayoutFile('id-store-nav-wallet');
-
-        if (!elBalance) {
-            return;
-        }
-
+        var elBalance = _m_cp.FindChildInLayoutFile('id-store-nav-wallet');
         if ((MyPersonaAPI.GetLauncherType() === 'perfectworld') && (MyPersonaAPI.GetSteamType() !== 'china')) {
             elBalance.RemoveClass('hidden');
             elBalance.text = '#Store_SteamChina_Wallet';
             return;
         }
-
-        let balance = (MyPersonaAPI.GetLauncherType() === 'perfectworld') ? StoreAPI.GetAccountWalletBalance() : '';
-
+        var balance = (MyPersonaAPI.GetLauncherType() === 'perfectworld') ? StoreAPI.GetAccountWalletBalance() : '';
         if (balance === '' || balance === undefined || balance === null) {
             elBalance.AddClass('hidden');
-        } else {
+        }
+        else {
             elBalance.SetDialogVariable('balance', balance);
             elBalance.RemoveClass('hidden');
         }
     }
-
     {
         ReadyForDisplay();
         let elJsStore = $('#JsMainMenuStore');

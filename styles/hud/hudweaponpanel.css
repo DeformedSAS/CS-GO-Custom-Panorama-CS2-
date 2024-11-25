@@ -46,7 +46,7 @@ CSGOHudWeaponPanel Label
 
 .WeaponPanel--Hidden
 {
-	opacity: 1;
+	opacity: 0;
 	transform: translatey( 10px );
 }
 

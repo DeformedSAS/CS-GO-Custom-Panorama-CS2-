@@ -120,7 +120,7 @@ var CharacterAnims = ( function()
 		_CancelScheduledAnim( playerPanel );
 		_ResetLastRandomAnimHandle( playerPanel );
 		
-		playerPanel.ResetAnimation( false );
+		playerPanel.ResetAnimation( true );
 		playerPanel.SetSceneAngles( 0, 0, 0, false );
 
 		if ( settings.manifest )
@@ -207,8 +207,8 @@ var CharacterAnims = ( function()
 
 	var _ResetLastRandomAnimHandle = function ( playerPanel)
 	{
-		if ( playerPanel.Data().lastRandomAnim !== -1 ) {
-			playerPanel.Data().lastRandomAnim = -1;
+		if ( playerPanel.Data().lastRandomAnim !== 0 ) {
+			playerPanel.Data().lastRandomAnim = 0;
 		}
 	};
 

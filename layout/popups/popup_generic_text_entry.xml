@@ -12,7 +12,7 @@
                                                                                               
                                                                                   
       </Panel>
-      <Label class="MessageLabel" text="#DOTA_Generic_Popup_Body"/>
+      <Label class="MessageLabel stratum-medium" text="#DOTA_Generic_Popup_Body"/>
     </Panel>
     <TextEntry id="TextEntry" oninputsubmit="GenericPopupTextEntryFinished()" />    
     <Panel id="ButtonContainer" class="PopupButtonRow">

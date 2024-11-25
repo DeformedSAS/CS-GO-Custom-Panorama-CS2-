@@ -10,7 +10,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/common/iteminfo.js" />
 		<include src="file://{resources}/scripts/loadout.js" />
-		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/common/charwpninspect.js" />
 		<include src="file://{resources}/scripts/characterbuttons.js" />
 	</scripts>
 

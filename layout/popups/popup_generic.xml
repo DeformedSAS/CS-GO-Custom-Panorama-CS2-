@@ -8,7 +8,7 @@
   <Panel class="PopupPanel Hidden" defaultfocus="Button0" popupbackground="dim">
     <Label id="TitleLabel" class="PopupTitle" allowrawtext="true"/>	                             
 
-		<Panel class="MessagePanel" >
+		<Panel class="MessagePanel stratum-medium" >
       <Panel class="ImageContainer" >
                                                                                               
                                                                                   
