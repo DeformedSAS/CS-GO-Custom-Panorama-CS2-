@@ -1,6 +1,7 @@
 
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
+https://github.com/DeformedSAS/CS-GO-Custom-Panorama-CS2-/blob/main/README.md#credits
 # NOTE: Always download the updated source code from the home page of the repo instead of the one from releases tab. 
 
 # Whole ui
