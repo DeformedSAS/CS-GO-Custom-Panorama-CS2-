@@ -1,7 +1,6 @@
 
 # Custom panorama that looks like CS2's panorama for CS:GO.
 This small project that i did for unknown reasons brings the CS2 ui look onto CS:GO
-
 # NOTE: Always download the updated source code from the home page of the repo instead of the one from releases tab. 
 
 # Whole ui
@@ -27,10 +26,15 @@ This small project that i did for unknown reasons brings the CS2 ui look onto CS
 ![image](https://github.com/user-attachments/assets/73a93f41-716a-475e-8c21-58fce38b3754)
 
 # Inventory
-- Well it wouldn't really be like cs2 if the inspecting stuff isn't like in CS2. So i added it! PS: Knives cannot be inspected like guns, the reason for that is because valve messed up the center axis of all knife models in the game, for some reason they set the tip of all knives to be the center axis which makes no god damn sense.
+- Well it wouldn't really be like CS2 if the inspecting stuff isn't like in CS2. So i added it! PS: Knives cannot be inspected like guns, the reason for that is because valve messed up the center axis of all knife models in the game, for some reason they set the tip of all knives to be the center axis which makes no god damn sense.
 
 https://github.com/user-attachments/assets/19e1afba-f4dc-4300-b37a-bd24c5db00d1
 
-
+# Credits
+- crazymodder and others who worked on porting CS2 weapons to CS:GO. And for giving me permission to use the knife model in this addon!
+- d3gk for helping me resolve some issues.
+- roblogez for suggestions for hud and improving general code optimisation.
+- Valve, CS2 Developer Team for making the awesome clean ui.
+- And me DeformedSAS for basically backporting the entire UI..
 
 
