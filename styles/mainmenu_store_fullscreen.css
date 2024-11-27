@@ -13,6 +13,9 @@
     transition-duration: .25s;
     transition-timing-function: ease-in-out;
 }
+.mainmenu-content__container VerticalScrollBar {
+	margin-right: 0px;
+}
 
 .store-dynamic-lister.Active
 {

@@ -63,7 +63,7 @@ var MainMenuVanityContextMenu = (function() {
 					var shortTeam = CharacterAnims.NormalizeTeamName(team, true);
 					var loadoutSubSlot = ItemInfo.GetSlotSubPosition(entry);
 					GameInterfaceAPI.SetSettingString('ui_vanitysetting_loadoutslot_' + shortTeam, loadoutSubSlot);
-					$.DispatchEvent('ForceRestartVanity');
+					$.DispatchEvent('ForceRestartVanity');     
 					$.DispatchEvent('ContextMenuEvent', '');
 				}.bind(undefined, team));
 			});
@@ -102,7 +102,7 @@ var MainMenuVanityContextMenu = (function() {
 				OnshowCSProjectLink();        
 				isPopupOpen = false;         
 			},
-			'dim',  
+			'blur',  
 			function() {
 				isPopupOpen = false;  
 			},

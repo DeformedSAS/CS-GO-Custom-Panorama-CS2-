@@ -26,6 +26,9 @@
 {
 	brightness: 1;
 }
+.mainmenu-content__container VerticalScrollBar {
+	margin-right: 0px;
+}
 
 .popup-inspect-modelpanel_darken_blur
 {

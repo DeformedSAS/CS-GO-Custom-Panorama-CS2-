@@ -55,9 +55,9 @@
 
 .context-menu-playercard-btns .IconButton Label
 {
-    font-family: Stratum2 TF, "Arial Unicode MS";
-    font-weight: normal;
-    font-size: 12px;
+    font-family: Stratum2, "Arial Unicode MS";
+    font-weight: medium;
+    font-size: 14px;
     text-align: center;
     horizontal-align: center;
     width: 64px;

@@ -34,13 +34,11 @@ var friendsList = (function() {
 		_UpdateBroadcastIcon();
 	};
 
-	var _UpdateBroadcastIcon = function()
-	{
-		
-		
-		$.GetContextPanel().FindChildInLayoutFile( 'id-friendslist-section-broadcast-icon' ).SetHasClass( 'advertising-active',
-		);
-	}
+    function _UpdateBroadcastIcon() {
+        let adSetting = AdvertisingToggle.GetAdvertisingSetting();
+        _ActiveFilterOnTab(adSetting);
+        $.GetContextPanel().FindChildInLayoutFile('id-friendslist-section-broadcast-icon').SetHasClass('advertising-active', adSetting !== "");
+    }
 
 	var _UpdateAntiAddiction = function()
 	{
@@ -476,12 +474,9 @@ var friendsList = (function() {
 
 	var _UpdateHeightOpenSection = function()
 	{
-		_UpdateSection( m_activeSection, false );
+		_UpdateSection( m_activeSection, true );
 	}
-
-	                                                                               
-	                                                                               
-	                                                                               
+                                                                      
 	var _SetLobbiesTabListFilters = function( sFilterString )
 	{
 		_m_sLobbiesTabListFiltersString = sFilterString;
@@ -549,11 +544,6 @@ var friendsList = (function() {
 
 	var _FriendsListNameChanged = function ( xuid )
 	{
-		  
-		       
-		                                                 
-		  
-
 		var elSection = m_Sections.FindChildInLayoutFile( m_activeSection );
 		if ( !elSection ) return;
 

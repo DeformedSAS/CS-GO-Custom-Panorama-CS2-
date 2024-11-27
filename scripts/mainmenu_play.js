@@ -1235,7 +1235,7 @@ function _SetDirectChallengeIcons(type, id) {
                 mapImage.style.backgroundImage = 'url("file://{images}/map_icons/screenshots/360p/' + keysList[i] + '.png")';
             }
 			mapImage.style.backgroundPosition = '50% 0%';
-			mapImage.style.backgroundSize = 'auto 100%';
+			mapImage.style.backgroundSize = 'clip_then_cover';
             if (keysList.length > 1) {
                 const mapIconsContainer = p.FindChildInLayoutFile('MapGroupCollectionMultiIcons');
                 mapIconsContainer.SetHasClass('left-right-flow-wrap', numTiles === 1);

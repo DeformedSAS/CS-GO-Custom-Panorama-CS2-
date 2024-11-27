@@ -12,9 +12,6 @@
 	</scripts>
 	
 	<Panel class="item-tile" 
-			onactivate="ItemTile.OnActivate()"
-			oncontextmenu="ItemTile.OnActivate()"
-			acceptsinput="true"
 			onmouseover="ItemTile.ShowTooltip()"
 			onmouseout="ItemTile.HideTooltip()"
 			antialias="true"
@@ -36,8 +33,14 @@
 			                                        
 		</Panel>
 		<Panel class="item-tile__multi-select">
-			<Image id="IconMultiSelect" texturewidth="32" textureheight="32" src="file://{images}/icons/ui/check.svg" />
+			<Image id="IconMultiSelect" texturewidth="20" textureheight="20" src="file://{images}/icons/ui/check.svg" />
 		</Panel>
+		<Button class="full-width full-height"
+			onactivate="ItemTile.OnActivate()"
+			oncontextmenu="ItemTile.OnActivate()"/>
+		<Button class="item-tile__inspect" onactivate="ItemTile.OnActivateInspectButtonFropmTile();">
+			<Image id="IconMultiSelect" texturewidth="22" textureheight="22" src="file://{images}/icons/ui/zoom_in.svg" />
+		</Button>
 		
 	</Panel>
 </root>

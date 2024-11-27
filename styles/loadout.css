@@ -212,6 +212,7 @@ ItemImage Label
 	flow-children: down;
 	vertical-align: center;
 	horizontal-align: center;
+
 	transition-property: height;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;

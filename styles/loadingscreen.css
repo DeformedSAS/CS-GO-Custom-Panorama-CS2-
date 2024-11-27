@@ -2,11 +2,6 @@
  @define loadingScreenWidth: 1220px;
  @define info-margin: 20px 20px;
  
-/* test loading */
-.mainmenu-content  
-{
-	height: 100%;
-}
 
  .loading-root{
 
@@ -42,30 +37,24 @@
   margin-left:50px;
  }
  
- .loading-root--show
-{
-	animation-name: loading-root--show-animation;
-	animation-duration: 0.25s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: 1;
+.loading-root--show {
+    animation-name: fade-in-animation;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
     animation-fill-mode: both;
-	
-
 }
 
-@keyframes 'loading-root--show-animation'
-{
-	0%
-	{
-        opacity: 0.5;
-        transform: scaleX(1.2) scaleY(1.2);
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
     }
-	0%
-	{
-        opacity: 0.5;
-        transform: scaleX(1.2) scaleY(1.2);
-	}
+    100% {
+        opacity: 1;
+    }
 }
+
+
 
 
  .loading-screen-screenshot-title.hidden{

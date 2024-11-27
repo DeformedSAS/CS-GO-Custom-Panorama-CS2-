@@ -10,6 +10,7 @@
 	<scripts>
 		<include src="file://{resources}scripts/itemtile_store.js" />
 		<include src="file://{resources}scripts/common/store_items.js" />
+		<include src="file://{resources}scripts/generated/items_event_current_generated_store.js" />
 		<include src="file://{resources}scripts/common/iteminfo.js" />
 		<include src="file://{resources}scripts/common/formattext.js" />
 		<include src="file://{resources}scripts/common/prime_button_action.js" />

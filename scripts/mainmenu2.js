@@ -144,6 +144,7 @@ var _OnShowMainMenu = function() {
         GameInterfaceAPI.SetSettingString('snd_soundmixer', 'MainMenu_Mix');
 
         _m_bVanityAnimationAlreadyStarted = false;
+		_LobbyPlayerUpdated();
         _OnInitFadeUp();
         _SetBackgroundMovie();
 
@@ -646,6 +647,7 @@ var _OnShowMainMenu = function() {
 
 	function _OnQuitButtonPressed()
 	{	
+	$('#MainMenuNavBarHome').checked = true;
 		UiToolkitAPI.ShowGenericPopupTwoOptionsBgStyle( '#UI_ConfirmExitTitle',
 			'#UI_ConfirmExitMessage',
 			'',

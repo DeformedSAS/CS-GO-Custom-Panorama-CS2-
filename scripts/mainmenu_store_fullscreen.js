@@ -108,7 +108,6 @@ var MainMenuStore;
         if (_m_activePanelId !== panelId) {
             if (panelId === 'id-store-page-home') {
                 UpdateItemsInHomeSection('coupon', 'id-store-popular-items', 6);
-                UpdateItemsInHomeSection('tournament', 'id-store-tournament-items', 4);
             } else {
                 MakePageFromStoreData(keyType);
             }
@@ -165,34 +164,39 @@ var MainMenuStore;
         }
     }
 
-    function MakeTabsBtnsFromStoreData() {
-        let elParent = _m_cp.FindChildInLayoutFile('id-store-lister-tabs');
-        try {
-            let oItemsByCategory = StoreItems.GetStoreItems();
+function MakeTabsBtnsFromStoreData() {
+    let elParent = _m_cp.FindChildInLayoutFile('id-store-lister-tabs');
+    try {
+        let oItemsByCategory = StoreItems.GetStoreItems();
 
-            if (elParent) {
-                for (let [key, value] of Object.entries(oItemsByCategory)) {
-                    let panelIdString = 'id-store-nav-' + key;
-                    let elButton = elParent.FindChildInLayoutFile(panelIdString);
+        if (elParent) {
+            for (let [key, value] of Object.entries(oItemsByCategory)) {
+                if (key === 'tournament') {
+                    continue; // this shit basically does the job of not showing the tournament items tab.
+                }
 
-                    if (value.length > 0 && !elButton) {
-                        elButton = $.CreatePanel('RadioButton', elParent, panelIdString, {
-                            group: 'store-top-nav',
-                            class: 'content-navbar__tabs__btn'
-                        });
+                let panelIdString = 'id-store-nav-' + key;
+                let elButton = elParent.FindChildInLayoutFile(panelIdString);
 
-                        let btnString = key === 'tournament' ? `#store_nav_${key}_${g_ActiveTournamentInfo.eventid}` : `#store_nav_${key}`;
-                        $.CreatePanel('Label', elButton, '', { text: btnString });
+                if (value.length > 0 && !elButton) {
+                    elButton = $.CreatePanel('RadioButton', elParent, panelIdString, {
+                        group: 'store-top-nav',
+                        class: 'content-navbar__tabs__btn'
+                    });
 
-                        elButton.SetPanelEvent('onactivate', () => {
-                            NavigateToTab(_m_pagePrefix + key, key);
-                        });
-                    }
+                    let btnString = `#store_nav_${key}`;
+                    $.CreatePanel('Label', elButton, '', { text: btnString });
+
+                    elButton.SetPanelEvent('onactivate', () => {
+                        NavigateToTab(_m_pagePrefix + key, key);
+                    });
                 }
             }
-        } catch (e) {
         }
+    } catch (e) {
     }
+}
+
 
 function MakePageFromStoreData(typeKey) {
     let panelIdString = _m_pagePrefix + typeKey;

@@ -89,12 +89,12 @@
 {
 	max-height: 24px;
 	padding-right: 1px;
+	font-family: Stratum2;
 	font-size: 20px;
 	text-overflow: ellipsis;
 	font-weight: Bold;
 	text-shadow:2px 2px 2px #000000;
 	color: white;
-	font-family: stratum2Font;
 	overflow: clip;
 }
 
@@ -102,8 +102,9 @@
 {
 	max-height: 20px;
 	width: 256px;
-	font-size: 16px;
-	font-weight: normal;
+	font-family: Stratum2;
+	font-size: 17px;
+	font-weight: medium;
 	color: white;
 	text-shadow:1px 1px 2px #000000;
 	text-overflow: ellipsis;
@@ -120,7 +121,9 @@
 
 .player-card__text-subtitle--light
 {
-	font-weight: normal;
+	font-weight: medium;
+	font-size: 15px;
+	font-family: Stratum2;
 }
 
 .player-card__icons-column
@@ -183,6 +186,7 @@
 .player-card-commendations Label
 {
 	font-size: 14px;
+	font-family: Stratum2;
 	vertical-align: top;
 	margin-left: 4px;
 	color: white;
@@ -490,7 +494,8 @@
 .player-card-prime-btn Label
 {
 	font-weight: medium;
-	font-size: 14px;
+	font-family: Stratum2;
+	font-size: 15px;
 	background-color: #0A5A84;
 	text-align: center;
 	margin: 0px;
@@ -512,8 +517,9 @@
 {
 	max-height: 64px;
 	width: 240px;
-	font-size: 13px;
-	font-weight: normal;
+	font-size: 15px;
+	font-family: Stratum2;
+	font-weight: medium;
 	text-overflow: shrink;
 	text-shadow: 1px 1px 2px #000000;
 	color: white;
