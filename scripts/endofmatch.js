@@ -12,6 +12,7 @@ var EndOfMatch = ( function()
 	$.RegisterEventHandler( "EndOfMatch_Show", _m_cP, _Start );
 	$.RegisterForUnhandledEvent( "EndOfMatch_Shutdown", _Shutdown );
 	$.RegisterForUnhandledEvent( "OnMouseEnableBinding", _ToggleBetweenScoreboardAndCharacters );
+	
 
 	          
 	                                                                       

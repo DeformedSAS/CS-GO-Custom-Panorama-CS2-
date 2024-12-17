@@ -91,7 +91,7 @@
 .itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__stattrak,.itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__new,.itemtile-store .itemtile-store__container .itemtile-store__image-Container .itemtile-store__not-released
 {
     horizontal-align: left;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
     background-color: rgb(172, 146, 0);
@@ -433,7 +433,7 @@
 {
     margin-left: 12px;
     margin-bottom: 58px;
-    font-size: 14px;
+    font-size: 17px;
     max-height: 34px;
     font-weight: medium;
     vertical-align: bottom;
@@ -492,7 +492,7 @@
 {
     color: white;
     font-weight: medium;
-    font-size: 16px;
+    font-size: 15x;
     padding: 0px 4px;
     vertical-align: center;
 }
@@ -544,7 +544,7 @@
 .itemtile-store__bottomrow .itemtile-store__price-container.is-marketlink .itemtile-store__price-sale
 {
     color: rgba(173, 173, 173, 0.904);
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .itemtile-store__bottomrow .itemtile-store__tooltip-hotspot
@@ -569,7 +569,7 @@
 
 .is-mainmenu-item .itemtile-store__price-container .itemtile-store__price-labels .itemtile-store__price-reduction,.is-mainmenu-item .itemtile-store__price-container .itemtile-store__price-labels .itemtile-store__price-original,.is-mainmenu-item .itemtile-store__price-container .itemtile-store__price-labels .itemtile-store__price-sale
 {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .is-mainmenu-item .itemtile-store__tooltip-hotspot

@@ -210,12 +210,6 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	z-index: 1;
 	overflow: noclip;
 }
-#id-mainmenu-mini-store-panel
-{
-	 transition-property: opacity;
-     transition-duration: .25s;
-     transition-timing-function: ease-in-out;
-}
 
 #VanityControls
 {
@@ -380,6 +374,9 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	flow-children: right;
 	height: 64px;
 	width: 100%;
+	background-image: url("file://{images}/backgrounds/linemap.png");
+    background-size: auto auto;
+    background-img-opacity: .08;
 
 }
 
@@ -391,9 +388,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	width: 100%;
 	padding-right: 200px;
 	background-color:blurBackgroundColor;
-	background-image: url("file://{images}/backgrounds/linemap.png");
-    background-size: auto auto;
-    background-img-opacity: .08;
+	
 	z-index: 0;
 	
 }
@@ -1141,11 +1136,11 @@ RadioButton.content-navbar__tabs__btn--small Label
 
 .content-navbar__tabs__dropdown
 {
-	height: 38px;
-	width: 230px;
-	margin: 4px 0px 4px 0px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border-radius: 3px;
+    height: 38px;
+    width: 170px;
+    margin: 4px 0px 4px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
 }
 
 .content-navbar__tabs__dropdown--right-margin

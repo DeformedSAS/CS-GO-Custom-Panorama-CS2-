@@ -92,7 +92,7 @@
                               mouse_rotate="false"
                               hittest="false"
                               manifest="resource/ui/econ/ItemModelPanelCharTeamSelect.res"
-                              item="models/player/custom_player/legacy/ctm_sas.mdl"
+                              item="models/player/custom_player/legacy/tm_phoenix.mdl"
                               enable_floorshadow="true"
                               force-no-composition-layer="true">                                                                                   
             </ItemPreviewPanel>
@@ -121,6 +121,7 @@
         <Image texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/warning.svg" />
         <Label id="TeamJoinErrorLabel" class="team-select-error__label fontSize-m" text=""/>
     </Panel>
+        <Panel id="TeamSelectFade" class="full-width full-height team-select-fade hidden" />
 </CSGOTeamSelectMenu>
 
 </root>

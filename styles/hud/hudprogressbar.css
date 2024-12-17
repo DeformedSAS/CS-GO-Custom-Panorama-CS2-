@@ -1,12 +1,10 @@
-
-
 .hud-progress-bar
 {
     opacity: 0;
     width: 500px;
     height: 120px;
     horizontal-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: hud-blur-bg-color;
     border-radius: 10px;
 }
 
@@ -71,9 +69,6 @@
 .hud-progress-bar-background
 {
     width: 600px;
-	background-image: url("file://{images}/backgrounds/bluedots_large.png");
-	background-size: backgroundDotsSize;
-    background-img-opacity: .04;
     height:100%;
 }
 
@@ -158,8 +153,8 @@
 {
     vertical-align: middle;
     horizontal-align: center;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: height-percentage(100);
     img-shadow: 1px 1px 2px #000000;
 }
 
@@ -337,4 +332,3 @@
     }
     
 }
-

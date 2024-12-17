@@ -10,13 +10,7 @@
 		<include src="file://{resources}/scripts/loadingscreen.js" />
 		<include src="file://{resources}/scripts/versus.js" />
 	</scripts>
-    <snippets>
-        <snippet name="snippet-loadingscreen-slide">
-            <Image class="loading-screen-slide" scaling="stretch-to-cover-preserve-aspect">
-                <Label id="LoadingScreenTitle" class="loading-screen-screenshot-title stratum-regular-condensed" text="{s:screenshot-title}" />
-            </Image>
-        </snippet>
-    </snippets>
+
 	<Panel class="loading-root">
     
 		<CSGOBlurTarget id="BackgroundMapImageBlur" class="loading-screen-blur" blurrects="LoadingScreenContents">
@@ -25,7 +19,6 @@
 					src=""
 					defaultsrc="file://{images}/map_icons/screenshots/1080p/default.png"
 					scaling="stretch-to-cover-preserve-aspect"/>
-					<Panel id="LoadingScreenSlideShow" class="full-width full-height" />
       
     </CSGOBlurTarget>
 		<Panel id="" class="mainmenu-content">

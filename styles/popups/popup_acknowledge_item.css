@@ -101,6 +101,7 @@ DelayLoadPanel.Offscreen
 .popup-acknowledge__info__title
 {
 	font-size: 64px;
+	letter-spacing: 0px;
 	color: rgb(141, 141, 141);
 	text-align: center;
 	-s2-mix-blend-mode: additive;

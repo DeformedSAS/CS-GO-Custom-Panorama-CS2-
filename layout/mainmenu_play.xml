@@ -163,7 +163,6 @@
                                         <Label class="directchallenge-explanation title" html="true" text="#DirectChallenge_Help_clan_title" />
                                         <Label class="directchallenge-explanation" html="true" text="#DirectChallenge_Help_clan_desc" />
                                         <Label class="directchallenge-explanation note" html="true" text="#DirectChallenge_Help_note" />
-                                        <Label class="directchallenge-explanation" html="true" text="#DirectChallenge_Help_lt" />
                                     </Panel>
                                 </Panel>
                             </Panel>

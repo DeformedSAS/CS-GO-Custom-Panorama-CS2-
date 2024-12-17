@@ -10,6 +10,11 @@ var MainMenu = ( function() {
 	var _m_sideBarElementContextMenuActive = false;
 	var _m_elContentPanel = $( '#JsMainMenuContent' );
 	var _m_playedInitalFadeUp = false;
+	
+		var _d_IsQOutOfDate = false;
+	var _d_IsQVAC = false;
+	var _d_IsQOverwatch = false;
+	var _d_IsQOffline = false;
 
 	               
 	var _m_elNotificationsContainer = $( '#NotificationsContainer' );
@@ -100,9 +105,7 @@ var MainMenu = ( function() {
 			_m_jobFetchTournamentData = null;
 		}
 	}
-
-	var _SetBackgroundMovie = function()
-	{
+var _SetBackgroundMovie = function() {
     var videoPlayer = $('#MainMenuMovie'); // don't forget to remember the name of the panel id... like i did so it took me a bit to notice that the panel name here is wrong kekw...
     var background = $('#MainMenuBackground'); // get the background element
     if (!(videoPlayer && videoPlayer.IsValid() && background && background.IsValid())) {
@@ -116,7 +119,7 @@ var MainMenu = ( function() {
     $.Schedule(1.0, function() { // waits for fade-out to complete (matches transition duration)
         var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
 		
-
+       _UnPauseMainMenuCharacter();
         // sets the new video sorse
         videoPlayer.SetAttributeString('data-type', backgroundMovie);
         videoPlayer.SetMovie("file://{resources}/videos/" + backgroundMovie + ".webm");
@@ -127,61 +130,43 @@ var MainMenu = ( function() {
         if (vanityPanel && vanityPanel.IsValid()) {
             _SetVanityLightingBasedOnBackgroundMovie(vanityPanel);
             _ForceRestartVanity();
+			_LobbyPlayerUpdated();
+			_InitVanity2();
         }
 
         // schedule the fade-in effect after a small delay
         $.Schedule(0.1, function() { // small delay before starting to fade in
             background.style.opacity = '1'; // restores opacity
-		}
-	};
+        });
+    });
+};
 
-	var _OnShowMainMenu = function()
-	{
-		$.DispatchEvent('PlayMainMenuMusic', true, false );
-		 $('#MainMenuNavBarHome').checked = true;
+var _OnShowMainMenu = function() {
+  $.DispatchEvent('PlayMainMenuMusic', true, true);
+        $('#MainMenuNavBarHome').checked = true;
 
-		                                         
-		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
+        GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
+        GameInterfaceAPI.SetSettingString('dsp_room', '29');
+        GameInterfaceAPI.SetSettingString('snd_soundmixer', 'MainMenu_Mix');
 
-		                                                                  
-		                                          
-		GameInterfaceAPI.SetSettingString( 'dsp_room', '29' );
-		GameInterfaceAPI.SetSettingString( 'snd_soundmixer', 'MainMenu_Mix' );
+        _m_bVanityAnimationAlreadyStarted = false;
+        _OnInitFadeUp();
+        _SetBackgroundMovie();
 
-		_m_bVanityAnimationAlreadyStarted = false;                                               
-		_InitVanity();
-		_OnInitFadeUp();
-		_SetBackgroundMovie();
+        $('#MainMenuNavBarPlay').SetHasClass('mainmenu-navbar__btn-small--hidden', false);
 
-		                                                   
-		$( '#MainMenuNavBarPlay' ).SetHasClass( 'mainmenu-navbar__btn-small--hidden', false );
-
-		                                                    
-
-		_UpdateNotifications();
-		_ShowWeaponUpdatePopup();
-		_UpdateInventoryBtnAlert();
-
-		                              
-		_GcLogonNotificationReceived();
-		_BetaEnrollmentStatusChange();
-
-		                                                                          
-		_DeleteSurvivalEndOfMatch();
-
-		                                 
-		_DeletePauseMenuMissionPanel();
-
-		                                                               
-		_ShowHideAlertForNewEventForWatchBtn();
-
-		                                                         
-		_UpdateUnlockCompAlert();
-
-		_FetchTournamentData();
-		
-	};
-
+        _UpdateNotifications();
+        _ShowWeaponUpdatePopup();
+        _UpdateInventoryBtnAlert();
+        _GcLogonNotificationReceived();
+        _BetaEnrollmentStatusChange();
+		_UpdateStoreAlert();
+        _DeleteSurvivalEndOfMatch();
+        _DeletePauseMenuMissionPanel();
+        _ShowHideAlertForNewEventForWatchBtn();
+        _UpdateUnlockCompAlert();
+        _FetchTournamentData();
+};
 	var _TournamentDraftUpdate = function ()
 	{
 		if ( !m_TournamentPickBanPopup || !m_TournamentPickBanPopup.IsValid() )
@@ -213,11 +198,9 @@ var MainMenu = ( function() {
 			}
 			else if ( strFatalError === "UnsupportedClientLogon" )
 			{
-				UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( "#SFUI_LoginLicenseAssist_UnsupportedTitle", "#SFUI_LoginLicenseAssist_UnsupportedText", "",
-					"#SFUI_Continue", function () { },
+				UiToolkitAPI.ShowGenericPopupOneOptionBgStyle( "Invalid Steam.inf ClientVersion string", "Change your steam.inf clientversion string to this: ClientVersion=2000449 to be able to use inventory and other online features except matchmaking. The directory of this file is in Counter-Strike Global Offensive > csgo > steam.inf. Have fun!", "",
 					"#GameUI_Quit", function () { GameInterfaceAPI.ConsoleCommand( "quit" ); },
-					"#ShowFAQ", function () { SteamOverlayAPI.OpenURL( "https://support.steampowered.com/kb_article.php?ref=73EF-08A3-0935-6369" ); },
-					"dim" );
+					"blur" );
 			}
 			else if ( strFatalError === "ShowGameLicenseNeedToLinkAccounts" )
 			{
@@ -349,7 +332,7 @@ var MainMenu = ( function() {
 		var elContextPanel = $.GetContextPanel();
 		
 		elContextPanel.AddClass( 'MainMenuRootPanel--PauseMenuMode' );
-		$('#MainMenuNavBarHome').checked = true;
+		 $('#MainMenuNavBarHomePause').checked = true;
 
 		var bMultiplayer = elContextPanel.IsMultiplayer();
 		var bQueuedMatchmaking = GameStateAPI.IsQueuedMatchmaking();
@@ -393,7 +376,7 @@ var MainMenu = ( function() {
 
 	var _BCheckTabCanBeOpenedRightNow = function( tab )
 	{
-		if ( tab === 'JsStoreFullscreen' )
+		if ( tab === 'JsInventory' )
 		{
 			var restrictions = LicenseUtil.GetCurrentLicenseRestrictions();
 			if ( restrictions !== false )
@@ -448,39 +431,25 @@ var MainMenu = ( function() {
 	}
  	var _NavigateToTab = function( tab, XmlName )
 	{
-		                                                        
-		                                                   
-
 		if ( !_BCheckTabCanBeOpenedRightNow( tab ) )
 		{
-			_OnHomeButtonPressed();
+			 $('#MainMenuNavBarHome').checked = true;
 			return;	                                                                               
 		}
-
 		if( tab === 'JsPlayerStats' && !_CanOpenStatsPanel() )
 		{
 			return;
 		}
-
-		$.DispatchEvent('PlayMainMenuMusic', true, false );
-
-		                                    
+		$.DispatchEvent('PlayMainMenuMusic', true, false );                               
 		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
-
-		                                      
-		                            
+                    
 		if( !$.GetContextPanel().FindChildInLayoutFile( tab ) )
 		{
 			var newPanel = $.CreatePanel('Panel', _m_elContentPanel, tab );
-			
 			newPanel.Data().elMainMenuRoot = $.GetContextPanel();
-			                                                 
-
 			newPanel.BLoadLayout('file://{resources}/layout/' + XmlName + '.xml', false, false );
 			newPanel.RegisterForReadyEvents( true );
-			
-			                                                                          
-			                                                       
+                                                    
 			newPanel.OnPropertyTransitionEndEvent = function ( panelName, propertyName )
 			{
 				if( newPanel.id === panelName && propertyName === 'opacity' )
@@ -498,49 +467,32 @@ var MainMenu = ( function() {
 						$.DispatchEvent( 'MainMenuTabShown', tab );
 					}
 				}
-
 				return false;
 			};
-
 			$.RegisterEventHandler( 'PropertyTransitionEnd', newPanel, newPanel.OnPropertyTransitionEndEvent );
 		}
-		
-		                                                                               
-		                             
+                      
 		if( _m_activeTab !== tab )
-		{
-			                                       
+		{                                    
 			if(XmlName) {
 				$.DispatchEvent('PlaySoundEffect', 'tab_' + XmlName.replace('/', '_'), 'MOUSE');
 			}
-			
-			                                 
 			if( _m_activeTab )
 			{
 				var panelToHide = $.GetContextPanel().FindChildInLayoutFile( _m_activeTab );
-				panelToHide.AddClass( 'mainmenu-content--hidden' );
-
-				                                       
+				panelToHide.AddClass( 'mainmenu-content--hidden' );          
 			}
-			
-			                   
+              
 			_m_activeTab = tab;
 			var activePanel = $.GetContextPanel().FindChildInLayoutFile( tab );
 			activePanel.RemoveClass( 'mainmenu-content--hidden' );
-
-			                                                                         
+                                                               
 			activePanel.visible = true;
 			activePanel.SetReadyForDisplay( true );
-			                                      
-
-
-			                                           	
-			_PauseMainMenuCharacter();
+                                	
 		}
-
 		_ShowContentPanel();
 	};
-
 
 	var _ShowContentPanel = function()
 	{
@@ -669,7 +621,7 @@ var MainMenu = ( function() {
 		                                                                                       
 		$.Schedule( 0.25, ContextMenuClosedOutsideSidebar );
 
-		_DimMainMenuBackground( false );
+		_DimMainMenuBackground( true );
 	};
 
 	var _DimMainMenuBackground = function( removeDim )
@@ -700,6 +652,7 @@ var MainMenu = ( function() {
 
 	function _OnQuitButtonPressed()
 	{	
+	$('#MainMenuNavBarHome').checked = true;
 		UiToolkitAPI.ShowGenericPopupTwoOptionsBgStyle( '#UI_ConfirmExitTitle',
 			'#UI_ConfirmExitMessage',
 			'',
@@ -732,11 +685,13 @@ var MainMenu = ( function() {
 	var _InitNewsAndStore = function ()
 	{	
 		                             
-		_AddStream();
 
 		                             
-		var elStore = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsMiniStorePanel' );
-		elStore.BLoadLayout( 'file://{resources}/layout/mainmenu_left_column.xml', false, false );
+		var elLeftColumn = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsLeftColumnContainer' ), 'JsLeftColumn' );
+		elLeftColumn.BLoadLayout( 'file://{resources}/layout/mainmenu_left_column.xml', false, false );
+		
+		var elRightColumn = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsRightColumnContainer' ), 'JsRightColumn' );
+		elRightColumn.BLoadLayout( 'file://{resources}/layout/mainmenu_right_column.xml', false, false );
 
 		                             
 		                                                                                                            
@@ -745,7 +700,7 @@ var MainMenu = ( function() {
 	  	                                                                                                                                 
 		      
 		
-		$.FindChildInContext( '#JsNewsContainer' ).OnPropertyTransitionEndEvent = function ( panelName, propertyName )
+		$.FindChildInContext( '#JsLeftColumnContainer' ).OnPropertyTransitionEndEvent = function ( panelName, propertyName )
 		{
 			if( elNews.id === panelName && propertyName === 'opacity')
 			{
@@ -780,11 +735,6 @@ var MainMenu = ( function() {
 		_ShowNewsAndStore();
 	};
 
-	var _AddStream = function()
-	{
-		var elStream = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsStreamContainer' ), 'JsStreamPanel' );
-		elStream.BLoadLayout( 'file://{resources}/layout/mainmenu_stream.xml', false, false );
-	};
 
 	var _AddFeaturedPanel = function( xmlPath, panelId )
 	{
@@ -803,8 +753,11 @@ var MainMenu = ( function() {
 
 	var _HideMainMenuNewsPanel = function()
 	{
-		var elNews = $.FindChildInContext( '#JsNewsContainer' );
-		elNews.SetHasClass( 'news-panel--hide-news-panel', true );
+		var elLeftColumn = $.FindChildInContext( '#JsLeftColumnContainer' );
+		elLeftColumn.SetHasClass( 'news-panel--hide-news-panel', true );
+		
+		var elRightColumn = $.FindChildInContext( '#JsRightColumnContainer' );
+		elRightColumn.SetHasClass( 'news-panel--hide-news-panel', true );
 
 		if( elNews.BHasClass( 'news-panel-style-feature-panel-visible') )
 		{
@@ -815,13 +768,16 @@ var MainMenu = ( function() {
 	var _AddWatchNoticePanel = function()
 	{
 		var WatchNoticeXML = '';
-		var elPanel = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsNewsContainer' ), 'JsWatchNoticePanel' );
+		var elPanel = $.CreatePanel( 'Panel', $.FindChildInContext( '#JsLeftColumnContainer' ), 'JsWatchNoticePanel' );
 		elPanel.BLoadLayout( WatchNoticeXML, false, false );
 	}
 	
 	var _ShowNewsAndStore = function ()
 	{
-		var elPanel = $.FindChildInContext( '#JsNewsContainer' );
+		var elPanel = $.FindChildInContext( '#JsLeftColumnContainer' );
+		elPanel.SetHasClass( 'hidden', false );
+		
+		var elPanel = $.FindChildInContext( '#JsRightColumnContainer' );
 		elPanel.SetHasClass( 'hidden', false );
 
 		elPanel = $.FindChildInContext( '#JsActiveMissionPanel' );
@@ -841,7 +797,10 @@ var MainMenu = ( function() {
 
 	var _HideNewsAndStore = function ()
 	{
-		var elPanel = $.FindChildInContext( '#JsNewsContainer' );
+		var elPanel = $.FindChildInContext( '#JsLeftColumnContainer' );
+		elPanel.SetHasClass( 'hidden', true );
+		
+		var elPanel = $.FindChildInContext( '#JsRightColumnContainer' );
 		elPanel.SetHasClass( 'hidden', true );
 
 		elPanel = $.FindChildInContext( '#JsActiveMissionPanel' );
@@ -862,7 +821,7 @@ var MainMenu = ( function() {
 	                                                             
 	var _OnSteamIsPlaying = function()
     {
-		var elNewsContainer = $.FindChildInContext( '#JsNewsContainer' );
+		var elNewsContainer = $.FindChildInContext( '#JsLeftColumnContainer' );
 
 		if ( elNewsContainer )
 		{
@@ -872,7 +831,7 @@ var MainMenu = ( function() {
 
     var _ResetNewsEntryStyle = function()
     {
-		var elNewsContainer = $.FindChildInContext( '#JsNewsContainer' );
+		var elNewsContainer = $.FindChildInContext( '#JsLeftColumnContainer' );
 
 		if ( elNewsContainer )
 		{
@@ -942,7 +901,6 @@ var MainMenu = ( function() {
 		  
 		var oSettings = ItemInfo.GetOrUpdateVanityCharacterSettings();
 		oSettings.activity = 'ACT_CSGO_UIPLAYER_WALKUP';
-		oSettings.arrModifiers.push( 'vanity' );
 
 		                                                                 
 		_ApplyVanitySettingsToLobbyMetadata( oSettings );
@@ -955,39 +913,63 @@ var MainMenu = ( function() {
 		}
 		oSettings.panel = vanityPanel;
 
-		                                         
+		vanityPanel.ResetAnimation( true );                                         
 		vanityPanel.SetSceneAngles( 0, 0, 0, true );
 		
 		                                                                          
 		vanityPanel.hittest = false; 
 
-		  
-		                                                                                        
-		                            
-			                                                                                        
-			 
-		 
-			                                                              
-			           
-			 
-				                                                           
-				                 
-				 
-					                                            
-					                                  
-					                                        
-					                                          
-					                                         
-					                                          
-					                                                                                
-				 
-			 
-		 
-		  
+
+		                                                        
+		_m_bVanityAnimationAlreadyStarted = true;
+		
+		CharacterAnims.PlayAnimsOnPanel( oSettings );
+
+
+		_SetVanityLightingBasedOnBackgroundMovie( vanityPanel );
+
+		if ( oSettings.panel.BHasClass( 'hidden' ) ) {
+			oSettings.panel.RemoveClass( 'hidden' );
+		}
+
+		_RigVanityHover( vanityPanel );
+
+		                                                                       
+		$.Schedule( 3.0, function() {if (vanityPanel && vanityPanel.IsValid() ) vanityPanel.hittest = true;} );
+	};
+	
+		var _InitVanity2 = function()
+	{
+
+		if ( _m_bVanityAnimationAlreadyStarted ) {
+			                                                                         
+			return;
+		}
 
 		  
-		                               
+		                                                      
 		  
+		var oSettings = ItemInfo.GetOrUpdateVanityCharacterSettings();
+		oSettings.activity = 'ACT_CSGO_UIPLAYER_WALKUP';
+
+		                                                                 
+		_ApplyVanitySettingsToLobbyMetadata( oSettings );
+
+		var vanityPanel = $( '#JsMainmenu_Vanity' );
+		if ( !vanityPanel )
+		{
+			                                                                 
+			return;
+		}
+		oSettings.panel = vanityPanel;
+
+		vanityPanel.ResetAnimation( true );                                         
+		vanityPanel.SetSceneAngles( 0, 0, 0, true );
+		
+		                                                                          
+		vanityPanel.hittest = false; 
+
+
 		                                                        
 		_m_bVanityAnimationAlreadyStarted = true;
 		
@@ -1014,20 +996,10 @@ var MainMenu = ( function() {
 			oSettings.loadoutSlot, oSettings.weaponItemId );
 	};
 
-	var _LobbyPlayerUpdated = function()
+	var _LobbyPlayerUpdated = function() // this function does nothing and for some reason the game requires it or otherwise it won't load mainmenu2.js BUG THIS!
 	{
 		  
-		                                                
-		                                                        
-		                                    
-		 
-			                                               
-		 
-		                                            
-		 
-			                                     
-			                      
-		 
+
 		  
 	};
 
@@ -1044,65 +1016,18 @@ var MainMenu = ( function() {
 		                                                                                                                 
 		vanityPanel.RestoreLightingState();
 
-		if ( backgroundMap === 'cbble' )
-		{
-			vanityPanel.SetFlashlightAmount( 1.0 );
-			                                               
-			                                                            
-			                                                           
-			vanityPanel.SetFlashlightColor( 0.81, 0.92, 1.00 );
-			vanityPanel.SetAmbientLightColor( 0.12, 0.21, 0.46 );
-
-			vanityPanel.SetDirectionalLightModify( 0 );
-			vanityPanel.SetDirectionalLightColor( 0.13, 0.14, 0.13 );
-			vanityPanel.SetDirectionalLightDirection( -0.81, 0.41, 0.43 );
-			
-			vanityPanel.SetDirectionalLightModify( 1 );
-			vanityPanel.SetDirectionalLightColor( 0.82, 0.19, 0.08 );
-			vanityPanel.SetDirectionalLightDirection( 0.62, 0.74, -0.25 );
-			vanityPanel.SetDirectionalLightPulseFlicker( 0.25, 0.25, 0.25, 0.25 );
-
-			vanityPanel.SetDirectionalLightModify( 2 );
-			vanityPanel.SetDirectionalLightColor( 0.72, 1.40, 1.68 );
-			vanityPanel.SetDirectionalLightDirection( 0.50, -0.69, -0.52 );
-
-			                                                   
-		}
-		else if ( backgroundMap === 'blacksite' )
-		{
-			vanityPanel.SetFlashlightAmount( 1 );
-			                                               
-			                                                           
-			                                                            
-			vanityPanel.SetFlashlightColor( 4, 4, 4);
-			vanityPanel.SetAmbientLightColor( 0.16, 0.26, 0.30 );
-			
-			vanityPanel.SetDirectionalLightModify( 0 );
-			vanityPanel.SetDirectionalLightColor( 0.26, 0.35, 0.47 );
-			vanityPanel.SetDirectionalLightDirection( -0.50, 0.80, 0.00 );
-			
-			vanityPanel.SetDirectionalLightModify( 1 );
-			vanityPanel.SetDirectionalLightColor( 0.74, 1.01, 1.36 );
-			vanityPanel.SetDirectionalLightDirection( 0.47, -0.77, -0.42 );
-
-			vanityPanel.SetDirectionalLightModify( 2 );
-			vanityPanel.SetDirectionalLightColor( 0.75, 1.20, 1.94 );
-			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
-		}
-		else if ( backgroundMap === 'sirocco_night' )
+		if ( backgroundMap === 'blacksite' )
 		{
 			vanityPanel.SetFlashlightAmount( 2 );
 			                                               
+			vanityPanel.SetFlashlightFOV( 60 );                                     
 			                                                            
-			                                                       
-			vanityPanel.SetFlashlightFOV( 45 );
-			                                                            
-			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
-			vanityPanel.SetAmbientLightColor( 0.13, 0.17, 0.29 );
-			
+			vanityPanel.SetFlashlightColor( 4, 4, 4);
+			vanityPanel.SetAmbientLightColor( 0.25, 0.20, 0.35 );
+
 			vanityPanel.SetDirectionalLightModify( 0 );
 			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
-			vanityPanel.SetDirectionalLightDirection( 0.22, 0.67, -0.71 );
+			vanityPanel.SetDirectionalLightDirection( 0.6, 0.67, -0.71 );
 			
 			vanityPanel.SetDirectionalLightModify( 1 );
 			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
@@ -1112,6 +1037,146 @@ var MainMenu = ( function() {
 			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
 			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
 		}
+		else if ( backgroundMap === 'sirocco_night' )
+		{
+			vanityPanel.SetFlashlightAmount( 5 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.27, 0.3, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
+		}
+else if (backgroundMap === 'cbble') {
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.27, 0.3, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );
+}
+
+		else if ( backgroundMap === 'nuke' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                               
+		}
+		else if ( backgroundMap === 'vertigo' )
+		{
+			vanityPanel.SetFlashlightAmount( 1 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor(0.15, 0.2, 0.45);
+
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                               
+		}
+		else if ( backgroundMap === 'anubis' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.25, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                              
+		}
+		else if ( backgroundMap === 'ancient' )
+		{
+			vanityPanel.SetFlashlightAmount( 3 );
+			                                               
+			                                                            
+			                                                       
+			vanityPanel.SetFlashlightFOV( 60 );
+			                                                            
+			vanityPanel.SetFlashlightColor( 1.8, 1.8, 2 );
+			vanityPanel.SetAmbientLightColor( 0.2, 0.32, 0.4 );
+			
+			vanityPanel.SetDirectionalLightModify( 0 );
+			vanityPanel.SetDirectionalLightColor(0.00, 0.19, 0.38 );
+			vanityPanel.SetDirectionalLightDirection( 0.1, 0.67, -0.71 );
+			
+			vanityPanel.SetDirectionalLightModify( 1 );
+			vanityPanel.SetDirectionalLightColor( 0.05, 0.09, 0.21) ;
+			vanityPanel.SetDirectionalLightDirection(-0.86, -0.18, -0.47 );
+
+			vanityPanel.SetDirectionalLightModify( 2 );
+			vanityPanel.SetDirectionalLightColor( 0.0, 0.0, 0.0 );
+			vanityPanel.SetDirectionalLightDirection( 0.76, 0.48, -0.44 );                                              
+		}
+		
 	};
 
 	                                                                           
@@ -1119,17 +1184,12 @@ var MainMenu = ( function() {
 	{
 	};
 
- 	var _OpenPlayMenu = function ()
-	{
-		                                                      
-		if ( MatchStatsAPI.GetUiExperienceType() )
-			return;
-
-		_InsureSessionCreated();
-		_NavigateToTab( 'JsPlay', 'mainmenu_play' );
-
-		                                           		
-	};
+  function _OpenPlayMenu() {
+        if (MatchStatsAPI.GetUiExperienceType())
+            return;
+        _InsureSessionCreated();
+        _NavigateToTab('JsPlay', 'mainmenu_play', 'Play-official');
+    }
     function _OpenWatchMenu() {
         NavigateToTab('JsWatch', 'mainmenu_watch');
     }
@@ -1143,7 +1203,7 @@ var MainMenu = ( function() {
         NavigateToTab('JsPlayerStats', 'mainmenu_playerstats');
     }
     function _OpenSettingsMenu() {
-        _NavigateToTab('JsSettings', 'settings/settings');
+        NavigateToTab('JsSettings', 'settings/settings');
     }
     var _UpdateOverwatch = function () {
         var strCaseDescription = OverwatchAPI.GetAssignedCaseDescription();
@@ -1168,20 +1228,30 @@ var MainMenu = ( function() {
             LobbyAPI.CreateSession();
         }
     }
-    function OnEscapeKeyPressed() {
-        if (_m_activeTab)
-            OnHomeButtonPressed();
-        else
-            GameInterfaceAPI.ConsoleCommand("gameui_hide");
-    }
+	var OnEscapeKeyPressed = function( eSource, nRepeats, focusPanel ) // fixed issue with pause menu not closing and mainmenu song playing.
+	{
+		                                
+		if ( $.GetContextPanel().BHasClass( 'MainMenuRootPanel--PauseMenuMode' ) ) {
+			$.DispatchEvent( 'CSGOMainMenuResumeGame' );
+		}
+		else {
+			MainMenu.OnHomeButtonPressed();
+
+			var elPlayButton = $( '#MainMenuNavBarPlay' );
+			if( elPlayButton && !elPlayButton.BHasClass( 'mainmenu-navbar__btn-small--hidden' ) ) {
+
+				GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
+				$.DispatchEvent('PlayMainMenuMusic', true, true );
+			}
+		}
+	};
     function _InventoryUpdated() {
         _ForceRestartVanity();
         if (GameStateAPI.IsLocalPlayerPlayingMatch()) {
             return;
         }
         _UpdateInventoryBtnAlert();
-        UpdateStoreAlert();
-        _msg('__InventoryUpdated');
+		_UpdateStoreAlert();
     }
     function _CheckRankUpRedemptionStore() {
         if (_m_bHasPopupNotification)
@@ -1190,7 +1260,7 @@ var MainMenu = ( function() {
             return;
         if (!$('#MainMenuNavBarHome').checked)
             return;
-        const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex("PersonalStore", 0);
+        const objStore = InventoryAPI.GetCacheTypeElementJSOByIndex("PersonalStore", 1);
         if (!objStore)
             return;
         if (!MyPersonaAPI.IsConnectedToGC() || !MyPersonaAPI.IsInventoryValid())
@@ -1211,15 +1281,6 @@ var MainMenu = ( function() {
 	var _UpdateInventoryBtnAlert = function()
 	{
 		var aNewItems = AcknowledgeItems.GetItems();
-
-		                                                                                                                
-		                                                                                  
-		                                                                                              
-		                                                                                       
-		    
-		   	                                
-		    
-		
 		var count = aNewItems.length;
 		var elNavBar = $.GetContextPanel().FindChildInLayoutFile('JsMainMenuNavBar'),
 		elAlert = elNavBar.FindChildInLayoutFile('MainMenuInvAlert');
@@ -1326,7 +1387,24 @@ var MainMenu = ( function() {
 			'none'
 		);
 	};
-
+function _UpdateStoreAlert() { // this function is for testing and currently does not work. more on that soon.
+    let hideAlert;
+    let objStore;
+    
+    if (InventoryAPI.GetCacheTypeElementJSOByIndex) {
+        objStore = InventoryAPI.GetCacheTypeElementJSOByIndex("PersonalStore", 0);
+    }
+    
+    const gcConnection = MyPersonaAPI.IsConnectedToGC();
+    const validInventory = MyPersonaAPI.IsInventoryValid();
+    
+    // checks if objstore exists but does nothing after that. more on that soon.
+    hideAlert = !gcConnection || !validInventory || !objStore || objStore.redeemable_balance === 0;
+    const elNavBar = $.GetContextPanel().FindChildInLayoutFile('MainMenuNavBarTop');
+    const elAlert = elNavBar.FindChildInLayoutFile('MainMenuStoreAlert');
+    elAlert.SetDialogVariable("alert_value", $.Localize("#Store_Price_New"));
+    elAlert.SetHasClass('hidden', hideAlert);
+}
 	var _UpdateSubscriptionAlert = function()
 	{
 		var elNavBar = $.GetContextPanel().FindChildInLayoutFile('JsMainMenuNavBar'),
@@ -1430,7 +1508,10 @@ var MainMenu = ( function() {
 	function _GetNotificationBarData()
 	{
 		var notification = { color_class: "", title: "", tooltip: "", link: "" };
-
+		
+		
+		
+		
 		if ( LicenseUtil.GetCurrentLicenseRestrictions() === false )
 		{
 			  
@@ -1456,34 +1537,49 @@ var MainMenu = ( function() {
 		}
 
 		  
-		                             
+		if ( _d_IsQOffline )
+		{	                                           
+			notification.color_class = "NotificationLoggingOn";
+			notification.title = $.Localize( "#Store_Connecting_ToGc" );
+			notification.tooltip = $.Localize( "#Store_Connecting_ToGc_Tooltip" );
+			return notification;
+		}                        
 		  
-		var nIsVacBanned = MyPersonaAPI.IsVacBanned();
-		if ( nIsVacBanned != 0 )
+		var nIsVacBanned = MyPersonaAPI.IsVacBanned(); // basically... you are a faggot for cheating. sorry but this is the truth
+		if ( _d_IsQVAC )
 		{
 			notification.color_class = "NotificationRed";
 
-			if ( nIsVacBanned == 1 )
+			if ( !_d_IsQOverwatch )
 			{
 				notification.title = $.Localize( "#SFUI_MainMenu_Vac_Title" );
 				notification.tooltip = $.Localize( "#SFUI_MainMenu_Vac_Info" );
-				notification.link = "https://help.steampowered.com/faqs/view/647C-5CC1-7EA9-3C29";
 			}
 			else
 			{
-				notification.title = $.Localize( "#SFUI_MainMenu_GameBan_Title" );
-				notification.tooltip = $.Localize( "#SFUI_MainMenu_GameBan_Info" );
-				notification.link = "https://help.steampowered.com/faqs/view/4E54-0B96-D0A4-1557";
+				notification.title = $.Localize( "#SFUI_MainMenu_Global_Ban_Title" );
+				notification.tooltip = $.Localize( "#SFUI_CooldownExplanationReason_ConvictedForCheating" );
 			}
 			
 			return notification;
 		}
 
+		  
+		                                  
+		
+		if ( _d_IsQOutOfDate )
+		{
+			notification.color_class = "NotificationYellow";
+			notification.title = $.Localize( "#SFUI_MainMenu_Outofdate_Title" );
+			notification.tooltip = $.Localize( "#SFUI_MainMenu_Outofdate_Body" );
+			return notification;
+		}	
+
 		
 		  
 		                             
 		  
-		var nBanRemaining = CompetitiveMatchAPI.GetCooldownSecondsRemaining();
+		var nBanRemaining = CompetitiveMatchAPI.GetCooldownSecondsRemaining(); // did you kill your teammate at roundstart? or did you kick them too many times because you thought someone was cheating? well this is the function that calls the cooldown notification at the top of your screen.
 		if ( nBanRemaining > 0 )
 		{
 			notification.tooltip = CompetitiveMatchAPI.GetCooldownReason();
@@ -1524,7 +1620,7 @@ var MainMenu = ( function() {
 		return null;
 	}
 
-	function _UpdateNotificationBar()
+	function _UpdateNotificationBar() // updates notification bar for things such as: new client available, ban, gc unable to connect etc.
 	{
 		var notification = _GetNotificationBarData();
 
@@ -1568,7 +1664,7 @@ var MainMenu = ( function() {
 	                    
 	                                                                                                    
 	var _m_acknowledgePopupHandler = null;
-	var _ShowAcknowledgePopup = function( type = '', itemid = '' )
+	var _ShowAcknowledgePopup = function( type = '', itemid = '' ) // inventory acknowledge popup that shows up when you either use a xp boost pack or get a new item in your inventory.
 	{
 		if ( type === 'xpgrant' )
 		{	                                                 
@@ -1604,7 +1700,7 @@ var MainMenu = ( function() {
 		_m_acknowledgePopupHandler = null;
 	};
 
-	var _ShowNotificationBarTooltip = function ()
+	var _ShowNotificationBarTooltip = function () // tooltip for those who really want to know what gave them a cooldown or permanent vac ban. in reality this doesn't really show the actual reason for vac bans.
 	{
 		var notification = _GetNotificationBarData();
 		if ( notification !== null && notification.tooltip )
@@ -1659,7 +1755,7 @@ var MainMenu = ( function() {
 			'&'+'okcmd=' + $.UrlEncode( strOkCmd ) );
 	};
 
-	var _ShowWeaponUpdatePopup = function()
+	var _ShowWeaponUpdatePopup = function() // mp5 weapon update popup, it is broken. does not work even after multiple fixes applied, something seems to be fucked in the game code for this.
 	{
 		return;                                                         
 		var setVersionTo = '1';
@@ -1683,35 +1779,154 @@ var MainMenu = ( function() {
 			}
 		}
 	};
-
-var _DevPopups = function()
-{		
-	UiToolkitAPI.ShowGenericPopupTwoOptions( 
-		'#legacy_support_text_title', 
-		'#legacy_support_text_desc', 
-		'', 
-		$.Localize( "#link_to_steam_support"), 
-		function() { OnLegacyWarningPress('link') }, 
-		$.Localize( "#OK"), 
-		function() { OnLegacyWarningPress('') }
-	);
-}
-
-function OnLegacyWarningPress( msg )
-{
-	if( msg === 'link' )
+		var _DevAlertMgr = function()
 	{
-		SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser( "https://github.com/DeformedSAS/CS-GO-Custom-Panorama-CS2-" );
-		return;
-	}
-}
+		$('#MainMenuNavBarHome').checked = true;
+		UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( 
+		'CS:GO Main Menu Alerts',
+		'Actions available:',
+		'',
+		'Remove all',
+		function() 
+		{ 
+			_d_IsQOffline = false;
+			_d_IsQOutOfDate = false;
+			_d_IsQOverwatch = false;
+			_d_IsQVAC = false;
+		}, 
+		'Out Of Date',
+		function() 
+		{ 
+			_d_IsQOffline = false;
+			_d_IsQOutOfDate = true;
+			_d_IsQOverwatch = false;
+			_d_IsQVAC = false;
+		}, 
+		'More...',
+		function() 
+		{ 
+			UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( 
+			'CS:GO Main Menu Alerts',
+			'Actions available: More...',
+			'',
+			'Overwatch Ban',
+			function() 
+			{ 
+				_d_IsQOffline = false;
+				_d_IsQOutOfDate = false;
+				_d_IsQOverwatch = true;
+				_d_IsQVAC = true;
+			}, 
+			'VAC Ban',
+			function() 
+			{ 
+				_d_IsQOffline = false;
+				_d_IsQOutOfDate = true;
+				_d_IsQOverwatch = false;
+				_d_IsQVAC = true;
+			}, 
+			'Offline',
+			function() 
+			{ 
+				_d_IsQOffline = true;
+				_d_IsQOutOfDate = true;
+				_d_IsQOverwatch = false;
+				_d_IsQVAC = false;
+			}, 
+			'dim' );
+		}, 
+		'dim' );
+		
+		_UpdateNotificationBar();
+	};
+	
+	var _DevPopups = function()
+	{		
+	$('#MainMenuNavBarHome').checked = true;
+		UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( 
+		'CS:GO',
+		'Popups available:',
+		'',
+		'Default...', 
+		function() 
+		{
+			UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( 
+			'CS:GO',
+			'Popups available:',
+			'',
+			'Accept Match',
+			function() 
+			{ 
+				UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_accept_match.xml', '', 'none' ); 
+			}, 
+			'Matchmaking',
+			function() 
+			{ 
+				UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_go_team_matchmaking.xml', '', 'none' ); 
+			}, 
+			'More...',
+			function() 
+			{ 
+				UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( 
+				'CS:GO',
+				'Popups available:',
+				'',
+				'Operation Store',
+				function() 
+				{ 
+					_NavigateToTab('JsDbg', 'playercard.xml');
+					//UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_license_register.xml', '', 'none' ); 
+				}, 
+				'News',
+				function() 
+				{ 
+					UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_news.xml', '', 'none' ); 
+					// UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_operation_store.xml', '', 'none' ); 
+					// _NavigateToTab('JsAccept', 'popups/popup_accept_match');
+				}, 
+				'Premier',
+				function() 
+				{ 
+					// _NavigateToTab('JsDbg', 'console');
+					// Nav Drawer // UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_navdrawer.xml', '', 'none' ); 
+					UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_premier_matchmaking.xml', '', 'none' ); 
+				}, 
+				'dim' );
+			}, 
+			'dim' );
+		}, 
+		'More...',
+		function() 
+		{
+			UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle( 
+			'CS:GO',
+			'Popups available:',
+			'',
+			'Rank',
+			function() 
+			{ 
+				UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_acknowledge_xpgrant.xml', '', 'none' ); 
+			}, 
+			'Overwatch Verdict',
+			function() 
+			{ 
+				UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_mainmenu_overwatch_verdict.xml', '', 'none' ); 
+			}, 
+			'PickBan',
+			function() 
+			{ 
+				UiToolkitAPI.ShowCustomLayoutPopupParameters( '', 'file://{resources}/layout/popups/popup_tournament_pickban.xml', '', 'none' ); 
+			}, 
+			'dim' );
+		},
+		'Cancel',
+		function() 
+		{
+		}, 
+		'dim' );
+	};
 
-// Call the DevPopups function
-_DevPopups();
-
-
-
-	var _ShowOperationLaunchPopup = function()
+	var _ShowOperationLaunchPopup = function() // when is a new operation coming valve? in cs2 it seems to be never sadly, armory is the permanent operation that you get in cs2 now and is never going away unless they change their mind.
 	{
 		if ( _m_hOnEngineSoundSystemsRunningRegisterHandle )
 		{
@@ -1741,15 +1956,21 @@ _DevPopups();
 		}
 	};
 
-	var _PauseMainMenuCharacter = function()
-	{
-		var vanityPanel = $( '#JsMainmenu_Vanity' );
+var _PauseMainMenuCharacter = function() { // pauses your agent when changing background or disconnecting from a server.
+    var vanityPanel = $('#JsMainmenu_Vanity');
 
-		if ( vanityPanel && UiToolkitAPI.IsPanoramaInECOMode() )
-		{
-			vanityPanel.Pause( false );
-		}
-	}
+    if (vanityPanel) {
+        vanityPanel.Pause(true);
+    }
+};
+
+var _UnPauseMainMenuCharacter = function() { // unpauses your agent after background change.
+    var vanityPanel = $('#JsMainmenu_Vanity');
+
+    if (vanityPanel) {
+        vanityPanel.Pause(false);
+    }
+};
 
 	var _ShowTournamentStore = function() 
 	{
@@ -1764,7 +1985,7 @@ _DevPopups();
 	                                                                                                    
 	                         
 	                                                                                                    
-	function _AddPauseMenuMissionPanel()
+	function _AddPauseMenuMissionPanel() // op mission pausemenu panel that actually never worked in the first place so i have no idea why it's here but removing it breaks the script.
 	{
 		var elPanel = null;
 		var missionId = GameStateAPI.GetActiveQuestID();
@@ -1891,7 +2112,7 @@ _DevPopups();
 		alert.SetHasClass( 'hidden', bHide );
 	}
 
-	function _SwitchVanity ( team )
+	function _SwitchVanity ( team ) // switches your vanity to your desired team. pretty cool ain't it? ooo
 	{
 		$.DispatchEvent( 'PlaySoundEffect', 'UIPanorama.generic_button_press', 'MOUSE' );
 		GameInterfaceAPI.SetSettingString( 'ui_vanitysetting_team', team );	
@@ -1906,7 +2127,7 @@ _DevPopups();
 	}
 
 	                                                                                                    
-	function _OnGoToCharacterLoadoutPressed ()
+	function _OnGoToCharacterLoadoutPressed () // opens inventory loadout and shows your weapon or agent loadout.
 	{
 		if ( !MyPersonaAPI.IsInventoryValid() || !MyPersonaAPI.IsConnectedToGC() )
 		{
@@ -1935,7 +2156,7 @@ _DevPopups();
 	}
 
 
-	return {
+	return { // return functions, this is primarily used when making new scripts that get executed when OnShowMainMenu function loads. also these information tooltips in the script probably made the script twice as large.. sorry but i had to for dev purposes.
 		OnInitFadeUp						: _OnInitFadeUp,
 		OnShowMainMenu						: _OnShowMainMenu,
 		OnHideMainMenu	 					: _OnHideMainMenu,
@@ -1952,6 +2173,7 @@ _DevPopups();
 		InitFriendsList	 					: _InitFriendsList,
 		InitNewsAndStore					: _InitNewsAndStore,
 		InitVanity							: _InitVanity,
+		InitVanity2							: _InitVanity2,
 		ForceRestartVanity	 				: _ForceRestartVanity,
 		OnEquipSlotChanged	 				: _OnEquipSlotChanged,
 		OpenPlayMenu						: _OpenPlayMenu,
@@ -1959,6 +2181,7 @@ _DevPopups();
 		OpenStatsMenu						: _OpenStatsMenu,
 		OpenInventory						: _OpenInventory,
 		OpenSettings						: _OpenSettings,
+		UpdateStoreAlert                    : _UpdateStoreAlert,
 		OnHomeButtonPressed					: OnHomeButtonPressed,
 		OnQuitButtonPressed					: _OnQuitButtonPressed,
 		OnEscapeKeyPressed					: OnEscapeKeyPressed,
@@ -1977,11 +2200,12 @@ _DevPopups();
 		ResetAcknowlegeHandler				: _ResetAcknowlegeHandler,
 		ShowNotificationBarTooltip			: _ShowNotificationBarTooltip,
 		ShowVote 							: _ShowVote,
-				DevPopups							: _DevPopups,
+		DevPopups							: _DevPopups,
 		ShowStoreStatusPanel				: _ShowStoreStatusPanel,
 		HideStoreStatusPanel				: _HideStoreStatusPanel,
 		SetBackgroundMovie					: _SetBackgroundMovie,
 		PauseMainMenuCharacter				: _PauseMainMenuCharacter,
+		UnPauseMainMenuCharacter				: _UnPauseMainMenuCharacter,
 		ShowTournamentStore					: _ShowTournamentStore,
 		TournamentDraftUpdate				: _TournamentDraftUpdate,
 		ResetSurvivalEndOfMatch				: _ResetSurvivalEndOfMatch,
@@ -1994,7 +2218,8 @@ _DevPopups();
 		SwitchVanity						: _SwitchVanity,
 		GoToCharacterLoadout				: _GoToCharacterLoadout,
 		OpenSubscriptionUpsell				: _OpenSubscriptionUpsell,
-		UpdateUnlockCompAlert				: _UpdateUnlockCompAlert
+		UpdateUnlockCompAlert				: _UpdateUnlockCompAlert,
+		DevAlertMgr							: _DevAlertMgr
 	};
 })();
 
@@ -2002,7 +2227,7 @@ _DevPopups();
                                                                                                     
                                            
                                                                                                     
-(function()
+(function() // useless mumbo jumbo that i still don't know what this actually does.
 {
 	$.RegisterForUnhandledEvent( 'HideContentPanel', MainMenu.OnHideContentPanel );
 	$.RegisterForUnhandledEvent( 'SidebarContextMenuActive', MainMenu.OnSideBarElementContextMenuActive );

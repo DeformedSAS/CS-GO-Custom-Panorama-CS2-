@@ -5,7 +5,7 @@
 	</styles>	
 	<scripts>
 		<include src="file://{resources}/scripts/common/promoted_settings.js" />
-		<include src="file://{resources}/scripts/mainmenu2.js" />
+		<include src="file://{resources}/scripts/mainmenu.js" />
 		<include src="file://{resources}/scripts/common/characteranims.js" />
 		<include src="file://{resources}/scripts/common/iteminfo.js" />
 		<include src="file://{resources}/scripts/common/licenseutil.js" />
@@ -57,7 +57,7 @@
         </Panel>
         <Panel id="MainMenuInput">                                              
             <CSGOBlurTarget id="MainMenuCore" blurrects="ChatLinesContainerBg mainmenu-sidebar__blur-target CSGOLoadingScreen JsMainMenuNavBar eom-winner">
-                <CSGOBlurTarget id="MainMenuBackground" blurrects="id-mainmenu-mission-card-bg id-op-mainmenu-top mainmenu-content__blur-target id-mainmenu-mini-store-panel id-tournament-pass-status JsStorePanel JsStreamPanel JsWatchNoticePanel id-op-mainmenu-rewards id-op-mainmenu-missions JsLastMatch JsActiveMissionPanel id-activemission-tooltip id-active-mission">
+                <CSGOBlurTarget id="MainMenuBackground" blurrects="id-mainmenu-mission-card-bg id-op-mainmenu-top mainmenu-content__blur-target id-mainmenu-mini-store-panel id-mainmenu-stream-panel id-tournament-pass-status JsStorePanel JsStreamPanel JsWatchNoticePanel id-op-mainmenu-rewards id-op-mainmenu-missions JsLastMatch JsActiveMissionPanel id-activemission-tooltip id-active-mission">
                     <Panel class="mainmenu-vanity__vignette" hittest="false"/>
                     <CSGOBackbufferImagePanel class="full-width full-height PauseMenuModeOnly" />
 
@@ -124,7 +124,7 @@
 
         <!-- Settings Button -->
         <RadioButton id="MainMenuNavBarSettings"
-            class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn"
+            class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn "
             group="NavBar"
             onactivate="MainMenu.NavigateToTab('JsSettings', 'settings/settings');"
             onmouseover="UiToolkitAPI.ShowTextTooltip('MainMenuNavBarSettings', 'Settings');"
@@ -133,7 +133,43 @@
             <Panel id="MainMenuSettingsAlert" class="navbar-btn__notification settings-notification">
                 <Label class="navbar-btn__notification-text" text="{d:num_settings}"/> 
             </Panel>
+			 <!-- Debug Buttons -->
         </RadioButton>
+		
+								<RadioButton id="MainMenuNavBarResumeGame"
+									class="mainmenu-navbar__btn-small DEVModeONLY"
+									group="NavBar" 
+									onactivate="MainMenu.DevAlertMgr()"
+									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarResumeGame', '#tooltip_navbar_resume_game' );"
+									onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/info.svg" />
+						</RadioButton>
+						                                                    
+						<Button id="MainMenuNavBarSwitchTeams"
+									class="mainmenu-navbar__btn-small DEVModeONLY"
+									onactivate="MainMenu.DevPopups()"
+									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarSwitchTeams', 'Popup Tests' );"
+									onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/unlocked.svg" />
+						</Button>
+						
+									<Button id="MainMenuNavBarReportServer"
+									class="mainmenu-navbar__btn-small DEVModeONLY"
+									onactivate="MainMenu.NavigateToTab('JsPlayerStats', 'mainmenu_playerstats'); MainMenu.StatsBtnPressedUpdateAlert();"
+									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarReportServer', 'Stats and stuff' );"
+									onmouseout="UiToolkitAPI.HideTextTooltip();">
+							<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/stats_logo.svg" />
+						</Button>
+						
+									<RadioButton id="MainMenuNavBarStats"
+									class="mainmenu-navbar__btn-small colored-icon DEVModeONLY"
+									group="NavBar"
+									onactivate="MainMenu.NavigateToTab('JsOverwatch', 'mainmenu_overwatch');">
+						<Image textureheight="24" texturewidth="-1" src="file://{images}/icons/ui/overwatch.svg" />
+							<Panel id="MainMenuSubscriptionAlert" class="navbar-btn__notification overwatch">
+								<Label id="MainMenuSubscriptionAlertText" class="navbar-btn__notification-text" text="+"/>
+							</Panel>
+						</RadioButton>
 
         <!-- Quit Button -->
         <RadioButton id="MainMenuNavBarQuit"
@@ -149,8 +185,9 @@
     
 
 
+
 							
-							/* Centered Navbar Stuff */
+							<!-- center navbar -->
 
 						</RadioButton>
 						<Panel id="MainMenuNavBarCenterContainer" class="mainmenu-top-navbar__center-container">
@@ -197,9 +234,7 @@
 									<Panel id="MainMenuInvAlert" class="navbar-btn__notification hidden">
 								<Label id="MainMenuInvAlertText" class="navbar-btn__notification-text" text=""/>
 							</Panel>
-							
 
-							
 						</RadioButton>
 						<Panel class="mainmenu-top-navbar__play_seperator mainmenu-top-navbar__play_seperator--small visible-if-not-limitedbeta MainMenuModeOnly" />
 						<RadioButton id="MainMenuNavBarPlay"
@@ -256,7 +291,7 @@
 						</Panel>
 						
 						
-						/* Sidebar Stuff */
+						<!-- right sidebar -->
 						
 					</Panel>
 				</CSGOBlurTarget>

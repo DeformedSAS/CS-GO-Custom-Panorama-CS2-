@@ -65,7 +65,7 @@
 					<Label text="Sound"/>
 				</RadioButton>
 				<RadioButton id="JsControlBlur" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibBlendBlur', 'JsControlBlur')">
-					<Label text="Schizophrenia Panel Basically"/>
+					<Label text="ui blur test"/>
 				</RadioButton>
 				<RadioButton id="JsControlPanels" class="content-navbar__tabs__btn" group="nav" onactivate="NavigateToTab('ControlsLibPanels', 'JsControlPanels')">
 					<Label text="Panels"/>
@@ -247,7 +247,7 @@
 							<Label text="Accept Match"/>
 						</Button>
 						<Button class="PopupButton" onactivate="OnPopupCustomLayoutLoadingScreen()">
-							<Label text="Team Seclect"/>
+							<Label text="Loading Screen test"/>
 						</Button>
 						<Button class="PopupButton" onactivate="OnPopupCustomLayoutWeaponUpdate()">
 							<Label text="New Weapon"/>

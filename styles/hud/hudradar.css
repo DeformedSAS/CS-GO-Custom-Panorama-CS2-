@@ -131,16 +131,15 @@ CSGOHudRadar Label
 
 .Radar__Round--BorderClass
 {
-	width: Radar_VisSize_Round;
-	height: Radar_VisSize_Round;
-	horizontal-align: center;
-	vertical-align: center;
-	border-radius: 50% / 50%;
-	border-width: 2px;
-	border-style: solid;
-	border-color: white;
-	s2-mix-blend-mode: additive;
-	opacity: 1.0;
+    width: Radar_VisSize_Round;
+    height: Radar_VisSize_Round;
+    horizontal-align: center;
+    vertical-align: center;
+    border-radius: 50% / 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+    opacity: 1.0;
 }
 
 #Radar__Round--Inner 
@@ -174,16 +173,15 @@ CSGOHudRadar Label
 
 #Radar__Square--Border
 {
-	width: Radar_VisSize_Square;
-	height: Radar_VisSize_Square;
-	horizontal-align: center;
-	vertical-align: center;
-	border-width: 2px;
-	border-style: solid;
-	border-color: white;
-	s2-mix-blend-mode: additive;
-	opacity: 1.0;
-	visibility: collapse;
+    width: Radar_VisSize_Square;
+    height: Radar_VisSize_Square;
+    horizontal-align: center;
+    vertical-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: ct-color;
+    opacity: 1.0;
+    visibility: collapse;
 }
 
 #Radar__Square--Inner 

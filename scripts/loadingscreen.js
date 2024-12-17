@@ -7,7 +7,6 @@ var LoadingScreen = (function () {
 
     var _Init = function () {
         $('#ProgressBar').value = 0;
-		$.DispatchEvent('PlayMainMenuMusic', false, false );
 
         var elOverview = $('#LoadingScreenOverview');
         elOverview.RemoveAndDeleteChildren();
@@ -21,85 +20,6 @@ var LoadingScreen = (function () {
         elBackgroundImage.SetImage("file://{images}/map_icons/screenshots/1080p/default.png");
 
         $('#LoadingScreenIcon').visible = false;
-    };
-	
-	    function _CreateSlide(n) {
-        const suffix = n == 0 ? '' : '_' + n;
-        const imagePath = 'file://{images}/map_icons/screenshots/1080p/' + m_mapName + suffix + '.png';
-        if (!$.BImageFileExists(imagePath)) {
-            return false;
-        }
-        const elSlideShow = $.GetContextPanel().FindChildTraverse('LoadingScreenSlideShow');
-        const elSlide = $.CreatePanel('Image', elSlideShow, 'slide_' + n);
-        elSlide.BLoadLayoutSnippet('snippet-loadingscreen-slide');
-        elSlide.SetImage(imagePath);
-        elSlide.Data().imagePath = imagePath;
-        elSlide.SwitchClass('viz', 'hide');
-        const titleToken = '#loadingscreen_title_' + m_mapName + suffix;
-        let title = $.Localize(titleToken);
-        if (title == titleToken)
-            title = '';
-        elSlide.SetDialogVariable('screenshot-title', title);
-        m_numImageLoading++;
-        $.RegisterEventHandler('ImageLoaded', elSlide, () => {
-            m_numImageLoading--;
-            if (m_numImageLoading <= 0)
-                _StartSlideShow();
-        });
-        $.RegisterEventHandler('ImageFailedLoad', elSlide, () => {
-            elSlide.DeleteAsync(0.0);
-            m_numImageLoading--;
-            if (m_numImageLoading <= 0)
-                _StartSlideShow();
-        });
-        return true;
-    }
-    function _InitSlideShow() {
-        if (m_slideShowJob)
-            return;
-        for (let n = 0; n < MAX_SLIDES; n++) {
-            _CreateSlide(n);
-        }
-    }
-    function _StartSlideShow() {
-        const elSlideShow = $.GetContextPanel().FindChildTraverse('LoadingScreenSlideShow');
-        const arrSlides = elSlideShow.Children();
-        const randomOffset = Math.floor(Math.random() * arrSlides.length);
-        _NextSlide(randomOffset, true);
-    }
-    function _NextSlide(n, bFirst = false) {
-        m_slideShowJob = null;
-        const elSlideShow = $.GetContextPanel().FindChildTraverse('LoadingScreenSlideShow');
-        const arrSlides = elSlideShow.Children();
-        if (arrSlides.length <= 1)
-            return;
-        if (n >= arrSlides.length)
-            n = n - arrSlides.length;
-        let m = n - 1;
-        if (m < 0)
-            m = arrSlides.length - 1;
-        if (arrSlides[n]) {
-            if (bFirst)
-                arrSlides[n].SwitchClass('viz', 'show-first');
-            else
-                arrSlides[n].SwitchClass('viz', 'show');
-        }
-        const slide = arrSlides[m];
-        if (slide)
-            $.Schedule(0.25, () => {
-                if (slide && slide.IsValid())
-                    slide.SwitchClass('viz', 'hide');
-            });
-        m_slideShowJob = $.Schedule(SLIDE_DURATION, () => _NextSlide(n + 1));
-    }
-    function _EndSlideShow() {
-        if (m_slideShowJob) {
-            $.CancelScheduled(m_slideShowJob);
-            m_slideShowJob = null;
-        }
-    }
-    function _OnMapLoadFinished() {
-        _EndSlideShow();
     }
 
     var _UpdateLoadingScreenInfo = function (mapName, prettyMapName, prettyGameModeName, gameType, gameMode, descriptionText) {
@@ -117,14 +37,13 @@ var LoadingScreen = (function () {
         }
 
         if (mapName) {
-            var elBackgroundImage = $.GetContextPanel().FindChildInLayoutFile('BackgroundMapImage');
-            elBackgroundImage.SetImage('file://{images}/map_icons/screenshots/1080p/' + mapName + '.png');
-
+            _LoadSlideshowImages(mapName); // the loading screen slideshow finds the map name after the map name gets caught
+            
             var mapIconFailedToLoad = function () {
                 $('#LoadingScreenMapName').RemoveClass("loading-screen-content__info__text-title-short");
                 $('#LoadingScreenMapName').AddClass("loading-screen-content__info__text-title-long");
                 $('#LoadingScreenIcon').visible = false;
-            };
+            }
 
             $('#LoadingScreenIcon').visible = true;
             $.RegisterEventHandler('ImageFailedLoad', $('#LoadingScreenIcon'), mapIconFailedToLoad.bind(undefined));
@@ -134,15 +53,16 @@ var LoadingScreen = (function () {
 
             var mapOverviewLoaded = function () {
                 $('#LoadingScreenOverview').visible = true;
-            };
+            }
+
             $.RegisterEventHandler('ImageLoaded', $('#LoadingScreenOverview'), mapOverviewLoaded.bind(undefined));
             var mapOverviewFailed = function () {
                 $('#LoadingScreenOverview').visible = false;
-            };
+            }
+
             $.RegisterEventHandler('ImageFailedLoad', $('#LoadingScreenOverview'), mapOverviewFailed.bind(undefined));
 
             var elOverview = $('#LoadingScreenOverview');
-
             if (mapName === "lobby_mapveto") {
                 elOverview.SetImage('file://{images}/overheadmaps/' + mapName + '.png');
             } else {
@@ -150,44 +70,71 @@ var LoadingScreen = (function () {
             }
 
             $('#LoadingScreenIcon').AddClass('show');
-            elBackgroundImage.AddClass('show');
 
-            if (prettyMapName != "") {
+            if (prettyMapName != "")
                 $('#LoadingScreenMapName').SetProceduralTextThatIPromiseIsLocalizedAndEscaped(prettyMapName, false);
-            } else {
+            else
                 $('#LoadingScreenMapName').SetLocalizationString(GameStateAPI.GetMapDisplayNameToken(mapName));
-            }
         }
 
         var elInfoBlock = $('#LoadingScreenInfo');
 
         if (gameMode) {
             elInfoBlock.RemoveClass('hidden');
-            if (prettyGameModeName != "") {
+            if (prettyGameModeName != "")
                 $('#LoadingScreenGameMode').SetProceduralTextThatIPromiseIsLocalizedAndEscaped(prettyGameModeName, false);
-            } else {
+            else
                 $('#LoadingScreenGameMode').SetLocalizationString('#sfui_gamemode_' + gameMode);
-            }
 
-            if (GameStateAPI.IsQueuedMatchmakingMode_Team() || mapName === 'lobby_mapveto') {
+            if (GameStateAPI.IsQueuedMatchmakingMode_Team() || mapName === 'lobby_mapveto')
                 $('#LoadingScreenGameModeIcon').SetImage("file://{images}/icons/ui/competitive_teams.svg");
-            } else {
+            else
                 $('#LoadingScreenGameModeIcon').SetImage('file://{images}/icons/ui/' + gameMode + '.svg');
-            }
 
-            if (descriptionText != "") {
+            if (descriptionText != "")
                 $('#LoadingScreenModeDesc').SetProceduralTextThatIPromiseIsLocalizedAndEscaped(descriptionText, false);
-            } else {
+            else
                 $('#LoadingScreenModeDesc').SetLocalizationString("");
-            }
         } else {
             elInfoBlock.AddClass('hidden');
         }
+    }
+
+var _LoadSlideshowImages = function (mapName) {
+    var images = [];
+    var suffixes = ['.png', '_1.png', '_2.png', '_3.png', '_4.png'];
+
+    suffixes.forEach(function (suffix) {
+        var imagePath = 'file://{images}/map_icons/screenshots/1080p/' + mapName + suffix;
+        images.push(imagePath);
+    });
+
+    var elBackgroundImage = $.GetContextPanel().FindChildInLayoutFile('BackgroundMapImage');
+    var currentImageIndex = 0;
+
+    var changeImage = function () {
+        elBackgroundImage.style.opacity = 0;
+
+        $.Schedule(0.25, function () {
+            elBackgroundImage.SetImage(images[currentImageIndex % images.length]);
+            elBackgroundImage.style.opacity = 1;
+        });
+
+        currentImageIndex = (currentImageIndex + 1) % 10; 
     };
 
+    var slideshowHandle = $.Schedule(4, function cycleSlideshow() {
+        changeImage();
+        slideshowHandle = $.Schedule(4, cycleSlideshow);
+    });
+    var stopScriptHandle = $.Schedule(40, function () {
+        $.CancelScheduled(slideshowHandle);
+        $.Msg("Slideshow completed after 10 slides.");
+    });
+};
+
     var _SetCharacterAnim = function (elPanel, settings) {
-        // Character animation logic (if needed)
-    };
+    }
 
     function CreateMapIcon(overviewKV, elParent, name) {
         var X = overviewKV[name + '_x'];
@@ -230,13 +177,13 @@ var LoadingScreen = (function () {
                 }
             }
         }
-    };
+    }
 
     return {
         Init: _Init,
         UpdateLoadingScreenInfo: _UpdateLoadingScreenInfo,
         OnMapConfigLoaded: _OnMapConfigLoaded
-    };
+    }
 })();
 
 (function () {
@@ -244,5 +191,4 @@ var LoadingScreen = (function () {
     $.RegisterForUnhandledEvent('QueueConnectToServer', LoadingScreen.Init);
     $.RegisterForUnhandledEvent('OnMapConfigLoaded', LoadingScreen.OnMapConfigLoaded);
     $.RegisterForUnhandledEvent('UnloadLoadingScreenAndReinit', LoadingScreen.Init);
-
 })();

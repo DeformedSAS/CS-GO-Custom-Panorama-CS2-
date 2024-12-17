@@ -6,7 +6,7 @@
 @define t-color-alpha: rgba( 51, 41, 1, 0.5 );
 @define ct-color-alpha75: rgba( 1, 29, 54, 0.75 );
 @define t-color-alpha75: rgba( 51, 41, 1, 0.75 );
-@define hudWorldBlur: gaussian(2,2,2);
+@define hudWorldBlur: fastgaussian(2,2,2);
 @define steamOnlineColor: #80a438;
 @define blueColor: #3281AC;
 @define blueColorDark: #0D354A;
@@ -1136,7 +1136,7 @@ ToggleButton.ExpandCollapseToggleButton
 	width: 19px;
 	height: 19px;
 	vertical-align: middle;
-	background-image: url("file://{images}/control_icons/expand_collapse_psd.vtex");
+	background-image: url("file://{images}/control_icons/expand_collapse.png");
 	background-size: 100% 100%;
 	background-color: none;
 	box-shadow: none;
@@ -1157,7 +1157,7 @@ ToggleButton.ExpandCollapseToggleButton
 	width: 19px;
 	height: 19px;
 	vertical-align: middle;
-	background-image: url("file://{images}/control_icons/expand_collapse_psd.vtex");
+	background-image: url("file://{images}/control_icons/expand_collapse.png");
 	background-size: 100% 100%;
 	background-color: none;
 	box-shadow: none;
@@ -2800,7 +2800,7 @@ EdgeScrollBar.Vertical #MaxButton
 	width: 150%;
 	height: 150%;
 	transform: translateX(-6px) translateY(-6px);
-	background-image: url("file://{images}/fades/radialsweep_psd.vtex");
+	background-image: url("file://{images}/fades/radialsweep.png");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 100%;

@@ -294,50 +294,66 @@ var PlayMenu;
             _SetDirectChallengeKey(m_challengeKey);
         }
     }
-    function _AddOpenPlayerCardAction(elAvatar, xuid) {
-        elAvatar.SetPanelEvent("onactivate", () => {
-            $.DispatchEvent('SidebarContextMenuActive', true);
-            if (xuid !== '') {
-                const contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent('', '', 'file://{resources}/layout/context_menus/context_menu_playercard.xml', 'xuid=' + xuid, () => $.DispatchEvent('SidebarContextMenuActive', false));
-                contextMenuPanel.AddClass("ContextMenu_NoArrow");
-            }
-        });
-    }
-function _SetDirectChallengeIcons(type, id) {
-    const btn = $("#JsDirectChallengeBtn");
-    if (!btn.checked)
-        return;
-    
-    const elAvatar = $.GetContextPanel().FindChildInLayoutFile('JsDirectChallengeAvatar');
-    
-    if (!elAvatar) {
-        $.Schedule(0.1, () => _SetDirectChallengeIcons(type, id));
-        return;
-    }
-    
-    // Debugging to check available methods on elAvatar
-    $.Msg("Available methods on elAvatar: ", Object.getOwnPropertyNames(elAvatar));
+	var _AddOpenPlayerCardAction = function ( elAvatar, xuid )
+	{
+		var openCard = function ( xuid )
+		{
+			                                                                                             
+			$.DispatchEvent( 'SidebarContextMenuActive', true );
 
-    // Check if the method exists
-    if (typeof elAvatar.PopulateFromSteamID === 'function') {
-        elAvatar.PopulateFromSteamID(id);
-    } else {
-        $.Msg('PopulateFromSteamID is not a function on elAvatar');
-    }
+			if ( xuid !== 0 )
+			{
+				var contextMenuPanel = UiToolkitAPI.ShowCustomLayoutContextMenuParametersDismissEvent(
+					'',
+					'',
+					'file://{resources}/layout/context_menus/context_menu_playercard.xml',
+					'xuid=' + xuid,
+					function ()
+					{
+						$.DispatchEvent( 'SidebarContextMenuActive', false )
+					}
+				);
+				contextMenuPanel.AddClass( "ContextMenu_NoArrow" );
+			}
+		}
 
-    if (!type || !id) {
-        elAvatar.SetPanelEvent('onactivate', () => { });
-    }
+		elAvatar.SetPanelEvent( "onactivate", openCard.bind( undefined, xuid ) );
+	};
+	function _SetDirectChallengeIcons ( type, id )
+	{		
+  		                                                                                  
 
-    switch (type) {
-        case 'u':
-            _AddOpenPlayerCardAction(elAvatar, id);
-            break;
-        case 'g':
-            _AddGoToClanPageAction(elAvatar, id);
-            break;
-    }
-}
+		var elAvatar = $.GetContextPanel().FindChildInLayoutFile( 'JsDirectChallengeAvatar' );
+
+		if ( !elAvatar )
+		{
+			$.Schedule( 0.1, function ( type, id) 
+			{
+				_SetDirectChallengeIcons( type, id )
+			}.bind( this, type, id ) );
+			
+			return;
+		}
+
+		elAvatar.steamid = id;
+
+		if ( !type || !id )
+		{
+			elAvatar.SetPanelEvent( 'onactivate', function () { } );
+		}
+
+		switch ( type )
+		{
+			case 'u':
+
+				_AddOpenPlayerCardAction( elAvatar, id );
+				break;
+
+			case 'g':
+				_AddGoToClanPageAction( elAvatar, id );
+				break;
+		}
+	}
     function _AddGoToClanPageAction(elAvatar, id) {
         elAvatar.SetPanelEvent('onactivate', () => {
             SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://" + SteamOverlayAPI.GetSteamCommunityURL() + "/gid/" + id);

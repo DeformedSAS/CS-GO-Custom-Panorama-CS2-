@@ -248,7 +248,9 @@
 
 .directchallenge-explanation__top .directchallenge-explanation.title
 {
-    font-size: 18px;
+    font-size: 20px;
+	font-family: Stratum2;
+	font-weight: medium;
 }
 
 .directchallenge-explanation__top Image,.directchallenge-explanation__top Label
@@ -299,6 +301,7 @@
 {
     margin-bottom: 4px;
     font-size: 16px;
+	font-family: Stratum2;
 }
 
 .directchallenge-buttons-container
@@ -366,14 +369,14 @@
     horizontal-align: left;
     vertical-align: top;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
     font-family: Stratum2, 'Arial Unicode MS';
     text-overflow: shrink;
 }
 
 .directchallenge-section__text
 {
-    font-size: 14px;
+    font-size: 16px;
     font-family: Stratum2;
     horizontal-align: left;
     vertical-align: top;
@@ -1922,7 +1925,7 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 .play-menu-primestatus-image
 {
     margin: 0px;
-    background-image: url("file://{images}/icons/ui/prime_disabled_png.vtex");
+    background-image: url("file://{images}/icons/ui/prime_disabled.png");
     background-position: 50% 50%;
     background-size: 100% 100%;
     vertical-align: center;
@@ -1933,7 +1936,7 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
 
 .play-menu-prime-logo-bg .play-menu-primestatus-image
 {
-    background-image: url("file://{images}/icons/ui/prime_active_png.vtex");
+    background-image: url("file://{images}/icons/ui/prime_active.png");
 }
 
 .content-navbar ToggleButton.play-menu-toggle-prime
@@ -2047,7 +2050,6 @@ ToggleButton .map-selection-info__new,RadioButton .map-selection-info__new
     border-top: 1px solid rgba(255, 255, 255, 0.11);
     margin-right: 64px;
     height: 100%;
-    ignore-parent-flow: false;
 }
 
 .play-lobby-leader-container

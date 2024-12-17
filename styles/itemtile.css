@@ -42,7 +42,7 @@
 
 .item-tile__name
 {
-    font-size: 14px;
+    font-size: 17px;
     text-align: left;
     vertical-align: top;
     position: 0px imageheight 0px;
@@ -119,7 +119,7 @@
     width: 100%;
     height: imageheight;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba(75, 75, 75, 0.75), to(rgba(175, 175, 175, .75) ) );
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba(50, 50, 50, 0.75), to( rgba(100, 100, 100, 0.75) ) );
     box-shadow: rgba(0, 0, 0, 0.1) fill 0px 1px 4px 2px;
     transition-property: box-shadow, border, background-color;
     transition-duration: .25s;
@@ -274,7 +274,7 @@
     background-color: blueColor;
     horizontal-align: left;
     vertical-align: top;
-    font-size: 12px;
+    font-size: 14px;
     padding: 4px;
     margin: 0px 8px 8px 0px;
     font-weight: bold;

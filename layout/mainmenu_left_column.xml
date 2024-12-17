@@ -6,8 +6,8 @@
 	</styles>
 	<scripts />
 	<Panel class="mainmenu-left-column">
+	<Frame id="id-mainmenu-stream-panel" src="file://{resources}/layout/mainmenu_stream.xml" />
 		<Frame id="id-mainmenu-license-panel" src="file://{resources}/layout/mainmenu_license.xml" />
-		<Frame id="id-mainmenu-stream-panel" src="file://{resources}/layout/mainmenu_stream.xml" />
 		<Frame id="id-mainmenu-mini-store-panel" src="file://{resources}/layout/mainmenu_mini_store.xml" />
 	</Panel>
 </root>

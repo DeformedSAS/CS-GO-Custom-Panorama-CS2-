@@ -65,12 +65,17 @@
 {
 	height: 100%;
 	width: 100%;
-	brightness: 1.2;
+	brightness: 1.0;
 	blur: fastgaussian( 1, 1, 2 );
 
 	                                        
 	                           
 	                                          
+}
+#BackgroundMapImage {
+  transition-property: opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
 }
 
  .loading-screen-hint-contents
@@ -620,7 +625,7 @@
   .loading-screen--closing{
 
   animation-name: loading-screen--closing-animation;
-  animation-duration: 2.8s;
+  animation-duration: 0.25s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: 1;
      animation-fill-mode: forwards;

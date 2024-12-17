@@ -103,7 +103,7 @@ var PartyMenu = ( function()
         {
             elPartySection.AddClass( 'hidden' );
             friendsList.UpdateHeightOpenSection();
-            elPartySection.GetParent().SetHasClass( 'friendslist-party-searching', false );
+            elPartySection.GetParent().SetHasClass( 'friendslist-party-searching', true );
             return false;
         }
 

@@ -66,7 +66,7 @@
 			<Panel id="id-store-pages" class="full-width full-height">
 				<Panel id="id-store-page-home" class="inv-category">
 					<Panel class="store-home-container">
-						<Panel id="id-rewards-background" class="store-home-rewards-section">
+						<Panel id="id-rewards-background" class="store-home-rewards-section hidden">
 							<CSGOBlurTarget id="id-rewards-background-blur" class="store-home-rewards-section-bg" />
 							<Frame class="rrs-popup__frame" src="file://{resources}layout/rankup_redemption_store.xml" />
 						</Panel>

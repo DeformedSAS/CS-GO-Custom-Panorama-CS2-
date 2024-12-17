@@ -37,7 +37,7 @@
 						<Image class="op-main-topbar__icon" texturewidth="112" textureheight="-1" src="file://{images}/icons/ui/icon_star_empty.svg" />
 						<Label class="vertical-center horizontal-center op-header__num" text="{d:reward_tier}"/>
 					</Panel>
-					<Label id="AcknowledgeItemTitle"  class="popup-acknowledge__info__title" text="#popup_title_acknowledge" />
+					<Label id="AcknowledgeItemTitle"  class="popup-acknowledge__info__title stratum-medium" text="#popup_title_acknowledge" />
 				</Panel>
 				<Label id="AcknowledgeItemCount" class="popup-acknowledge__item-count" text=""/>
 				<Panel id="AcknowledgeItemInfo" class="popup-acknowledge__info-block">

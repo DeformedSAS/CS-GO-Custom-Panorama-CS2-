@@ -10,32 +10,41 @@ var TeamSelectMenu = ( function (){
 		_SetUpTeamSelectBtns();
 	}
 
-	function _ShowPanel()
-	{
-		if ( GameStateAPI.IsDemoOrHltv() )
-			return;
+function _ShowPanel()
+{
+    if (GameStateAPI.IsDemoOrHltv())
+        return;
 
-		var elBackgroundImage = $.GetContextPanel().FindChildInLayoutFile( 'BackgroundMapImage' );
-		var mapName = MockAdapter.GetMapBSPName();
+    const elFade = $("#TeamSelectFade");
+    elFade.style.transitionDuration = "0.0s";
+    elFade.RemoveClass("hidden");
 
-		elBackgroundImage.SetImage( 'file://{images}/map_icons/screenshots/1080p/' + mapName +'.png' );
-		_GetAnimInfo();
-		
-		_PopulatePlayerList();
-		_ShowCancelButton();
+    $.Schedule(0.5, () => {
+        if (elFade.IsValid()) {
+            elFade.style.transitionDuration = "0.5s";
+            elFade.AddClass("hidden");
+        }
+    });
 
-		if( m_errorTimerHandle !== false )
-		{
-			$.CancelScheduled( m_errorTimerHandle );
-			m_errorTimerHandle = false;
-		}
+    var elBackgroundImage = $.GetContextPanel().FindChildInLayoutFile('BackgroundMapImage');
+    var mapName = MockAdapter.GetMapBSPName();
 
-		var elWarningPanel = $('#TeamJoinError');
-		elWarningPanel.AddClass( 'hidden' );
-		
-		m_highlightedTeam = 0;
-	}
+    elBackgroundImage.SetImage('file://{images}/map_icons/screenshots/1080p/' + mapName + '.png');
+    _GetAnimInfo();
 
+    _PopulatePlayerList();
+    _ShowCancelButton();
+
+    if (m_errorTimerHandle !== false) {
+        $.CancelScheduled(m_errorTimerHandle);
+        m_errorTimerHandle = false;
+    }
+
+    var elWarningPanel = $('#TeamJoinError');
+    elWarningPanel.AddClass('hidden');
+
+    m_highlightedTeam = 0;
+}
 	function _ShowPanelTest ( mockdata )
 	{
 		MockAdapter.SetMockData( mockdata );

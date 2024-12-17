@@ -23,12 +23,6 @@ var MainMenuVanityContextMenu = (function() {
 			return elItem;
 		};
 
-		// Add the new "Show Build Warning" button
-		fnAddVanityPopupMenuItem('ShowBuildWarning', 'Build Info', function() {
-			showBuildWarning();
-			$.DispatchEvent('ContextMenuEvent', ''); // Close the context menu after activating
-		});
-
 		// Existing switch team option
 		var strOtherTeamToPrecache = ((team == 2) ? 'ct' : 't');
 		fnAddVanityPopupMenuItem('switchTo_' + strOtherTeamToPrecache, '#mainmenu_switch_vanity_to_' + strOtherTeamToPrecache,
@@ -36,15 +30,7 @@ var MainMenuVanityContextMenu = (function() {
 				$.DispatchEvent("MainMenuSwitchVanity", paramTeam);
 				$.DispatchEvent('ContextMenuEvent', '');
 			}.bind(undefined, strOtherTeamToPrecache)
-		).SetFocus();
-
-		// Go to loadout option
-		fnAddVanityPopupMenuItem('GoToLoadout', '#mainmenu_go_to_character_loadout',
-			function(paramTeam) {
-				$.DispatchEvent("MainMenuGoToCharacterLoadout", paramTeam);
-				$.DispatchEvent('ContextMenuEvent', '');
-			}.bind(undefined, team)
-		).AddClass('BottomSeparator');
+		).AddClass('BottomSeparator');	
 
 		// Load weapons list
 		var list = ItemInfo.GetLoadoutWeapons(team);
@@ -73,51 +59,6 @@ var MainMenuVanityContextMenu = (function() {
 		var otherTeamCharacterItemID = LoadoutAPI.GetItemID(strOtherTeamToPrecache, 'customplayer');
 		var settingsForOtherTeam = ItemInfo.GetOrUpdateVanityCharacterSettings(otherTeamCharacterItemID);
 		ItemInfo.PrecacheVanityCharacterSettings(settingsForOtherTeam);
-	}
-
-	// Define the showBuildWarning function
-	function showBuildWarning() {
-		if (isPopupOpen) {
-			return;
-		}
-
-		isPopupOpen = true;
-
-		UiToolkitAPI.ShowGenericPopupThreeOptionsBgStyle(
-			$.Localize("#legacy_support_text_title"),  
-			$.Localize("#legacy_support_text_desc"),   
-			'',                                         
-			$.Localize("#link_to_steam_support"),      
-			function() { 
-				OnshowBuildWarning('link'); 
-				isPopupOpen = false;     
-			},
-			$.Localize("#OK"),                       
-			function() { 
-				OnshowBuildWarning('');       
-				isPopupOpen = false;          
-			},
-			'CS SUPREMACY PROJECT',                   
-			function() {
-				OnshowCSProjectLink();        
-				isPopupOpen = false;         
-			},
-			'blur',  
-			function() {
-				isPopupOpen = false;  
-			},
-		);
-	}
-
-	// Helper function for the popup buttons
-	function OnshowBuildWarning(msg) {
-		if (msg === 'link') {
-			SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://github.com/DeformedSAS/CS-GO-Custom-Panorama-CS2-");
-		}
-	}
-
-	function OnshowCSProjectLink() {
-		SteamOverlayAPI.OpenUrlInOverlayOrExternalBrowser("https://discord.com/invite/aeAEzZXxHu");
 	}
 
 	return {

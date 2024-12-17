@@ -1171,7 +1171,6 @@ var InventoryPanel = ( function (){
 			$.Localize( '#SFUI_InvUse_Equip_MusicKit' ),
 			function()
 			{
-				InventoryAPI.SetDefaultMusicVolume();
 				LoadoutAPI.EquipItemInSlot( 'noteam', id, 'musickit' );
 			},
 			$.Localize( '#UI_Cancel' ),
