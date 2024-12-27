@@ -60,7 +60,7 @@ var PlayMenu;
         }
         else {
             if (m_gameModeSetting !== 'premier') {
-                if (!_CheckContainerHasAnyChildChecked(_GetMapListForServerTypeAndGameMode(m_activeMapGroupSelectionPanelID)) && !m_isWorkshop) {
+                if (!_CheckContainerHasAnyChildChecked(_GetMapListForServerTypeAndGameMode(m_activeMapGroupSelectionPanelID))) {
                     _NoMapSelectedPopup();
                     btnStartSearch.RemoveClass('pressed');
                     return;
@@ -72,6 +72,7 @@ var PlayMenu;
                 _OnGameModeFlagsBtnClicked(resumeSearchFnHandle);
                 return;
             }
+            let settings = (LobbyAPI.IsSessionActive() && !_GetTournamentOpponent()) ? LobbyAPI.GetSessionSettings() : null;
             let stage = _GetTournamentStage();
             LobbyAPI.StartMatchmaking(MyPersonaAPI.GetMyOfficialTournamentName(), MyPersonaAPI.GetMyOfficialTeamName(), _GetTournamentOpponent(), stage);
         }
@@ -691,8 +692,8 @@ var PlayMenu;
         $.Schedule(.1, () => {
             if (!elTile || !elTile.IsValid())
                 return;
-            const elAvatar = elTile.FindChildTraverse('JsAvatarImage');
-            elAvatar.PopulateFromSteamID(xuid);
+            elTile.FindChildTraverse( 'JsAvatarImage' ).steamid = xuid;
+            elAvatar.steamid = id;
             const strName = FriendsListAPI.GetFriendName(xuid);
             elTile.SetDialogVariable('player_name', strName);
             _AddOpenPlayerCardAction(elTile, xuid);
@@ -815,7 +816,7 @@ var PlayMenu;
         const leaderName = FriendsListAPI.GetFriendName(xuid);
         elTitle.text = leaderName;
         const elAvatar = elPanel.FindChildInLayoutFile('lobby-leader-avatar');
-        elAvatar.PopulateFromSteamID(xuid);
+        elAvatar.steamid = id;
     }
     function _GetAvailableMapGroups(gameMode, isPlayingOnValveOfficial) {
         const gameModeCfg = m_gameModeConfigs[gameMode];

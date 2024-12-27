@@ -1,6 +1,4 @@
-                                                 
-             
-                                                 
+/* Prettified by Source 2 Viewer 11.1.0.0 - https://valveresourceformat.github.io */
 
 @define heatmap-opacity-min: 0;
 @define heatmap-opacity-max: 250;
@@ -8,23 +6,19 @@
 @define heatmap-point-min: 0.0075;
 @define heatmap-line-thickness: 0.008;
 @define heatmap-hotspot-threshold: 0.5;
-
-
-.playerstats__heatmap__root {
+.playerstats__heatmap__root
+{
 	height: 100%;
-
 	background-color: dark-panel-bg;
 	margin-left: 8px;
 	padding: 8px;
 	border-radius: 5px;
-
 }
 
 .playerstats_section_heading_container
 {
 	flow-children: right;
 }
-
 
 .playerstats_section_heading_button
 {
@@ -44,7 +38,7 @@
 {
 	width: height-percentage( 100% );
 	height: 96%;
-	opacity-mask: url('file://{images}/heatmaps/heatmap_mask.png');
+	opacity-mask: url("s2r://panorama/images/heatmaps/heatmap_mask_png.vtex");
 }
 
 .hitboxes-container
@@ -59,11 +53,10 @@
 	z-index: 4;
 }
 
-
-.heatmap__container {
+.heatmap__container
+{
 	height: 100%;
 	width: height-percentage( 100% );
-
 }
 
 .controls-container
@@ -71,13 +64,13 @@
 	horizontal-align: center;
 	z: 1px;
 	opacity: 0.2;
-
 	transition-property: opacity;
 	transition-duration: 0.01s;
 	transition-timing-function: ease-in-out;
 }
 
-.no-data .controls-container {
+.no-data .controls-container
+{
 	opacity: 1;
 	background-color: no-data-ghost-bg;
 }
@@ -105,8 +98,10 @@
 	border-style: solid;
 }
 
-                                
-.RadioBox { visibility: collapse; }
+.RadioBox
+{
+	visibility: collapse;
+}
 
 #RadioButtonTgt.team-radio Image
 {
@@ -114,25 +109,26 @@
 	padding-right: 9px;
 }
 
-#RadioButtonTgt.team-radio Image,
-#RadioButtonBlt.team-radio Image
+#RadioButtonTgt.team-radio Image,#RadioButtonBlt.team-radio Image
 {
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
 
-.no-data RadioButton{
+.no-data RadioButton
+{
 	opacity: 0;
-
 }
 
-.heatmap-dropdown{
+.heatmap-dropdown
+{
 	width: 130px;
 	vertical-align: top;
 	margin: 2px;
 }
 
-.heatmap-dropdown.team{
+.heatmap-dropdown.team
+{
 	width: 80px;
 }
 
@@ -140,7 +136,6 @@
 {
 	width: 100px;
 }
-
 
 .playerstats-dropdown-entry.team
 {
@@ -163,7 +158,6 @@
 	height: 100%;
 	width: height-percentage( 100% );
 	horizontal-align: center;
-  	              
 	padding-top: 20px;
 }
 
@@ -171,11 +165,6 @@
 {
 	vertical-align: center;
 	horizontal-align: center;
-	  
-	                  
-	                  
-	                    
-	  
 	width: 20px;
 	height: 20px;
 }
@@ -211,22 +200,19 @@
 	text-shadow: -1px 1px 1px #000000DD;
 }
 
-.hitboxes-container-priority-high .hitboxes-container-label,
-.hitboxes-container-priority-high.hitboxes-container-label
+.hitboxes-container-priority-high .hitboxes-container-label,.hitboxes-container-priority-high.hitboxes-container-label
 {
 	color: #00ff00AA;
 	border-color: #00ff0066;
 }
 
-.hitboxes-container-priority-medium .hitboxes-container-label,
-.hitboxes-container-priority-medium.hitboxes-container-label
+.hitboxes-container-priority-medium .hitboxes-container-label,.hitboxes-container-priority-medium.hitboxes-container-label
 {
 	color: #bbffbb99;
 	border-color: #bbffbb55;
 }
 
-.hitboxes-container-priority-low .hitboxes-container-label,
-.hitboxes-container-priority-low.hitboxes-container-label
+.hitboxes-container-priority-low .hitboxes-container-label,.hitboxes-container-priority-low.hitboxes-container-label
 {
 	color: #ffffff88;
 	border-color: #ffffff44;
@@ -256,15 +242,6 @@
 	height: 50px;
 	margin-bottom: 160px;
 }
-
-             
-                                   
- 
-	                     
-	                   
-	                   
- 
-  
 
 .hitboxes-container-label-bodyupper
 {
@@ -297,15 +274,6 @@
 	border-right-width: 1px;
 }
 
-             
-                                  
- 
-	                 
-	                    
-	                    
- 
-  
-
 .hitboxes-container-label-bodymid3
 {
 	margin-left: 10px;
@@ -336,15 +304,6 @@
 	border-bottom-width: 0px;
 	border-right-width: 1px;
 }
-
-             
-                                    
- 
-	                 
-	                    
-	                    
- 
-  
 
 .hitboxes-container-label-bodylower3
 {
@@ -413,64 +372,67 @@
 	padding-left: 35px;
 }
 
-.hidden, .hidden-always
+.hidden,.hidden-always
 {
 	visibility: collapse;
 }
 
-
-	            
-
-.heatmap__legend {
-
+.heatmap__legend
+{
 	width: 130px;
 	background-color: rgba( 0,0,0,0.3);
 	padding-top: 2px;
 	padding-left: 4px;
-	padding-right: 4px;	
-
+	padding-right: 4px;
 	y: 3px;
 	x: 5px;
+}
 
-
-}	
-
-.heatmap__legend Label {
+.heatmap__legend Label
+{
 	opacity: 0.5;
 }
 
-.gradient__max,
-.gradient__min {
+.gradient__max,.gradient__min
+{
 	color: white;
 	font-weight: bold;
 	font-size: 10px;
 }
 
-.gradient__max {
+.gradient__max
+{
 	text-align: right;
 }
 
-.gradient__min {
+.gradient__min
+{
 	text-align:left;
 }
 
-.legend__gradient {
+.legend__gradient
+{
 	height: 5px;
 	border-radius: 5px;
 }
 
-.heatmap-legend--monotone.heatmap-legend--ct .legend__gradient {
+.heatmap-legend--monotone.heatmap-legend--ct .legend__gradient
+{
 	background-color:gradient( linear, 0% 0%, 100% 0%, from( #1c56a6 ), color-stop( 0.5, #3e9cf2), to( #C7E4FE ) );
 }
 
-.heatmap-legend--monotone.heatmap-legend--t .legend__gradient {
+.heatmap-legend--monotone.heatmap-legend--t .legend__gradient
+{
 	background-color:gradient( linear, 0% 0%, 100% 0%, from( #5a3104 ), color-stop( 0.5, #D8B726 ), to( #F8F2B5 ) );
 }
 
-.heatmap-legend--monotone.heatmap-legend--anyteam .legend__gradient {
+.heatmap-legend--monotone.heatmap-legend--anyteam .legend__gradient
+{
 	background-color:gradient( linear, 0% 0%, 100% 0%, from( #082e13 ), color-stop( 0.5, #2ab340), to( #a4d2ac ) );
 }
 
-.heatmap-legend--duotone .legend__gradient {
+.heatmap-legend--duotone .legend__gradient
+{
 	background-color:gradient( linear, 0% 0%, 100% 0%, from( #e80016 ), color-stop( 0.33, #cd5200 ), color-stop( 0.5, #c4b703 ), color-stop(.66, #48af14), color-stop(.8, #27949a ), to( #0010e9 ) );
 }
+

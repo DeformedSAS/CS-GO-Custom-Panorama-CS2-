@@ -193,7 +193,7 @@
 	height:40px;
 	border-radius: 0px;
 	opacity: .4;
-	background-image: url("s2r://panorama/images/mapdraft/vote_box_png.vtex");
+	background-image: url("file://{images}/mapdraft/vote_box.png");
 	background-size: 100% 100%;
 }
 
@@ -201,7 +201,8 @@
 {
 	width: 180px;
 	max-height: 18px;
-	font-size: 12px;
+	font-family: Stratum2;
+	font-size: 14px;
 	text-overflow: ellipsis;
 	font-weight: normal;
 }
@@ -210,6 +211,7 @@
 {
 	width: fill-parent-flow(1);
 	max-height: 26px;
+	font-family: Stratum2;
 	font-size: 14px;
 	color: white;
 }
@@ -253,15 +255,10 @@
 	margin: 0px;
 }
 
-#jsRatingEmblem
-{
-	ui-scale: 65%;
-	vertical-align:center;
-}
-
 .friendlobby__lobbies-count
 {
-	font-size: 12px;
+	font-size: 14px;
+	font-family: Stratum2;
 	text-align: center;
 	font-style: italic;
 	color: rgb(245, 240, 240);

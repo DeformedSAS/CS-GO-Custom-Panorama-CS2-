@@ -2,7 +2,7 @@
 
 var friendsList = (function() {
 
-	var _m_activeTabIndex = 0;
+	var _m_activeTabIndex = 1;
 	var _m_tabs = [];
 	var _m_isPerfectWorld = MyPersonaAPI.GetLauncherType() === "perfectworld" ? true : false;
 	var m_activeSection = 'id-friendslist-section-friends';
@@ -35,9 +35,6 @@ var friendsList = (function() {
 	};
 
     function _UpdateBroadcastIcon() {
-        let adSetting = AdvertisingToggle.GetAdvertisingSetting();
-        _ActiveFilterOnTab(adSetting);
-        $.GetContextPanel().FindChildInLayoutFile('id-friendslist-section-broadcast-icon').SetHasClass('advertising-active', adSetting !== "");
     }
 
 	var _UpdateAntiAddiction = function()
@@ -87,30 +84,6 @@ var friendsList = (function() {
 		_m_schfnUpdateAntiAddiction = null;
 		_UpdateAntiAddiction();
 	}
-
-	                                                               
-	   	                                
-	   	 
-	   		                                                                                             
-	   		                                                    
-			
-	   		                   
-	   			                                                                                      
-	   				   
-	   				   
-	   				                                                                       
-	   				             
-	   				             
-	   					                                                   
-	   				 
-	   			  
-	   			                                                   
-	   		         
-	   	 
-
-	   	                                                                        
-	     
-
 	var _UpdateIncomingInvitesContainer = function()
 	{
 		var elInviteRoot = $.GetContextPanel().FindChildInLayoutFile( 'JsIncomingInvites' );
@@ -130,11 +103,7 @@ var friendsList = (function() {
 		_UpdateHeightOpenSection();
 
 		                                              
-	}
-
-                                                                               
-                                                                               
-                                                                               
+	}                                                       
 	var _OnSectionPressed = function( sectionId )
 	{
 		if ( !sectionId )
@@ -207,20 +176,6 @@ var friendsList = (function() {
 				no_data_String: '#FriendsList_nodata_requests',
 				hide_if_empty: true
 			});
-		}
-		
-		if ( sectionId === 'id-friendslist-section-broadcast' || bUpdateAll )
-		{
-			_UpdateLobbiesLoadingBar();
-			funcGetXuid = _GetLobbyXuidByIndex;
-			
-			_UpdateSectionContent( {
-				id: 'id-friendslist-section-broadcast',
-				count: _GetLobbiesCount(),
-				xml: 'friend_advertise_tile',
-				xuid_func: funcGetXuid,
-				no_data_String: '#FriendsList_nodata_advertising'
-			} );
 		}
 	}
 
@@ -457,7 +412,7 @@ var friendsList = (function() {
 		
 		                                                    
 
-		if( progress > 1 && progress < 100 )
+		if( progress > 1 && progress < 5 )
 		{
 			if( elBarOuter.BHasClass( 'hidden' ))
 				elBarOuter.RemoveClass( 'hidden' );
@@ -498,7 +453,7 @@ var friendsList = (function() {
 
 	var _RefreshLobbyListings = function ()
 	{
-		_m_tabs[ 3 ].elList.ScrollToTop();
+		_m_tabs[ 1 ].elList.ScrollToTop();
 		PartyBrowserAPI.SetSearchFilter( _m_sLobbiesTabListFiltersString );
 		PartyBrowserAPI.Refresh();
 	};

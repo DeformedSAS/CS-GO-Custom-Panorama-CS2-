@@ -331,6 +331,7 @@ var InventoryPanel = ( function (){
             if ( category === 'loadout' )
             {
                 _ShowLoadout();
+				 $.DispatchEvent('PlaySoundEffect', 'press_loadout', 'MOUSE');
                 $.GetContextPanel().FindChildInLayoutFile( 'InvLoadoutBtn' ).checked = true;
             }
             else if( category === "tradeup" )

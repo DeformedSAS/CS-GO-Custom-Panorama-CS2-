@@ -607,10 +607,6 @@ RadioButton.toggle-active Image
 	transition-property: y, height;
 	transition-duration: .25s;
 	transition-timing-function: ease-in-out;
-		background-image: url("file://{images}/backgrounds/linemap.png");
-	background-size: auto auto;
-	background-position: auto auto;
-	background-img-opacity: .03;
 }
 
 .friendslist-accordian__section.hidden

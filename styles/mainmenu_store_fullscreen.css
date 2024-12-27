@@ -46,6 +46,7 @@
     horizontal-align: center;
     border-radius: 5px;
     margin-top: 12px;
+	visibility: collapse;
 }
 
 .store-home-rewards-section.hidden

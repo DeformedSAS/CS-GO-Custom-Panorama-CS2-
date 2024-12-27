@@ -777,19 +777,17 @@
 					</Panel>
 					<Panel class="horizontal-separator"/>
 
-					                 
-					<Panel id="DominantHand" class="SettingsMenuDropdownContainer">
+					 <TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_ToolTip_Settings_DominantHand">                   
 						<Label text="Dominant Hand" class="half-width"/>
 						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="cl_righthand">
 								<Label text="Right" value="1" id="lefthand"/>
 								<Label text="Left" value="0" id="righthand"/>
 						</CSGOSettingsEnumDropDown>
 						
-					</Panel>
+					</TooltipPanel>
 					<Panel class="horizontal-separator"/>
 					
-					                         
-					<Panel class="SettingsMenuDropdownContainer">
+					   <TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_ToolTip_Settings_ViewmodelPos">           
 						<Label text="Viewmodel Preset Position" class="half-width"/>
 						<CSGOSettingsEnumDropDown class="content-navbar__tabs__dropdown" convar="viewmodel_presetpos">
 						     <Label text="No Preset" value="0" id ="noviewmodelpreset"/>
@@ -797,19 +795,19 @@
 							<Label text="#SFUI_Settings_ViewmodelPosCouch" value="2" id ="viewmodelpreset1"/>
 							<Label text="#SFUI_Settings_ViewmodelPosClassic" value="3" id ="viewmodelpreset2"/>
 						</CSGOSettingsEnumDropDown>
-					</Panel>
+					</TooltipPanel>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="v_fov" text="Viewmodel FOV" tooltip="Determines your viewmodel FOV" displayprecision="1" max="68.0" min="54.0" convar="viewmodel_fov"/>
+					<CSGOSettingsSlider id="v_fov" text="Viewmodel FOV" displayprecision="1" max="68.0" min="54.0" convar="viewmodel_fov"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="v_offset_X" text="Viewmodel Offset X" tooltip="Determines how far on the left or right your viewmodel is" displayprecision="1" max="2.5" min="-2.0" convar="viewmodel_offset_x"/>
+					<CSGOSettingsSlider id="v_offset_X" text="Viewmodel Offset X" displayprecision="1" max="2.5" min="-2.0" convar="viewmodel_offset_x"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="v_offset_y" text="Viewmodel Offset Y" tooltip="Determines how far away or near the viewmodel is" displayprecision="1" max="2.0" min="-2.0" convar="viewmodel_offset_y"/>
+					<CSGOSettingsSlider id="v_offset_y" text="Viewmodel Offset Y" displayprecision="1" max="2.0" min="-2.0" convar="viewmodel_offset_y"/>
 					<Panel class="horizontal-separator"/>
 
-					<CSGOSettingsSlider id="v_offset_x" text="Viewmodel Offset Z" tooltip="Determines how high or low the viewmodel is" max="2.0" min="-2.0" displayprecision="1" convar="viewmodel_offset_z"/>
+					<CSGOSettingsSlider id="v_offset_x" text="Viewmodel Offset Z" max="2.0" min="-2.0" displayprecision="1" convar="viewmodel_offset_z"/>
 					<Panel class="horizontal-separator"/>
 
 					                      

@@ -202,38 +202,33 @@ CCSGOSteamInputAction
 
 .buymenu__purchase-failure-container
 {
-	position: 0px 176px 0px;
-	horizontal-align: center;
-	vertical-align: center;
-	flow-children: down;
-	height: 68px;
+    y: -130px;
+    horizontal-align: center;
+    vertical-align: bottom;
+    flow-children: down;
+    height: 68px;
 }
-
 
 .buymenu__purchase-failure
 {
-	font-family: notosans, Stratum2;
-	font-size: 18px;
-	color: warningColor;
-	text-shadow:2px 2px 2px #000000;
-	text-align: center;
-	height: 68px;
-	                          
-	width: buywheel-height;
-
-	animation-name: failure-pulse; 
-	animation-duration: 0.5s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: 2;
-
-	horizontal-align: center;
-	brightness: 1;
-
-	background-color: #33333300;
-
-	transition-property: height, opacity;
-	transition-duration: 0.1s;
-	transition-timing-function: ease-in-out;
+    font-family: Stratum2;
+    font-size: 18px;
+	font-weight: medium;
+    color: warningColor;
+    text-shadow:2px 2px 2px #000000;
+    text-align: center;
+    height: 68px;
+    width: buywheel-height;
+    animation-name: failure-pulse;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+    horizontal-align: center;
+    brightness: 1;
+    background-color: #33333300;
+    transition-property: height, opacity;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 .buymenu__purchase-failure--teammate
@@ -371,11 +366,11 @@ CCSGOSteamInputAction
 
 .buywheel-category__label
 {
-	font-weight: bold;
-	color: rgb(185, 183, 183);
-	font-size: 35px;
-	horizontal-align: center;
-	font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: bold;
+    color: rgb(185, 183, 183);
+    font-size: 35px;
+    horizontal-align: center;
+    font-family: Stratum2, 'Arial Unicode MS';
 }
 
 .buywheel-category__label--UPPERCASE
@@ -387,13 +382,13 @@ CCSGOSteamInputAction
 
 .buywheel-category__title
 {
-	opacity: 1;
-	horizontal-align: center;
-	vertical-align:center;
-	color: white;
-	font-size: 24px;
-	font-family: Stratum2, 'Arial Unicode MS';
-	font-weight: bold;
+    opacity: 1;
+    horizontal-align: center;
+    vertical-align:center;
+    color: white;
+    font-size: 24px;
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: bold;
 }
 
 .buywheel-cant-afford .buywheel-category__title
@@ -672,13 +667,15 @@ CCSGOSteamInputAction
 	horizontal-align:left;
 }
 
-.stat-display__desc
+.stat-display
 {
-	height: 100%;
-	width: buywheel-height;
-	horizontal-align:left;
-	font-size: 16px;
-	padding: 16px 32px 0px 32px;
+    flow-children: down;
+    width: stat-display-width;
+    horizontal-align:center;
+    margin: 0px 32px 10px 32px;
+    vertical-align: bottom;
+    height: 230px;
+    background-color: contentPanelBackground;
 }
 
 .stat-display__item-name
@@ -1113,6 +1110,8 @@ CCSGOSteamInputAction
 .buywheel-item__name
 {
 	font-size: 18px;
+	font-family: Stratum2;
+	font-weight: medium
 	overflow: squish squish;
 	text-overflow: shrink;
 	text-align: center;

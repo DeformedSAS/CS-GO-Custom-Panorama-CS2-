@@ -1,45 +1,25 @@
 'use strict';
 
+
 var PopupAcceptMatch = ( function(){
 
 	var m_hasPressedAccept = false;
-	var m_numPlayersReady = 1;
-	var m_numTotalClientsInReservation = 10;
-	var m_numSecondsRemaining = 20;
-	var m_isReconnect = false;
+	var m_numPlayersReady = 0;
+	var m_numTotalClientsInReservation = 0;
+	var m_numSecondsRemaining = 0;
+	var m_isReconnect= false;
 	var m_isNqmmAnnouncementOnly = false;
 	var m_lobbySettings;
 	var m_elTimer = $.GetContextPanel().FindChildInLayoutFile ( 'AcceptMatchCountdown' );
 	var m_jsTimerUpdateHandle = false;
-	var bShowPlayerSlots = true;
+
 	          
 	                    
 	          
 	
 	var _Init = function ()
 	{
-		     
-		 m_lobbySettings = LobbyAPI.GetSessionSettings();
-
-		          
-		              
-		if ( m_lobbySettings.game.mode == 'competitive' || m_lobbySettings.game.mode == 'skirmish' || m_lobbySettings.game.mode == 'scrimcomp5v5' ) {
-			var m_numTotalClientsInReservation = 10;
-		}
-		 
-		if ( m_lobbySettings.game.mode == 'scrimcomp2v2' ) {
-			var m_numTotalClientsInReservation = 4;
-		}
-			                                 
-		if ( m_lobbySettings.game.mode == 'survival' ) {
-			var m_numTotalClientsInReservation = 18;
-		}
-
-		if ( m_lobbySettings.game.mode == 'deathmatch' || m_lobbySettings.game.mode == 'casual' ) {
-			var m_numTotalClientsInReservation = 2;
-		}
-			 
-			 
+		               
 		var elPlayerSlots = $.GetContextPanel().FindChildInLayoutFile( 'AcceptMatchSlots' );
 		elPlayerSlots.RemoveAndDeleteChildren();
 		
@@ -48,10 +28,7 @@ var PopupAcceptMatch = ( function(){
 		                                           
 		var settingsList = settings.split( ',' );
 
-		// var map = settingsList[ 0 ];
-		var mapgroupaaa = LobbyAPI.GetSessionSettings().game;
-		var mapsList = mapgroupaaa.mapgroupname.split(',');
-		var map = mapsList[0].replace(/mg_/g, "");
+		var map = settingsList[ 0 ];
 		if ( map.charAt( 0 ) === '@' )
 		{
 			m_isNqmmAnnouncementOnly = true;
@@ -60,9 +37,12 @@ var PopupAcceptMatch = ( function(){
 		}
 		
 		                                                             
-		// m_isReconnect = settingsList[ 1 ] === 'true' ? true : false;
-		m_isReconnect = false;
-		
+		m_isReconnect = settingsList[ 1 ] === 'true' ? true : false;
+		m_lobbySettings = LobbyAPI.GetSessionSettings();
+
+		          
+		              
+		 
 			                                 
 			                          
 			                      
@@ -97,19 +77,18 @@ var PopupAcceptMatch = ( function(){
 	{
 		                                         
 
-		//var numPlayers = LobbyAPI.GetConfirmedMatchPlayerCount();
-		//var numPlayers = 10;
+		var numPlayers = LobbyAPI.GetConfirmedMatchPlayerCount();
+		          
 		              
 		 
 			                
 			                              
 			                 
 		 
-		return;		
+		          
 		if ( !numPlayers || numPlayers <= 2 )
 			return;
-		
-		
+
 		$.GetContextPanel().SetHasClass( "accept-match-with-player-list", true );
 
 		$.GetContextPanel().FindChildInLayoutFile( 'id-map-draft-phase-teams' ).RemoveClass( 'hidden' );
@@ -117,28 +96,17 @@ var PopupAcceptMatch = ( function(){
 		var iYourXuidTeamIdx = 0;
 		var yourXuid = MyPersonaAPI.GetXuid();
 		                                                
-		for ( var i = 0; i < 5; ++ i )
+		for ( var i = 0; i < numPlayers; ++ i )
 		{
-			// var xuidPlayer = LobbyAPI.GetConfirmedMatchPlayerByIdx( i );
-			var xuidPlayer = yourXuid;
-			// if ( xuidPlayer && xuidPlayer === yourXuid )
-			// iYourXuidTeamIdx = ( i < (numPlayers/2) ) ? 0 : 1;
-			iYourXuidTeamIdx = 1;
-		}
-		
-		for ( var i = 0; i < 5; ++ i )
-		{
-			// var xuidPlayer = LobbyAPI.GetConfirmedMatchPlayerByIdx( i );
-			var xuidPlayer = yourXuid;
-			// if ( xuidPlayer && xuidPlayer === yourXuid )
-			// iYourXuidTeamIdx = ( i < (numPlayers/2) ) ? 0 : 1;
-			iYourXuidTeamIdx = 0;
+			var xuidPlayer = LobbyAPI.GetConfirmedMatchPlayerByIdx( i );
+			if ( xuidPlayer && xuidPlayer === yourXuid )
+			iYourXuidTeamIdx = ( i < (numPlayers/2) ) ? 0 : 1;
 		}
 		
 		                                                            
-		for ( var i = 0; i < 5; ++ i )
+		for ( var i = 0; i < numPlayers; ++ i )
 		{
-			var xuid = yourXuid;
+			var xuid = LobbyAPI.GetConfirmedMatchPlayerByIdx( i );
 			if ( !xuid )
 			{
 				          
@@ -150,29 +118,7 @@ var PopupAcceptMatch = ( function(){
 			}
 
 			                                                                   
-			/// var iThisPlayerTeamIdx = ( i < (numPlayers/2) ) ? 0 : 1;
-			var iThisPlayerTeamIdx = 1;
-			var teamPanelId = ( iYourXuidTeamIdx === iThisPlayerTeamIdx ) ? 'id-map-draft-phase-your-team' : 'id-map-draft-phase-other-team';
-			var elTeammates = $.GetContextPanel().FindChildInLayoutFile( teamPanelId ).FindChild( 'id-map-draft-phase-avatars' );
-			_MakeAvatar( xuid, elTeammates, true );
-		}
-		
-		for ( var i = 0; i < 5; ++ i )
-		{
-			var xuid = yourXuid;
-			if ( !xuid )
-			{
-				          
-				              
-					                
-				    
-				          
-				continue;
-			}
-
-			                                                                   
-			/// var iThisPlayerTeamIdx = ( i < (numPlayers/2) ) ? 0 : 1;
-			var iThisPlayerTeamIdx = 0;
+			var iThisPlayerTeamIdx = ( i < (numPlayers/2) ) ? 0 : 1;
 			var teamPanelId = ( iYourXuidTeamIdx === iThisPlayerTeamIdx ) ? 'id-map-draft-phase-your-team' : 'id-map-draft-phase-other-team';
 			var elTeammates = $.GetContextPanel().FindChildInLayoutFile( teamPanelId ).FindChild( 'id-map-draft-phase-avatars' );
 			_MakeAvatar( xuid, elTeammates, true );
@@ -224,23 +170,19 @@ var PopupAcceptMatch = ( function(){
 
 	var _UpdateUiState = function()
 	{
-		
 		var btnAccept = $.GetContextPanel().FindChildInLayoutFile ( 'AcceptMatchBtn' );
 		var elPlayerSlots = $.GetContextPanel().FindChildInLayoutFile ( 'AcceptMatchSlots' );
 
 		var bHideTimer = false;
-		// var bShowPlayerSlots = m_hasPressedAccept || m_isReconnect;
+		var bShowPlayerSlots = m_hasPressedAccept || m_isReconnect;
 		if ( m_isNqmmAnnouncementOnly )
 		{
-			bShowPlayerSlots = true;
-			bHideTimer = false;
+			bShowPlayerSlots = false;
+			bHideTimer = true;
 		}
 		
-		
-		
 		btnAccept.SetHasClass( 'hidden', m_hasPressedAccept || m_isReconnect );
-		
-		//		elPlayerSlots.SetHasClass( 'hidden', !bShowPlayerSlots );
+		elPlayerSlots.SetHasClass( 'hidden', !bShowPlayerSlots );
 
 		if ( bShowPlayerSlots )
 		{
@@ -302,7 +244,7 @@ var PopupAcceptMatch = ( function(){
 
 	var _ReadyForMatch = function ( shouldShow, playersReadyCount, numTotalClientsInReservation )
 	{
-		playersReadyCount = 9;
+		                                                             		
 		                                                
 		if( !shouldShow )
 		{
@@ -426,141 +368,23 @@ var PopupAcceptMatch = ( function(){
 	{
 		m_jsTimerUpdateHandle = false;
 		$.DispatchEvent( 'PlaySoundEffect', 'popup_accept_match_confirmed', 'MOUSE' );
-		// LobbyAPI.SetLocalPlayerReady( 'deferred' );
+		LobbyAPI.SetLocalPlayerReady( 'deferred' );
 		$.DispatchEvent( "CloseAcceptPopup" );
 		$.DispatchEvent( 'UIPopupButtonClicked', '' );
 	}
 
-
-	//Accept Press
-	var _OnAcceptMatchPressed = async function ()
+	var _OnAcceptMatchPressed = function ()
 	{
-		// $.DispatchEvent( "CloseAcceptPopup" );
-		m_jsTimerUpdateHandle = false;
 		m_hasPressedAccept = true;
-		bShowPlayerSlots = true;
-		_UpdateUiState();
-		
-		
-		acceptLoop();
-		
-		
-		
-		// waitRandomInWhileLoop();
-		
-		
-		
-		return;
-		
-		function delay(ms, callback) {
-    $.Schedule(ms / 1000, callback);
-}
-
-function acceptLoop() {
-    // $.Msg('Start');
-    var IsLetsRoll = true;
-	
-	
-    function loop() {
-        const randomDelay = Math.random() * 2; // Random delay between 0 and 2 seconds
-        // $.Msg(`Waiting for ${randomDelay.toFixed(2)} seconds`);
-		if ( m_numPlayersReady < 10 ) {
-			m_numPlayersReady++;
-			if (m_numPlayersReady == 10 ) {
-				$.DispatchEvent( 'PlaySoundEffect', 'popup_accept_match_confirmed', 'MOUSE' );
-			} else {
-				$.DispatchEvent( 'PlaySoundEffect', 'popup_accept_match_person', 'MOUSE' );
-			}
-			
-			_UpdateUiState();
-		}
-		//asd
-
-        delay(randomDelay * 1000, () => {
-            // $.Msg('End after delay');`
-            
-            if (m_numPlayersReady == 10) {
-				if ( IsLetsRoll ) {
-					var mapgroupaaa = LobbyAPI.GetSessionSettings().game;
-					var mapsList = mapgroupaaa.mapgroupname.split(',');
-					var map = mapsList[0].replace(/mg_/g, "");
-					GameInterfaceAPI.ConsoleCommand( "mp_force_pick_time 0; game_mode 1; game_type 0; map " + map );
-				}
-				
-				IsLetsRoll = true;
-				// return;
-            }
-            loop();
-        });
-    }
-
-    loop();
-}
-		
-		function sleep(ms) {
-			return new Promise(resolve => $.Schedule(ms / 1000, resolve));
-		}
-
-		/*(async function() {
-			$.Msg('Start');
-			await sleep(2000); // Sleep for 2 seconds
-			$.Msg('End after 2 seconds');
-		})();*/
-		
-		
-		// LobbyAPI.SetLocalPlayerReady( 'deferred' );
-		$.DispatchEvent( "CloseAcceptPopup" );
-		$.DispatchEvent( 'UIPopupButtonClicked', '' );
-		
-		/// StartSearch();
-		
-// =======================================
-		function waitRandomInWhileLoop() {
-			let shouldContinue = (m_numPlayersReady < 10); // Your condition for the while loop
-
-			function loop() {
-				if (!shouldContinue) {
-					return;
-				}
-
-				// Generate a random delay between 0 and 2 seconds (2000 milliseconds)
-				const randomDelay = Math.random() * 2000;
-		
-				// Wait for the random delay using setTimeout
-				setTimeout(() => {
-					
-					
-					m_numPlayersReady++;
-					_UpdateUiState();
-					
-
-					// Call the loop function again
-					loop();
-				}, randomDelay);
-			}
-
-			// Start the loop
-			loop();
-		}
-// =======================================
-
-		
-		
-		// $.DispatchEvent( 'PlaySoundEffect', 'popup_accept_match_person', 'MOUSE' );
-		// LobbyAPI.SetLocalPlayerReady( 'accept' );
-	}
-	
-	var _OnCustomCancelPopup = function() 
-	{
-		$.DispatchEvent( "CloseAcceptPopup" );
+		$.DispatchEvent( 'PlaySoundEffect', 'popup_accept_match_person', 'MOUSE' );
+		LobbyAPI.SetLocalPlayerReady( 'accept' );
 	}
 
 	return {
 		Init					: _Init,
 		ReadyForMatch			: _ReadyForMatch,
 		FriendsListNameChanged	: _FriendsListNameChanged,
-		OnAcceptMatchPressed	: _OnAcceptMatchPressed,
-		OnCustomCancelPopup	: _OnCustomCancelPopup
+		OnAcceptMatchPressed	: _OnAcceptMatchPressed
 	}
 
 })();

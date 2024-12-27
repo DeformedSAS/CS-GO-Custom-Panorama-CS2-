@@ -1,32 +1,36 @@
-.PopupPanel {
-    background-color: rgba(44, 44, 44, 1);
-    min-width: 512px;
-    max-width: 720px;
-    vertical-align: middle;
-    horizontal-align: center;
-    opacity: 1.0;
-    box-shadow: 0 0 10px 2px rgba(44, 44, 44, 0.5);
-    padding-bottom: 16px;
-    border: 1px solid rgb(65, 65, 65);
-    brightness: 1;
-    transition-property: box-shadow, brightness, transform, pre-transform-scale2d, opacity, height, width;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in-out;
-    flow-children: down;
+.PopupPanel
+{
+	background-color: rgba(44, 44, 44, 1);
+
+	min-width: 512px;
+	max-width: 720px;
+
+	vertical-align: middle;
+	horizontal-align: center;
+	opacity: 1.0;
+	box-shadow: shadowOffset;
+	padding-bottom: 16px;
+	border: 1px solid rgb(65, 65, 65);
+	brightness: 1;
+
+
+	transition-property: transform, pre-transform-scale2d, opacity, height, width;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+
+	flow-children: down;
 }
 
-.PopupPanel:hover {
-    box-shadow: 0 0 20px 4px rgba(44, 44, 44, 0.8);
-    brightness: 1.1;
-}
+.PopupPanel.Hidden
+{
+	opacity: 0.0;
+	pre-transform-scale2d: 1.25;
+	transform: translateY( -10px );
+	sound: "ui_custom_lobby_dialog_slide";
 
-.PopupPanel.Hidden {
-    opacity: 0.0;
-    pre-transform-scale2d: 1.2;
-    sound: "UIPanorama.ui_custom_lobby_dialog_slide";
-    transition-property: transform, pre-transform-scale2d, opacity, height, width;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in-out;
+	transition-property: transform, pre-transform-scale2d, opacity, height, width;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
 }
 
 

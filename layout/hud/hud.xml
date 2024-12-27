@@ -7,7 +7,7 @@
 	<CSGOHud hittest="false">
 		                                                                           
 		
-		<CSGOHudBlurTarget blurrects="HudVote HudHintText HudWinPanel HudDeathNotice HudRadar HudProgressBar HudAlerts RoundImpactScoreMain MapDraft" class="HudBlur" hittest="false" hittestchildren="false">
+		<CSGOHudBlurTarget blurrects="HudVote HudHintText BuyMenu Scoreboard HudWinPanel HudDeathNotice HudProgressBar HudAlerts RoundImpactScoreMain MapDraft" class="HudBlur" hittest="false" hittestchildren="false">
 			<CSGOBackbufferImagePanel class="full-width full-height" />
 		</CSGOHudBlurTarget>
 

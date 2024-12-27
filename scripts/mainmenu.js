@@ -71,6 +71,7 @@ var MainMenu = ( function() {
 				                                           
 				                                                            
 				_ShowOperationLaunchPopup();
+				_ShowUpdateWelcomePopup();
 			}
 			else
 			{
@@ -116,7 +117,7 @@ var _SetBackgroundMovie = function() {
 	_PauseMainMenuCharacter();
 
     // schedule the background movie change after fade-out duration
-    $.Schedule(1.0, function() { // waits for fade-out to complete (matches transition duration)
+    $.Schedule(0.5, function() { // waits for fade-out to complete (matches transition duration)
         var backgroundMovie = GameInterfaceAPI.GetSettingString('ui_mainmenu_bkgnd_movie');
 		
        _UnPauseMainMenuCharacter();
@@ -131,12 +132,12 @@ var _SetBackgroundMovie = function() {
             _SetVanityLightingBasedOnBackgroundMovie(vanityPanel);
             _ForceRestartVanity();
 			_LobbyPlayerUpdated();
-			_InitVanity2();
         }
 
         // schedule the fade-in effect after a small delay
-        $.Schedule(0.1, function() { // small delay before starting to fade in
+        $.Schedule(0.0, function() { // small delay before starting to fade in
             background.style.opacity = '1'; // restores opacity
+			_InitVanity2();
         });
     });
 };
@@ -146,7 +147,10 @@ var _OnShowMainMenu = function() {
         $('#MainMenuNavBarHome').checked = true;
 
         GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
-        GameInterfaceAPI.SetSettingString('dsp_room', '29');
+		GameInterfaceAPI.ConsoleCommand( "mirv_cvar_unhide_all" );
+		GameInterfaceAPI.ConsoleCommand( '@panorama_ECO_mode 0' );
+		GameInterfaceAPI.ConsoleCommand( 'fps_max_menu 0' );
+        //GameInterfaceAPI.SetSettingString('dsp_room', '29');
         GameInterfaceAPI.SetSettingString('snd_soundmixer', 'MainMenu_Mix');
 
         _m_bVanityAnimationAlreadyStarted = false;
@@ -436,10 +440,6 @@ var _OnShowMainMenu = function() {
 			 $('#MainMenuNavBarHome').checked = true;
 			return;	                                                                               
 		}
-		if( tab === 'JsPlayerStats' && !_CanOpenStatsPanel() )
-		{
-			return;
-		}
 		$.DispatchEvent('PlayMainMenuMusic', true, false );                               
 		GameInterfaceAPI.SetSettingString( 'panorama_play_movie_ambient_sound', '1' );
                     
@@ -682,7 +682,7 @@ var _OnShowMainMenu = function() {
 		friendsList.BLoadLayout( 'file://{resources}/layout/friendslist.xml', false, false );
 	};
 
-	var _InitNewsAndStore = function ()
+	var _InitLRColumns = function ()
 	{	
 		                             
 
@@ -1200,7 +1200,7 @@ else if (backgroundMap === 'cbble') {
         NavigateToTab('JsMainMenuStore', 'mainmenu_store_fullscreen', 'id-store-nav-coupon');
     }
     function _OpenStatsMenu() {
-        NavigateToTab('JsPlayerStats', 'mainmenu_playerstats');
+        _NavigateToTab('JsPlayerStats', 'mainmenu_playerstats');
     }
     function _OpenSettingsMenu() {
         NavigateToTab('JsSettings', 'settings/settings');
@@ -1955,6 +1955,13 @@ function _UpdateStoreAlert() { // this function is for testing and currently doe
 			);
 		}
 	};
+	    const _ShowUpdateWelcomePopup = function () {
+        const setVersionTo = '2303';
+        const currentVersion = GameInterfaceAPI.GetSettingString('ui_popup_weaponupdate_version');
+        if (currentVersion !== setVersionTo) {
+            UiToolkitAPI.ShowCustomLayoutPopupParameters('', 'file://{resources}/layout/popups/popup_welcome_launch.xml', 'uisettingversion=' + setVersionTo);
+        }
+    };
 
 var _PauseMainMenuCharacter = function() { // pauses your agent when changing background or disconnecting from a server.
     var vanityPanel = $('#JsMainmenu_Vanity');
@@ -2171,7 +2178,7 @@ var _UnPauseMainMenuCharacter = function() { // unpauses your agent after backgr
 		MinimizeSidebar	 					: _MinimizeSidebar,
 		OnSideBarElementContextMenuActive	: _OnSideBarElementContextMenuActive,
 		InitFriendsList	 					: _InitFriendsList,
-		InitNewsAndStore					: _InitNewsAndStore,
+		InitLRColumns					: _InitLRColumns,
 		InitVanity							: _InitVanity,
 		InitVanity2							: _InitVanity2,
 		ForceRestartVanity	 				: _ForceRestartVanity,
@@ -2227,7 +2234,7 @@ var _UnPauseMainMenuCharacter = function() { // unpauses your agent after backgr
                                                                                                     
                                            
                                                                                                     
-(function() // useless mumbo jumbo that i still don't know what this actually does.
+(function()
 {
 	$.RegisterForUnhandledEvent( 'HideContentPanel', MainMenu.OnHideContentPanel );
 	$.RegisterForUnhandledEvent( 'SidebarContextMenuActive', MainMenu.OnSideBarElementContextMenuActive );
@@ -2281,7 +2288,7 @@ var _UnPauseMainMenuCharacter = function() { // unpauses your agent after backgr
 	MainMenu.InitVanity();
 	MainMenu.MinimizeSidebar();
 	MainMenu.InitFriendsList();
-	MainMenu.InitNewsAndStore();
+	MainMenu.InitLRColumns();
 
 
 	                                                                                  

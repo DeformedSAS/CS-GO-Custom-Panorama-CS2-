@@ -94,48 +94,6 @@
 					<Panel id="id-friendslist-section-list-contents" class="friendslist-accordian__section__list__contents" />
 				</Panel>
 			</RadioButton>
-			<RadioButton id="id-friendslist-section-broadcast" class="friendslist-accordian__section hide-notification" group="friends_accordian" onactivate="friendsList.OnSectionPressed(&apos;id-friendslist-section-broadcast&apos;)">
-				<Panel class="friendslist-accordian__section__header">
-					<Panel class="friendslist-accordian__section__header__icon__container">
-						<Frame id="id-friendslist-section-broadcast-icon" class="text-only" src="file://{resources}/layout/advertising_icon.xml" />
-						<Frame id="id-friendslist-counter" class="text-only" src="file://{resources}/layout/btn_alert.xml" />
-					</Panel>
-					<Label class="stratum-medium fontSize-ml text-letterspace-0px fontcolor-basetext left-margin-none friendslist-accordian__broadcast-transition" text="#SFUI_Lobby_StatusLookingToPlay" />
-				</Panel>
-				<Panel id="id-friendslist-section-list" class="friendslist-accordian__section__list friendslist-accordian__section__header--bg">
-					<Panel id="JsFriendsListSettingsControls" class="full-width top-bottom-flow">
-						<Panel id="id-friendslist-broadcast-toggle-container" class="friendslist-accordian__broadcast-toggle" hittest="false">
-							<Frame id="id-friendslist-broadcast-toggle" class="left-margin vertical-center" src="file://{resources}/layout/slider_toggle.xml" />
-						</Panel>
-						<Panel id="JsFriendsListSettings" class="friendslist-navbar friendslist-navbar--tab-settings expand">
-							<Panel id="JsFriendsListSettingsBtns" class="horizontal-align-left vertical-center left-right-flow">
-								<RadioButton id="JsFriendsList-lobbies-toolbar-button-competitive" group="JsFriendsList-lobbies-toolbar-button-modegroup" data-type="competitive" class="IconButton friendslist-navbar-lobby-button" onactivate="friendsList.SetLobbiesTabListFilters( &apos;competitive&apos; );" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;JsFriendsList-lobbies-toolbar-button-competitive&apos;, &apos;#SFUI_GameMode_competitive&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-									<Image src="file://{images}/icons/ui/competitive.svg" />
-									<Frame class="friendslist-accordian__broadcast-searching-container" snippet="broadcast-gamemode-active" />
-								</RadioButton>
-								<RadioButton id="JsFriendsList-lobbies-toolbar-button-scrimcomp2v2" group="JsFriendsList-lobbies-toolbar-button-modegroup" data-type="scrimcomp2v2" class="IconButton friendslist-navbar-lobby-button visible-if-not-limitedbeta" onactivate="friendsList.SetLobbiesTabListFilters( &apos;scrimcomp2v2&apos; );" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;JsFriendsList-lobbies-toolbar-button-scrimcomp2v2&apos;, &apos;#SFUI_GameMode_scrimcomp2v2&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-									<Image src="file://{images}/icons/ui/scrimcomp2v2.svg" />
-									<Frame class="friendslist-accordian__broadcast-searching-container" snippet="broadcast-gamemode-active" />
-								</RadioButton>
-								<RadioButton id="JsFriendsList-lobbies-toolbar-button-cooperative" data-type="cooperative" group="JsFriendsList-lobbies-toolbar-button-modegroup" class="IconButton friendslist-navbar-lobby-button visible-if-not-limitedbeta" onactivate="friendsList.SetLobbiesTabListFilters( &apos;cooperative&apos; );" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;JsFriendsList-lobbies-toolbar-button-cooperative&apos;, &apos;#SFUI_GameMode_cooperative&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-									<Image src="file://{images}/icons/ui/cooperative.svg" />
-									<Frame class="friendslist-accordian__broadcast-searching-container" snippet="broadcast-gamemode-active" />
-								</RadioButton>
-								<Panel class="friendslist-navbar-spacer-fit-width" />
-								<Button id="JsFriendsList-lobbies-toolbar-button-refresh" class="IconButton" onactivate="friendsList.RefreshLobbyListings();" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;JsFriendsList-lobbies-toolbar-button-refresh&apos;, &apos;#GameUI_Refresh&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();">
-									<Image src="file://{images}/icons/ui/refresh.svg" />
-									<Frame class="friendslist-accordian__broadcast-searching-container" snippet="broadcast-gamemode-active" />
-								</Button>
-							</Panel>
-						</Panel>
-						<Panel id="JsFriendsListLobbyLoadingBar" class="friendslist-loadingbar">
-							<Panel id="JsFriendsListLobbyLoadingBarInner" class="friendslist-loadingbar__inner" />
-						</Panel>
-					</Panel>
-					<Frame id="id-friendslist-nodata" snippet="NoData" />
-					<Panel id="id-friendslist-section-list-contents" class="full-width top-bottom-flow vscroll" />
-				</Panel>
-			</RadioButton>
 			<RadioButton id="id-friendslist-section-recent" class="friendslist-accordian__section hide-notification" group="friends_accordian" onactivate="friendsList.OnSectionPressed(&apos;id-friendslist-section-recent&apos;)">
 				<Panel class="friendslist-accordian__section__header">
 					<Panel class="friendslist-accordian__section__header__icon__container">

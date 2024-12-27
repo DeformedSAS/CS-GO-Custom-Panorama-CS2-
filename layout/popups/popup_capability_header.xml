@@ -20,7 +20,7 @@
         <Label id="CapabilityDesc" html="true" class="fontSize-l horizontal-center" text=""/>
         <Panel id="CapabilityWarning" class="left-right-flow horizontal-center top-padding">
             <Image class="right-padding popup-capability__warning_image" texturewidth="24" textureheight="-1" src="file://{images}/icons/ui/info.svg" />
-            <Label id="CapabilityWarningLabel" html="true" class="popup-capability__warning_label fontSize-m vertical-center text-align-center" text=""/>
+            <Label id="CapabilityWarningLabel" html="true" class="popup-capability__warning_label stratum-medium fontSize-m vertical-center text-align-center" text=""/>
         </Panel>
     </Panel>
 </root>

@@ -212,7 +212,19 @@
 									onmouseout="UiToolkitAPI.HideTextTooltip();">
 							<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/check.svg" />
 							
+							</RadioButton>
+							
+							
+							        <RadioButton id="MainMenuNavBarOpStore"
+									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn DEVModeONLY"
+									group="NavBar" 
+									onactivate="MainMenu.NavigateToTab('JsOpStore', 'operation/operation_main');">
+									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 20; width: 150px; letter-spacing: -1px;" text="OPERATION STORE" />
+									<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
+							</Panel>
+							
 						</RadioButton>
+						<Panel class="mainmenu-top-navbar__play_seperator mainmenu-top-navbar__play_seperator--small DEVModeONLY" />
 						
                        <RadioButton id="MainMenuNavBarDevUI"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn DEVModeONLY"

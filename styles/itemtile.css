@@ -119,9 +119,9 @@
     width: 100%;
     height: imageheight;
     border: 1px solid rgba(0, 0, 0, 0.25);
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba(50, 50, 50, 0.75), to( rgba(100, 100, 100, 0.75) ) );
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( rgba(75, 75, 75, 0.75), to(rgba(175, 175, 175, .75) ) );
     box-shadow: rgba(0, 0, 0, 0.1) fill 0px 1px 4px 2px;
-    transition-property: box-shadow, border, background-color;
+    transition-property: box-shadow, transform, border, background-color;
     transition-duration: .25s;
     transition-timing-function: ease-in-out;
 }
@@ -341,25 +341,6 @@
     wash-color: blueColor;
 }
 
-.item-tile__equipped__favicon
-{
-    width: 16px;
-    height: 16px;
-    position: 0px 0px 0px;
-    vertical-align: center;
-    border-radius: 50%;
-    z-index: 1;
-    margin-right: 6px;
-    border: 1px solid white;
-    box-shadow: #00000025 0px 0px 2px 2px ;
-    -s2-mix-blend-mode: screen;
-    background-image: url("s2r://panorama/images/icons/ui/favorite_yes.vsvg");
-    background-img-opacity: 1;
-    background-size: 10px 10px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-color: None;
-}
 
 .item-tile__equipped__favicon--t
 {

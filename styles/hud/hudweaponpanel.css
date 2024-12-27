@@ -157,14 +157,14 @@ CSGOHudWeaponPanel Label
 
 .Kills
 {
-	horizontal-align: center;     
+	                      
 	height: 100%;
 }
 
 .Kills__Count
 {
 	flow-children: right;
-	horizontal-align: center;
+	horizontal-align: right;
 	padding-top: 4px;
 }
 
@@ -205,8 +205,8 @@ CSGOHudWeaponPanel Label
 .Kills__Icon--Animate
 {
 	animation-name: KillIconShowAnim; 
-	sound: "UIPanorama.kill_doof";
 	animation-duration: .33s;
+	sound: "UIPanorama.kill_doof";
 	animation-delay: 0s;
 	animation-timing-function: linear;
 	animation-iteration-count: 1;
@@ -236,7 +236,7 @@ CSGOHudWeaponPanel Label
 .Kills__Text
 {
 	font-weight: bold;
-	font-size: 28px;
+	font-size: 24px;
     color: white;
     letter-spacing: 0px;
 }
@@ -287,7 +287,7 @@ CSGOHudWeaponPanel Label
 	x: 4px;
 	y: 0px;
 	width: 72px;
-	font-size: 48px;
+	font-size: 44px;
 	                               
 	                                      
     text-shadow: 0px 0px 3px 0.0 #000000DD;

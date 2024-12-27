@@ -3,7 +3,6 @@
 var MainMenuVanityContextMenu = (function() {
 
 	var team;
-	var isPopupOpen = false;
 
 	function _Init() {
 		team = $.GetContextPanel().GetAttributeString("team", "");
