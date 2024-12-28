@@ -399,6 +399,7 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
     height: 100%;
     width: 640px;
     horizontal-align: center;
+	vertical-align: center;
     -s2-mix-blend-mode: additive;
 }
 .mainmenu-top-navbar
@@ -413,12 +414,13 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 
 .mainmenu-top-navbar__center-container
 {
-	horizontal-align: center;
-	vertical-align: top;
-	flow-children: right;
-	overflow: noclip;
-	height: 60px;
-	z-index: -1;
+	
+    horizontal-align:center;
+    vertical-align: center;
+    flow-children: right;
+    overflow: noclip;
+    height: 100%;
+    transform-origin: 100% 100%;
 }
 
 .mainmenu-top-navbar__play_seperator
@@ -1319,6 +1321,13 @@ RadioButton.content-navbar__tabs__btn--small Label
 	opacity: 0;
 	visibility: collapse;
 }
+.mainmenu-content--open .pausemenu-navbar
+{
+    visibility: collapse;
+	transition-property: opacity, visibility;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out; 
+}
 
 .party-search-ping.hidden
 {
@@ -1452,7 +1461,93 @@ RadioButton.content-navbar__tabs__btn--small Label
 	text-decoration: underline;
 }
 
+.pausemenu-navbar-container
+{
+    width: fit-children;
+    margin-top: 96px;
+    height: 100%;
+    horizontal-align: center;
+}
 
+.pausemenu-navbar
+{
+    flow-children: down;
+    background-color:blurBackgroundColor;
+    background-image: url("file://{images}/backgrounds/bluedots_large.png");
+    background-size: backgroundDotsSize;
+    background-img-opacity: .07;
+}
+
+
+.pausemenu-navbar .RadioBox
+{
+    visibility: collapse;
+}
+
+.pausemenu-navbar .horizontal-separator
+{
+    width: 50%;
+}
+
+.pausemenu-navbar__btn-small
+{
+    height: 64px;
+    wash-color: white;
+    tooltip-position: bottom;
+    flow-children:right;
+    padding:0px 18px;
+    transition-property: wash-color;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.pausemenu-navbar__btn-small--hidden,.MainMenuRootPanel--PauseMenuMode .PauseMenuModeOnly.pausemenu-navbar__btn-small--hidden,.MainMenuModeOnly.pausemenu-navbar__btn-small--hidden
+{
+    visibility: collapse;
+}
+
+.pausemenu-navbar__btn-small:disabled
+{
+    wash-color: disabledColor;
+}
+
+.pausemenu-navbar__btn-small Image
+{
+    margin: 0px 12px 0px 0px;
+    horizontal-align: center;
+    vertical-align:middle;
+}
+
+.pausemenu-navbar__btn-small:selected Image,.pausemenu-navbar__btn-small:enabled:hover Image,.pausemenu-navbar__btn-small:enabled:hover Image,.chat-panel:selected .chat-panel-icon Image
+{
+    wash-color: rgb(24, 24, 24);
+    background-color: none;
+    box-shadow: none;
+    transition-property: wash-color, background-color, brightness;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+    sound: "UIPanorama.mainmenu_rollover";
+}
+
+.pausemenu-navbar__btn__label-small
+{
+    font-size: 28px;
+    margin: 0px;
+    vertical-align: center;
+    horizontal-align: center;
+    text-align: center;
+    letter-spacing: 1px;
+    color: white;
+    transform: translateY(3px);
+    transition-property: color, text-shadow;
+    transition-duration: .15s;
+    transition-timing-function: ease-in-out;
+}
+
+.pausemenu-navbar__btn-small:hover .pausemenu-navbar__btn__label-small
+{
+    wash-color: rgb(24, 24, 24);
+}
 
 .mainmenu-top-navbar-container
 {
@@ -1471,15 +1566,7 @@ RadioButton.content-navbar__tabs__btn--small Label
 	background-img-opacity: .05;
 }
 
-.mainmenu-top-navbar__center-container
-{
-	horizontal-align:center;
-	vertical-align: center;
-	flow-children: right;
-	overflow: noclip;
-	height: 100%;
-	transform-origin: 100% 100%;
-}
+
 
 .mainmenu-top-navbar__radio-btn
 {

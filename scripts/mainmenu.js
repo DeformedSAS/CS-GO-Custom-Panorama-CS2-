@@ -499,7 +499,7 @@ var _OnShowMainMenu = function() {
 		if ( _m_elContentPanel.BHasClass( 'mainmenu-content--offscreen' ) ) {
 			_m_elContentPanel.RemoveClass( 'mainmenu-content--offscreen' );
 		}
-
+        $.GetContextPanel().AddClass("mainmenu-content--open");
 		$.DispatchEvent( 'ShowContentPanel' );
 		_DimMainMenuBackground( false );
 		_HideNewsAndStore();
@@ -508,7 +508,7 @@ var _OnShowMainMenu = function() {
 	var _OnHideContentPanel = function()
 	{
 		_m_elContentPanel.AddClass( 'mainmenu-content--offscreen' );
-
+         $.GetContextPanel().RemoveClass("mainmenu-content--open");
 		                                                     
 		var elActiveNavBarBtn = _GetActiveNavBarButton();
 		if ( elActiveNavBarBtn && elActiveNavBarBtn.id !== 'MainMenuNavBarHome' ) {
@@ -799,6 +799,7 @@ var _OnShowMainMenu = function() {
 	{
 		var elPanel = $.FindChildInContext( '#JsLeftColumnContainer' );
 		elPanel.SetHasClass( 'hidden', true );
+
 		
 		var elPanel = $.FindChildInContext( '#JsRightColumnContainer' );
 		elPanel.SetHasClass( 'hidden', true );

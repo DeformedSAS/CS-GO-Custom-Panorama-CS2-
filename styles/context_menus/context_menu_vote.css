@@ -1,6 +1,6 @@
 .vote-option
 {
-    flow-children: down;
+    flow-children: right;
 }
 
 #ContextMenuBody Button.vote-option

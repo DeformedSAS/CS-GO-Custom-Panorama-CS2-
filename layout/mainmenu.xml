@@ -57,7 +57,7 @@
         </Panel>
         <Panel id="MainMenuInput">                                              
             <CSGOBlurTarget id="MainMenuCore" blurrects="ChatLinesContainerBg mainmenu-sidebar__blur-target CSGOLoadingScreen JsMainMenuNavBar eom-winner">
-                <CSGOBlurTarget id="MainMenuBackground" blurrects="id-mainmenu-mission-card-bg id-op-mainmenu-top mainmenu-content__blur-target id-mainmenu-mini-store-panel id-mainmenu-stream-panel id-tournament-pass-status JsStorePanel JsStreamPanel JsWatchNoticePanel id-op-mainmenu-rewards id-op-mainmenu-missions JsLastMatch JsActiveMissionPanel id-activemission-tooltip id-active-mission">
+                <CSGOBlurTarget id="MainMenuBackground" blurrects="id-mainmenu-mission-card-bg id-op-mainmenu-top mainmenu-content__blur-target id-mainmenu-mini-store-panel JsMainMenuNavBarPauseMenu id-mainmenu-stream-panel id-tournament-pass-status JsStorePanel JsStreamPanel JsWatchNoticePanel id-op-mainmenu-rewards id-op-mainmenu-missions JsLastMatch JsActiveMissionPanel id-activemission-tooltip id-active-mission">
                     <Panel class="mainmenu-vanity__vignette" hittest="false"/>
                     <CSGOBackbufferImagePanel class="full-width full-height PauseMenuModeOnly" />
 
@@ -182,43 +182,16 @@
             <Panel id="MainMenuQuitAlert" class="navbar-btn__notification settings-notification">
                 <Label class="navbar-btn__notification-text" text="{d:num_settings}"/> 
             </Panel>
-    
 
-
-
-							
-							<!-- center navbar -->
 
 						</RadioButton>
 						<Panel id="MainMenuNavBarCenterContainer" class="mainmenu-top-navbar__center-container">
-						
-						
-							<RadioButton id="MainMenuNavBarResumeGame"
-									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-iconbtn PauseMenuModeOnly"
-									group="NavBar" 
-									onactivate="$.DispatchEvent( 'CSGOMainMenuResumeGame' );"
-									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarResumeGame', '#tooltip_navbar_resume_game' );"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/ResumeGame.svg" />
-							
-							</RadioButton>
-							
-						                                                   
-						<RadioButton id="MainMenuNavBarVote"
-									class="mainmenu-navbar__btn-small PauseMenuModeOnly"
-									onactivate="MainMenu.ShowVote()"
-									oncontextmenu="MainMenu.ShowVote()"
-									onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarVote', '#tooltip_navbar_vote' );"
-									onmouseout="UiToolkitAPI.HideTextTooltip();">
-							<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/check.svg" />
-							
-							</RadioButton>
 							
 							
 							        <RadioButton id="MainMenuNavBarOpStore"
 									class="mainmenu-navbar__btn-small mainmenu-top-navbar__radio-btn DEVModeONLY"
 									group="NavBar" 
-									onactivate="MainMenu.NavigateToTab('JsOpStore', 'operation/operation_main');">
+									onactivate="MainMenu.NavigateToTab('JsOpStore', 'operation/operation_store');">
 									<Label class="mainmenu-top-navbar__radio-btn__label stratum-regular" style="font-size: 20; width: 150px; letter-spacing: -1px;" text="OPERATION STORE" />
 									<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
 							</Panel>
@@ -289,18 +262,32 @@
 									<Label class="mainmenu-top-navbar__radio-btn__label stratum-medium" style="font-size: 20; width: 150px; letter-spacing: -1px;" text="TESTS" />
 									<Panel id="MainMenuWatchAlert" class="navbar-btn__notification hidden">
 							</Panel>
-
-						</RadioButton>
-
-
-							<Button id="MainMenuNavBarExitGame"
-										class="mainmenu-navbar__btn-small PauseMenuModeOnly"
-										onactivate="$.DispatchEvent( 'CSGOMainMenuDisconnect' );"
-										onmouseover="UiToolkitAPI.ShowTextTooltip( 'MainMenuNavBarExitGame', '#tooltip_navbar_exit_game' );"
-										onmouseout="UiToolkitAPI.HideTextTooltip();">
-								<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/cancel.svg" />
-							</Button>							
-						</Panel>
+                         </RadioButton>
+                        </Panel>
+                    </Panel>
+                </CSGOBlurTarget>
+                <CSGOBlurTarget id="PauseMenuBtns" class="pausemenu-navbar-container" blurrects="CSGOLoadingScreen">
+                    <Panel id="JsMainMenuNavBarPauseMenu" class="pausemenu-navbar">
+                        <RadioButton id="MainMenuNavBarResumeGame" class="pausemenu-navbar__btn-small PauseMenuModeOnly" group="NavBar" onactivate="$.DispatchEvent( &apos;CSGOMainMenuResumeGame&apos; );">
+                            <Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/resumegame.svg" />
+                            <Label class="pausemenu-navbar__btn__label-small stratum-medium" text="#tooltip_navbar_resume_game" />
+                        </RadioButton>
+                        <Button id="MainMenuNavBarSwitchTeams" class="pausemenu-navbar__btn-small PauseMenuModeOnly" onactivate="$.DispatchEvent( &apos;CSGOMainMenuSwitchTeams&apos; );">
+                            <Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/voteteamswitch.svg" />
+                            <Label class="pausemenu-navbar__btn__label-small stratum-medium" text="#tooltip_navbar_switch_teams" />
+                        </Button>
+                        <Button id="MainMenuNavBarVote" class="pausemenu-navbar__btn-small PauseMenuModeOnly" onactivate="MainMenu.ShowVote()" oncontextmenu="MainMenu.ShowVote()">
+                            <Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/check.svg" />
+                            <Label class="pausemenu-navbar__btn__label-small stratum-medium" text="#tooltip_navbar_vote" />
+                        </Button>
+                        <Button id="MainMenuNavBarReportServer" class="pausemenu-navbar__btn-small PauseMenuModeOnly" onactivate="UiToolkitAPI.ShowCustomLayoutPopupParameters(&apos;&apos;, &apos;file://{resources}/layout/popups/popup_report_server.xml&apos;, &apos;&apos; );">
+                            <Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/report_server.svg" />
+                            <Label class="pausemenu-navbar__btn__label-small stratum-medium" text="#tooltip_navbar_report_server" />
+                        </Button>
+                        <Button id="MainMenuNavBarExitGame" class="pausemenu-navbar__btn-small PauseMenuModeOnly" onactivate="$.DispatchEvent( &apos;CSGOMainMenuDisconnect&apos; );">
+                            <Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/leave.svg" />
+                            <Label class="pausemenu-navbar__btn__label-small stratum-medium" text="Disconnect" />
+                        </Button>
 						
 						
 						<!-- right sidebar -->
