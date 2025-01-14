@@ -211,6 +211,9 @@ CSGOMainMenu.PopupBackgroundBlur #MainMenuInput
 	opacity: 1;
 	z-index: 1;
 	overflow: noclip;
+	transition-property:  opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
 }
 
 #VanityControls
@@ -1324,9 +1327,6 @@ RadioButton.content-navbar__tabs__btn--small Label
 .mainmenu-content--open .pausemenu-navbar
 {
     visibility: collapse;
-	transition-property: opacity, visibility;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-in-out; 
 }
 
 .party-search-ping.hidden
@@ -1426,8 +1426,7 @@ RadioButton.content-navbar__tabs__btn--small Label
 {
 	visibility: collapse;
 }
-
-                                                                             
+                                                  
 .PauseMenuModeOnly
 {
 	visibility: collapse;

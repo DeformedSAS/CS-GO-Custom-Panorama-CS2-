@@ -98,7 +98,7 @@ CSGOHud,
 
 #HudLowerLeft
 {
-	padding-left: 300px;
+	padding-left: 500px;
     horizontal-align: left;
     vertical-align: bottom;
                                                                                                                                          
@@ -151,7 +151,7 @@ CSGOHud,
 
 #HudBottomRight
 {
-	padding-right: 300px;
+	padding-right: 500px;
 	horizontal-align: right;
 	vertical-align: bottom;
     flow-children: down;

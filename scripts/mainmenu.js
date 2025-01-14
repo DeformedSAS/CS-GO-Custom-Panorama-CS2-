@@ -1,22 +1,14 @@
 "use strict";
-
-                                                                                                    
-                                        
-                                                                                                    
-
 var MainMenu = ( function() {
 	var _m_bPerfectWorld = ( MyPersonaAPI.GetLauncherType() === "perfectworld" );
 	var _m_activeTab;
 	var _m_sideBarElementContextMenuActive = false;
 	var _m_elContentPanel = $( '#JsMainMenuContent' );
 	var _m_playedInitalFadeUp = false;
-	
-		var _d_IsQOutOfDate = false;
+	var _d_IsQOutOfDate = false;
 	var _d_IsQVAC = false;
 	var _d_IsQOverwatch = false;
-	var _d_IsQOffline = false;
-
-	               
+	var _d_IsQOffline = false;           
 	var _m_elNotificationsContainer = $( '#NotificationsContainer' );
 	var _m_notificationSchedule = false;
 	var _m_bVanityAnimationAlreadyStarted = false;
@@ -137,6 +129,7 @@ var _SetBackgroundMovie = function() {
         // schedule the fade-in effect after a small delay
         $.Schedule(0.0, function() { // small delay before starting to fade in
             background.style.opacity = '1'; // restores opacity
+			_InitVanity();
 			_InitVanity2();
         });
     });
@@ -149,7 +142,6 @@ var _OnShowMainMenu = function() {
         GameInterfaceAPI.SetSettingString('panorama_play_movie_ambient_sound', '1');
 		GameInterfaceAPI.ConsoleCommand( "mirv_cvar_unhide_all" );
 		GameInterfaceAPI.ConsoleCommand( '@panorama_ECO_mode 0' );
-		GameInterfaceAPI.ConsoleCommand( 'fps_max_menu 0' );
         //GameInterfaceAPI.SetSettingString('dsp_room', '29');
         GameInterfaceAPI.SetSettingString('snd_soundmixer', 'MainMenu_Mix');
 
@@ -956,7 +948,7 @@ var _OnShowMainMenu = function() {
 		                                                                 
 		_ApplyVanitySettingsToLobbyMetadata( oSettings );
 
-		var vanityPanel = $( '#JsMainmenu_Vanity' );
+		var vanityPanel = $( '#JsMainmenu_SecondaryVanity' );
 		if ( !vanityPanel )
 		{
 			                                                                 

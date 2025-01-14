@@ -136,9 +136,10 @@ CSGOHudRadar Label
     horizontal-align: center;
     vertical-align: center;
     border-radius: 50% / 50%;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
-    border-color: white;
+	border-color: rgba(255, 255, 255, 0.14);
+	-s2-mix-blend-mode: SRGBAdditive;    
     opacity: 1.0;
 }
 
@@ -153,7 +154,7 @@ CSGOHudRadar Label
 	vertical-align: center;	
 
 	background-color: #000000;
-	s2-mix-blend-mode: additive;
+	s2-mix-blend-mode: SRGBAdditive;
 
 	visibility: visible;
 }
@@ -177,11 +178,12 @@ CSGOHudRadar Label
     height: Radar_VisSize_Square;
     horizontal-align: center;
     vertical-align: center;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
-    border-color: ct-color;
+    border-color: rgba(255, 255, 255, 0.2);
     opacity: 1.0;
     visibility: collapse;
+	-s2-mix-blend-mode: SRGBAdditive;
 }
 
 #Radar__Square--Inner 
@@ -193,7 +195,7 @@ CSGOHudRadar Label
 	vertical-align: center;	
 
 	background-color: #000000;
-	s2-mix-blend-mode: additive;
+	s2-mix-blend-mode: SRGBAdditive;
 
 	visibility: visible;
 }

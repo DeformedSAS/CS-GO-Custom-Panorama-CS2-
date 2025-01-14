@@ -38,7 +38,7 @@
 					</Panel>
 				</Panel>
 				                  
-		        <CCSGOSteamInputAction actionset="GameControls" action="firingmodetoggle" separatortext="/" controllernumber = "1"/> 
+		        <CCSGOSteamInputAction actionset="GameControls" action="firingmodetoggle" separatortext="|" controllernumber = "1"/> 
          		                  
 				             
 				<Panel id="AmmoContent" class="Ammo">

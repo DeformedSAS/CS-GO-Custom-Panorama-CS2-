@@ -4,7 +4,7 @@
 	</styles>
 	
 	<scripts>
-		<include src="file://{resources}/scripts/tests/endofmatch_test.js" />
+		<include src="file://{resources}/scripts/endofmatch_test.js" />
 	</scripts>
 
 

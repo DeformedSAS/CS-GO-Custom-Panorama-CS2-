@@ -9,101 +9,8 @@ function TestJS()
 {
                        
     var parent = $.GetContextPanel().GetParent();
-
-                             
-
-                            
-                           
-
-                        
-                       
-
-                                                                 
-                                                                           
-
-                                                      
-                                                                                                                
-                                                                                           
-                                                 
-
-                                                                                
-                                               
-                                                                                                         
-                                             
-                                                                            
-
-                                         
-                                                  
-
-                                                                          
-                                                                    
-
-                                       
-                                                                  
-
-                                                                                                            
-                                                 
-
-                                                
-                                                                  
-                                   
-                                   
-                                                                                    
-                                                           
-                                                                      
-                 
-                                                                                                                                                     
-                                                                                                                                               
-                                                                                                                                                                
-                                                                                                                                        
-                                                                                                                      
-                                                                                
-                                                                                                                     
-
-                                                                       
-                                                                                                       
-                                    
-                                                                         
-
-                                                                                                                          
-                                                                                        
-                                                                    
-
-                                                      
-                                                                                                                           
-
-                                                                                    
-                                                                               
-
-                                                                                                 
-                                                     
-                                     
-
-                                                 
-                                                                                                                        
-                                                                                 
-                                                                                                                                
-                                                                        
-
-                                                                               
-                                                                               
-                                   
-                                                                                                       
-                                                                                                                                                                                                                         
-                                                                        
-
-                                                                                  
-                                                                                    
-                                                         
-
-                                           
-                                                   
-                                                                                                                
-                                                                                                  
-                                                                                            
-
               
-    parent.ResetAnimation( false );
+    parent.ResetAnimation( true );
 
                                          
                                                      
@@ -121,7 +28,7 @@ function TestJSTwitch()
                              
     var parent = $.GetContextPanel().GetParent();
 
-    parent.ResetAnimation( false );
+    parent.ResetAnimation( true );
     parent.ResetActivityModifiers();
     parent.PlayActivity( 'ACT_CSGO_UIPLAYER_WALKUP', true );
 }

@@ -3,7 +3,7 @@
 var SettingsMenuGameSettings = ( function() {
 
 
-    var _InitSteamClanTagsPanel = function () {   
+   var _InitSteamClanTagsPanel = function () {   
         var clanTagDropdown = $('#ClanTagsEnum');
         clanTagDropdown.RemoveAllOptions();
 
@@ -32,7 +32,7 @@ var SettingsMenuGameSettings = ( function() {
         }
 
         clanTagDropdown.RefreshDisplay();
-	};
+    };
 
 	var _OnCrosshairStyleChange = function()
 	{

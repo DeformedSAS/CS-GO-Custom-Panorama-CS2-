@@ -57,7 +57,7 @@
     opacity: 1.0;
 	horizontal-align: left;
 	vertical-align: bottom;
-	padding-top: 90px;
+	y: 50px;
     z-index: 1;
     transition-property: opacity;
     transition-timing-function: linear;
@@ -151,7 +151,6 @@ CCSGOSteamInputAction.money-text-buy-icon
     height: 48px;
     vertical-align: middle;
     margin-left: 12px;
-    background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000000 ), color-stop( 0.5, #000000CC ) , color-stop(0.6, #000000CC), color-stop( 0.9, #000000BB ), to( #00000000 ) );
 }
 
 .survival .money-text-bg

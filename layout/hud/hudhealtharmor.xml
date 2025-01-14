@@ -1,54 +1,44 @@
 <root>
-	<styles>
-		<include src="file://{resources}/styles/csgostyles.css" />
-		<include src="file://{resources}/styles/hud/hudhealtharmor.css" />
-	</styles>
+    <styles>
+        <include src="file://{resources}/styles/csgostyles.css" />
+        <include src="file://{resources}/styles/hud/hudhealtharmor.css" />
+    </styles>
 
-                                                      
-                                                      
-                                                              
-                                                   
-                                                                                              
-                                                    
-                                                                
-       
-	<CSGOHudHealthArmor class="hud-HA" hittest="false">
+    <CSGOHudHealthArmor class="hud-HA" hittest="false">
 
-		                         
-		<Panel id="HudHealthArmorBG" class="hud-HA-bg">
-      <Panel id="HudHealthBG" class="hud-HA-bg-h"  />
-      <Panel id="HudArmorBG" class="hud-HA-bg-a"  />
-    </Panel>
+        <Panel id="HudHealthArmorBG" class="hud-HA-bg">
+            <Panel id="HudHealthBG" class="hud-HA-bg-h" />
+            <Panel id="HudArmorBG" class="hud-HA-bg-a" />
+        </Panel>
 
-                                            
-		<Panel class="hud-HA-main left-right-flow">
-      
-		                 
-			<Panel class="hud-HA-health">
-				<Panel class="hud-HA-icon-container">
-					<Image class="hud-HA-icon hud-HA-icon--health cl-hud-wash-color" src="file://{images}/icons/ui/health.svg" texturewidth="22px" scaling="none" />
-				</Panel>
-				<Panel class="hud-HA-text">
-					<Label class="hud-HA-health-label cl-hud-wash-color" text="{s:health}"/>
-				</Panel>
-				<ProgressBar id="HealthBar" class="hud-HA-bar hud-HA-bar--health" />
-			</Panel>
+        <Panel class="hud-HA-main-container">
 
-			              
-			<Panel class="hud-HA-armor">
-				<Panel class="hud-HA-icon-container">
-					<Image class="hud-HA-icon hud-HA-icon--heavy" src="file://{images}/icons/ui/shield.svg" texturewidth="26px" scaling="none" />
-					<Image class="hud-HA-icon hud-HA-icon--armor cl-hud-wash-color" src="file://{images}/icons/ui/shield.svg" texturewidth="20px" scaling="none" />
-					<Image class="hud-HA-icon hud-HA-icon--helmet" src="file://{images}/icons/ui/helmet.svg" texturewidth="20px" scaling="none" />
-				</Panel>
-				<Panel class="hud-HA-text">
-					<Label class="hud-HA-armor-label cl-hud-wash-color" text="{s:armor}"/>
-				</Panel>
-				<ProgressBar id="ArmorBar" class="hud-HA-bar hud-HA-bar--armor cl-hud-wash-color" />
+            <ProgressBar id="ArmorBar" class="hud-HA-bar2 HUD--health--on-damage--listener cl-hud-wash-color" />
 
-			</Panel>
-			<CSGOHudPassiveItems id="HudPassiveItems"/>
-		</Panel>
+            <Panel class="hud-HA-armor HUD--has-armor--on-pickup--listener">
+                <Panel class="hud-HA-icon-outline-container">
+                    <Image class="hud-HA-icon hud-HA-icon--heavy cl-hud-wash-color" src="file://{images}/icons/ui/shield.svg" texturewidth="26px" scaling="none" />
+                    <Image class="hud-HA-icon hud-HA-icon--armor cl-hud-wash-color" src="file://{images}/hud/armor_helmet.svg" texturewidth="43px" scaling="none" />
+                    <Image class="hud-HA-icon hud-HA-icon--helmet cl-hud-wash-color" />
+                </Panel>
+                <Panel class="hud-HA-armor-text">
+                    <Label class="hud-HA-armor-label cl-hud-wash-color stratum-bold" text="{s:armor}" />
+                </Panel>
+            </Panel>
 
-	</CSGOHudHealthArmor>
+            <Panel class="hud-HA-health">
+                <Panel class="hud-HA-icon-container">
+                    <Image class="hud-HA-icon hud-HA-icon--health cl-hud-wash-color" />
+                </Panel>
+                <Panel class="hud-HA-text">
+                    <Label class="hud-HA-health-label cl-hud-wash-color" text="{s:health}" />
+                </Panel>
+                <ProgressBar id="HealthBar" class=" cl-hud-wash-color hud-HA-bar hud-HA-bar--health" />
+            </Panel>
+
+            <CSGOHudPassiveItems id="HudPassiveItems"/>
+        </Panel>
+
+    </CSGOHudHealthArmor>
 </root>
+

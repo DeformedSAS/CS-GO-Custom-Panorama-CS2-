@@ -852,7 +852,7 @@ var PlayMenu;
             $.DispatchEvent('PlaySoundEffect', 'submenu_leveloptions_select', 'MOUSE');
         }
         else {
-            $.DispatchEvent('PlaySoundEffect', 'submenu_leveloptions_select', 'MOUSE');
+            $.DispatchEvent('PlaySoundEffect', 'submenu_leveloptions_deselect', 'MOUSE');
         }
         let mapGroupName = mapGroupNameClicked;
         if (mapGroupName) {

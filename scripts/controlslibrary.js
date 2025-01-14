@@ -235,49 +235,7 @@ var g_sceneanimsList = [
 'cu_t_pose02',
 'cu_t_pose03',
 'cu_t_pose04',
-
-                               
-                              
-                              
-                             
-                             
-                                  
-                               
-                                           
-                                            
-                                     
-                                   
-                                    
-                              
-                                
-                              
-                               
-                                
-                                
-                               
-                                
-                             
-                                
-                             
-                              
-                             
-                               
-                            
-                              
-                                   
-                            
-                              
-                              
-                                   
-                                   
-                                          
-                                     
-                                
-                                   
-                                
-                                 
-                                      
-                                      
+           
                                   
 ];
 var g_sceneanimindex = 0;
@@ -312,7 +270,7 @@ function SceneNextAnimSequence()
 
     var playerPanel = $( "#Player1" );
  
-    playerPanel.ResetAnimation( false );
+    playerPanel.ResetAnimation( true );
     playerPanel.PlaySequence( g_sceneanimsList[g_sceneanimindex], true );
 }
 
@@ -326,7 +284,7 @@ function ScenePrevAnimSequence()
 
     var playerPanel = $( "#Player1" );
     
-    playerPanel.ResetAnimation( false );
+    playerPanel.ResetAnimation( true );
     playerPanel.PlaySequence( g_sceneanimsList[g_sceneanimindex], true );
 }
 
@@ -343,7 +301,7 @@ function InitSceneWithContextsPanel()
     var model = ItemInfo.GetModelPlayer( charT );
 
     var playerPanel = $( "#MultiPlayer" );
-    playerPanel.ResetAnimation( false );
+    playerPanel.ResetAnimation( true );
     playerPanel.SetSceneAngles( 0, 11.5, 0, false );
     playerPanel.SetSceneOffset( 11.08, -18.14, 0.0 );
     playerPanel.SetPlayerModel( model );

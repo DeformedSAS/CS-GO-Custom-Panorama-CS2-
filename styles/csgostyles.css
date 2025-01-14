@@ -6,7 +6,6 @@
 @define t-color-alpha: rgba( 51, 41, 1, 0.5 );
 @define ct-color-alpha75: rgba( 1, 29, 54, 0.75 );
 @define t-color-alpha75: rgba( 51, 41, 1, 0.75 );
-@define hudWorldBlur: fastgaussian(2,2,2);
 @define steamOnlineColor: #80a438;
 @define blueColor: #3281AC;
 @define blueColorDark: #0D354A;
@@ -14,6 +13,7 @@
 @define negativeColor: #DB4437;
 @define negativeColorSemi: #DB443775;
 @define warningColor: #b1af2d;
+@define hudWorldBlur: fastgaussian(2,2,2);
 @define positiveColor: #0F9D58;
 @define positiveColorSemi: #4caf5075;
 @define opAccentColor: rgb(129, 41, 211);
@@ -24,6 +24,8 @@
 @define contextMenuBackground: rgba(38, 38, 38, 1);
 @define backgroundDotsSize: 360px 360px;
 @define btnBorderRadius: 3px;
+@define hud-blur-bg-color: #000000a0;
+@define hudWorldBlur: fastgaussian(2,2,2);
 @define backgroundGradient: gradient( linear, 75% 100%, 0% 0%, from( #14202b ), to( #1e2d3d ) );
 @define textBlueGradient: gradient( linear, 0% 100%, 0% 0%, from( blueColor ), to( blueColorDark ) );
 @define baseText: #ccccccff;
@@ -67,8 +69,8 @@
 @define color-rarity-6: color-rarity-ancient;
 @define color-rarity-7: color-rarity-immortal;
 @define color-rarity-99: color-rarity-unusual;
-@define color-hud-0: #e8e8e8;                                                          
-@define color-hud-1: #ffffff;                   
+@define color-hud-0: #B5D4EE;                                                          
+@define color-hud-1: #eabe54;                   
 @define color-hud-2: #96c8ff;                 
 @define color-hud-3: #356eff;           
 @define color-hud-4: #c864ff;             
@@ -189,8 +191,6 @@ Label,TextEntry
 @define stratum2Font: Stratum2, "Arial Unicode MS";
 @define stratum2monoFont: Stratum2 Regular Monodigit, "Arial Unicode MS";
 @define stratum2monoFontBold: Stratum2 Bold Monodigit, "Arial Unicode MS";
-@define stratum2condensedbold: ST2BDCOND Bold Monodigit, "Arial Unicode MS";
-@define stratum2regularcondensed: ST2RGCOND Bold Monodigit, "Arial Unicode MS";
 Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 {
 	font-family: Stratum2 Regular Monodigit, 'Arial Unicode MS';
@@ -250,12 +250,6 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 {
 	font-family: Stratum2 Light, "Arial Unicode MS";
 }
-
-.stratum-regular-condensed
-{
-	font-family: ST2RGCOND, "Arial Unicode MS";
-}
-
 
 .stratum-light-italic
 {
@@ -350,31 +344,6 @@ Label.MonoNumbersFont,TextEntry.MonoNumbersFont
 	font-family: Stratum2 Mono, "Arial Unicode MS";
 	font-weight: bold;
 }
-
-.stratum-regular-condensed {
-  font-family: 'Stratum-Regular-Condensed', "Arial Unicode MS";
-}
-
-.stratum-bold-condensed {
-  font-family: 'Stratum-Bold-Condensed', "Arial Unicode MS";
-}
-
-.stratum-black {
-  font-family: 'Stratum-black', "Arial Unicode MS";
-}
-
-.stratum-black-condensed {
-  font-family: 'Stratum-Black-Condensed', "Arial Unicode MS";
-}
-
-.stratum-light-condensed {
-  font-family: 'Stratum-Light-Condensed', "Arial Unicode MS";
-}
-
-.stratum-medium-condensed {
-  font-family: 'Stratum-Medium-Condensed', "Arial Unicode MS";
-}
-
 
 .digitpanel-font
 {

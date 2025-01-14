@@ -54,7 +54,70 @@
     brightness: 0.7;
     blur: fastgaussian( 6, 6, 3 );
 }
+.team-select-list__teammates
+{
+	flow-children: down;
+	width: 512px;
+	height: fit-children;
+	overflow: clip;
+}
 
+.team-select-teammate
+{
+	visibility: visible;
+	transform: scaleY( 1 );
+	background-color: none;
+	
+	transition-property: opacity, transform;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.team-select-list--t .team-select-teammate {
+	background-color: none;
+	flow-children: left;
+	horizontal-align: left;
+  	                  
+	padding-left: 16px;
+	transform-origin: 0% 50%;
+
+}
+
+.team-select-list--t .team-select-teammate:hover{
+
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( white ), color-stop( 0.025, white ), color-stop( 0.025, #ffffff40 ), color-stop( 0.035, #00000080 ), to( #00000000 ) );
+	sound: "UIPanorama.sidemenu_rollover";
+	
+	brightness: 1.5;
+  	                                         
+}
+
+.team-select-list--ct .team-select-teammate {
+	background-color: none;
+	flow-children: right;
+	horizontal-align: right;
+	padding-right: 16px;
+	transform-origin: 0% 50%;
+}
+
+.team-select-list--ct .team-select-teammate:hover{
+
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( white ), color-stop( 0.025, white ), color-stop( 0.025, #ffffff40 ), color-stop( 0.03, #00000080 ), to( #00000000 ) );
+	sound: "UIPanorama.sidemenu_rollover";
+	
+	brightness: 1.5;
+  	                                         
+}
+
+.team-select-teammate.hidden
+{
+	opacity:0;
+	transform: scaleY( 0 );
+	
+	transition-property: opacity, transform, position;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
 .team-select__timer
 {
     width: 60px;

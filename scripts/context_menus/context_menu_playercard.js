@@ -260,39 +260,6 @@ var ContextmenuPlayerCard;
             },
         },
         {
-            name: 'borrowmusickit',
-            icon: 'music_kit',
-            AvailableForItem: (id) => {
-                let borrowedPlayerSlot = parseInt(GameInterfaceAPI.GetSettingString("cl_borrow_music_from_player_slot"));
-                return GameStateAPI.IsLocalPlayerPlayingMatch() &&
-                    !_IsSelf(id) &&
-                    borrowedPlayerSlot !== GameStateAPI.GetPlayerSlot(id) &&
-                    _HasMusicKit(id) &&
-                    GameStateAPI.IsPlayerConnected(id);
-            },
-            OnSelected: (id) => {
-                GameInterfaceAPI.SetSettingString("cl_borrow_music_from_player_slot", "" + GameStateAPI.GetPlayerSlot(id));
-                $.DispatchEvent('ContextMenuEvent', '');
-            },
-        },
-        {
-            name: 'stopborrowmusickit',
-            icon: 'no_musickit',
-            AvailableForItem: (id) => {
-                let borrowedPlayerSlot = parseInt(GameInterfaceAPI.GetSettingString("cl_borrow_music_from_player_slot"));
-                if (borrowedPlayerSlot === -1)
-                    return false;
-                return GameStateAPI.IsLocalPlayerPlayingMatch() &&
-                    ((_IsSelf(id) && borrowedPlayerSlot !== -1) ||
-                        (borrowedPlayerSlot === GameStateAPI.GetPlayerSlot(id))) &&
-                    GameStateAPI.IsPlayerConnected(id);
-            },
-            OnSelected: (id) => {
-                $.DispatchEvent('Scoreboard_UnborrowMusicKit');
-                $.DispatchEvent('ContextMenuEvent', '');
-            },
-        },
-        {
             name: 'copycrosshair',
             icon: 'crosshair',
             AvailableForItem: (id) => {

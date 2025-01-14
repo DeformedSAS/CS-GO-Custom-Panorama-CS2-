@@ -37,7 +37,7 @@
       <Panel class="mainmenu-content">
             <Panel class="loading-screen-fade--teams" />
             <Countdown id="AutojoinTimer" class="team-select__timer" update-interval="1.0" time-dialog-variable="duration">
-                <Label class="stratum-bold-tf" text="{t:d:t:duration}" />
+                <Label class="stratum-medium" text="{t:d:t:duration}" />
                 <Panel class="team-select__timer__bg" />
             </Countdown>
         <Panel class="full-width full-height left-right-flow">                       
@@ -59,15 +59,19 @@
             </Button>
         </Panel>
 
-        <Panel class="team-select-list-container" hittest="false">
-            <Panel id="List-TERRORIST" class="team-select-list team-select-list--t horizontal-align-left" hittest="false">
-                <Panel id="Teammates" class="team-select-list__teammates horizontal-align-center vertical-align-center" hittest="false"></Panel>
-            </Panel>
+			<Panel class="team-select-list-container" hittest="false">
+				<Panel id="List-TERRORIST" class="team-select-list team-select-list--t horizontal-align-left" hittest="false">
+					<Panel id="Teammates" class="team-select-list__teammates horizontal-align-left" hittest="false">
+						                          
+					</Panel>
+				</Panel>
 
-            <Panel class="team-select-vertical-separator"/>
-
-            <Panel id="List-CT" class="team-select-list team-select-list--ct horizontal-align-right" hittest="false">
-                <Panel id="Teammates" class="team-select-list__teammates horizontal-align-right" hittest="false"></Panel>
+				<Panel class="team-select-vertical-separator"/>
+		
+				<Panel id="List-CT" class="team-select-list team-select-list--ct horizontal-align-right" hittest="false">
+					<Panel id="Teammates" class="team-select-list__teammates horizontal-align-right" hittest="false">
+						                          
+					</Panel>
             </Panel>
         </Panel>
 
