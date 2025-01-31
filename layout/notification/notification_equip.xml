@@ -1,0 +1,13 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css"/>
+		<include src="file://{resources}/styles/notification/notification_equip.css"/>
+	</styles>
+	<scripts>
+        <include src="file://{resources}/scripts/notification/notification_equip.js" />
+	</scripts>
+
+    <Panel class="inv-notification" hittext="false" useglobalcontext="true">
+        <Label  id="InvNotificationLabel" class="inv-notification-text" html="true" text="XXXXXXXXXXXXXXX"/>
+    </Panel>
+</root>

@@ -1,0 +1,33 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudchat.css" />
+	</styles>
+
+	<CSGOHudChat tabindex="auto" selectionpos="auto" defaultfocus="ChatTextEntryBox">
+		<Panel id ="ChatContainer">
+			<Panel id="ChatMain">
+				<Panel id="ChatBGPanel" class="ChatBG" />
+				<Panel id="ChatFG">
+					<Panel id="ChatHistory">
+						<Panel id="ChatHistoryBG" class="ChatTextBG" />
+						<Label id="ChatHistoryText" acceptsfocus="true" class="vscroll"/>
+					</Panel>
+					<Panel id="ChatTextEntry">
+						<Panel id="ChatTextEntryBG" class="ChatTextBG" />
+						<Panel id="ChatTextEntryFG">
+							<TextEntry id="ChatTextEntryBox" placeholder="#SFUI_Settings_Chat_Say" maxchars="127"/>
+							<TextButton id="ChatSendButton" text="#SFUI_Settings_Chat_ButtonLabel"/>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel id="GotvPanel">
+				<Panel id="GotvPanelBG"  class="ChatBG"/>
+				<ToggleButton id="GotvToggle" class="PopupButton">
+					<Label  id="" text="#SFUI_Settings_Chat_EnableGotv"/>
+				</ToggleButton>
+			</Panel>
+		</Panel>
+	</CSGOHudChat>
+</root>

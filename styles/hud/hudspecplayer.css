@@ -1,0 +1,555 @@
+   
+	            
+	                                              
+  
+@define HudSpecplayer_PanelWidth : 580px;
+
+.hud-spectator-bkg-BOT
+{
+	width: 100%;
+	height: 3px;
+    vertical-align: bottom;
+    background-color: gradient( linear, 0% 20%, 0% 100%, from( #00000000 ), to( #000000BB ) );
+}
+
+.HudSpecplayerRoot
+{
+    flow-children: none;
+	                      
+	                
+	               
+	height: 100%;
+	width: 100%;
+	horizontal-align: center;
+    vertical-align: center;
+	visibility: collapse;
+}
+
+.HudSpecplayerParentContainer
+{
+	height: 260px;
+	width: 642px;
+	horizontal-align: center;
+    vertical-align: bottom;
+
+	flow-children: up;
+}
+
+.HudSpecplayerRoot--visible
+{
+	visibility: visible;
+
+	transition-property: transform, opacity; 
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.2s;
+
+ 	transform: translate3d( 0px, 0px, 0px );
+}
+
+.HudSpecplayerRoot__player-info
+{
+	width: HudSpecplayer_PanelWidth;
+	               
+	                       
+}
+
+.HudSpecplayerRoot__avatar
+{
+	width: 76px;
+	height: 76px;
+    margin-left: 0px;
+	                    
+	                    
+	  	                                             
+	  	                            
+	                      
+    border: 2px solid #000000FF;
+}
+
+.HudSpecplayerRoot__playercolor
+{
+    visibility:collapse;
+
+    x: 0px;
+    y: 0px;
+    width: 32px;
+    height: 16px;
+    horizontal-align: center;
+    vertical-align: top;
+    img-shadow: 0px 0px 1px 1.0 #000000CC;
+}
+
+.HudSpecplayerRoot__playercolor--show
+{
+    visibility:visible;
+}
+
+.HudSpecplayerRoot__avatardefault
+{
+    y: 4px;
+}
+
+.HudSpecplayerRoot__avatardisplay
+{
+    height: 54px;
+	width: 54px;
+	horizontal-align: left;
+	margin-left: 5px;
+	margin-bottom: -29px;
+	opacity: 1.0;
+	visibility: visible;
+    img-shadow: 0px 2px 2px 2.0 #313131;
+}
+
+.HudSpecplayer__player-name
+{
+    font-size: 22px;
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: medium;
+	vertical-align: bottom;
+	margin-left: 84px;
+    margin-bottom: 15px;
+	padding-right: 32px;
+    text-shadow: 1px 1px 1px 1.5 #000000AA;
+    text-overflow: shrink;
+    color: white;
+    white-space: nowrap;
+}
+
+.HudSpecplayer__Stats_DamageTaken
+{
+    width: HudSpecplayer_PanelWidth;
+    height: 22px;
+    horizontal-align: center;
+    background-color: gradient( linear, 50% 0%, 100% 0%, from( #000000EE ), to( #00000000 ) );
+                           
+    font-size: 16px;
+    padding-top: 1px;
+    padding-left: 6px;
+    text-align: left;
+    font-family: Stratum2, 'Arial Unicode MS';
+                          
+    text-shadow: 1px 1px 1px 1.0 black;
+    color: #DDDDDDFF;
+    text-overflow: shrink;
+}
+
+                                                                                                 
+                                                                         
+.Language_vietnamese .HudSpecplayer__player-name,
+.Language_vietnamese .HudSpecplayer__Stats_DamageTaken
+{
+	font-family: ForceStratum2, 'Arial Unicode MS';
+}
+
+.HudSpecplayer__Stats_DamageTaken--Hidden
+{
+	visibility: collapse;
+}
+
+#HudSpecplayer__Stats
+{
+    width: HudSpecplayer_PanelWidth;
+    height: 28px;
+    horizontal-align: center;
+    background-color: gradient( linear, 50% 0%, 100% 0%, from( #000000EE ), to( #00000000 ) );
+                           
+}
+
+.HudSpecplayer__Stats_Header
+{
+    flow-children: right;
+    vertical-align: top;
+    width: 100%;
+    height: 10px;
+    margin-top: 1px;
+    margin-left: 8px;
+}
+
+.HudSpecplayer__Stats_Numbers
+{
+    flow-children: right;
+    vertical-align: bottom;
+    width: 100%;
+    height: 20px;
+    margin-left: 8px;
+}
+
+.HudSpecplayer__Stats_HeaderText
+{
+    width: 54px;
+    vertical-align: top;
+    font-size: 10px;
+    text-align: center;
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: medium;
+    text-shadow: 1px 1px 1px 2.0 black;
+    color: #888888FF;
+}
+
+.HudSpecplayer__Stats_NumberText
+{
+    width: 54px;
+    vertical-align: bottom;
+    font-size: 16px;
+    text-align: center;
+    font-family: Stratum2, 'Arial Unicode MS';
+                          
+    text-shadow: 1px 1px 1px 2.0 black;
+    color: #FFFFFFFF;
+}
+
+.HudSpecplayer__Stats-Text
+{
+    font-size: 16px;
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: medium;
+    margin-left: 6px;
+    text-shadow: 1px 1px 1px 2.0 black;
+    color: #AAAAAAFF;
+}
+
+   
+               
+                                                                              
+                                          
+   
+.HudSpecplayer__key-hints
+{
+	width: fit-children;
+    height: 30px;
+    horizontal-align: center;
+    overflow: noclip;
+    flow-children: right;
+	                                                                                           
+    visibility: visible;
+}
+
+.HudSpecplayer__key-hints-text
+{
+    width: fit-children;
+    font-family: Stratum2, 'Arial Unicode MS';
+	font-size: 14px;
+    text-shadow: 1px 1px 1px 2.0 black;
+    color: #BBBBBBFF;
+    margin-top: 7px;
+    vertical-align: top;
+    padding-left: 10px;
+	                    
+	                       
+}
+
+.HudSpecplayer__key-hints-text--hidden
+{
+    visibility: collapse;
+}
+
+.HudSpecplayer__Item
+{
+
+}
+
+#ServerSponserLogosContainer
+{
+    width: HudSpecplayer_PanelWidth;
+    height: 90px;
+    horizontal-align: center;
+       
+                                                                
+                                                                       
+      
+    background-color: #00000000;
+}
+
+.HudSpecplayer__ReplayPlayerTag
+{
+    width: 512px;
+	height: 256px;
+	                                  
+	transform-origin: 50% 100%;
+	x: -256px;	                   
+	y: -256px; 	                
+
+                                  
+
+    visibility: visible;
+}
+
+.HudSpecplayer__ReplayPlayerArrow
+{
+    horizontal-align: center_nopixelsnap;
+	vertical-align: bottom;
+                                       
+    width: 42px;
+    height: 42px;
+
+    wash-color: #555555FF;
+}
+
+.HudSpecplayer__ReplayPlayerText
+{
+    height: 48px;
+
+    border: 2px solid #555555FF;
+
+    font-family: Stratum2, 'Arial Unicode MS';
+	font-size: 38px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px 2.0 black;
+    text-align: center;
+    color: #FFFFFFFF;
+
+    horizontal-align: center;
+    vertical-align: bottom;
+    margin-bottom: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    background-color: #222222FF;
+
+    visibility: visible;
+}
+
+.HudSpecplayer__SponserLogos
+{
+    height: 110px;
+    horizontal-align: center;
+    vertical-align: top;
+}
+
+                                                                               
+                                                                               
+                                                                               
+
+.HudSpecplayerContainer
+{
+                       
+	height: 84px;
+	width: HudSpecplayer_PanelWidth;
+    horizontal-align: center;
+
+	opacity: 1.0;
+}
+
+.HudSpecplayerBG
+{
+                       
+	height: 50px;
+	width: HudSpecplayer_PanelWidth;
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000FF ), to( #00000000 ) );
+    horizontal-align: center;
+    vertical-align: bottom;
+
+	opacity: 1.0;
+}
+
+.HudSpecplayerBG__Border
+{
+	width: 100%;
+	height: 100%;
+    opacity: 0.9;
+	               
+                          
+                                         
+                                      
+}
+
+.HudSpecplayerBG__MainBG
+{
+	width: 100%;
+	height: 100%;
+    opacity: 0.99;
+}
+
+.HudSpecplayerBG__TopStrip
+{
+    width: 100%;
+	height: 2px;
+    vertical-align: top;
+    background-color: gradient( linear, 50% 0%, 92% 0%, from( #080808FF ), to( #00000000 ) );
+}
+
+.HudSpecplayerBG__BottomStrip
+{
+    width: 100%;
+	height: 4px;
+    vertical-align: bottom;
+    background-color: gradient( linear, 0% 0%, 0% 0%, from( #080808FF ), to( #00000000 ) );
+                                         
+                                      
+                                     
+}
+
+.HudSpecplayerBG__DefaultLogo
+{
+	                             
+    pre-transform-rotate2d: -20deg;
+
+    width: 100%;
+	height: 100%;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	opacity: 0.15;
+
+	background-repeat: no-repeat;
+	background-position: 20% 33%;
+	background-size: 40% 480%;
+
+	visibility: visible;
+}
+
+.HudSpecplayerBG__TeamLogo
+{
+	                             
+    pre-transform-rotate2d: -20deg;
+
+    width: 100%;
+	height: 100%;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	opacity: 0.15;
+
+	background-repeat: no-repeat;
+	background-position: 15% 41%;
+	background-size: 17% 215%;
+    background-image: url( "file://{images}/hud/winpanel/ct_patch.png" );
+
+	visibility: collapse;
+}
+
+.HudSpecplayerRoot--ShowTeamLogo .HudSpecplayerBG__DefaultLogo
+{
+	visibility: collapse;
+}
+
+                        
+
+.HudSpecplayerRoot--TeamCT .HudSpecplayerBG__Border
+{
+	background-color: gradient( linear, 50% 0%, 90% 0%, from( #161d21FF ), to( #00000000 ) );
+}
+
+.HudSpecplayerRoot--TeamCT .HudSpecplayerBG__BottomStrip
+{
+	background-color: gradient( linear, 50% 0%, 100% 0%, from( #227fbaFF ), to( #227fba00 ) );
+}
+
+.HudSpecplayerRoot--TeamCT .HudSpecplayerBG__MainBG
+{
+    background-color: gradient( linear, 0% 0%, 90% 0%, from( #0C0F13FF ), to( #00000000 ) );
+}
+
+.HudSpecplayerRoot--TeamCT .HudSpecplayerBG__DefaultLogo
+{
+	background-image: url( "file://{images}/hud/winpanel/ct_patch.png" );
+}
+
+                       
+
+.HudSpecplayerRoot--TeamT .HudSpecplayerBG__Border
+{
+	background-color: gradient( linear, 50% 0%, 90% 0%, from( #1d1910FF ), to( #150d0500 ) );
+}
+
+.HudSpecplayerRoot--TeamT .HudSpecplayerBG__BottomStrip
+{
+	background-color: gradient( linear, 50% 0%, 100% 0%, from( #ddb417FF ), to( #ddb41700 ) );
+}
+
+.HudSpecplayerRoot--TeamT .HudSpecplayerBG__MainBG
+{
+	background-color: gradient( linear, 0% 0%, 90% 0%, from( #000000FF ), to( #00000000 ) );
+}
+
+.HudSpecplayerRoot--TeamT .HudSpecplayerBG__DefaultLogo
+{
+	background-image: url( "file://{images}/hud/winpanel/t_patch.png" );
+}
+
+                         
+
+.HudSpecplayerRoot--TeamNone .HudSpecplayerBG__Border
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000FF ), to( #11111100 ) );
+                                         
+}
+
+.HudSpecplayerRoot--TeamNone .HudSpecplayerBG__BottomStrip
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #e2e2e2FF ), to( #78787800 ) );
+}
+
+.HudSpecplayerRoot--TeamNone .HudSpecplayerBG__MainBG
+{
+	background-color: gradient( linear, 0% 0%, 90% 0%, from( #000000FF ), to( #00000000 ) );
+}
+
+                                                            
+ 
+	                                                                    
+ 
+  
+
+.HudSpecplayerRoot--TeamNone .HudSpecplayerBG__BottomStrip
+{
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #bebebeFF ), to( #11111100 ) );
+}
+
+.HudSpecplayer__ItemContainer
+{
+    flow-children: left;
+	width: 500px;
+	height: 74px;
+    margin-bottom: 4px;
+
+    horizontal-align: right;
+    vertical-align: center;
+}
+
+.HudSpecplayer__ItemContainerBG
+{
+	width: 104px;
+	height: 100%;
+                              
+    vertical-align: bottom;
+	border-left: 3px solid #00000044;
+	               
+	background-color: #00000088;
+}
+
+.HudSpecplayer__ItemContainer--Hidden
+{
+	visibility: collapse;
+}
+
+.HudSpecplayer__Item
+{
+	width: 100%;
+	                                                                                
+	                             
+	                               
+	horizontal-align: center;
+	vertical-align: center;
+    img-shadow: 1px 3px 2px 5.0 #313131;
+}
+
+.HudSpecplayer__ItemName
+{
+    font-size: 13px;
+    font-family: Stratum2, 'Arial Unicode MS';
+    font-weight: medium;
+                              
+	vertical-align: bottom;
+	                      
+	padding-right: 1px;
+    text-shadow: 1px 1px 1px 1.5 #000000AA;
+                                                                                               
+    padding-bottom: 1px;
+
+    text-overflow: shrink;
+    white-space: nowrap;
+}

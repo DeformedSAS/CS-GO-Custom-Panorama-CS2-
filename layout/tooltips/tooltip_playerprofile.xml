@@ -1,0 +1,33 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_playerprofile.css" />
+		<include src="file://{resources}/styles/playerprofile.css" />
+	</styles>
+
+	<script>
+		function loadPlayerProfileXml()
+		{
+			var xuid = $.GetContextPanel().GetAttributeString( "xuid", "not-found" );
+
+			if( xuid == "not-found" )
+				return;
+			
+			var tooltip = $.GetContextPanel().FindChildInLayoutFile( 'JsTooltipProfile' );
+
+			                                                                            
+			if( tooltip )
+				tooltip.DeleteAsync( .0 );
+			
+			                                                        
+			var section = $.FindChildInContext( '#' + 'JsTooltip' );
+			var playerProfile = $.CreatePanel( "Panel", section, 'JsTooltipProfile' );
+			playerProfile.SetAttributeString( "xuid", xuid );
+			playerProfile.BLoadLayout( "file://{resources}/layout/playerprofile.xml", false, false );
+		}
+	</script>
+	
+	<Panel class="ToolTip" ontooltiploaded="loadPlayerProfileXml()">
+		<Panel class="ToolTip" id="JsTooltip"/>
+	</Panel>
+</root>

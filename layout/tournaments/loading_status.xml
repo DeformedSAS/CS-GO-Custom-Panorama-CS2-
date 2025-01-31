@@ -1,0 +1,16 @@
+<root>
+    <styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+        <include src="file://{resources}/styles/mainmenu_watch.css" />
+        <include src="file://{resources}/styles/mainmenu.css" />
+	</styles>
+
+	<scripts>
+                                                                                
+	</scripts>
+
+    <Panel class="full-height horizontal-center left-right-flow">
+        <Panel id="Spinner" class="Spinner horizontal-center vertical-center right-margin-medium"/>
+        <Label id="Message" class="Info-Message horizontal-center"/>
+    </Panel>
+</root>

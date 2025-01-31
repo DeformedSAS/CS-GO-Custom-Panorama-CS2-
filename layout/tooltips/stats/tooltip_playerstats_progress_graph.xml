@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_custom_test.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/tooltips/stats/tooltip_playerstats_progress_graph.js" />
+	</scripts>
+	
+	<Panel class="TestContents" ontooltiploaded="setupTooltip()">
+		<Label text="{s:stat_name}"/>
+		<Label allowrawtext="true" id="BodyLabel"/>
+		<Label text="{s:stat_value}"/>
+		<Label text="{t:s:date}"/>
+	</Panel>
+</root>

@@ -1,0 +1,14 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/shielddamagealert.css" />
+	</styles>
+
+	<CSGOShieldDamageAlert class="ShieldDamageAlert">
+		<ProgressBar id="ShieldDamage" class="ShieldDamageAlertProgress" min="100" max="0"/>
+		<Panel class="ShieldDamageAlertBackdrop"/>
+		<Panel class="ShieldDamageAlertOverlay"/>
+	</CSGOShieldDamageAlert>
+	
+</root>

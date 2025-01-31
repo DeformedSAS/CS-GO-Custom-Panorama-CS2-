@@ -1,0 +1,16 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/inventory_item_list.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/inventory_item_list.js" />
+	</scripts>
+
+	<InventoryItemList hittest="true" itemheight="218px" itemwidth="192px" spacersize="0px" spacerperiod="0" useglobalcontext="true">
+	</InventoryItemList>
+
+</root>

@@ -1,0 +1,17 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/settings/settings.css" />
+    <include src="file://{resources}/styles/settings/settings_slider.css" />
+	</styles>
+  
+  <CSGOSettingsSlider>
+      <Panel class="left-right-flow vertical-center">
+      <Label class="" id="Title" />
+      <ToggleButton class="TickBox setting-toggle" id="Toggle" />
+      <Slider class="HorizontalSlider" direction="horizontal" id="Slider"/>
+      <TextEntry maxchars="4" textmode="numeric" id="Value" />
+      </Panel>
+  </CSGOSettingsSlider>
+  
+</root>

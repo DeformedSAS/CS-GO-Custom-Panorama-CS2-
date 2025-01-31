@@ -1,0 +1,22 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/gamestyles.css" />
+    <include src="file://{resources}/styles/tooltips/tooltip_title_text.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/tooltips/tooltip_title_progressbar.js" />
+	</scripts>
+
+	<TooltipTitleText class="TitleTextContents" ontooltiploaded="TooltipProgress.Init()">
+		<Label id="TitleLabel" html="true" />
+		<Label id="TextLabel" html="true" />
+		<Panel class="left-right-flow full-width top-padding" >
+			<Label id="TextPercentage" html="true"/>
+			<Panel class="tooltip-progress-bar">
+				<Panel class="tooltip-progress-bar__bar full-width"/>
+				<Panel id="js-tooltip-progress-bar-inner" class="tooltip-progress-bar__bar--inner"/>
+			</Panel>
+		</Panel>
+	</TooltipTitleText>
+</root>

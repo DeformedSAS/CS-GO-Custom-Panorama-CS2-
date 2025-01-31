@@ -1,0 +1,64 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/characterlineup.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/characterlineup.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+	</scripts>
+
+
+	<snippets>
+
+		<snippet name="snippet_characters_player">
+
+
+			<Panel class="charlineup__player" hittest="false">
+				<ItemPreviewPanel id="id-charlineup__model-preview-panel" 
+								manifest="resource/ui/econ/EndOfMatchTeamCharacter.res"
+								item="models/player/custom_player/legacy/ctm_sas.mdl"
+								mouse_rotate="false" 
+								class="charlineup__model-preview-panel"
+								enable_floorshadow="true"
+								force-no-composition-layer="true"
+							hittest="false"
+								>
+									<Panel class="charlineup__player__guide"/>
+				</ItemPreviewPanel>
+
+				                                                   
+
+				<Panel id="id-charlineup__player__info" class="charlineup__player__info">
+
+						<Button id="id-charlineup__player__commend" class="hidden charlineup__player__commend">
+							<Image src="file://{images}/icons/ui/VoteReadyForMatch.svg" />
+						</Button>
+					<Panel class="charlineup__player__identity">	
+						<CSGOAvatarImage id="id-charlineup__player__avatar" class="charlineup__player__avatar" scaling='stretch-to-fit-y-preserve-aspect' />
+						<Label class="charlineup__player__name" text="{s:player_name}"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
+
+		</snippet>
+
+	</snippets>
+
+	<Panel class="" useglobalcontext="false">
+    
+		                                    
+			                                        
+		        
+   
+		<Panel id="id-charlineup__characters" class="charlineup__characters">
+
+				                                                                          
+				                                                              
+
+		</Panel>
+	</Panel>
+	
+</root>

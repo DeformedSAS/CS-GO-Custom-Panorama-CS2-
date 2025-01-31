@@ -1,0 +1,23 @@
+.triplemonitorbg
+{
+	height:100%;
+	width:33.333%;
+}
+
+.triplemonitorbg--left
+{
+	horizontal-align: left;
+
+	                         
+	background-image: url( "file://{images}/backgrounds/background_triple.png" );
+	background-size: 100% 100%;
+}
+
+.triplemonitorbg--right
+{
+	horizontal-align: right;
+
+	                        
+	background-image: url( "file://{images}/backgrounds/background_triple.png" );
+	background-size: 100% 100%;
+}

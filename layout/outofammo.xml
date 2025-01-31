@@ -1,0 +1,13 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/outofammo.css" />
+	</styles>
+
+	<CSGOOutOfAmmo class="OutOfAmmo">
+		<Panel class="OutOfAmmoBackdrop"/>
+		<Panel class="OutOfAmmoOverlay"/>
+	</CSGOOutOfAmmo>
+	
+</root>

@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+	</styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/tests/perf/perf_item_jscontext.js" />
+    </scripts>
+	
+	<Panel>
+        <Button class="PopupButton" onmouseover="PerfItemJsContext.OnMouseOver();" onmouseout="PerfItemJsContext.OnMouseOut();">
+            <Label id="buttonText" class="MonoNumbersFont"/>
+        </Button>
+	</Panel>
+</root>

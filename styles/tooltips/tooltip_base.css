@@ -1,0 +1,233 @@
+  
+                               
+
+                                                                           
+                                                            
+  
+
+#Contents
+{
+    background-color: rgba(15, 15, 15, 0.99);
+    padding: 16px;
+	border-radius: 5px;
+	box-shadow: #000000BB -4px -4px 8px 8px;
+}
+
+#LeftArrow, #RightArrow, #TopArrow, #BottomArrow
+{
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    
+                                                                      
+                                                                   
+                                     
+    z-index: 1;
+    
+                                
+    visibility: collapse;
+	
+    background-size: contain;
+}
+
+#LeftArrow, #RightArrow
+{
+                                                                      
+                                                               
+    width: 24px;
+    height: 24px;
+
+                                               
+    margin-top: 4px;
+    margin-bottom: 4px;
+	margin-right: 4px;
+}
+#LeftArrow
+{
+    background-image: url( "file://{images}/tooltips/tooltip_arrow_left.vtf" );
+    wash-color: #0D354A;
+	margin-right: -5px;
+}
+#RightArrow
+{
+    background-image: url( "file://{images}/tooltips/tooltip_arrow_right.vtf" );
+	wash-color: #0D354A;
+	margin-left: -2px;
+}
+
+#TopArrow, #BottomArrow
+{
+    width: 24px;
+    height: 21px;
+                        
+                         
+}
+#TopArrow
+{
+    background-image: url( "file://{images}/tooltips/tooltip_arrow_top.vtf" );
+	wash-color: #0D354A;
+	margin-bottom: -2px;
+}
+#BottomArrow
+{
+    background-image: url( "file://{images}/tooltips/tooltip_arrow_bottom.vtf" );
+	wash-color: #0D354A;
+	margin-top: -2px;
+}
+
+                                                                                                                
+.TooltipContainer.LeftArrowVisible #LeftArrow
+{
+    visibility: visible;
+    opacity: 0;
+}
+.TooltipContainer.RightArrowVisible #RightArrow
+{
+    visibility: visible;
+    opacity: 0;
+}
+.TooltipContainer.TopArrowVisible #TopArrow
+{
+    visibility: visible;
+    opacity: 0;
+}
+.TooltipContainer.BottomArrowVisible #BottomArrow
+{
+    visibility: visible;
+    opacity: 0;
+}
+
+.Tooltip_NoArrow.TooltipContainer.LeftArrowVisible #LeftArrow
+{
+    visibility: collapse;
+}
+.Tooltip_NoArrow.TooltipContainer.RightArrowVisible #RightArrow
+{
+    visibility: collapse;
+}
+.Tooltip_NoArrow.TooltipContainer.TopArrowVisible #TopArrow
+{
+    visibility: collapse;
+}
+.Tooltip_NoArrow.TooltipContainer.BottomArrowVisible #BottomArrow
+{
+    visibility: collapse;
+}
+
+                                                              
+                                                                            
+.TooltipContainer.LeftArrowVisible #Contents
+{
+    margin-left: 0px;
+    min-height: 40px;
+}
+.TooltipContainer.RightArrowVisible #Contents
+{
+    margin-right: 0px;
+    min-height: 40px;
+}
+.TooltipContainer.BottomArrowVisible #Contents
+{
+    margin-bottom: 0px;
+    min-width: 60px;
+}
+.TooltipContainer.TopArrowVisible #Contents
+{
+    margin-top: 0px;
+    min-width: 60px;
+}
+
+                                
+.TooltipContainer
+{
+    flow-children: down;
+
+    opacity: 0.0;
+
+    transition-property: opacity, pre-transform-scale2d;
+    transition-duration: 0.175s, 0.25s;
+}
+
+.TooltipContainer.TooltipVisible
+{
+    opacity: 1.0;
+    transition-delay: 0.0s;
+}
+
+#jsItemTooltip.TooltipContainer,
+.delayed-tooltip.TooltipContainer,
+{
+    transition-property: opacity, pre-transform-scale2d;
+    transition-duration: 0.1s, 0.1s;
+    transition-delay: 0.45s;
+}
+
+#jsItemTooltip.TooltipContainer.TooltipVisible,
+.delayed-tooltip.TooltipContainer.TooltipVisible,
+{
+    opacity: 1.0;
+
+    transition-duration: 0s, 0s;
+    transition-delay: 0.0s;
+}
+
+.TooltipRow
+{
+    flow-children: right;
+}
+
+.GameModeTooltip.RightArrowVisible #Contents
+{
+	width: 400px;
+	min-height: 60px;
+	background-color: #3e464b;
+    padding: 10px 10px 10px 15px;
+	                                      
+	                                               
+}
+
+.GameModeTooltip #RightArrow
+{
+    background-image: url( "file://{images}/tooltips/tooltip_arrow_right.vtf" );
+	wash-color: #3e464b;
+	margin-left: -1px;
+}
+
+.SettingsTooltip #Contents
+{
+	max-width: 584px;
+	min-width: 584px;
+	margin-top: 2px;
+}
+
+.SettingsTooltip #TopArrow
+{
+	width: 0px;
+	height: 0px;
+}
+
+.ShortTextTooltip #Contents
+{
+	background-color: #1e2d3d;
+	padding: 8px 10px 6px 10px;
+}
+
+.ShortTextTooltip #RightArrow
+{
+	margin-left: -1px;
+}
+
+.ShortTextTooltip #LeftArrow
+{
+	margin-right: -1px;
+}
+
+.ShortTextTooltip #BottomArrow
+{
+	margin-top: -1px;
+}
+
+.ShortTextTooltip #TopArrow
+{
+	margin-bottom: -1px;
+}
+

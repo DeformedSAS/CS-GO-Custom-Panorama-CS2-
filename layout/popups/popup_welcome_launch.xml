@@ -1,0 +1,25 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_welcome_launch.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_welcome_launch.js" />
+	</scripts>
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="" oncancel="WelcomeLaunch.OnCancelPressed()">
+		<Panel>
+			<Panel class="popup_welcome_bg" />
+			<Panel class="popup_welcome_fade" />
+			<Image class="popup_welcome_title" src="file://{images}/icons/ui/cs2_logo_stacked.svg" texturewidth="550" textureheight="-1" />
+			<Image class="popup_welcome_title2" src="file://{images}/icons/ui/csgologo.svg" texturewidth="550" textureheight="-1" />
+			<Label class="popup_welcome_body stratum-regular fontSize-l" text="#cs2go_welcome_message" />
+		</Panel>
+		<Panel class="PopupButtonRow">
+		    <TextButton class="PopupButton" text="DISCORD" onactivate="WelcomeLaunch.OnDiscordButtonPressed()" />
+		    <TextButton class="PopupButton" text="GITHUB" onactivate="WelcomeLaunch.OnGithubButtonPressed()" />
+			<TextButton class="PopupButton" text="#SFUI_Radio_Go" onactivate="WelcomeLaunch.OnOKPressed()" />
+		</Panel>
+	</PopupCustomLayout>
+</root>

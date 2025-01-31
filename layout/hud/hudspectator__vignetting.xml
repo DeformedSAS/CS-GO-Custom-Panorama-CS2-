@@ -1,0 +1,11 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/hud/hudspectator.css" />
+  </styles>
+
+  <Panel class="hud-spectator-bkg">
+    <Panel class="hud-spectator-bkg-TOP"/>
+    <Panel class="hud-spectator-bkg-BOT"/>
+  </Panel>
+</root>

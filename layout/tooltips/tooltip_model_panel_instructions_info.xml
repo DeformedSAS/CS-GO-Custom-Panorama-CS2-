@@ -1,0 +1,18 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_custom_test.css" />
+	</styles>
+
+	<Panel class="TestContents">
+		<Label text="Scene Panel - Debug Info Mode" />
+		<Label text="" />
+		<Label text="@panorama_3dpanel_debuginfo_X convars to turn elements on/off" />
+		<Label text="" />
+		<Label text="[ - previous scene context" />
+		<Label text="] - next scene context" />
+		<Label text="" />
+
+	</Panel>
+
+</root>

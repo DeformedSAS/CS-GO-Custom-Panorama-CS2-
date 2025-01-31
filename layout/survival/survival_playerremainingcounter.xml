@@ -1,0 +1,25 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/survival/survival_playerremainingcounter.css" />
+	</styles>
+
+	<CSGOSurvivalPlayerRemainingCounter class="playerremainingcounter">
+	
+		<Movie	class="playerremainingcounter-bg1"
+				id="SplatMovie"
+				src="file://{resources}/videos/splat.webm"
+				controls="none" 
+				repeat="false"
+				hittest="false">
+		</Movie>
+		
+		<Panel id="CounterContainer" class="playerremainingcounter-container">
+			<Label class="playerremainingcounter-counter cl-hud-wash-color" text="{d:players-remaining}" />
+			<Label id="RemainText" class="playerremainingcounter-playersremain cl-hud-wash-color" text="#SFUI_PlayerCount_Alive" />
+		</Panel>
+	
+	</CSGOSurvivalPlayerRemainingCounter>
+	
+</root>

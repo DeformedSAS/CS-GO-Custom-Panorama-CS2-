@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/endofmatch.css" />
+		<include src="file://{resources}/styles/endofmatch-skillgroup.css" />
+		<include src="file://{resources}/styles/endofmatch-win.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-win.js" />
+		<include src="file://{resources}/scripts/common/gamerules_constants.js" />
+	</scripts>
+
+                                                                                   
+                                                                                  
+	<snippets>
+		<snippet name="PlayerWinner">
+			<Panel class="left-right-flow horizontal-center">
+				<Frame id="WinPlayersAvatar" class='' src="file://{resources}/layout/avatar.xml" />
+				<Panel class="top-bottom-flow vertical-center left-right-padding">
+					<Label id="WinPlacement" class="eom-win__player_title stratum-font" text="#SFUI_WinPanel_arsenal_first"/>
+					<Label id="WinPlayerName" class="eom-win__player_name" html="true" text="{s:winner_name}"/>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="eom-win" useglobalcontext="true">
+		<Panel id='WinTeam' class="full-width full-height">
+			<Label id="WinTeamBackgroundText" class="eom-win__text-background stratum-font" text="{s:win-result}"/>
+
+			<Label id="WinTeamName" class="eom-win__text" text="{s:teamname}"/>
+		</Panel>
+
+		<Panel id='WinPlayers' class="full-width full-height top-padding-medium top-bottom-flow hidden">
+			                                   
+		</Panel>
+	</Panel>
+</root>

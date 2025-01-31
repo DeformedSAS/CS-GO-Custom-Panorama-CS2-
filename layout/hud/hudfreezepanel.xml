@@ -1,0 +1,94 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudfreezepanel.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/hud/hudfreezepanel.js" />
+	</scripts>
+
+	<CSGOHudFreezePanel class="FreezePanelRoot" hittest="false" hittestchildren="false">
+		                                     
+		<Panel id="FreezePanel" class="FreezePanel overflow-noclip">
+			<Panel class="left-right-flow overflow-noclip">
+				<Panel class="FreezePanel__Content overflow-noclip">
+					<Panel class="FreezePanel__BG" />
+					<Panel class="top-bottom-flow full-width overflow-noclip">
+						<Label id="MedalText" class="FreezePanel__MedalText" html="true" />
+						<Panel class="full-width overflow-noclip">
+							<Panel class="FreezePanel__FillBG" />
+							<Panel class="left-right-flow full-width overflow-noclip">
+								<Panel class="overflow-noclip">
+									<Panel class="FreezePanel_AvatarBG" />
+									<Image id="AvatarDefaultT" class="FreezePanel__Avatar" src="file://{images}/hud/freezepanel/default_T_42_alt.png" scaling="stretch-to-cover-preserve-aspect" />
+									<Image id="AvatarDefaultCT" class="FreezePanel__Avatar" src="file://{images}/hud/freezepanel/default_CT_42_alt.png" scaling="stretch-to-cover-preserve-aspect" />
+									<CSGOAvatarImage id="Avatar" class="FreezePanel__Avatar" scaling="stretch-to-cover-preserve-aspect" />
+									<ProgressBar id="AvatarHealthBar" class="FreezePanel__AvatarHealthBar" />
+									<Image id="AvatarFlair" class="FreezePanel__AvatarFlair" />
+									<Image id="PlayerAvatarSkillGroup" 
+										class="FreezePanel__AvatarSkillGroup FreezePanel__AvatarSkillGroup--Hidden" 
+										textureheight="-1" 
+										texturewidth="64" 
+										src="file://{images}/icons/skillgroups/skillgroup_expired.svg" />
+								</Panel>
+								<Panel class="top-bottom-flow vertical-center" style="width: fill-parent-flow( 1.0 );">
+									<Panel class="full-width">
+										<Label class="FreezePanel__Name" html="true" text="{s:killer_name}" />
+										<Image class="FreezePanel__DominationIcon FreezePanel__DominationIcon--Nemesis" src="file://{images}/hud/freezepanel/icon-dominated.png" scaling="stretch-to-fit-preserve-aspect" />
+										<Image class="FreezePanel__DominationIcon FreezePanel__DominationIcon--Revenge" src="file://{images}/hud/freezepanel/icon-domination-break.png" scaling="stretch-to-fit-preserve-aspect" />
+									</Panel>
+									<Label id="DescriptionText" class="FreezePanel__Desc" html="true" />
+								</Panel>
+							</Panel>
+						</Panel>
+						<Label id="DamageTaken" class="FreezePanel__Damage" html="true" />
+						<Label id="DamageGiven" class="FreezePanel__Damage" html="true" />
+					</Panel>
+				</Panel>
+				<Panel id="ItemContainer" class="FreezePanel__ItemContainer">
+					<Image id="WeaponImage" class="FreezePanel__Item" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+			</Panel>
+			<Panel class="left-right-flow">
+				<Label id="NavigationCancel" class="FreezePanel__Navigation" text="#Panorama_Freeze_Cancel_Replay" html="true" />
+				<Label id="NavigationSnapshot" class="FreezePanel__Navigation" text="#Panorama_Freeze_Snapshot" html="true" />
+				<Label id="NavigationReplay" class="FreezePanel__Navigation" html="true" text="#Panorama_HUD_Spectate_Navigation_Replay_Death" />
+				<Label id="SurvivalEndOfMatch" class="FreezePanel__SurvivalEndOfMatch" html="true" text="#Panorama_SurvivalEndOfMatch_ShowStats" />
+			</Panel>
+		</Panel>
+
+		                                       
+		<Panel id="FreezePanelSS" class="FreezePanelSS overflow-noclip">
+			<Panel class="FreezePanelSS__Logo">
+				<Image class="FreezePanelSS__LogoImage" src="file://{images}/hud/freezepanel/logo.png" />
+			</Panel>
+			<Panel class="left-right-flow overflow-noclip">
+				<Panel class="FreezePanelSS__Content overflow-noclip">
+					<Panel class="FreezePanelSS__BG" />
+					<Panel class="FreezePanelSS__ContentPadding overflow-noclip">
+						<Label id="MedalTextSS" class="FreezePanelSS__MedalText" html="true" />
+						<Panel class="left-right-flow horizontal-align-right overflow-noclip">
+							<Label class="FreezePanelSS__Name" html="true" text="{s:killer_name}" />
+							<Panel class="overflow-noclip">
+								<Panel class="FreezePanel_AvatarBG FreezePanel_AvatarBG--SS" />
+								<Image id="AvatarDefaultTSS" class="FreezePanel__Avatar FreezePanel__Avatar--SS" src="file://{images}/hud/freezepanel/default_T_42_alt.png" scaling="stretch-to-cover-preserve-aspect" />
+								<Image id="AvatarDefaultCTSS" class="FreezePanel__Avatar FreezePanel__Avatar--SS" src="file://{images}/hud/freezepanel/default_CT_42_alt.png" scaling="stretch-to-cover-preserve-aspect" />
+								<CSGOAvatarImage id="AvatarSS" class="FreezePanel__Avatar FreezePanel__Avatar--SS" scaling="stretch-to-cover-preserve-aspect" />
+								<ProgressBar id="AvatarHealthBarSS" class="FreezePanel__AvatarHealthBar FreezePanel__AvatarHealthBar--SS" />
+								<Image id="AvatarFlairSS" class="FreezePanel__AvatarFlair FreezePanel__AvatarFlair--SS" />
+							</Panel>
+						</Panel>
+						<Label id="DescriptionTextSS" class="FreezePanelSS__Desc" html="true" />
+					</Panel>
+				</Panel>
+				<Panel id="ItemContainerSS" class="FreezePanel__ItemContainer FreezePanel__ItemContainer--SS">
+					<Image id="WeaponImageSS" class="FreezePanel__Item" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+			</Panel>
+		</Panel>
+
+		                     
+		<Label id="FreezeCancel" class="FreezeCancel" text="#Panorama_Freeze_Cancel_Start_Replay" html="true" />
+	</CSGOHudFreezePanel>
+</root>

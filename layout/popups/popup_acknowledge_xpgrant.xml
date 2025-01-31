@@ -1,0 +1,36 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_acknowledge_xpgrant.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_acknowledge_xpgrant.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+	</scripts>
+
+	<PopupCustomLayout class="Dark PopupPanel Hidden popup-acknowledge"
+						useglobalcontext="true"
+						popupbackground="dim"
+						onload="AcknowledgeXpGrant.OnLoad();"
+						>
+		<Panel id="AcknowledgeMovie" class="popup-acknowledge__bg"/>
+		<Panel id="AcknowledgeBar" class="popup__rarity-bar" />
+		<Label id="AcknowledgeItemTitle"  class="popup-acknowledge__info__title" text="#CSGO_tool_xpgrant_title" />
+		<Panel id="JsPlayerXp" class="player-card-xp player-card-border">
+				<Image id="JsPlayerXpIcon"
+						style="tooltip-position: bottom;"
+						class="player-card-xp__icon " src=""/>
+				<Label id="JsPlayerRankName"
+						class="player-card__text-subtitle"
+						text="#XP_RankName_Display" />
+		</Panel>
+		<Panel class="PopupButtonRow vertical-align-bottom">
+			<TextButton id="AcknowledgeItemBtn"
+						class="PopupButton"
+						text="#ConfirmButtonText"
+						onactivate="AcknowledgeXpGrant.OnActivate();"/>
+		</Panel>
+	</PopupCustomLayout>
+</root>

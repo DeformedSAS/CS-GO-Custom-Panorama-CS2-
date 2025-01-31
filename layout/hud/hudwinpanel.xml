@@ -1,0 +1,298 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudwinpanel.css" />
+		<include src="file://{resources}/styles/hud/hudwinpanel_roundimpactscore.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/survival/survival_winner.js" />
+		<include src="file://{resources}/scripts/avatar.js" />
+		<include src="file://{resources}/scripts/digitpanel.js" />
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/common/scheduler.js" />
+		<include src="file://{resources}/scripts/common/teamcolor.js" />
+		<include src="file://{resources}/scripts/hud/hudwinpanel.js" />
+	</scripts>
+
+
+	<snippets>
+		<snippet name="snippet-event">
+			<Panel class="ris-event" acceptsinput="false">
+
+				<Panel id="EventMain" class="event__main prereveal">
+					<Panel id="EventBG" class="event--bg" />
+					<CSGOAvatarImage id="Avatar" class="event__avatar">
+						<Image id="JsAvatarTeamColor" class="event__teamcolor" src="file://{images}/icons/ui/teamcolor.svg" texturewidth="32" textureheight="-1"/>
+					</CSGOAvatarImage>
+
+					<Image id="EventIcon" class="event__icon" src=""/>
+				</Panel>
+				<Panel id="EventChance" class="event__chance prereveal" >
+					<Label id="EventChanceNumber" class="event__chance__abs" text="{s:chance}" />
+				</Panel>
+				<Image id="Death" class="event__death prereveal" src="file://{images}/icons/ui/elimination.svg"/>
+
+
+
+			</Panel>
+		</snippet>
+
+		<snippet name="snippet-damage">
+			<Panel class="ris-damage prereveal" acceptsinput="false">
+				<Panel id="DamageGiven" class="ris-dmg ris-dmg--given">
+					<Panel class="ris-dmg__value">
+						                                                                                            
+						<Label text="{s:health_removed}" />	
+					</Panel>
+					<Label class="ris-dmg__hits" text="#ris_hits" />		
+				</Panel>
+				<Panel id="DamageTaken" class="ris-dmg ris-dmg--taken">
+					<Panel class="ris-dmg__value">
+						                                                                                            
+						<Label text="{s:health_removed}" />	
+					</Panel>
+					<Label class="ris-dmg__hits" text="#ris_hits" />				
+				</Panel>
+			</Panel>
+		</snippet>	
+
+		<snippet name="snippet-starting-odds">
+			<Panel class="ris-starting-odds" >
+				<Label id="" class="starting-odds__abs" text="{s:starting_chance}" />
+				<Panel class="ris-starting-odds__dot" acceptsinput="false">
+					<Panel class="ris-starting-odds__dot--bg team-colorize"/>
+					<Label text="$" />
+				</Panel>
+			</Panel>
+		</snippet>			
+
+	</snippets>
+
+	<CSGOHudWinPanel class="WinPanelRoot" hittest="false" hittestchildren="false">
+
+
+		                                  
+		<Panel id="RoundImpactScoreReport" class="winpanelrow--ris hidden" >
+
+			<Panel id="RoundImpactScoreMain" class="ris__main hidden">
+
+				            
+				<Panel class="ris__top" >
+					<Image class="ris__top__logo" src="file://{images}/icons/ui/stats_logo.svg" texturewidth="32" textureheight="32"/>
+					<Image id="RisTeamLogo" class="ris__top__logo perma-hide" />
+					<Label class="ris__top__title" text="#ris_team-title"/>
+				</Panel>
+
+				               
+				<Panel id="RISCenter" class="ris__center">
+					<Panel class="ris__center__graph--bg ">
+						<Panel id="" class="ris__center__graph--bg__margin " />
+						<Panel id="GraphGuides" class="top-bottom-flow full-height">
+							<Panel class="ris__center__graph--bg__interval " />
+							<Panel class="ris__center__graph--bg__interval " />	
+						</Panel>
+						<Panel id="LivingBG" class="ris__center__graph--bg__living " />	
+					</Panel>
+					<Panel class="ris__center__graph">
+						<UICanvas id="RisCanvas"/>
+						<Panel id="RisPlotContainer">
+								                                           
+						</Panel>
+					</Panel>
+				</Panel>
+
+				               
+				<Panel class="ris__bottom">
+					<Panel class="ris__bottom--bg  " />
+					<Panel id="DamageContainer" class="ris__bottom__damage-container">
+						                                           
+					</Panel>
+				</Panel>
+
+			</Panel>
+
+			<Panel id="WinnerPanel" class="ris__winner-plaque" >
+				<Panel id="WinnerPlaqueBG" class="ris__winner-plaque--bg"/>
+				<Label class="winner-plaque__wins" text="#ris_wins"/>
+				<Image id="RISWinningTeamLogo" class="winner-plaque__logo team-colorize" />
+			</Panel>
+
+			<Panel id="RISMVPPanel" class="ris__mvp-root prereveal" >
+				<Panel id="MVP-BG" class="ris__mvp__avatar__bg"/>
+				<Image class="ris__mvp__avatar__bg__star"  src="file://{images}/icons/ui/star.svg" texturewidth="100px" textureheight="-1" scaling="stretch-to-fit-preserve-aspect"/>
+				<Panel class="full-height horizontal-center">
+					<Image class="ris__mvp__star"  src="file://{images}/icons/ui/star.svg" scaling="stretch-to-fit-preserve-aspect"/>
+
+					<Panel id="AvatarContainer" class="ris__mvp__avatar">
+						<CSGOAvatarImage id="RISMVPAvatar" class="ris__mvp__avatar__picture" />
+						<Image id="JsAvatarFlair" class="ris__mvp__avatar__flair" src="" scaling="stretch-to-fit-preserve-aspect"/>
+					</Panel>
+
+					<Panel class="top-bottom-flow ris__mvp__text-container">
+						<Label text="{s:mvp_name_and_reason}"/>
+
+						<Panel id="RIS_MVPMusicKit" class="MVP__MusicKit">
+							<Image id="RIS_MVPMusicKitIcon" class="MVP__MusicKitIcon perma-hide" scaling="stretch-to-fit-preserve-aspect" />
+							<Label id="RIS_MVPMusicKitName" class="MVP__MusicKitText MVP__MusicKitName" text="XXXXX XXX XXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+							<Label id="RIS_MVPMusicKitStatTrak" class="MVP__MusicKitText MVP__MusicKitText--Bold" text="#SFUI_WinPanel_Playing_MVP_MusicKit_StatTrak" />
+							<Label id="RIS_MVPMusicKitInfo" class="MVP__MusicKitInfoText" text="XXXXX XXX XXXX" />
+
+						</Panel>		
+					</Panel>
+				</Panel>
+			</Panel>
+
+		</Panel>
+
+		<Panel class="WinPanelFadeParent">
+
+			                          
+			<Panel id="id-survival-winpanel" class="survival-winner-container">
+				<Panel id="id-survivor_winner-ring" class="survival-winner__ring"/>
+				<Panel id="id-survival-winner" class="survival-winner">
+					<Image id="id-survival-border-1" class="" src="file://{images}/survival/winpanel/gold_spikes.svg" textureheight="500" texturewidth="-1" />
+					<Image id="id-survival-border-2" class="" src="file://{images}/survival/winpanel/silver_spikes.svg" textureheight="500" texturewidth="-1" />
+					<Image id="id-survival-border-3" class="" src="file://{images}/survival/winpanel/bronze_spikes.svg" textureheight="500" texturewidth="-1" />
+					<Image id="id-survival-border-4" class="" src="file://{images}/survival/winpanel/red_spikes.svg" textureheight="500" texturewidth="-1" />
+
+					<Movie id="id-survival-movie" class="survival-winner__movie" src="file://{resources}/videos/survival_winner.webm" controls="none" repeat="false" autoplay="onload" />
+
+					<Panel class="survival-winner__data">
+						<Panel id="id-survival-avatar-container" class="horizontal-center">
+							<Panel class="survival-winner__avatar-bg"/>
+							<CSGOAvatarImage id="id-survival-avatar" class="survival-winner__avatar"/>
+						</Panel>
+						<Label id="id-survival-playername"  class="survival-winner__text-small stratum-font" text="#Panorama_winpanel_mvp_winner"/>
+						<Label id="id-survival-placement" class="survival-winner__text-large stratum-font" text="#EOM_PositionPlace_1"/>
+					</Panel>
+				</Panel>
+			</Panel>
+			
+			                       
+			<Panel id="WinPanelRow" class="WinPanelRow WinPanelRow--Main">
+				<Panel class="WinPanelTeam">
+					<Panel class="TeamBG">
+						                                   
+							<Panel class="TeamBG__MainBG" />
+							<Panel class="TeamBG__hrTop" />
+							<Panel class="TeamBG__TitleBG" />
+							<Panel class="TeamBG__hrMid" />
+							<Panel class="TeamBG__hrBot" />
+							<Panel id="TeamLogoDefault" class="TeamBG__DefaultLogo" />
+							<Image id="TeamLogo" class="TeamBG__TeamLogo hidden" scaling="stretch-to-fit-preserve-aspect" />
+							<ItemPreviewPanel 	id=""
+									class="TeamBG__TeamModel"
+									manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+									item="models/inventory_items/scoreboard_logos/logo_ct.mdl"
+									mouse_rotate="false"/>
+						             
+					</Panel>
+					<Panel class="TeamFG">
+						<Label id="Title" class="TeamFG__Title" />
+						<Label id="Surrender" class="TeamFG__Surrender" />
+					</Panel>
+				</Panel>
+				<Panel class="WinPanelGunGame">
+					<Panel class="GunGameBG">
+						                                      
+							<Panel class="GunGameBG__MainBG" />
+							<Panel class="GunGameBG__TitleBG" />
+						             
+					</Panel>
+					<Panel class="GunGameFG">
+						<Label class="GunGameFG__Title" text="#SFUI_WinPanel_arsenal_first" />
+					</Panel>
+				</Panel>
+				
+				<Panel class="MVP_content">
+					<Panel id="MVP" class="MVP">	
+				
+						                                
+							<Panel class="MVP__Winner">
+								<CSGOAvatarImage id="MVPAvatar" class="MVP__Avatar"/>
+								<Image class="MVP__WinnerStar" src="file://{images}/icons/ui/star.svg" scaling="stretch-to-fit-preserve-aspect" />
+								<Label id="MVPWinnerName" class="MVP__WinnerName" html="true" text="{s:mvp_name_and_reason}"/>
+							</Panel>
+							<Panel id="MVPMusicKit" class="MVP__MusicKit">
+								<Image id="MVPMusicKitIcon" class="MVP__MusicKitIcon" scaling="stretch-to-fit-preserve-aspect" />
+								<Label id="MVPMusicKitName" class="MVP__MusicKitText MVP__MusicKitName" text="XXXXX XXX XXXX XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+								<Label id="MVPMusicKitStatTrak" class="MVP__MusicKitText MVP__MusicKitText--Bold" text="#SFUI_WinPanel_Playing_MVP_MusicKit_StatTrak" />
+								
+								                                                                                                     
+								<Label id="MVPMusicKitInfo" class="MVP__MusicKitInfoText" text="XXXXX XXX XXXX" />
+								                                         
+								<Panel id="MVPMusicKitAnim" class="MVP__MusicKitAnim">	
+								</Panel>
+							</Panel>
+						             
+						<Panel class="MVP__Layout MVP__Layout--Right">
+							<Panel id="MVPGunGameAvatars" class="MVP__GunGameAvatars">
+								<Label class="MVP__AvatarText" text="#SFUI_WinPanel_arsenal_second" />
+								<CSGOAvatarImage id="MVPAvatar2nd" class="MVP__Avatar MVP__Avatar--ExtraMargin"/>
+								<Label class="MVP__AvatarText" text="#SFUI_WinPanel_arsenal_third" />
+								<CSGOAvatarImage id="MVPAvatar3rd" class="MVP__Avatar MVP__Avatar--ExtraMargin"/>
+							</Panel>
+						</Panel>
+
+					</Panel>
+				</Panel>
+
+			</Panel>
+
+			                  
+			<Panel id="Funfact" class="WinPanelRow">
+				<Label id="FunFactText" class="WinPanelRow__Title WinPanelRow__Title--Bold" html="true" />
+			</Panel>
+
+			                 
+			<Panel id="Progress" class="WinPanelRow">
+				<Label class="WinPanelRow__Title" text="#SFUI_WinPanelProg_need_in_catagory" html="true" />
+			</Panel>
+
+			                              
+			<Panel id="Medals" class="WinPanelRow WinPanelRow--FlowDown">
+				<Label class="WinPanelRow__Title WinPanelRow__Title--Bold" text="#SFUI_WinPanel_medal_awarded" />
+				<Panel class="WinPanelRow__Body">
+					<Panel id="MedalsContainer" class="Medals">
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+						<Image class="Medals__Icon" scaling="stretch-to-fit-preserve-aspect" />
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                    
+			<Panel id="MedalStats" class="WinPanelRow">
+				<Panel class="MedalStats">
+					<Image id="MedalStatsIcon" class="MedalStats__Icon" scaling="stretch-to-fit-preserve-aspect" />
+					<Label id="MedalStatsText" class="MedalStats__Text" />
+				</Panel>
+			</Panel>
+
+			                      
+			<Panel id="RankUp" class="WinPanelRow WinPanelRow--FlowDown RankUp">
+				<Label class="RankUp__Text RankUp__Text--Bold RankUp__Text--SingleRank" text="#SFUI_WinPanel_rank_awarded" />
+				<Label class="RankUp__Text RankUp__Text--Bold RankUp__Text--Coin" text="#SFUI_WinPanel_coin_awarded" />
+				<Label class="RankUp__Text RankUp__Text--Bold RankUp__Text--MultiRank" text="#Panorama_WinPanel_rank_awarded_multi" />
+				<Label class="RankUp__Text RankUp__Text--Show" html="true" text="#Panorama_WinPanel_rank_name_string" />
+			</Panel>
+
+			                            
+			<Panel id="GunGameExtra" class="WinPanelRow WinPanelRow--FlowDown GunGameExtra">
+				<Panel class="GunGameExtra__Center">
+					<Label id="GunGameExtraTitle" class="GunGameExtra__Text" />
+					<Label id="GunGameExtraWeaponName" class="GunGameExtra__Text GunGameExtra__Text--Bold" />
+				</Panel>
+				<Panel class="GunGameExtra__Center">
+					<Image id="GunGameExtraWeaponIcon" class="GunGameExtra__Icon" />
+					<Image id="GunGameExtraGrenadeIcon" class="GunGameExtra__Icon" />
+				</Panel>
+			</Panel>
+		</Panel>
+
+	</CSGOHudWinPanel>
+</root>

@@ -1,0 +1,98 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_leaderboards.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_leaderboards.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name='leaderboard-entry'>
+			<Panel class="popup-leaderboard__list__row">
+				<Panel class="popup-leaderboard__list__column ">
+					<Panel class="popup-leaderboard__name-entry">
+						<Label id="popup-leaderboard-entry-position" text="" class="popup-leaderboard__list__column__title position"/>
+						<CSGOAvatarImage id="popup-leaderboard-entry-avatar" class="popup-leaderboard__name-entry__avatar"/>
+						<Label id="popup-leaderboard-entry-name" text="" class="popup-leaderboard__list__column__title"/>
+					</Panel>
+				</Panel>
+
+				<Panel  class="popup-leaderboard__list__column points">
+					<Label id="popup-leaderboard-entry-points" text=" " class="popup-leaderboard__list__column__title"/>
+				</Panel>
+
+				<Panel  class="popup-leaderboard__list__column rank" >
+					<Label id="popup-leaderboard-entry-rank" text=" " class="popup-leaderboard__list__column__title"/>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name='leaderboard-tab'>
+			<RadioButton group="LeaderboardNavBar">
+				<Label id="leaderboard-tab-label"/>
+			</RadioButton>
+		</snippet>
+	</snippets>
+
+	<PopupCustomLayout class="PopupPanel Hidden"
+						useglobalcontext="true"
+						popupbackground="dim"
+						onload="PopupLeaderboards.Init();"
+						oncancel="PopupLeaderboards.Close();">
+		<Panel class="popup-leaderboard-title-bar">	
+			<Label html="true" id="id-popup-leaderboard-title" class="PopupTitle" text="" />
+			<Button id="id-popup-leaderboard-refresh-button" class="IconButton" >
+				<Image src = "file://{images}/icons/ui/refresh.svg"/>
+			</Button>
+		</Panel>
+
+		<Panel class="popup-leaderboard__contents">
+			<Panel id="id-popup-leaderboard-navbar" class="content-navbar content-navbar--short hidden">
+				<Panel id="id-popup-leaderboard-tabs" class="content-navbar__tabs">
+					                      
+				</Panel>
+			</Panel>
+
+			<Panel id="id-popup-leaderboard-loading" class="popup-leaderboard__status hidden">
+				<Panel class="horizontal-center vertical-center top-bottom-flow" >
+					<Panel class="Spinner horizontal-center vertical-center"/>
+					<Label class="PopupMessage" text="#CSGO_Operation_Leaderboard_Loading" html="false" />
+				</Panel>
+			</Panel>
+
+			<Panel id="id-popup-leaderboard-nodata" class="popup-leaderboard__status hidden">
+				<Panel class="horizontal-center vertical-center top-bottom-flow" >
+					<Image texturewidth="48" textureheight="48" src="file://{images}/icons/ui/info.svg" class="horizontal-center vertical-center" />
+					<Label class="PopupMessage" text="#CSGO_Operation_Leaderboard_NoPicksLoaded" html="false" />
+				</Panel>
+			</Panel>
+
+			<Panel id="id-popup-leaderboard-list" class="popup-leaderboard__list hidden">
+				<Panel class="popup-leaderboard__list__row">
+					<Panel  class="popup-leaderboard__list__column">
+						<Label text="#CSGO_Operation_Leaderboard_Pickem_Friends" class="popup-leaderboard__list__column__title faded"/>
+					</Panel>
+
+					<Panel  class="popup-leaderboard__list__column points">
+						<Label id="id-list-column-header-points" text="#CSGO_Operation_Leaderboard_Pickem_Points" class="popup-leaderboard__list__column__title faded"/>
+					</Panel>
+
+					<Panel  class="popup-leaderboard__list__column rank" >
+						<Label text="#CSGO_Operation_Leaderboard_Pickem_Percent" class="popup-leaderboard__list__column__title faded"/>
+					</Panel>
+				</Panel>
+
+				<Panel id="id-popup-leaderboard-entries" class="popup-leaderboard__entries-container">
+					                         
+				</Panel>
+			</Panel>
+			
+		</Panel>
+			<Panel class="PopupButtonRow">
+				<TextButton class="PopupButton" text="#GameUI_Close" onactivate="UIPopupButtonClicked()" />
+			</Panel>
+	</PopupCustomLayout>
+</root>

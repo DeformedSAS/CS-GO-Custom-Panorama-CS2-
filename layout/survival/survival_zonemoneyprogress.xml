@@ -1,0 +1,12 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/survival/survival_zonemoneyprogress.css" />
+	</styles>
+
+	<CSGOSurvivalZoneMoneyProgress class="zoneprogress">
+		<Panel id="Progress" class="zoneprogress__bar"/>
+	</CSGOSurvivalZoneMoneyProgress>
+	
+</root>

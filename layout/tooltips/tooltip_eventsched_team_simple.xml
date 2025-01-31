@@ -1,0 +1,36 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tooltips/tooltip_eventsched_team.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/watch_events_debug.js" />
+		<include src="file://{resources}/scripts/tooltips/tooltip_eventsched_team.js" />
+	</scripts>
+	
+	<snippets>
+
+	<snippet name="snippet-estt-player">
+		<Panel class="estt-player top-bottom-flow">
+			<Label class="estt-player__name stratum-font" text="{s:esttplayer-name}" />
+		</Panel>
+	</snippet>
+
+	</snippets>
+
+
+	<Panel useglobalcontext="false" ontooltiploaded="EventschedTeamTooltip.Init()">
+
+		<Panel class="top-bottom-flow estt-root estt-simple">
+			<Panel class="estt-header">
+				<Label allowrawtext="true" class="stratum-font estt-header__team-name" text="{s:eventsched-tt-teamname}" />
+			</Panel>
+			<Panel id="id-estt-lineup-container" class="estt-lineup top-bottom-flow">
+				                                                            
+			</Panel>
+		</Panel>
+
+	</Panel>
+</root>

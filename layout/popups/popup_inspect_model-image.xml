@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/popups/popup_inventory_inspect.css" />
+		<include src="file://{resources}/styles/popups/popup_capability_shared.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_inspect_model-image.js" />
+		<include src="file://{resources}/scripts/common/charwpninspect.js" />
+		<include src="file://{resources}/scripts/common/tint_spray_icon.js" />
+	</scripts>
+
+
+	<Panel class="full-width full-height" useglobalcontext="true">
+		<Panel id="InspectModelContainer" class="popup-inspect-modelpanel" >
+			<ItemPreviewPanel id="InspectItemModel"
+							class="full-width full-height hidden"
+							manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+							item=""
+							mouse_rotate="true"
+							enable_floorshadow="true"
+							sound="weapon"/>
+			<ItemImage id="InspectItemImage" large="true" class="popup-inspect-image hidden"/>
+		</Panel>
+		<Panel id="InspectModelCharContainer" class="popup-inspect-modelpanel popup-inspect-modelpanel--char hidden">
+			<ItemPreviewPanel id="InspectModelChar"
+							class="full-width full-height"
+							manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+							item="models/player/custom_player/legacy/ctm_sas.mdl"
+							enable_floorshadow="true"
+							mouse_rotate="true"/>
+		</Panel>
+	</Panel>
+</root>

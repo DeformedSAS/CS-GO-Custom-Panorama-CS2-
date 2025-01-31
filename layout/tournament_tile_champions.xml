@@ -1,0 +1,36 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/tournament_tile_champions.css" />
+	</styles>
+
+	<scripts>
+	</scripts>
+	
+	<snippets>
+
+		<snippet name="snippet-estt-player">
+			<Panel class="estt-player top-bottom-flow">
+				<Image id="id-estt-player__photo" class="estt-player__photo" />
+				<Label class="estt-player__name stratum-font" text="{s:esttplayer-name}" />
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+
+	<Panel class="frame-root">
+		<CSGOBlurTarget class="estt-blurbackground">
+			<Image id="id-estt-blur" class="full-width full-height" />
+		</CSGOBlurTarget>
+
+		<Panel class="estt-root">
+			<Panel id="id-estt-lineup-container" class="estt-lineup">
+				                                                            
+			</Panel>
+			<Image id="id-estt-header__team-logo" />
+
+		</Panel>
+
+	</Panel>
+</root>

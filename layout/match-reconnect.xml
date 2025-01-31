@@ -1,0 +1,25 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/match-reconnect.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/match-reconnect.js" />
+	</scripts>
+
+	<Panel useglobalcontext="true" class="match-status-reconnect hidden">
+		<Panel id="" class="MainMenuModeOnly match-status-ongoingmatch-container">
+            <Panel class="match-status-ongoingmatch-message">
+				<Label class="match-status-ongoingmatch--subtitle" text="#SFUI_MainMenu_Reconnect_Info"/>
+			</Panel>
+            
+            <Panel class="left-right-flow vertical-center">
+				<TextButton id="MatchmakingReconnect" class="PopupButton vertical-center Positive match-status-ongoingmatch-reconnect" text="#SFUI_MainMenu_Reconnect" />
+				<TextButton id="MatchmakingAbandon" class="PopupButton vertical-center" text="#SFUI_MainMenu_Abandon" />
+			</Panel>
+
+		</Panel>
+	</Panel>
+</root> 

@@ -1,0 +1,27 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_custom.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_activate_mission.js" />
+		<include src="file://{resources}/scripts/util_gamemodeflags.js" />
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="SetupPopup()">
+		<Label class="PopupTitle" text="#op_mission_activate_title" />
+
+		<Label class="PopupMessage" text="{s:message}" />
+
+		                                                                                                     
+		<Panel id="Spinner" class="Spinner" />
+
+
+		<Panel class="PopupButtonRow">
+			                                                                                
+                                                                                                         
+		</Panel>
+	
+	</PopupCustomLayout>
+</root>

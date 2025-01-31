@@ -1,0 +1,186 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+    <include src="file://{resources}/styles/tests/paneldebug.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/mainmenu_tests.js" />
+	</scripts>
+
+	<Panel class="mainmenu-content__container" hittest="false">
+		<Panel class="content-navbar">
+			<Panel class="content-navbar__tabs">
+
+				<RadioButton selected="false" group="tests" onactivate="PanelTypeTab('CSGOWeaponSelectionView', 'square')" >
+					<Label allowrawtext="true" text="WeaponSelection"/>
+				</RadioButton>
+
+				<RadioButton selected="false" group="tests" onactivate="PanelTypeTab('CSGODemolitionProgressionView', 'wide')" >
+						<Label text="DemolitionProgress"/>
+				</RadioButton>
+
+				<RadioButton selected="false" group="tests" onactivate="PanelTypeTab('CSGOTeamSelectMenu', 'max')" >
+					<Label allowrawtext="true" text="TeamSelect"/>
+				</RadioButton>
+
+				<RadioButton selected="false" group="tests" onactivate="PanelTypeTab('CSGOHudVote')" >
+					<Label allowrawtext="true" text="Vote"/>
+				</RadioButton>
+            
+                                                                                       
+					                       
+				              
+           
+				<RadioButton selected="false" group="tests" onactivate="LayoutTab('anim')" >
+					<Label allowrawtext="true" text="Anim"/>
+				</RadioButton>
+
+				<RadioButton selected="false" group="tests" onactivate="PanelTypeTab('CSGOEndOfMatch', 'max'); $.DispatchEvent( 'DbgTestEndOfMatch' )" >
+					<Label text="EndOfMatch"/>
+				</RadioButton>
+
+				<RadioButton selected="false" group="tests" onactivate="LayoutTab('CSGOVersus', 'file://{resources}/layout/tests/endofmatch_test.xml')" >
+					<Label allowrawtext="true" text="Vs 5T"/>
+				</RadioButton>
+				
+				<RadioButton selected="false" group="tests" onactivate="LayoutTab('CSGOVersus', 'file://{resources}/layout/versus.xml'); $.DispatchEvent( 'ShowVersusScreen', 'vs5ct' )" >
+					<Label allowrawtext="true" text="Vs 5CT"/>
+				</RadioButton>
+
+				<RadioButton selected="false" group="tests" onactivate="LayoutTab('CSGOVersus', 'file://{resources}/layout/versus.xml'); $.DispatchEvent( 'ShowVersusScreen', 'vs2t' )" >
+					<Label allowrawtext="true" text="Vs 2T"/>
+				</RadioButton>
+				
+				<RadioButton selected="false" group="tests" onactivate="LayoutTab('CSGOVersus', 'file://{resources}/layout/versus.xml'); $.DispatchEvent( 'ShowVersusScreen', 'vs2ct' )" >
+					<Label allowrawtext="true" text="Vs 2CT"/>
+				</RadioButton>				
+
+				<RadioButton selected="false" group="tests" onactivate="LayoutTab('Chatwheel', 'file://{resources}/layout/tests/chatwheel.xml')" >
+					<Label allowrawtext="true" text="Chatwheel"/>
+				</RadioButton>
+
+			</Panel>
+		</Panel>
+		<Panel class="top-bottom-flow full-width full-height">
+			<Panel id="TestContent" class="full-width full-height" style="padding:1%;">
+
+				<Label id="TestIntro" class="fontSize-xxl fontWeight-Bold horizontal-center vertical-center" allowrawtext="true" text="Content Tests"/>
+		
+				<Panel id="SteamInputAPITests" >
+					<Panel id="DirectButtonBinds" class="flowdown">
+						<Label allowrawtext="true" text="Button glyph (literals)"/>
+						                                                          
+						                                                                         
+
+						                                                            
+						                                                                                       
+
+						                                                            
+						                                                                                       
+
+						                                                            
+						                                                                                     
+
+						                                                            
+						                                                                                      
+
+						                                                            
+
+						                                                            
+						                                                                                         
+
+						<Label allowrawtext="true" text="button_y (literal) (console defaults)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_y" />
+
+						<Label allowrawtext="true" text="button_y (literal) (svg) (glyphstyle:light)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_y" svg="true" glyphstyle="light" />
+
+						<Label allowrawtext="true" text="button_y (literal) (svg) (glyphstyle:dark)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_y" svg="true" glyphstyle="dark" />
+
+						<Label allowrawtext="true" text="button_y (literal) (svg) (glyphstyle:knockout)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_y" svg="true" glyphstyle="knockout" />
+
+						<Label allowrawtext="true" text="button_x (literal) (png) (glyphstyle:knockout) (neutral_colors:false)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_x" svg="false" glyphstyle="knockout" neutral_colors="false"/>
+
+						<Label allowrawtext="true" text="button_b (literal) (svg) (glyphstyle:light) (solid)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_b" svg="true" glyphstyle="light" solid="true" />
+
+						<Label allowrawtext="true" text="button_a (literal) (png) (glyphstyle:light) (solid) (neutral_colors:false)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_a" svg="false" glyphstyle="light" solid="true" neutral_colors="false" />
+
+						<Label allowrawtext="true" text="button_a (literal) (png) (glyphstyle:knockout) (solid) (neutral_colors:false)"/>
+						<CCSGOSteamInputGlyph button_or_axis_name="button_a" svg="false" glyphstyle="knockout" solid="true" neutral_colors="false" />
+
+						<Panel class="flowright">
+							<CCSGOSteamInputGlyph button_or_axis_name="button_a" controller_type="controller_xbox360" />
+							<CCSGOSteamInputGlyph button_or_axis_name="button_a" controller_type="controller_switch_pro" />
+							<CCSGOSteamInputGlyph button_or_axis_name="button_a" controller_type="controller_ps5" />
+							<CCSGOSteamInputGlyph button_or_axis_name="button_a" controller_type="controller_switch_joycon_single" />
+							<CCSGOSteamInputGlyph button_or_axis_name="button_a" controller_type="controller_switch_joycon_pair" />
+						</Panel>
+					    	                                                                                              
+						                                                          
+						                                                                                                  
+						                                                       
+						                                                                                                  
+					</Panel>
+					<Panel id="ActionSetBinds" class="flowdown">
+						<Label allowrawtext="true" text="Resolve Action/Set to Binding Button"/>
+
+
+						<Label allowrawtext="true" text="Action Set: GameControls. Action: Move"/>
+						<CCSGOSteamInputAction id="ButtonTest8" actionset="GameControls" action="Move" 	separatortext="/"	 controllernumber = "1" glyphsize="large" />
+						<CCSGOSteamInputActionLabel actionset="GameControls" action="Move"  class ="steam-action-name"/>
+
+						<Label allowrawtext="true" text="Action Set: GameControls. Action: use_or_reload"/>
+						<CCSGOSteamInputAction id="ButtonTest9" actionset="GameControls" action="use_or_reload" separatortext="/" controllernumber = "1" glyphsize="medium"/>
+						<CCSGOSteamInputActionLabel actionset="GameControls" action="use_or_reload" class ="steam-action-name"/>
+
+						<Label allowrawtext="true" text="Action Set: GameControls. Action: attack"/>
+						<CCSGOSteamInputAction id="ButtonTest10" actionset="GameControls" action="attack" separatortext="/" controllernumber = "1" glyphsize="small"/>
+						<CCSGOSteamInputActionLabel actionset="GameControls" action="attack" class ="steam-action-name"/>
+
+						<Label allowrawtext="true" text="Action Set: GameControls. Action: duck"/>
+						<CCSGOSteamInputAction id="ButtonTest11" actionset="GameControls" action="duck" separatortext="/" controllernumber = "1" glyphsize="large"/>
+						<CCSGOSteamInputActionLabel actionset="GameControls" action="duck" class ="steam-action-name"/>
+
+						<Label allowrawtext="true" text="Action Set: GameControls. Action: toggle_duck"/>
+						<CCSGOSteamInputAction id="ButtonTest12" actionset="GameControls" action="toggle_duck" separatortext="/" controllernumber = "1" svg="false"/>
+						<CCSGOSteamInputActionLabel actionset="GameControls" action="toggle_duck" class ="steam-action-name"/>
+
+						<Label allowrawtext="true" text="Action Set: MenuControls. Action: menu_select"/>
+						<CCSGOSteamInputAction id="ButtonTest13" actionset="MenuControls" action="menu_select" separatortext="/" controllernumber = "1"/> 
+						<CCSGOSteamInputActionLabel actionset="MenuControls" action="menu_select" class ="steam-action-name"/>
+
+						<Label allowrawtext="true" text="Action Set: BuyZoneLayer. Action: buymenu"/>
+						<CCSGOSteamInputAction id="ButtonTest14" actionset="BuyZoneLayer" action="buymenu" separatortext="/" controllernumber = "1"/> 
+						<CCSGOSteamInputActionLabel actionset="BuyZoneLayer" action="buymenu" class ="steam-action-name"/>
+
+					</Panel>
+					<Panel class="flowdown">
+						<Label class="left-right-flow" html="true" text="#PANOHUD_Spectate_Navigation_Control_Bot"/>
+						<Label class="left-right-flow" html="true" text="#PANOHUD_Spectate_Navigation_Arrows"/>
+						<Label class="left-right-flow" html="true" text="#TabletNotification_UpgradeDronePilotNone"/>
+						<Label class="left-right-flow" html="true" text="#ControlsLib_Virtual_Test1"/>
+						<Label class="left-right-flow" html="true" text="#PANOHUD_Spectate_Navigation_ToggleOverview"/>-->	
+						<Label class="left-right-flow" html="true" text="#SFUI_Notice_DM_BuyMenu_RandomON"/>				
+						<Label class="left-right-flow" html="true" text="#Panorama_HUD_weaponid_swap"/>
+						<Label class="left-right-flow" html="true" text="#Panorama_Notice_DM_BonusSwitchTo"/>
+						<Label class="left-right-flow" html="true" text="#SFUI_Hint_TossGrenade"/>
+						<Label class="left-right-flow" html="true" text="#SFUI_Hint_ScoreboardRadar"/>
+						<Label allowrawtext="true" class="left-right-flow" html="true" text="---"/>
+						<Label allowrawtext="true" class="left-right-flow" html="true" text="Below are action conversion strings. Should work with respect to steam input glyphs"/>
+						<Label allowrawtext="true" class="left-right-flow" html="true" text="---"/>
+						<Label class="left-right-flow" html="true" text="#PANOHUD_Spectate_Navigation_Control_Bot"/>
+						<Label class="left-right-flow" html="true" text="#PANOHUD_Spectate_Navigation_Arrows_Prev"/>
+						
+					</Panel>
+				
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

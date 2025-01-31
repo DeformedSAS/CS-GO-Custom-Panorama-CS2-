@@ -1,0 +1,55 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+			<include src="file://{resources}/styles/popups/popups_shared.css" />
+			<include src="file://{resources}/styles/popups/popup_generic.css" />
+			<include src="file://{resources}/styles/operation/operation_shared.css" />
+			<include src="file://{resources}/styles/popups/popup_operation_launch.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/popups/popup_operation_launch.js" />
+		<include src="file://{resources}/scripts/operation/operation_util.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="AcceptMatchPlayerSlot">
+			<Panel class="accept-match__slots__player"/>
+		</snippet>
+	</snippets>
+
+	<PopupCustomLayout class="popup-operation-launch PopupPanel Hidden"
+					popupbackground="blur" 
+					onload="PopupOperationLaunchMovie.Init();"
+					oncancel="">
+
+		    	                                                           
+		<Movie id="VideoTrailerPlayer" 
+			class="popup-operation-launch__movie" 
+			title="#op11_name" 
+			controls="none" 
+			repeat="false" 
+			autoplay="onload"
+			disableactivatepause="true" />
+
+		<Panel id="id-operation-launch-buttons-row-buy-Btns" class="popup-operation-launch__buttons-row" >
+			                                                                                                           
+				                                                                                           
+				                                                                                                              
+			             
+			<Panel class="right-left-flow vertical-center horizontal-align-right">
+				<Button id="" class="PopupButton" onactivate=';'>
+					<Label  id="" text="#GameUI_Close" onactivate="PopupOperationLaunchMovie.ClosePopup();"/>
+				</Button>
+				<Button id="id-operation-launch-btn-repeat" class="PopupButton">
+					<Image texturewidth="24" textureheight="24" src="file://{images}/icons/ui/refresh.svg"/>
+					<Label  id="" text="#op_mainmenu_movie"/>
+				</Button>
+				<ToggleButton id="id-operation-launch-btn-do-not-show" class="PopupButton" >
+					<Label  id="" text="#op_mainmenu_dismiss"/>
+				</ToggleButton>
+			</Panel>
+		</Panel>
+	</PopupCustomLayout>
+</root>

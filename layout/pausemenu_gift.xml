@@ -1,0 +1,11 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+	</styles>
+
+	<Panel class="mainmenu-content__container" hittest="false">
+		<Panel class="full-width full-height" style="padding:6%;">
+			<Label class="fontSize-xxl fontWeight-Bold horizontal-center vertical-center" text="Dummy Gift Panel !!!"/>
+		</Panel>
+	</Panel>
+</root>

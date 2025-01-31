@@ -1,0 +1,118 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudreticle.css" />
+	</styles>
+
+	<snippets>
+		<snippet name="PlayerID">
+			    
+			                                                                                            
+			                                                                                                   
+				                                                                                   
+				                                 
+			
+					                           
+					                           
+					                           
+					                           
+					                           
+					                           
+					                           
+					              
+								  
+							                                  	 	
+			   
+			<Panel class="playerid">
+        <Panel id="ContentParent" class="playerid__content_parent">
+          <Panel id="ContentTrans" class="playerid__content_trans">
+                                                                                
+            <Panel class="playerid__icons">
+              <Image id="ArrowIconBorder" class="playerid__icon playerid__icon--arrowborder" src="file://{images}/hud/reticle/PlayerArrow_border.png" />
+              <Image id="ArrowFriendIcon" class="playerid__icon playerid__icon--arrowfriend" src="file://{images}/hud/reticle/PlayerArrow_friend.png" />
+            </Panel>
+            <Label id="NameBG" class="playerid__nameBG" html="false" text="{s:player_name}XXXXX"/>
+          </Panel>
+          <Panel id="Content" class="playerid__content">
+                                                                  			  
+					  <Panel class="playerid__icons">
+						  <Image id="ArrowIcon" class="playerid__icon playerid__icon--arrow" src="file://{images}/hud/reticle/PlayerArrow_center.png" />
+						  <Image id="ChatIcon" class="playerid__icon playerid__icon--chat" src="file://{images}/icons/ui/sound_off.svg" scaling="stretch-to-fit-preserve-aspect" />
+						  <Image id="DefusingIcon" class="playerid__icon playerid__icon--defusing" src="file://{images}/icons/equipment/defuser.svg" />
+					  </Panel>
+            <Label id="Name" class="playerid__name" html="true" />
+            <Panel id="Weapons" class="playerid__weapons">
+              <Image id="WeaponDefuser" class="playerid__weaponicon" src="file://{images}/icons/equipment/defuser.svg" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+              <Image id="WeaponC4" class="playerid__weaponicon" src="file://{images}/icons/equipment/c4.svg" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+              <Panel id="WeaponGrenades" class="left-right-flow">
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+                <Image class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+              </Panel>
+              <Image id="WeaponPrimary" class="playerid__weaponicon" textureheight="26" scaling="stretch-to-fit-preserve-aspect" />
+            </Panel>
+				  </Panel>
+        </Panel>
+      </Panel>    
+		</snippet>
+
+    <snippet name="PlayerPing">
+      <Panel class="playerping">
+        <Panel id="ContentParent" class="playerping__content_parent">
+          <Panel class="playerping__content_trans">
+                                                                        
+            <Panel id="PingContentTrans" class="playerping__icons">
+              <Panel class="playerping__icon--bg" />
+              <Image id="DefaultIcon" class="playerping__icon playerping__icon--top" src="file://{images}/icons/ui/info.svg" textureheight="128"/>         
+              <Image id="WeaponIcon" class="playerping__icon playerping__icon--top" src="file://{images}/icons/ui/inventory.svg" textureheight="128"/>
+              <Image id="CrateIcon" class="playerping__icon playerping__icon--top" src="file://{images}/icons/ui/bomb_arrow_segment.svg" textureheight="128"/>
+              <Image id="ItemIcon" class="playerping__icon playerping__icon--top" src="file://{images}/icons/ui/watch.svg" textureheight="128"/>
+              <Image id="DangerIcon" class="playerping__icon playerping__icon--top" src="file://{images}/icons/ui/alert.svg" textureheight="128"/>
+            </Panel>
+	    <Label id="LocationLabel" html="true" class="playerping__locationlabel" text="Some test text here" />
+
+          </Panel>
+
+
+        </Panel>
+      </Panel>
+    </snippet>
+	</snippets>
+
+	<CSGOHudReticle class="reticle" hittest="false" hittestchildren="false" >
+
+		<Image id="FriendCrosshair" class="crosshair__friend" src="file://{images}/hud/reticle/reticlefriend.svg" />
+
+		                         
+		<CSGOCrosshair id="Crosshair" />
+
+		                           
+		<Image id="CrosshairObserver" class="crosshair__observer" src="file://{images}/hud/reticle/reticleobserver.svg" textureheight="25" />
+
+		                  
+		<Label id="TargetID" class="targetid" html="true" />
+
+		                        
+		<Panel id="VisiblePlayerIDs" clampfractionalpixelpositions="true">
+			                                                 
+		</Panel>
+
+		<Panel id="UnusedPlayerIDs">
+			                                                                         
+		</Panel>
+
+                         
+    <Panel id="VisiblePlayerPings" clampfractionalpixelpositions="true">
+                                                          
+    </Panel>
+
+    <Panel id="UnusedPlayerPings">
+                                                                                  
+    </Panel>
+
+	</CSGOHudReticle>
+</root>

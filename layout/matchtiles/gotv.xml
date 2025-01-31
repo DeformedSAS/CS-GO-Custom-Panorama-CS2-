@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_watch.css" />
+        <include src="file://{resources}/styles/matchtile.css" />
+	</styles>
+	<scripts>
+	</scripts>
+
+    <Panel class="MatchTile MatchTile--Collapse MatchTile--GOTV">
+        <Panel class="left-right-flow horizontal-center vertical-center">
+            <Image id="gotvicon" class="GOTV-Icon" src="file://{images}/icons/ui/stream.svg" texturewidth="30" textureheight="30"/>
+            <Label class="Info-Message horizontal-center vertical-center" text="#CSGO_Watch_Gotv_Theater"/>
+        </Panel>
+    </Panel>
+</root>

@@ -1,0 +1,68 @@
+                                                                              
+  
+                                             
+                                                                              
+<root>
+  <styles>
+    <include src="file://{resources}/styles/csgostyles.css" />
+    <include src="file://{resources}/styles/hud/hudgameicons.css" />
+  </styles>
+
+      
+                                         
+                                                        
+                                                            
+                                                               
+                                                                    
+                                                                                      
+  
+                                                            
+                                                                                                     
+                                                         
+                                                                
+                                                                                
+                                                         
+     
+  <CSGOHudGameIcons  class="hud-game-icons top-bottom-flow">
+    <Panel class="hud-game-icons-defuse left-right-flow">
+      <Image class="hud-game-icons-defuse-icon-bomb-zone" src="file://{images}/icons/ui/bomb_arrow_segment.svg" texturewidth="-1" textureheight="25" />
+      <Panel class="hud-game-icons-defuse-icon-bomb-background vertical-center">
+        <Image class="hud-game-icons-defuse-icon-bomb" src="file://{images}/icons/equipment/c4.svg" texturewidth="-1" textureheight="50" />
+      </Panel>
+                         
+      <CCSGOSteamInputAction actionset="GameControls" action="use" separatortext="/" controllernumber = "1"/> 
+                        
+      <Panel class ="hud-game-icons-defuse-icon-arrow vertical-center">
+        <Image class="horizontal-align-left" src="file://{images}/icons/ui/bomb_arrow_segment.svg" orientation="90" />
+      </Panel>
+     
+    </Panel>
+    <Panel class="hud-game-icons-hostage left-right-flow">
+      <Panel class="hud-game-icons-icon-hostage">
+        <Image class="hud-game-icons-icon-hostage-alive" src="file://{images}/icons/ui/hostage_alive.svg"     texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-transit" src="file://{images}/icons/ui/hostage_transit.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-rescued" src="file://{images}/icons/ui/hostage_rescued.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-dead" src="file://{images}/icons/ui/hostage_dead.svg"       texturewidth="-1" textureheight="36" />
+      </Panel>
+      <Panel class="hud-game-icons-icon-hostage">
+        <Image class="hud-game-icons-icon-hostage-alive" src="file://{images}/icons/ui/hostage_alive.svg"     texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-transit" src="file://{images}/icons/ui/hostage_transit.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-rescued" src="file://{images}/icons/ui/hostage_rescued.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-dead" src="file://{images}/icons/ui/hostage_dead.svg"       texturewidth="-1" textureheight="36" />
+      </Panel>
+      <Panel class="hud-game-icons-icon-hostage">
+        <Image class="hud-game-icons-icon-hostage-alive" src="file://{images}/icons/ui/hostage_alive.svg"     texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-transit" src="file://{images}/icons/ui/hostage_transit.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-rescued" src="file://{images}/icons/ui/hostage_rescued.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-dead" src="file://{images}/icons/ui/hostage_dead.svg"       texturewidth="-1" textureheight="36" />
+      </Panel>
+      <Panel class="hud-game-icons-icon-hostage">
+        <Image class="hud-game-icons-icon-hostage-alive" src="file://{images}/icons/ui/hostage_alive.svg"     texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-transit" src="file://{images}/icons/ui/hostage_transit.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-rescued" src="file://{images}/icons/ui/hostage_rescued.svg" texturewidth="-1" textureheight="36" />
+        <Image class="hud-game-icons-icon-hostage-dead" src="file://{images}/icons/ui/hostage_dead.svg"       texturewidth="-1" textureheight="36" />
+      </Panel>
+      <Image class="hud-game-icons-hostage-zone cl-hud-wash-color" src="file://{images}/icons/ui/icon_hostage_zone.svg"         texturewidth="-1" textureheight="30" />
+    </Panel>
+  </CSGOHudGameIcons>
+</root>

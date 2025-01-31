@@ -1,0 +1,43 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/settings/settings.css" />
+		<include src="file://{resources}/styles/mainmenu.css"/>
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/settingsmenu_shared.js" />
+		<include src="file://{resources}/scripts/settingsmenu.js" />
+	</scripts>
+	
+	                                                                                                       
+	
+    <Panel class="mainmenu-content__container" useglobalcontext="true">
+        <Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--noflow">
+            <Panel class="content-navbar__tabs__center-container">
+                <RadioButton id="SearchRadio" group="SettingsNavBar" class="mainmenu-top-navbar__radio-iconbtn" onactivate='SettingsMenu.NavigateToTab("Search")'>
+                    <Image class="mainmenu-top-navbar__radio-btn__icon" src="file://{images}/icons/ui/find.svg" />
+                </RadioButton>
+                <RadioButton id="PromotedSettingsRadio" group="SettingsNavBar" class="content-navbar__tabs__btn" onactivate="SettingsMenu.NavigateToTab( &quot;Promoted&quot; )">
+                    <Label class="" text="#settings_new" />
+                </RadioButton>
+                <RadioButton id="VideoRadio" group="SettingsNavBar" class="content-navbar__tabs__btn" onactivate="SettingsMenu.NavigateToTab(&quot;VideoSettings&quot;)">
+                    <Label class="" text="#settings_video" />
+                </RadioButton>
+                <RadioButton id="AudioRadio" group="SettingsNavBar" class="content-navbar__tabs__btn" onactivate="SettingsMenu.NavigateToTab(&quot;AudioSettings&quot;)">
+                    <Label class="" text="#settings_audio" />
+                </RadioButton>
+                <RadioButton id="GameRadio" group="SettingsNavBar" class="content-navbar__tabs__btn" onactivate="SettingsMenu.NavigateToTab(&quot;GameSettings&quot;)">
+                    <Label class="" text="#settings_game" />
+                </RadioButton>
+                <RadioButton id="KBMouseRadio" group="SettingsNavBar" class="content-navbar__tabs__btn" onactivate="SettingsMenu.NavigateToTab( &quot;KeybdMouseSettings&quot; )">
+                    <Label class="" text="#settings_keyboard_mouse" />
+                </RadioButton>       
+                <RadioButton id="ControllerRadio" group="SettingsNavBar" class="content-navbar__tabs__btn" onactivate='SettingsMenu.NavigateToTab("ControllerSettings")'>
+                    <Label class="" text="#settings_controller" />
+					 </RadioButton> 
+            </Panel>
+        </Panel>
+        <Panel id="SettingsMenuContent" class="full-width full-height" />
+    </Panel>
+</root>

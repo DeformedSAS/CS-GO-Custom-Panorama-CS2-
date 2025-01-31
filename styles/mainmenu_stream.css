@@ -1,0 +1,301 @@
+
+
+.news-panel-streamfeed
+{
+    height: 256px;
+    width: 396px;
+    background-color: rgba(0, 0, 0, 0.6);
+    flow-children: down;
+	transition-property:  position, height, width;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed.hidden
+{
+    height: 0px;
+    visibility: collapse;
+    margin-top: 0px;
+	transition-property:  position, height, width;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed:hover .steam-controls-container
+{
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: .3s;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed.minimize_stream
+{
+    width: 256px;
+    height: 180px;
+}
+
+.news-panel-streamfeed.minimize_stream #StreamHTML
+{
+    width: 256px;
+}
+
+.news-panel-streamfeed.minimize_stream #id-full-size-btn
+{
+    visibility: visible;
+}
+
+.news-panel-streamfeed.minimize_stream #id-minimize-btn
+{
+    visibility: collapse;
+}
+
+.news-panel-streamfeed.stream-drag-enabled
+{
+    background-color: rgba(255, 255, 255, 0);
+    width: 512px;
+    height: 290px;
+}
+
+.news-panel-streamfeed.stream-drag-enabled.minimize_stream
+{
+    width: 256px;
+    height: 140px;
+}
+
+.news-panel-streamfeed.stream-drag-enabled.minimize_stream #StreamHTML
+{
+    border: 1px solid rgba(124, 168, 235, 0.53);
+    width: 256px;
+}
+
+.news-panel-streamfeed.stream-drag-enabled #StreamHTML
+{
+    border: 1px solid rgba(124, 168, 235, 0.53);
+    width: 512px;
+}
+
+.news-panel-streamfeed.stream-drag-enabled #id-popout-reset-btn
+{
+    visibility: visible;
+}
+
+.news-panel-streamfeed.stream-drag-enabled #id-popout-btn
+{
+    visibility: collapse;
+}
+
+.news-panel-streamfeed .stream-container
+{
+    flow-children:down;
+    width: 100%;
+    height: 100%;
+    transition-property: opacity;
+    transition-duration: .3s;
+    transition-delay: 0s;
+    transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed #id-full-size-btn,.news-panel-streamfeed #id-popout-reset-btn
+{
+    visibility: collapse;
+}
+
+.news-panel-streamfeed #id-popout-reset-btn,.news-panel-streamfeed #id-popout-btn
+{
+    margin-right: 8px;
+}
+
+.news-panel-streamfeed #StreamHTML
+{
+    width: 396px;
+    height: width-percentage( 56.25% );
+    horizontal-align: center;
+    transform-origin:100% 50%;
+	transition-property:  position, height, width;
+	transition-duration: .25s;
+	transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed .steam-controls-container
+{
+    width: 100%;
+    height: 100%;
+    padding: 8px 8px 0px 8px;
+    opacity: .0;
+    background-color: black;
+    background-color: gradient( linear, 0% 95%, 0% 5%, from( black ), color-stop( 0.5, #00000000 ), color-stop(0.6, #00000000), to( black ) );
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed .stream-actions-bar
+{
+    vertical-align: top;
+    width: 100%;
+}
+
+.news-panel-streamfeed .stream-actions-bar #id-close-btn
+{
+    horizontal-align: left;
+}
+
+.news-panel-streamfeed .stream-actions-bar .stream-actions-bar--right
+{
+    horizontal-align: right;
+    flow-children: right;
+}
+
+.news-panel-streamfeed .IconButton
+{
+    margin: 0px;
+    brightness: .7;
+}
+
+.news-panel-streamfeed .IconButton:hover
+{
+    background-color: none;
+    brightness: 2;
+    sound: "UIPanorama.mainmenu_rollover";
+    transition-property: brightness;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.news-panel-streamfeed .IconButton.hidden
+{
+    visibility: collapse;
+}
+
+.news-panel-streamfeed .IconButton Image
+{
+    height: 16px;
+    margin: 6px;
+}
+
+.news-panel-streamfeed Label.hidden
+{
+    visibility: collapse;
+}
+
+.news-panel-streamfeed__navbar
+{
+    flow-children: right;
+    vertical-align: bottom;
+    width: fit-children;
+}
+
+.news-panel-streamfeed__navbar Slider
+{
+    width: 80px;
+    vertical-align: center;
+    margin-left: 4px;
+}
+
+.minimize_stream .news-panel-streamfeed__navbar Slider
+{
+    width: 30px;
+}
+.minimize_stream .content-navbar__extra-buttons
+{
+	font-size: 10px;
+}
+
+.news-panel-streamfeed__navbar Slider #SliderTrack
+{
+    height: 2px;
+    width: 100%;
+    padding-right: 10px;
+    vertical-align: center;
+}
+
+.news-panel-streamfeed__navbar Slider #SliderTrackProgress
+{
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+.news-panel-streamfeed__navbar Slider #SliderThumb
+{
+    width: 5px;
+    height: 12px;
+    background-color: white;
+}
+
+.news-panel-streamfeed__navbar__btns
+{
+    flow-children: down;
+    horizontal-align: right;
+    vertical-align: bottom;
+    overflow: scroll clip;
+    width: 200px;
+}
+
+.news-panel-streamfeed__navbar__btns VerticalScrollBar
+{
+    width: 4px;
+    margin: 0px;
+    opacity: .8;
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton
+{
+    horizontal-align: right;
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton.TextFullbright
+{
+    border: 1px solid #ffffff17;
+    padding: 2px 6px;
+    margin: 8px;
+    brightness: .85;
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton Label
+{
+    font-size: 12px;
+    max-height: 14px;
+    font-weight: bold;
+    text-overflow: clip;
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton Label:hover
+{
+    brightness: 2;
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton Image.WideLogoSteamTV
+{
+    width: height-percentage( 503% );
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton Image.WideLogoTwitchTV
+{
+    width: height-percentage( 265% );
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton Image.WideLogoBlastTV
+{
+    width: height-percentage( 307% );
+}
+
+.news-panel-streamfeed__navbar__btns .IconButton Image.WideLogoStreamGOTV
+{
+    width: height-percentage( 270% );
+}
+
+.stream-title-bar
+{
+    margin: 6px;
+    text-overflow: ellipsis;
+    max-height: 20px;
+}
+
+.stream-drag-enabled .stream-title-bar
+{
+    visibility: collapse;
+}
+

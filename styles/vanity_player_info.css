@@ -1,0 +1,229 @@
+@define vanity-margin-left: 8px;
+@define right-section: 172px;
+.vanity-info-container
+{
+    horizontal-align: center_nopixelsnap;
+    vertical-align: center_nopixelsnap;
+    flow-children: down;
+    horizontal-align: center;
+    vertical-align: bottom;
+}
+
+.vanity-info-loc-0,.vanity-info-loc-1,.vanity-info-loc-2,.vanity-info-loc-3,.vanity-info-loc-4,.vanity-info-loc-5,.vanity-info-loc-6,.vanity-info-loc-7,.vanity-info-loc-8,.vanity-info-loc-9
+{
+    width: 512px;
+    transform-origin: 50% 100%;
+    x:-256px;
+    y: 100px;
+    transform: translate3d( -512px, -256px, 0px );
+}
+
+.vanity-info-loc-0
+{
+    z-index: 9;
+}
+
+.vanity-info-loc-1
+{
+    z-index: 8;
+}
+
+.vanity-info-loc-2
+{
+    z-index: 7;
+}
+
+.vanity-info-loc-3
+{
+    z-index: 6;
+}
+
+.vanity-info-loc-4
+{
+    z-index: 5;
+}
+
+.vanity-info-loc-5
+{
+    z-index: 4;
+}
+
+.vanity-info-loc-6
+{
+    z-index: 3;
+}
+
+.vanity-info-loc-7
+{
+    z-index: 2;
+}
+
+.vanity-info-loc-8
+{
+    z-index: 1;
+}
+
+.vanity-info-crown-icon
+{
+    width: 28px;
+    height: 28px;
+    margin-left: 34px;
+    transform: translateY(6px);
+    wash-color: gold;
+}
+
+.is-leader .vanity-info-crown-icon
+{
+    opacity: 0;
+}
+
+.vanity-info-name
+{
+    max-height: 18px;
+    width: 100%;
+    color: white;
+    opacity-mask: url("file://{images}/masks/fade-right.png");
+    transition-property: color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.vanity-info-avatar-container
+{
+    height: fit-children;
+    width: fit-children;
+}
+
+.vanity-info-name-container,.vanity-info-name-xp-container
+{
+    flow-children: down;
+    width: right-section;
+    vertical-align: center;
+    height: 64px padding: 0px 8px 0px 0px;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.no-valid-xp .vanity-info-name-xp-container
+{
+    flow-children: none;
+}
+
+.vanity-info-xp-container
+{
+    flow-children: right;
+    width: 100%;
+}
+
+.vanity-info-xp-icon,.vanity-info-prime-icon
+{
+    height:32px;
+    width: 32px;
+    img-shadow: 1px 1px 4px #000000;
+}
+
+.vanity-info-xp-icon
+{
+    margin: 0px 16px 0px 16px;
+}
+
+.vanity-info-prime-icon
+{
+    img-shadow: none;
+    padding: 4px;
+    margin-right: 8px;
+    transition-property: wash-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.vanity-info-xp-bar-container,.vanity-info-name-bar-container
+{
+    flow-children: down;
+    margin-left: 16px;
+    margin-top: 0px;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.vanity-info-xp-bar-container
+{
+    margin-top: 2px;
+}
+
+.no-valid-xp .vanity-info-xp-container,.no-valid-xp .vanity-info-xp-bar
+{
+    visibility: collapse;
+}
+
+.vanity-info-xp-bar
+{
+    height: 3px;
+    width: 236px;
+    background-color: #000000d3;
+}
+
+.vanity-info-xp-bar--inner
+{
+    height: 8px;
+    width: 236px;
+    background-color: gradient( linear, 0% 0%, 100% 0%, from ( #2084b9 ), to( #5DC6FF ));
+}
+
+.vanity-info-skill-group-container
+{
+    margin-left: 16px;
+    flow-children: right;
+    height: 26px;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.no-valid-rank .vanity-info-skill-group-container,.is-not-leader .vanity-info-crown-icon
+{
+    opacity: 0;
+}
+
+.vanity-info-skillgroup-icon
+{
+    horizontal-align: center_nopixelsnap;
+    vertical-align: center_nopixelsnap;
+    background-color: rgba(70, 70, 70, 0.9);
+}
+
+.vanity-info-skill-group-label-container
+{
+    width: right-section;
+    height: 100%;
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}
+
+.vanity-rank-name
+{
+    max-width: right-section;
+    width: fill-parent-flow(1);
+    height: 18px;
+    margin-right: 4px;
+    horizontal-align: center_nopixelsnap;
+    vertical-align: center_nopixelsnap;
+    padding: 2px 0px 0px 4px;
+    opacity-mask: url("file://{images}/masks/fade-right.png");
+}
+
+.vanity-info-skill-group-container,.vanity-info-xp-bar-container
+{
+    transform: translateY( -10px);
+}
+
+.vanity-info-container:hover .vanity-info-name-container,.vanity-info-container:hover .vanity-info-xp-bar-container,.vanity-info-container:hover .vanity-info-skill-group-container
+{
+    background-color: gradient( linear, 0% 0%, 100% 0%, from( #ffffff22 ), to( #ffffff00));
+    transition-property: background-color;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+}

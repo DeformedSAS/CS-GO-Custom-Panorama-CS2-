@@ -1,0 +1,25 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_featured.css" />
+	</styles>
+
+    <scripts>
+		<include src="file://{resources}/scripts/mainmenu_featured.js" />
+	</scripts>
+
+	<Button class="featured-parent" onactivate="FeaturedSurvival.OnSurvivalPlayPressed();">
+        <Panel class="featured__survival-movie" hittest="false"/>
+        <Image class="featured__survival-hex-outline" src="file://{images}/survival/mainmenu/hexoutline.svg" textureheight="512" texturewidth="-1" />
+        <Panel class="featured__survival-title-parent">
+            <Label class="featured__survival-desc stratum-font" text="#SurvivalPromotion_Desc_Sirocco"/>
+            <Panel class="horizontal-center">
+                <Label class="featured__survival-title featured__survival-title-red stratum-font" text="#OPERATION 9" />
+                <Label class="featured__survival-title featured__survival-title-dark stratum-font" text="#OPERATION 9" />
+                <Label class="featured__survival-title stratum-font" text="#SFUI_GameMode_Survival" />
+            </Panel>
+            <Label class="featured__survival-play stratum-font" text="#SFUI_Play"/>
+        </Panel>
+	</Button>
+</root>

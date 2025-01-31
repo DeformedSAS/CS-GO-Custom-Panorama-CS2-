@@ -1,0 +1,102 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudspecplayer.css" />
+	</styles>
+  
+	<CSGOHudSpecPlayer class="HudSpecplayerRoot" hittest="false" hittestchildren="false">
+                                                                    
+
+    <Panel id="ReplayPlayerTag" class="HudSpecplayer__ReplayPlayerTag" clampfractionalpixelpositions="true">
+                                                            
+      <Image id="ArrowIcon" class="HudSpecplayer__ReplayPlayerArrow" src="file://{images}/hud/reticle/PlayerArrow_center.png" />
+      <Label id="Name" class="HudSpecplayer__ReplayPlayerText" text="#SFUI_Spectator_Replay_Player_tag"/>
+    </Panel>
+
+    <Panel class="HudSpecplayerParentContainer">
+      
+                                                                                                             
+      <Panel id="ServerSponserLogosContainer">
+        <Image id="ServerSponserLogos" class="HudSpecplayer__SponserLogos" scaling="stretch-to-fit-preserve-aspect"/>
+      </Panel>
+      <Panel id="HotKeyLabelContainer" class="HudSpecplayer__key-hints">
+       
+        <Label id="HotKey_ControlBot" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_Control_Bot" />
+        <Label id="HotKey_XRay" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_New_ToggleXRay" />
+        <Label id="HotKey_CancelReplay" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_Cancel_Replay" />
+        <Label id="HotKey_Arrows_Prev" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_Arrows_Prev" />
+        <Label id="HotKey_Arrows" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_Arrows" />
+        <Label id="HotKey_Camera" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_Camera" />
+        <Label id="HotKey_Map" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_ToggleOverview" />
+        <Label id="HotKey_CameramanOn" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_New_Cameraman_On" />
+        <Label id="HotKey_DirectorOn" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_New_Director_On" />
+        <Label id="HotKey_ReplayLastKill" class="HudSpecplayer__key-hints-text" html="true" text="#PANOHUD_Spectate_Navigation_Replay_Death" />
+        
+      </Panel>
+
+      <Label id="Stat_DamageTaken" class="HudSpecplayer__Stats_DamageTaken" html="true" text="#Scoreboard_kills"/>
+      <Label id="Stat_DamageGiven" class="HudSpecplayer__Stats_DamageTaken" html="true" text="#Scoreboard_kills"/>
+
+      <Panel id="HudSpecplayer__Stats">
+                                                                                                                      
+      
+        <Panel class="HudSpecplayer__Stats_Header">
+          <Label class="HudSpecplayer__Stats_HeaderText" text="#Scoreboard_kills"/>
+          <Label class="HudSpecplayer__Stats_HeaderText" text="#Scoreboard_assists"/>
+          <Label class="HudSpecplayer__Stats_HeaderText" text="#Scoreboard_deaths"/>
+          <Label class="HudSpecplayer__Stats_HeaderText" text="#Scoreboard_kdr"/>
+          <Label class="HudSpecplayer__Stats_HeaderText" text="#Scoreboard_adr"/>
+          <Label class="HudSpecplayer__Stats_HeaderText" text="#Scoreboard_hsp"/>
+          <Label id="Stat_HeadX_1" class="HudSpecplayer__Stats_HeaderText" text=""/>
+          <Label id="Stat_HeadX_2" class="HudSpecplayer__Stats_HeaderText" text=""/>
+          <Label id="Stat_HeadX_3" class="HudSpecplayer__Stats_HeaderText" text=""/>
+          <Label id="Stat_HeadX_4" class="HudSpecplayer__Stats_HeaderText" text=""/>
+          <Label id="Stat_HeadX_5" class="HudSpecplayer__Stats_HeaderText" text=""/>
+        </Panel>
+        <Panel class="HudSpecplayer__Stats_Numbers">
+          <Label class="HudSpecplayer__Stats_NumberText" text="#Scoreboard_kills_val"/>
+          <Label class="HudSpecplayer__Stats_NumberText" text="#Scoreboard_assists_val"/>
+          <Label class="HudSpecplayer__Stats_NumberText" text="#Scoreboard_deaths_val"/>
+          <Label class="HudSpecplayer__Stats_NumberText" text="#Scoreboard_kdr_val"/>
+          <Label class="HudSpecplayer__Stats_NumberText" text="#Scoreboard_adr_val"/>
+          <Label class="HudSpecplayer__Stats_NumberText" text="#Scoreboard_hsp_val"/>
+
+          <Label id="Stat_NumX_1" class="HudSpecplayer__Stats_NumberText" text=""/>
+          <Label id="Stat_NumX_2" class="HudSpecplayer__Stats_NumberText" text=""/>
+          <Label id="Stat_NumX_3" class="HudSpecplayer__Stats_NumberText" text=""/>
+          <Label id="Stat_NumX_4" class="HudSpecplayer__Stats_NumberText" text=""/>
+          <Label id="Stat_NumX_5" class="HudSpecplayer__Stats_NumberText" text=""/>
+        
+        </Panel>
+      
+        <Panel class="hud-spectator-bkg-BOT"/>
+      </Panel>
+      <Panel class="HudSpecplayerContainer">
+      
+        <Panel class="HudSpecplayerBG">
+          <Panel class="HudSpecplayerBG__Border">
+                                                            
+            <Panel id="DefaultTeamLogo" class="HudSpecplayerBG__DefaultLogo" />
+            <Panel id="TeamLogo" class="HudSpecplayerBG__TeamLogo" />
+            <Panel class="HudSpecplayerBG__TopStrip" />
+            <Panel id="PlayerColorStrip" class="HudSpecplayerBG__BottomStrip" />
+                                                                                                                              
+          </Panel>      
+          <Label class="HudSpecplayer__player-name" text="{s:spec_player_name}"/>
+          <Panel id="ItemContainer" class="HudSpecplayer__ItemContainer">
+
+            <Panel id="ItemContainerBG" class="HudSpecplayer__ItemContainerBG">
+              <Image id="WeaponImage" class="HudSpecplayer__Item" scaling="stretch-to-fit-preserve-aspect" />
+            </Panel>
+            <Label id="WeaponName" html="true" class="HudSpecplayer__ItemName" text="{s:h:weapon_description}"/>
+          </Panel>
+        </Panel>
+        <Image id="PlayerAvatarDefault" class="HudSpecplayerRoot__avatar HudSpecplayerRoot__avatardefault" src="file://{images}/hud/teamcounter/teamcounter_alivebgCT.png" />
+        <CSGOAvatarImage id="PlayerAvatar" class="HudSpecplayerRoot__avatar">
+          <Image id="PlayerAvatarColor" class="HudSpecplayerRoot__playercolor" src="file://{images}/hud/teamcounter/teamcounter_playercolor.png" />
+        </CSGOAvatarImage>
+      </Panel>
+      <ItemImage id="PlayerAvatarDisplayItem" class="HudSpecplayerRoot__avatardisplay" small="true" src="file://{images_econ}/econ/status_icons/collectible_pin_guardian_small.png"  textureheight="64" texturewidth="64" scaling="stretch-to-fit-preserve-aspect" />
+    </Panel>
+  </CSGOHudSpecPlayer>
+</root>

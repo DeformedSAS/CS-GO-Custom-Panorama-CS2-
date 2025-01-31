@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_inventory_item.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+		<include src="file://{resources}/scripts/context_menus/context_menu_inventory_item.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/common/item_context_entries.js" />
+	</scripts>
+
+		
+	<Panel onload="ItemContextMenu.SetupContextMenu()" acceptsinput="true" acceptsfocus="true" class="top-bottom-flow ContextMenuItem">
+		                             
+	</Panel	>
+</root>

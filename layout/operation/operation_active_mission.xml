@@ -1,0 +1,24 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/operation/operation_shared.css" />
+		<include src="file://{resources}/styles/operation/operation_mission_card.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/common/formattext.js"/>
+		<include src="file://{resources}/scripts/operation/operation_mission.js" />
+		<include src="file://{resources}/scripts/operation/operation_util.js" />
+		<include src="file://{resources}/scripts/operation/operation_active_mission.js" />
+	</scripts>
+
+	<Panel class="op-active-mission-container" onload="OperationActiveMissionCard.Init();">
+		<Panel id="id-active-mission" class="op-active-mission" >
+			                         
+		</Panel>
+		
+		<Panel id="id-activemission-tooltip" class="op-active-mission-tooltip" >
+		                         
+		</Panel>
+	</Panel>
+</root>

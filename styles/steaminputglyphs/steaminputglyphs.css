@@ -1,0 +1,42 @@
+
+                   
+                                         
+
+CCSGOSteamInputGlyph,
+.glyph-container,
+.steam-button-glyph,
+.steam-button-name,
+{
+	horizontal-align : center;
+	vertical-align : center;
+	width: fit-children;
+	height: fit-children;
+}
+
+.action-container
+{
+	flow-children: down;
+}
+
+.glyph-container
+{
+	flow-children: down;
+}
+
+.steam-button-glyph
+{
+	width: 24px;
+	height: 24px;
+}
+
+.steam-button-name
+{
+	text-align: center;
+	font-family: stratum2Font;
+	font-weight: lighter;
+	font-size: 20px;
+	text-transform: uppercase;
+  	text-overflow: ellipsis;
+  	visibility: collapse;
+}
+                                                                            

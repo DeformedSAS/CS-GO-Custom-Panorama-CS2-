@@ -1,0 +1,31 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_premier_matchmaking.css" />
+	</styles>
+	
+	<scripts>
+		                                                                               
+	</scripts>
+
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim" onload="">
+		<Label class="PopupTitle" text="#play_maps_popup_premier_title"/>
+
+		<Panel class="popup-premier-title-container">
+			<Label class="popup-premier-title" text="#play_maps_popup_premier_available_title" />
+			<Label class="popup-premier-desc" text="#play_maps_popup_premier_available_desc" />
+		</Panel>
+
+		<Panel class="popup-premier-pick-ban-container">
+			<Label class="popup-premier-title" text="#play_maps_popup_premier_pick_title" />
+			<Label class="popup-premier-desc" text="#play_maps_popup_premier_pick_desc" />
+			<Image class="popup-premier-pick-ban-image" src="file://{images}/operations/op10/pick_ban_popup.png" scaling="stretch-to-fit-x-preserve-aspect"/>
+		</Panel>
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="OK" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+	
+	</PopupCustomLayout>
+</root>

@@ -1,0 +1,20 @@
+<root>
+    <styles>
+        <include src="file://{resources}styles/csgostyles.css" />
+        <include src="file://{resources}styles/popups/popups_shared.css" />
+        <include src="file://{resources}styles/popups/popup_rankup_redemption_store.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}scripts/popups/popup_rankup_redemption_store.js" />
+    </scripts>
+    <snippets />
+    <PopupCustomLayout class="PopupPanel Hidden popup-rrs-root" useglobalcontext="true" popupbackground="dim" oncancel="PopupRankUpRedemptionStore.OnClose()">
+        <Panel id="id-rewards-background" class="rrs-popup__bg">
+            <CSGOBlurTarget id="id-rewards-background-blur" class="store-home-rewards-section-bg" />
+            <Frame class="rrs-popup__frame" src="file://{resources}layout/rankup_redemption_store.xml" />
+            <Panel class="PopupButtonRow">
+                <TextButton class="PopupButton" text="#GameUI_Close" onactivate="PopupRankUpRedemptionStore.OnClose()" />
+            </Panel>
+        </Panel>
+    </PopupCustomLayout>
+</root>

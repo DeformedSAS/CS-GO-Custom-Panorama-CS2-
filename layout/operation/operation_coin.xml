@@ -1,0 +1,9 @@
+<root>
+	<styles>
+    <include src="file://{resources}/styles/gamestyles.css" />
+  </styles>
+
+  <Panel class="full-width full-height" >
+    <Label class="vertical-center horizontal-center" text="coin"/>
+  </Panel>
+</root>

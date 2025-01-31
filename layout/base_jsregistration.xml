@@ -1,0 +1,12 @@
+<root>
+    <scripts>
+        <include src="file://{resources}/scripts/common/panelregistration.js" />
+		<include src="file://{resources}/scripts/common/eventdefinition.js" />
+	</scripts>
+
+	<Panel hittest="false">
+                                                                                                           
+                                                                                           
+           
+	</Panel>
+</root>

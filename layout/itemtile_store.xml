@@ -1,0 +1,61 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}styles/csgostyles.css" />
+		<include src="file://{resources}styles/itemtile_store.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}scripts/common/tint_spray_icon.js" />
+		<include src="file://{resources}scripts/common/formattext.js" />
+		<include src="file://{resources}scripts/common/iteminfo.js" />
+	</scripts>
+	<Panel class="itemtile-store" useglobalcontext="true">
+		<Panel class="itemtile-store__container">
+			<ItemImage id="id-itemtile-mainmenu-store-image-bg" class="itemtile-store__mainmenu-item-image-bg" scaling="stretch-to-fit-preserve-aspect" />
+			<Panel class="itemtile-store__image-Container">
+				<ItemImage id="id-itemtile-store-image-bg" class="itemtile-store__item-image-bg" scaling="stretch-to-fit-preserve-aspect" />
+				<ItemImage id="id-itemtile-store-image-linked" class="itemtile-store__item-image-linked" scaling="stretch-to-fit-preserve-aspect" />
+				<ItemImage id="id-itemtile-store-image-main" class="itemtile-store__item-image" scaling="stretch-to-fit-preserve-aspect" />
+				<Panel class="full-height full-width">
+					<Label id="id-itemtile-store-stattrak" class="itemtile-store__stattrak hidden stratum-medium" text="#CSGO_KillEater_Hud" />
+					<Label id="id-itemtile-store-new" class="itemtile-store__new hidden stratum-medium" text="#Store_Price_New" />
+					<Label id="id-itemtile-store-not-released" class="itemtile-store__not-released hidden stratum-medium" text="#Store_Not_Released" />
+				</Panel>
+				<Label class="stratum-black-italic itemtile-store__reward-unknown" text="?" />
+				<Button id="id-itemtile-store-inspect-btn" class="itemtile-store__inspect" onactivate="">
+					<Image texturewidth="26" textureheight="26" src="file://{images}/icons/ui/zoom_in.svg" />
+				</Button>
+				<Panel class="itemtile-store__select">
+					<Image class="horizontal-center vertical-center" texturewidth="20" textureheight="20" src="file://{images}/icons/ui/check.svg" />
+				</Panel>
+			</Panel>
+			<Label id="id-itemtile-store-name" class="itemtile-store__name stratum-medium" text="{s:item-name}" />
+			<Label id="id-itemtile-store-case" class="itemtile-store__case-hint stratum-font stratum-medium" text="#rankup_redemption_case_warning" />
+			<Panel class="itemtile-store__bottomrow">
+				<Panel id="id-itemtile-store-price" class="itemtile-store__price-container">
+					<Panel class="itemtile-store__price-reduction-container">
+						<Label class="itemtile-store__price-reduction stratum-medium" text="{s:reduction}" />
+					</Panel>
+					<Panel class="itemtile-store__price-labels">
+						<Panel class="top-bottom-flow vertical-center">
+							<Label class="itemtile-store__price-original stratum-medium" text="{s:original-price}" />
+							<Label class="itemtile-store__price-sale stratum-medium" html="true" text="{s:sale-price}" />
+						</Panel>
+					</Panel>
+				</Panel>
+				<Image id="tooltip-hotspot" class="itemtile-store__tooltip-hotspot" src="file://{images}/icons/ui/info_i.svg" texturewidth="16" textureheight="-1" />
+			</Panel>
+		</Panel>
+		<Panel id="id-itemtile-store-claimed" class="itemtile-store__claimed hidden">
+			<Image class="itemtile-store__claimed__left" textureheight="24" texturewidth="-1" src="file://{images}/masks/directive_badge_end.svg" />
+			<Panel class="itemtile-store__claimed__center">
+				<Label class="stratum-medium fontSize-m horizontal-center text-align-center" text="#rankup_redemption_store_claimed" />
+			</Panel>
+			<Image class="itemtile-store__claimed__right" textureheight="24" texturewidth="-1" src="file://{images}/masks/directive_badge_end.svg" />
+		</Panel>
+		<Panel id="id-itemtile-store-reveal" class="itemtile-store__reveal" hittest="false" hittestchildren="false">
+			<Panel class="itemtile-store__reveal__1" />
+			<Panel class="itemtile-store__reveal__2" />
+		</Panel>
+	</Panel>
+</root>

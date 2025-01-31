@@ -1,0 +1,18 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+	</styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/tests/perf/perf_context_panel_a.js"/>
+    </scripts>
+
+    <Panel class="FullWidth FullHeight LeftRightFlow">
+        <Panel class="HalfWidth FullHeight DebugBorder" hittest="false" >
+            <Button class="PopupButton" onactivate="ButtonActivated();">
+                <Label allowrawtext="true" text="Create panel from JS" class="MonoNumbersFont"/>
+            </Button>
+        </Panel>
+    </Panel>
+
+</root>

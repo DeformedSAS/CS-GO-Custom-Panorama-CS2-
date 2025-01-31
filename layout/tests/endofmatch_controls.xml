@@ -1,0 +1,61 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/tests/paneldebug.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/tests/endofmatch_controls.js" />
+	</scripts>
+
+
+	<Panel class="left-right-flow">
+		<Button onactivate="EOMTestStart('WIN,RANK_up,SKILLGROUP_up,DROPS,VOTING' )">
+			<Label text="ALL"/>
+		</Button>
+
+		<Button onactivate="EOMTestStart( 'WIN' )">
+			<Label text="win"/>
+		</Button>
+
+		<Button onactivate="EOMTestStart( 'RANK_up' )">
+			<Label text="rank"/>
+		</Button>
+
+		<Button onactivate="EOMTestStart( 'SKILLGROUP_up' )">
+			<Label text="skillgroup"/>
+		</Button>
+
+		<Button onactivate="EOMTestStart( 'DROPS' )">
+			<Label text="drops"/>
+		</Button>
+
+		<Button onactivate="EOMTestStart( 'VOTING' )">
+			<Label text="voting"/>
+		</Button>
+
+		<DropDown id="eom-test-game-mode" menuclass="" oninputsubmit="" style="height:30px; padding:0px; margin:0px; width:250px;">
+			<Label text="competitive" id="mode_comp" value="1"/>
+			<Label text="casual" id="mode_cas" value="2"/>
+			<Label text="wingman" id="mode_wingman" value="3"/>
+			<Label text="arms race" id="mode_armsrace" value="4"/>
+			<Label text="guardian" id="mode_guardian" value="5"/>
+		</DropDown>
+
+		<DropDown id="eom-test-player-team" menuclass="" oninputsubmit="" style="height:30px; padding:0px; margin:0px; width:100px;">
+			<Label text="ct" id="team_ct" value="1"/>
+			<Label text="t" id="team_t" value="2"/>
+		</DropDown>
+
+		<DropDown id="eom-test-player-character" menuclass="" oninputsubmit="" style="height:30px; padding:0px; margin:0px; width:250px;">
+		<Label text="Random" id="" value="1"/>
+			<Label text="The Doctor" id="char_balkan" value="2"/>
+			<Label text="The Elite Mr. Muhlik" id="char_elite" value="3"/>
+			<Label text="Special Agent Sierra" id="char_fbi" value="4"/>
+			<Label text="Lt. Commander Ricksaw" id="char_st6" value="5"/>
+		</DropDown>	
+
+	</Panel>
+
+</root>

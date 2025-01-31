@@ -1,0 +1,56 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/endofmatch-rank.css" />
+		<include src="file://{resources}/styles/endofmatch-skillgroup.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-rank.js" />
+	</scripts>
+
+
+	<snippets>
+		<snippet name="snippet_rank__lister__item">
+			<Panel class="eom-rank__lister__item eom-rank__lister__item--appear">
+				<Label id="id-eom-rank__lister__item__amt" class="eom-rank__lister__item__amt stratum-font" />
+				<Label id="id-eom-rank__lister__item__desc" class="eom-rank__lister__item__desc" />
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<CSGOEndOfMatchXpPanel class="full-width full-height" useglobalcontext="true">
+		<Panel class="eom-rank" >
+			<Panel id="id-eom-rank__bar-container">
+				<Panel id="id-eom-rank__bar--bg" class="eom-rank__bar" />
+				<Panel id="id-eom-rank__bar" class="eom-rank__bar">
+				
+					<Panel id="id-eom-rank__lister" class="eom-rank__lister">
+						<Panel id="id-eom-rank__lister__line" class="eom-rank__lister__line" />
+						<Panel id="id-eom-rank__lister__items" class="eom-rank__lister__items" />
+					</Panel>
+				</Panel>
+				<Panel id="id-eom-rank__bar--shine" class="eom-rank__bar" />
+			</Panel>
+
+			<Panel id="id-eom-rank__current">
+				<Label id="id-eom-rank__current__label" class="eom-skillgroup__info-label" text="#XP_RankName_Display" />
+				<Image id="id-eom-rank__current__emblem" />
+
+			</Panel>
+		</Panel>
+
+		<Panel id="id-eom-rank__new-reveal" class="hidden">
+			<Label id="id-eom-rank__new-reveal--left" text="{s:rank_new_name}" />
+			<Image id="id-eom-rank__new-reveal__emblem" />
+			<Label id="id-eom-rank__new-reveal--right" class="fontWeight-Light" text="{s:rank_new_rank}" />
+			<ItemPreviewPanel 	id="RankParticleModel"
+					class="eom-skillgroup__particles hidden"
+					manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+					item=""
+					mouse_rotate="false"/>
+			<Image id="id-eom-rank__flare" class="eom-skillgroup__flare"  src="file://{images}/ui_textures/flare.png" />
+		</Panel>
+		
+	</CSGOEndOfMatchXpPanel>
+	
+</root>

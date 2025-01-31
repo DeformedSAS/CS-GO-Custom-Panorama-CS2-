@@ -1,0 +1,10 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		 <include src="file://{resources}/styles/mainmenu.css" />
+	</styles>
+	<Panel class="MainMenuContentContainer">
+		<Panel class="full-height full-width">
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,59 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_playercard.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_inventory_search.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/context_menus/context_menu_inventory_search.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="SuggestedEntry">
+			<Button class="context-menu-search__popular-btn">
+				<Label id="SuggestedLabel" html="true" text="" />
+			</Button>
+		</snippet>
+	</snippets>
+	
+	<ContextMenuCustomLayout class="ContextMenuPlayerCard"
+							onload="InventorySearch.Init();"
+							acceptsfocus="true"
+							useglobalcontext="true">
+		<Panel id="ContextMenuSearch" class="context-menu-search-container">
+			<Panel class="context-menu-search__input-container" >
+				<TextEntry id="InventorySearchInput"
+							class="context-menu-search__input"
+							maxchars="1024"
+							placeholder="#inv_search_placeholder"
+							ontextentrychange="InventorySearch.OnEntryChanged();"/>
+			</Panel>
+			<Panel class="horizontal-center">
+
+				<Panel id="SearchNoResults" class="context-menu-search__no-results hidden" >
+					<Image src='file://{images}/icons/ui/warning.svg' />
+					<Label id="SearchNoResultsLabel"
+							html="true"
+							text="#inv_search_no_results"
+							class="context-menu-search__no-results-text"/>
+				</Panel>
+
+				<InventoryItemList id="ContextMenuSearchResultsList"
+									hittest="true"
+									itemheight="200px" 
+									itemwidth="192px" 
+									spacersize="0px" 
+									spacerperiod="0" 
+									class="context-menu-search__results">
+				</InventoryItemList>
+
+				<Panel id="SuggestedSearchEntries" class="context-menu-search__no-results" >
+					<Label html="true" text="#inv_search_popular" class="context-menu-search__no-results-text fontWeight-Bold"/>
+					                     
+				</Panel>
+				
+			</Panel>
+		</Panel>
+	</ContextMenuCustomLayout>
+</root>

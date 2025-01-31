@@ -1,0 +1,192 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/settings/settings.css" />
+		<include src="file://{resources}/styles/mainmenu.css"/>
+	</styles>
+
+	<scripts>
+		                                                                               
+		<include src="file://{resources}/scripts/settingsmenu_shared.js" />
+	</scripts>
+
+    <Panel useglobalcontext="true" class="SettingsMenuTab">
+        <Panel id="id-navbar-tabs" class="content-navbar__tabs content-navbar__tabs--dark content-navbar__tabs--noflow">
+            <Panel id="SettingsMenuJumpButtons" class="content-navbar__tabs__center-container   content-navbar__tabs--small">
+                <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsAudioSettings&apos;)" group="SettingsAudio">
+                    <Label text="#settings_audio_section" />
+				</RadioButton>
+				 <RadioButton class="content-navbar__tabs__btn" onactivate="SettingsMenuShared.ScrollToId(&apos;SettingsMusicSettings&apos;)" group="SettingsAudio">
+                    <Label text="#settings_music_section" />
+					</RadioButton>
+			</Panel>
+		</Panel>
+		
+		<CSGOAudioSettings class="SettingsMenuTabContent vscroll" rememberchildfocus="true" >
+			                               
+			<Panel id="SettingsAudioSettings" class="SettingsBackground">
+				<Panel class="SettingsSectionTitleContianer">
+					<Label class="SettingsSectionTitleLabel" text="#settings_audio_section" />
+				</Panel>
+				
+				<Panel class ="top-bottom-flow full-width">
+					                     
+					<CSGOSettingsSlider text="#SFUI_Settings_Master_Volume" max="1" min="0" percentage="true" convar="volume"/>
+					<Panel class="horizontal-separator"/>
+
+					                              
+					<CSGOSettingsSlider text="#SFUI_Settings_Music_Volume_InOverlay" max="1" min="0" percentage="true" convar="snd_musicvolume_multiplier_inoverlay"/>
+					<Panel class="horizontal-separator"/>
+
+					                           
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_GOTV_Caster_Volume_Tip">
+						<CSGOSettingsSlider text="#SFUI_Settings_GOTV_Caster_Volume" max="1" min="0" percentage="true" convar="voice_caster_scale"/>
+					</TooltipPanel>
+					<Panel class="horizontal-separator"/>
+
+					                                   
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Audio_Device_Tip">
+						<Label text="#SFUI_Settings_Speaker_Config" class="half-width"/>
+						<CSGOSettingsEnumDropDown id ="SpeakerConfigurationEnum" class="PopupButton" convar="snd_surround_speakers" oninputsubmit="CSGOSpeakerConfigurationChanged()">
+							<Label text="#SFUI_Settings_Headphones" id="speakerconfig1" value="0"/>
+							<Label text="#SFUI_Settings_2_Speakers" id="speakerconfig2" value="2"/>
+							<Label text="#SFUI_Settings_4_Speakers" id="speakerconfig3" value="4"/>
+							<Label text="#SFUI_Settings_51_Speakers" id="speakerconfig4" value="5"/>
+						</CSGOSettingsEnumDropDown>
+					</TooltipPanel>
+
+					<TooltipPanel id="DeviceConfigurationPanel" class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Speaker_Config_Tip">
+						<Label text="#SFUI_Settings_Audio_Device" class="half-width"/>
+						<CSGOSettingsEnumDropDown id="DeviceConfigurationEnum" class="PopupButton" convar="sound_device_override" oninputsubmit="CSGOAudioDeviceConfigurationChanged()">
+							                                                                               
+							<Label text="XXXXXX 1" id="audiodeviceconfig1"/>
+							<Label text="XXXXXX 2" id="audiodeviceconfig2"/>
+							<Label text="XXXXXX 3" id="audiodeviceconfig3"/>
+							<Label text="XXXXXX 4" id="audiodeviceconfig4"/>
+							<Label text="XXXXXX 5" id="audiodeviceconfig5"/>
+							<Label text="XXXXXX 6" id="audiodeviceconfig6"/>
+							<Label text="XXXXXX 7" id="audiodeviceconfig7"/>
+							<Label text="XXXXXX 8" id="audiodeviceconfig8"/>
+						</CSGOSettingsEnumDropDown>
+					</TooltipPanel>
+
+
+					<Panel class="horizontal-separator"/>
+
+					                         
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_Enable_Audio_HWCompat_Tip">
+						<Label text="#SFUI_Settings_Enable_Audio_HWCompat" class="half-width"/>
+						<CSGOSettingsEnumDropDown class="PopupButton" convar="snd_hwcompat">
+							<Label text="#GameUI_Yes" id="audiohwcompat0" value="0"/>
+							<Label text="#GameUI_No"  id="audiohwcompat1" value="1" />
+						</CSGOSettingsEnumDropDown>
+						</TooltipPanel>
+
+					<Panel class="horizontal-separator"/>
+
+					                     
+					<Panel class="SettingsMenuDropdownContainer">
+						<Label text="#SFUI_Settings_Enable_Voice" class="half-width"/>
+						<CSGOSettingsEnumDropDown id="VoiceEnable" class="PopupButton" oninputsubmit="CSGOVoiceEnable()">
+							<Label text="#SFUI_Settings_Disabled" id="enablevoice0" value="0"/>
+							<Label text="#SFUI_Settings_Push_To_Talk" id="enablevoice1" value="1"/>
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+					<Panel class="horizontal-separator"/>
+
+					                             
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_VOIP_Volume_Tip">
+						<CSGOSettingsSlider text="#SFUI_Settings_VOIP_Volume" max="1" min="0" percentage="true" convar="voice_scale"/>
+					</TooltipPanel>
+					<Panel class="horizontal-separator"/>
+
+					                        
+					<TooltipPanel class="SettingsMenuDropdownContainer" tooltip="#SFUI_Settings_VOIP_Positional_Tip">
+						<Label text="#SFUI_Settings_VOIP_Positional" class="half-width"/>
+						<CSGOSettingsEnumDropDown class="PopupButton" convar="voice_positional">
+							<Label text="#GameUI_Yes" id="voippositional0" value="1"/>
+							<Label text="#GameUI_No"  id="voippositional1" value="0" />
+						</CSGOSettingsEnumDropDown>
+					</TooltipPanel>
+
+					<Panel class="horizontal-separator"/>
+
+					                           
+					<Panel class="SettingsMenuDropdownContainer">
+						<Label text="#SFUI_Settings_Enable_Audio_Background" class="half-width"/>
+						<CSGOSettingsEnumDropDown class="PopupButton" convar="snd_mute_losefocus">
+							<Label text="#GameUI_Yes" id="audionofocus0" value="0"/>
+							<Label text="#GameUI_No"  id="audionofocus1" value="1" />
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			                               
+			<Panel id="SettingsMusicSettings" class="SettingsBackground">
+				<Panel class="SettingsSectionTitleContianer">
+					<Label class="SettingsSectionTitleLabel" text="#settings_music_section" />
+				</Panel>
+				<Panel class ="top-bottom-flow full-width">
+
+					                         
+				<CSGOSettingsSlider text="#SFUI_Settings_Menu_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_menumusic_volume" constrainrange="true" />
+					<Panel class="horizontal-separator"/>
+
+					                           
+					<CSGOSettingsSlider text="#SFUI_Settings_Start_Round_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_roundstart_volume" constrainrange="true" />
+					<Panel class="horizontal-separator"/>
+
+					                         
+					<CSGOSettingsSlider text="#SFUI_Settings_End_Round_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_roundend_volume" constrainrange="true" />
+					<Panel class="horizontal-separator"/>
+
+					                             
+					<CSGOSettingsSlider text="#SFUI_Settings_Map_Objective_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_mapobjective_volume" constrainrange="true" />
+					<Panel class="horizontal-separator"/>
+
+					                                  
+					<CSGOSettingsSlider text="#SFUI_Settings_Ten_Second_Warning_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_tensecondwarning_volume" constrainrange="true" />
+					<Panel class="horizontal-separator"/>
+
+					                            
+					<CSGOSettingsSlider text="#SFUI_Settings_Death_Camera_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_deathcamera_volume" constrainrange="true" />
+
+					                         
+					<CSGOSettingsSlider text="#SFUI_Settings_MVP_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_mvp_volume" constrainrange="true" />
+
+					                           
+					<Panel class="SettingsMenuDropdownContainer">
+						<Label text="#SFUI_Settings_Mute_MVP_Live_Players" class="half-width"/>
+						<CSGOSettingsEnumDropDown class="PopupButton" convar="snd_mute_mvp_music_live_players">
+							<Label text="#GameUI_Yes" id="mutemvpliveplayers1" value="1"/>
+							<Label text="#GameUI_No"  id="mutemvpliveplayers0" value="0"/>
+						</CSGOSettingsEnumDropDown>
+					</Panel>
+
+					                        
+					<CSGOSettingsSlider text="#SFUI_Settings_DZ_Music_Volume" max="0.6" min="0" percentage="true" convar="snd_dzmusic_volume" constrainrange="true" />
+
+					                                                                                                           
+					                                     
+
+					                                                                                                                   
+					   
+			
+					</Panel>
+			</Panel>
+		</CSGOAudioSettings>
+
+		<Panel class="content-controls-actions-bar">
+				<Button id="SettingsRestoreKbMouse"
+						class="PopupButton"
+						onactivate="SettingsMenuShared.ShowConfirmReset( SettingsMenuShared.ResetAudioSettings, '#settings_reset_confirm_audio_desc');"
+						onmouseover="UiToolkitAPI.ShowTextTooltip( 'SettingsRestoreKbMouse', '#tooltip_reset_defaults' );"
+						onmouseout="UiToolkitAPI.HideTextTooltip();" >
+					<Image id="PermissionsSettingsImg" texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/recent.svg" />
+					<Label text="#settings_reset" />
+				</Button>
+		</Panel>
+	</Panel>
+</root>
+

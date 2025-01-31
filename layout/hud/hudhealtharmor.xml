@@ -1,0 +1,47 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/csgostyles.css" />
+        <include src="file://{resources}/styles/hud/hudhealtharmor.css" />
+    </styles>
+	<scripts>
+	<include src="file://{resources}/scripts/hud/hudhealtharmor.js" />
+	</scripts>
+
+    <CSGOHudHealthArmor class="hud-HA" hittest="false">
+
+        <Panel id="HudHealthArmorBG" class="hud-HA-bg">
+            <Panel id="HudHealthBG" class="hud-HA-bg-h" />
+            <Panel id="HudArmorBG" class="hud-HA-bg-a" />
+        </Panel>
+
+        <Panel class="hud-HA-main-container">
+
+            <ProgressBar id="ArmorBar" class="hud-HA-bar2 HUD--health--on-damage--listener cl-hud-wash-color" />
+
+            <Panel class="hud-HA-armor HUD--has-armor--on-pickup--listener">
+                <Panel class="hud-HA-icon-outline-container">
+                    <Image class="hud-HA-icon hud-HA-icon--heavy cl-hud-wash-color" src="file://{images}/icons/ui/shield.svg" texturewidth="26px" scaling="none" />
+                    <Image class="hud-HA-icon hud-HA-icon--armor cl-hud-wash-color" src="file://{images}/hud/armor.svg" texturewidth="42px" scaling="none" />
+                    <Image class="hud-HA-icon hud-HA-icon--helmet cl-hud-wash-color" src="file://{images}/hud/armor_helmet.svg" texturewidth="46px" scaling="none" />
+                </Panel>
+                <Panel class="hud-HA-armor-text">
+                    <Label class="hud-HA-armor-label cl-hud-wash-color stratum-bold" text="{s:armor}" />
+                </Panel>
+            </Panel>
+
+            <Panel class="hud-HA-health">
+                <Panel class="hud-HA-icon-container">
+                    <Image class="hud-HA-icon hud-HA-icon--health cl-hud-wash-color" />
+                </Panel>
+                <Panel class="hud-HA-text">
+                    <Label class="hud-HA-health-label cl-hud-wash-color" text="{s:health}" />
+                </Panel>
+                <ProgressBar id="HealthBar" class=" cl-hud-wash-color hud-HA-bar hud-HA-bar--health" />
+            </Panel>
+
+            <CSGOHudPassiveItems id="HudPassiveItems"/>
+        </Panel>
+
+    </CSGOHudHealthArmor>
+</root>
+

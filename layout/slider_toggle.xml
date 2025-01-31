@@ -1,0 +1,14 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/slider_toggle.css" />
+	</styles>
+	<Panel>
+		<ToggleButton id="id-slider-btn" html="true" class="btn-toggle-slider" text="{s:slide_toggle_text}">
+			<Panel class="btn-toggle-slider__pill">
+				<Panel class="btn-toggle-slider__slider" />
+			</Panel>
+		</ToggleButton>
+	</Panel>
+</root>

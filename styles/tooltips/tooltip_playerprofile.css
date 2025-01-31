@@ -1,0 +1,17 @@
+                                        
+#Contents
+{
+    background-color: gradient( linear, 75% 0%, 0% 100%, from( #14202b   ), to( #1e2d3d ) );
+}
+
+.ToolTip
+{
+    height: fit-children;
+    width: fit-children;
+    min-height: 42px;
+    min-width: 256px;
+
+    transition-property: height, width;
+	transition-duration: .3s;
+	transition-timing-function: ease-in;
+}

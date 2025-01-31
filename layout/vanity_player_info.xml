@@ -1,0 +1,40 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/vanity_player_info.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/teamcolor.js" />
+		<include src="file://{resources}/scripts/common/sessionutil.js" />
+	</scripts>
+    <Panel hittest="false" hittestchildren="true" useglobalcontext="true">
+        <Panel id="vanity-info-container" class="vanity-info-container" hittest="true">
+            <Image id="vanity-crown-icon" class="vanity-info-crown-icon" src="file://{images}/icons/ui/lobby_leader.svg" />
+            <Panel class="left-right-flow">
+                <Panel id="vanity-avatar-container" class="vanity-info-avatar-container" />
+                <Panel id="vanity-info-name" class="vanity-info-name-container">
+                    <Panel class="left-padding top-bottom-flow vertical-center full-width">
+                        <Label class="stratum-font fontSize-m fontWeight-Bold fontcolor-white vertical-center vanity-info-name" text="{s:player_name}" />
+                        <Image id="vanity-prime-icon" class="vanity-info-prime-icon" src="file://{images}/icons/ui/prime.svg" />
+                    </Panel>
+                </Panel>
+            </Panel>
+            <Panel id="vanity-skillgroup-container" class="vanity-info-skill-group-container">
+                <Image id="vanity-skillgroup-icon" class="vanity-info-skillgroup-icon" texturewidth="64" textureheight="-1" />
+                <Panel class="vanity-info-skill-group-label-container">
+                    <Label id="vanity-skillgroup-label" class="left-margin stratum-font fontSize-sm fontWeight-Normal vertical-center vanity-info-name" />
+                </Panel>
+            </Panel>
+            <Panel id="vanity-xp-container" class="vanity-info-xp-bar-container">
+                <Panel class="vanity-info-xp-container">
+                    <Image id="vanity-xp-icon" class="vanity-info-xp-icon" />
+                    <Label id="vanity-rank-name" class="left-margin stratum-font fontSize-sm fontWeight-Normal vertical-center vanity-info-name" text="#XP_RankName_Display" />
+                </Panel>
+                <Panel class="vanity-info-xp-bar">
+                    <Panel id="vanity-xp-bar-inner" class="vanity-info-xp-bar--inner" />
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

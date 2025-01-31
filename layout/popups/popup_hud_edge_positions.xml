@@ -1,0 +1,35 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popup_hud_edge_positions.css" />
+	</styles>
+
+    <scripts>
+		<include src="file://{resources}/scripts/popups/popup_hud_edge_positions.js" />
+	</scripts>
+
+    <PopupCustomLayout class="hud_edge full-width full-height Hidden" popupbackground="blur">
+        <Panel id="HudEdge" class="hud_edge_positions"/>
+        <Panel class="hud_edge_button_container">
+            <Label class="hud_edge_button_title" text="settings_video_hud_edge_positions" />
+    
+            <Panel class="hud_edge_slider_container">
+                <CSGOSettingsSlider id='HudEdgeX' class='CSGOSettingsSlider__hidevalue' onvaluechanged='HudEdgePositions.OnSliderValueChanged();' 
+                    max="1" min="0.85" displayprecision="2" convar="safezonex"/>
+            </Panel>
+            <Label class="hud_edge_button_type" text="#settings_video_hud_edge_x"/>
+
+            <Panel class="hud_edge_slider_container">
+                <CSGOSettingsSlider id='HudEdgeY' class='CSGOSettingsSlider__hidevalue' onvaluechanged='HudEdgePositions.OnSliderValueChanged();'
+                    max="1" min="0.85" displayprecision="2" convar="safezoney"/>
+            </Panel>
+            <Label class="hud_edge_button_type" text="#settings_video_hud_edge_y"/>
+
+            <Button class="PopupButton" onactivate="UIPopupButtonClicked()">
+                <Label text='#UI_Done'/>
+            </Button>
+        </Panel>
+	</PopupCustomLayout>
+
+</root>
+

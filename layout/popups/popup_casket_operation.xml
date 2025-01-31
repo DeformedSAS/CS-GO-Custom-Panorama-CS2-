@@ -1,0 +1,52 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/popups/popup_custom.css" />
+		<include src="file://{resources}/styles/itemtile.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/itemtile.js" />
+		<include src="file://{resources}/scripts/popups/popup_casket_operation.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="LootListItem">
+			<Panel class="item-tile item-tile--small"
+					acceptsinput="false"
+					antialias="true"
+					useglobalcontext="true">
+				<Panel id="ItemTileBg" class="item-tile__bg"/>
+				<ItemImage class="item-tile__image" id="ItemImage" scaling="stretch-to-fit-preserve-aspect"/>
+				<Label html="true" id="JsItemName" class="item-tile__name"/>
+				<Panel class="item-tile__rarity" id="JsRarity"/>
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<PopupCustomLayout class="PopupPanel Hidden" popupbackground="dim"
+		onload="SetupPopup()"
+		oncancel="">                                                                                                        
+
+		<Label class="PopupTitle" text="{s:title}" />
+
+		<Panel class="horizontal-center" id="CasketItemPanel"/>
+
+		                                                                                                     
+		<Panel class="horizontal-center left-right-flow">
+			<Label html="true" id="ItemsRemaining" text="#CSGO_Recipe_Count_Items_Remaining"
+				class="item-tile__name top-padding right-padding vertical-center" />
+			<Panel id="Spinner" class="Spinner" />
+		</Panel>
+
+
+		<Panel class="PopupButtonRow" id="PopupButtonRow">
+			<TextButton class="PopupButton" text="#Cancel" onactivate="OnRequestCancelBatch()" />
+			                                                                                
+                                                                                                         
+		</Panel>
+	
+	</PopupCustomLayout>
+</root>

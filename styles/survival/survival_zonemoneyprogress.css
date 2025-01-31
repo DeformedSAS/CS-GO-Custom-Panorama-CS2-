@@ -1,0 +1,35 @@
+.zoneprogress
+{
+	margin-left: 20px;
+	opacity-mask: url( "file://{images}/icons/ui/zoneprogress.svg" );
+	background-color: rgb(88, 88, 88);
+	width: 48px;
+	height: 48px;
+	-s2-mix-blend-mode: additive;
+}
+
+.zoneprogress.hidden
+{
+	visibility: collapse;
+	transform: translateX( -100% );
+	opacity: 0;
+
+	transition-property: transform, opacity;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
+
+.zoneprogress__bar
+{
+	background-color: white;
+	height: 15%;
+	width: 100%;
+	vertical-align: bottom;
+	-s2-mix-blend-mode: additive;
+	wash-color-fast: lightgreen;
+
+	transition-property: height;
+	transition-duration: 0.1s;
+	transition-timing-function: ease-in-out;
+}
+

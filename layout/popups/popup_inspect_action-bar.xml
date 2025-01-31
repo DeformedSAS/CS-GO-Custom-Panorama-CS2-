@@ -1,0 +1,77 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/popups/popup_inventory_inspect.css" />
+		<include src="file://{resources}/styles/popups/popup_capability_shared.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+        <include src="file://{resources}/scripts/common/item_context_entries.js" />
+        <include src="file://{resources}/scripts/popups/popup_inspect_action-bar.js" />
+		<include src="file://{resources}/scripts/characterbuttons.js" />
+	</scripts>
+
+	<Panel class="popup-capability__button-row" useglobalcontext="true">
+		<Panel class="right-left-flow horizontal-align-right vertical-center">
+			<TextButton id="InspectCloseBtn"
+					class="PopupButton"
+					text="#GameUI_Close"
+					onactivate="InspectActionBar.CloseBtnAction();"/>
+			<TextButton id="SingleAction"
+					class="PopupButton hidden"
+					text="#Action"
+					html="true"/>
+		</Panel>
+		<Panel class="horizontal-align-left left-right-flow">
+			<Button id="InspectWeaponBtn"
+					class="IconButton hidden"
+					onactivate="InspectActionBar.NavigateModelPanel('InspectModel');"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'InspectWeaponBtn', '#tooltip_inspect_weapon_model' );"
+					onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" src="file://{images}/icons/equipment/p250.svg" />
+			</Button>
+			<Button id="InspectCharBtn"
+					class="IconButton hidden"
+					onactivate="InspectActionBar.NavigateModelPanel('InspectModelChar');"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'InspectCharBtn', '#tooltip_inspect_weapon_model_faction' );"
+					onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" src="file://{images}/icons/ui/ct_silhouette.svg" />
+			</Button>
+			<Button id="InspectPlayMvpBtn"
+					class="IconButton hidden"
+					onactivate="InspectActionBar.InspectPlayMusic('mvp');"
+					onmouseover="UiToolkitAPI.ShowTextTooltip( 'InspectPlayMvpBtn', '#tooltip_inspect_play_mvp_anthem' );"
+					onmouseout="UiToolkitAPI.HideTextTooltip();">
+					<Image class="" src="file://{images}/icons/ui/unmuted.svg" />
+			</Button>
+
+			<Panel id="InspectCharModelsControls" class="popup-char-model-controls hidden" >
+				<DropDown id="InspectDropdownCharModels" class="PopupButton horizontal-align-left" menuclass="DropDownMenu Width-250" >
+					                                
+				</DropDown>
+			</Panel>
+
+			                                             
+			<Panel id="id-character-button-container" class="hidden">
+				<Frame id="id-character-buttons" src="file://{resources}/layout/characterbuttons.xml"/>
+			</Panel>
+
+			<Button id="InspectItemCert"
+					class="IconButton">
+					<Image class="" src="file://{images}/icons/ui/info.svg" />
+			</Button>
+			<Button id="InspectMarketLink"
+					class="IconButton hidden">
+					<Image class="" src="file://{images}/icons/ui/link.svg" />
+			</Button>
+			<Button id="InspectActionsButton"
+					class="IconButton"
+					onactivate="InspectActionBar.ShowContextMenu();">
+					<Image class="" src="file://{images}/icons/ui/moreoptions.svg" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>

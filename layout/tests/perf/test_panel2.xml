@@ -1,0 +1,11 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+	</styles>
+	
+	<Panel>
+        <Button class="PopupButton">
+            <Label id="buttonText" class="MonoNumbersFont" allowrawtext="true" text="PanelTest2" />
+        </Button>
+	</Panel>
+</root>

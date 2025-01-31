@@ -1,0 +1,77 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/scoreboard.css" />
+		<include src="file://{resources}/styles/endofmatch-podium.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-podium.js" />
+		<include src="file://{resources}/scripts/common/formattext.js" />
+	</scripts>
+
+
+	<snippets>
+
+		<snippet name="snippet_podium_stat">
+			<Label />
+		</snippet>
+
+		<snippet name="snippet_podium_player">
+			<Panel class="eom-podium__podium__player">
+
+				<Panel id="id-eom-podium__podium__player__commend">
+					<TextButton id="id-eom-podium__podium__player__commend--text" class="hidden" text="#SFUI_PlayerDetails_Commend" />
+				</Panel>
+				
+				<Panel id="id-eom-podium__podium__player__plaque">
+					<Panel id="id-eom-podium__podium__player__plaque__bg" />
+					                        
+					<Panel id="id-eom-podium__podium__player__name-and-avatar" class="eom-podium__podium__player__name-and-avatar">
+						<CSGOAvatarImage id="id-eom-podium__podium__player__avatar" scaling='stretch-to-fit-y-preserve-aspect'/>
+						<Label id="id-eom-podium__podium__player__name" />
+					</Panel>
+					<Image id="id-eom-podium__podium__player__rank" scaling="stretch-to-fit-y-preserve-aspect" />
+					                
+				</Panel>
+
+				<Image id="id-eom-podium__podium__player__skillgroup" scaling="stretch-to-fit-y-preserve-aspect" />	
+
+				                                                                                       
+					                                                                                               
+				             
+
+				<Panel id="id-eom-podium__podium__player__stats">
+					                                                      
+				</Panel>
+			</Panel>
+		</snippet>
+
+		<snippet name="snippet_podium-root" >
+			<Panel class="eom-podium__main">
+
+				               
+				<Panel class="eom-podium_podium">
+					<Panel id="id-eom-podium__podium__player-container">
+						<Panel id="id-eom-podium__podium__player-models">
+							                                        
+						</Panel>
+						<Panel id="id-eom-podium__podium__players" >
+								                                                          
+						</Panel>
+					</Panel>
+
+					<Panel id="id-eom-podium-podium__hiddenstats" style="visibility:collapse;" />
+
+				</Panel>
+
+				<CSGOEndOfMatchXpPanel				id="id-eom-event-rank" 			data-xml="endofmatch-rank.xml" 			class="eom-event" />
+				<CSGOEndOfMatchSkillgroupPanel		id="id-eom-event-skillgroup" 	data-xml="endofmatch-skillgroup.xml" 	class="eom-event" />
+				<CSGOEndOfMatchItemDropsPanel 		id="id-eom-event-drops" 		data-xml="endofmatch-drops.xml" 		class="eom-event" />
+
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel class="eom-podium" useglobalcontext="true" />
+	
+</root>

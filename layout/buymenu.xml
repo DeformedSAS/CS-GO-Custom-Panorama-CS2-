@@ -1,0 +1,287 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/buymenu.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/buymenu.js" />
+		<include src="file://{resources}/scripts/common/characteranims.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/mock_adapter.js" />
+	</scripts>
+
+	<snippets>
+		                                 
+		<snippet name="Radial_SixSlot">
+			<Panel class='radial-selector' >
+				<Button class="radial-button w1 no-hover">
+					<Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420"/>
+					                                                           
+					<Panel id="Contents" />
+				</Button>
+				<Button class="radial-button w2 no-hover">
+					<Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420"/>
+					<Panel id="Contents" />
+				</Button>
+				<Button class="radial-button w3 no-hover">
+					<Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420"/>
+					<Panel id="Contents" />
+				</Button>
+				<Button class="radial-button w4 no-hover">
+					<Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420"/>
+					<Panel id="Contents" />
+				</Button>
+				<Button class="radial-button w5 no-hover">
+					<Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420"/>
+					<Panel id="Contents" />
+				</Button>
+				<Button class="radial-button w6 no-hover">
+					<Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420"/>
+					<Panel id="Contents" />
+				</Button>
+			</Panel>
+		</snippet>
+
+		                                  
+		<snippet name="Radial_FourSlot">
+			<Panel class='radial-selector' >
+				<Button class="radial-button w1 no-hover">
+					<Image class="wedge w90" src="file://{images}/masks/wedge_select_quarter.svg" texturewidth="420" textureheight="420"/>
+					<Panel class="fourslot" id="Contents" />
+				</Button >
+				<Button class="radial-button w2 no-hover">
+					<Image class="wedge w90" src="file://{images}/masks/wedge_select_quarter.svg" texturewidth="420" textureheight="420"/>
+					<Panel class="fourslot" id="Contents" />
+				</Button>
+				<Button class="radial-button w3 no-hover">
+					<Image class="wedge w90" src="file://{images}/masks/wedge_select_quarter.svg" texturewidth="420" textureheight="420"/>
+					<Panel class="fourslot" id="Contents" />
+				</Button>
+				<Button class="radial-button w4 no-hover">
+					<Image class="wedge w90" src="file://{images}/masks/wedge_select_quarter.svg" texturewidth="420" textureheight="420"/>
+					<Panel class="fourslot" id="Contents" />
+				</Button>
+			</Panel>
+		</snippet>
+
+		                                            
+		<snippet name="CategoryWedge">
+			<Panel class="buywheel-button">
+				<Panel class="buywheel-category__contents">
+					<Label class="buywheel-category__title" id="CategoryName" text="XXXXX"/>
+					<Label class="buywheel-button__key" id="WedgeKeybinding" text="X"/>
+				</Panel>
+			</Panel>
+		</snippet>
+
+		                             
+		<snippet name="ItemWedge">
+			<Panel class="buywheel-button">
+				<Label class="buywheel-button__key" id="WedgeKeybinding" text="X"/>
+				<Panel class="buywheel-item__textbox">
+					                                                                     
+					<Label id="ItemName" class="buywheel-item__name"/>
+					<Image id="ItemIcon" class="buywheel-item__icon"/>
+					<Label id="ItemPrice" class="buywheel-item__price"/>
+				</Panel>
+			</Panel>
+		</snippet>
+
+		                                  
+		<snippet name="TeamEquipment">
+			<Panel class="team-equip">
+				<Panel class="team-equip-padding"/>
+				<Image id="Primary" scaling="stretch-to-fit-preserve-aspect" class="team-equip__primary team-equip__flip"/>
+				<Panel class="team-equip-other">
+					<Panel class="team-equip-gear">
+						<Label class="team-equip__money" text="#buymenu_money" />
+						<Panel id="OtherItems" class="team-equip__items">
+							<Image id="Bomb"  scaling="stretch-to-fit-preserve-aspect" class="team-equip__item-icon team-equip__special" texturewidth="-1" textureheight="24"/>
+							<Image id="Secondary"  scaling="stretch-to-fit-preserve-aspect" class="team-equip__item-icon team-equip__secondary team-equip__flip" texturewidth="-1" textureheight="24"/>
+							<Panel id="Grenades" class="left-right-flow vertical-center" texturewidth="-1" textureheight="24">
+								                                                                                                               
+									                                      
+								   
+							</Panel>
+							<Image id="Defuser" scaling="stretch-to-fit-preserve-aspect" src="file://{images}/icons/ui/defuser.svg" class="team-equip__item-icon"/>
+							<Panel class="no-flow vertical-center">
+							                                                                           
+								<Image id="Vest" scaling="stretch-to-fit-preserve-aspect"  src="file://{images}/icons/ui/shield.svg" class="team-equip__item-icon team-equip__item-vest" texturewidth="-1" textureheight="24"/>
+								<Image id="VestHelm" scaling="stretch-to-fit-preserve-aspect"   src="file://{images}/icons/ui/armor.svg" class="team-equip__item-icon team-equip__item-vest"  texturewidth="-1" textureheight="24"/>
+								<Image id="HeavyAssault" scaling="stretch-to-fit-preserve-aspect"  src="file://{images}/icons/ui/armor.svg" class="team-equip__item-icon team-equip__item-vest"  texturewidth="-1" textureheight="24"/>
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel class="no-flow horizontal-align-right">
+						<CSGOAvatarImage id="Avatar" class="team-equip__avatar" texturewidth="-1" textureheight="32"/>
+						<Image id="Skull" class="team-equip__avatar--skull" src="file://{images}/icons/ui/elimination.svg" texturewidth="-1" textureheight="24"/>
+						<Image id="PlayerColor" class="player-color" src="file://{images}/hud/teamcounter/teamcounter_playercolor.png"/>
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+	<CSGOBuyMenu class="buymenu">
+		<Panel class='buymenu__fullscreen'>
+
+			<Panel class="buymenu-info">
+				<Panel class="horizontal-center fit-children left-right-flow">
+					<Panel class="left-right-flow horizontal-align-right">
+						<Label class="buymenu-timeleft-title" text="#BuyMenu_TimerText"/>
+						<CountdownTimer id="Countdown" output_milliseconds="false" class="buymenu-timeleft">
+							<Label text="{t:d:duration}"/>
+						</CountdownTimer>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			<Panel class='buymenu__contents'>
+
+				<Panel class="buymenu-left">
+
+
+					<Panel class="buymenu-body">
+						<Panel class="buy-wheel-background" />
+							<Panel id="BuyWheelContainer" class="buy-wheel">
+								                                                                  
+							</Panel>
+						<Image id="TeamLogo" class="team-logo" src="file://{images}/icons/ct_logo.svg"/>
+					</Panel>
+					<Panel class="buymenu__purchase-failure-container">
+						<Label id="PurchaseFailureLabel" class="buymenu__purchase-failure" />
+						<Label id="BuyForTeammateHintLabel" class="buymenu__purchase-failure buymenu__purchase-failure--teammate Hidden" text="#BuyMenu_BuyForTeammate_hint"/>
+					</Panel>
+
+					<Panel class="team-equip-container--all">
+						                                                                                              
+						<Panel id="LocalPlayerEquipment" class="team-equip--self"/>
+						<Panel id="TeamEquipment" class="team-equip-container">
+						                                                          
+						</Panel>
+					</Panel>
+
+				</Panel>
+				<Panel class="buymenu-right">
+
+					<ItemPreviewPanel id="id-buymenu-agent"
+									class="buymenu-agent"
+									mouse_rotate="false"
+									hittest="true"
+									manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+									item="models/player/custom_player/legacy/ctm_sas.mdl"
+									enable_floorshadow="false"
+									force-no-composition-layer="true">                                                                                   
+					</ItemPreviewPanel>
+
+					<Panel class="vline" />
+
+					<Panel id="PreviewPanelContainer" class="">
+						<Panel class="hrTop" />
+						<Panel class="category-preview"> 
+							<Label text="{s:category}" class="category-preview__label"/>
+							<Panel id="CategoryPreview" class="category-image-container" >
+								     
+									                                                                  
+									                                                                           
+								   
+							</Panel>
+						</Panel>
+
+						                                               
+						<Panel id="ItemStatsDisplay" class="stat-display">
+												
+							<Panel id="WeaponNameAndRarity" class="rarity-bar">
+								<Label class="stat-display__item-name" text="{s:item_name}" />
+							</Panel>
+							<Panel id="WeaponStats" class="weapon-stats">
+								<Panel class="stat-display__row">
+									<Label class="stat-display__name" text="#SFUI_BuyMenu_AmmoLabel"/>	
+									<Label class="stat-display__value" text="{d:r:ammo_per_mag}/{d:r:ammo_total}"/>	
+								</Panel>
+								<Panel class="stat-display__row">
+									<Label class="stat-display__name" text="#SFUI_BuyMenu_KillAward"/>	
+									<Panel class="horizontal-align-right no-flow">
+										<Label class="stat-display__value stat-display__kill-reward" text="#buymenu_killaward_amount"/>	
+										<Label class="stat-display__value stat-display__points" text="#SFUI_BuyMenu_KillAward_DMPoints_panorama"/>	
+									</Panel>
+								</Panel>
+								<TooltipPanel class="no-flow full-width" tooltip="#buymenu_tooltip_damage">
+									<ProgressBar id="DmgProgress" class="stat-display__row" min="0" max="100"/>
+										<Label class="stat-display__name" text="#SFUI_BuyMenu_Damage"/>	
+										<Label class="stat-display__value" text="#Pano_BuyMenu_Damage_val"/>
+								</TooltipPanel>
+								<TooltipPanel class="no-flow full-width" tooltip="#buymenu_tooltip_firerate">
+									<ProgressBar id="FireRateProgress" class="stat-display__row" min="0" max="15"/>
+									<Label class="stat-display__name" text="#SFUI_BuyMenu_FireRate"/>
+									<Label class="stat-display__value" text="#Pano_BuyMenu_FireRate_val"/>
+								</TooltipPanel>
+								<TooltipPanel class="no-flow full-width" tooltip="#buymenu_tooltip_accuracy">
+									<ProgressBar id="AccuracyProgress" class="stat-display__row" min="0" max="100"/>
+									<Label class="stat-display__name" text="#SFUI_BuyMenu_Accuracy"/>	
+									<Label class="stat-display__value" text="#Pano_BuyMenu_Accuracy_val"/>
+								</TooltipPanel>
+								<TooltipPanel class="no-flow full-width" tooltip="#buymenu_tooltip_range">
+									<ProgressBar id="RangeProgress" class="stat-display__row" min="0" max="76"/>
+									<Label class="stat-display__name" text="#SFUI_BuyMenu_Range"/>	
+									<Label class="stat-display__value" text="#Pano_BuyMenu_Range_val"/>
+								</TooltipPanel>
+								<TooltipPanel class="no-flow full-width" tooltip="#buymenu_tooltip_armorpen">
+									<ProgressBar id="ArmorPenProgress" class="stat-display__row" min="90" max="200"/>
+									<Label class="stat-display__name" text="#SFUI_BuyMenu_ArmorPen"/>
+									<Label class="stat-display__value" text="#Pano_BuyMenu_ArmorPen_val"/>
+								</TooltipPanel>
+							</Panel>
+							<Label id="ItemDesc" class="stat-display__desc" text="{s:desc}"/> 
+						</Panel>
+
+					</Panel>
+
+				</Panel>
+			</Panel>
+			<Panel id="BuyMenuNavBar" class="buymenu-navbar pccontrols">
+				<Panel class="vertical-center left-right-flow horizontal-align-right">
+					<Label id="BuyForTeammateLabel" class="buymenu__for-teammate" text="#BuyMenu_BuyForTeammate" html="true"/>
+					<Button class="PopupButton" onactivate="GameInterfaceAPI.ConsoleCommand( 'rebuy' )">
+						<Label text="#BuyMenu_Buyprev" html="true" />
+					</Button>
+					<Button class="PopupButton" onactivate="GameInterfaceAPI.ConsoleCommand( 'autobuy' )">
+						<Label text="#BuyMenu_Autobuy" html="true"/>
+					</Button>
+				</Panel>
+				<Panel class="vertical-center left-right-flow horizontal-align-left">
+					<Button class="PopupButton" onactivate="$.DispatchEvent( 'BuyMenu_Back' );">
+						<Label text="#BuyMenu_Back" html="true"/>
+					</Button>
+				</Panel>
+			</Panel>
+
+			<Panel id="BuyMenuNavBarConsole" class="buymenu-navbar consolecontrols">
+				<Panel class="vertical-center left-right-flow horizontal-align-right">
+     				<CCSGOSteamInputAction actionset="BuyMenuLayer" action="rebuy" separatortext="/" />
+     				<CCSGOSteamInputActionLabel actionset="BuyMenuLayer" action="rebuy" separatortext="/" />
+					<CCSGOSteamInputAction actionset="BuyMenuLayer" action="buy" separatortext="/" />
+					<CCSGOSteamInputActionLabel actionset="BuyMenuLayer" action="buy" separatortext="/" />
+				</Panel>
+				<Panel class="vertical-center left-right-flow horizontal-align-left">
+					<CCSGOSteamInputAction actionset="BuyMenuLayer" action="donate" separatortext="/" />
+					<CCSGOSteamInputActionLabel actionset="BuyMenuLayer" action="donate" controllernumber = "1"/>
+					<CCSGOSteamInputAction actionset="BuyMenuLayer" action="autobuy" separatortext="/" />
+     				<CCSGOSteamInputActionLabel actionset="BuyMenuLayer" action="autobuy" separatortext="/" />
+				</Panel>
+			</Panel>
+
+			<Panel class="buymenu-money">
+				<CSGOMoneyPanel id="BuyMenuMoney" class="money__buymenu"/>
+			</Panel>
+			<Panel id="HudBottomRight" hittest="false" hittestchildren="false">
+				<CSGOHudWeaponSelection id="HudWeaponSelection"
+					neverfade="true" neverselected="true"
+					class="embedded-weapons-overview"/>
+			</Panel>
+		</Panel>
+	
+	</CSGOBuyMenu>
+
+</root>

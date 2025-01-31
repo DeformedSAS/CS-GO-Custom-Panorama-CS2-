@@ -1,0 +1,52 @@
+
+                   
+                                         
+
+CCSGOSteamInputAction,
+{
+	flow-children: right;
+	horizontal-align: center;
+	vertical-align: center;
+	width: fit-children;
+	height: fit-children;
+	transition-property: transform, brightness;
+    transition-duration: 0.125s;
+    transition-timing-function: ease-out;
+    visibility: collapse;
+    
+                                                                    
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.SteamInputGlyphsActive CCSGOSteamInputAction.ControllerConnected
+{
+	visibility: visible;
+}
+
+                                                                                                 
+                                                                                  
+
+CCSGOSteamInputAction.AnalogDeadZoned,
+CCSGOSteamInputAction.DigitalReleased
+{
+	brightness: 1;
+	transform: translateY(-1px);
+}
+
+CCSGOSteamInputAction.AnalogThrown,
+CCSGOSteamInputAction.DigitalPressed
+{
+	brightness: 0.5;
+	transform: translateY(1px);
+}
+
+
+
+
+.HoldButtonToActivate .steam-button-glyph
+{
+     border: 2px solid green;
+}
+
+

@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/controlslibrary.css" />
+	</styles>
+	<scripts>
+	</scripts>
+
+	<Panel>
+    <Label text="This panel is loaded from a different xml file than its parent" />
+	</Panel>
+</root>
+
+

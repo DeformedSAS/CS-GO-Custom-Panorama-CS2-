@@ -1,0 +1,13 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/base.css" />
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudtablethints.css" />
+	</styles>
+
+	<Panel class="tablethints" hittest="false" force-no-composition-layer="true">
+		                                                                              
+		<Label class="tablethints__text stratum-font" html="true" text="#TabletHintBuy"/>
+		<Label class="tablethints__text stratum-font" html="true" text="#TabletHintClose"/>
+	</Panel>
+</root>

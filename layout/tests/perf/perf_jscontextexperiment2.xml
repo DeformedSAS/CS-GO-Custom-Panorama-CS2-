@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+	</styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/tests/perf/perf_context_panel_c.js"/>
+    </scripts>
+
+    <Panel onloaded="OnLoadedC();">
+        <Button class="PopupButton" onactivate="ButtonActivatedC();">
+            <Label allowrawtext="true" text="ButtonC" class="MonoNumbersFont"/>
+        </Button>
+    </Panel>
+
+</root>

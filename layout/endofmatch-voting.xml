@@ -1,0 +1,36 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_play.css" />
+		<include src="file://{resources}/styles/endofmatch-voting.css" />
+		<include src="file://{resources}/styles/endofmatch-skillgroup.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/endofmatch-voting.js" />
+		<include src="file://{resources}/scripts/common/formattext.js" />
+	</scripts>
+
+
+	<snippets>
+		<snippet name="MapGroupSelection" >
+			<Panel class="map-selection-btn map-selection-btn--vote">
+				<Carousel id="MapGroupImagesCarousel" autoscroll-delay="2s, 5s" panels-visible="3" class="full-width full-height">
+					                                                
+				</Carousel>
+				<Panel id="id-map-selection-btn__gradient" class="map-selection-btn__gradient" hittest="false" />
+				<Label id="MapGroupName" class="map-selection-info__map-name"/>
+				<Label id="id-map-selection-btn__count" class="map-selection-item-count" html='true'/>
+				<Image id="id-map-selection-btn__modeicon" class="map-selection-btn__skirmishicon hidden" src="" texturewidth="50" textureheight="50" />
+				<Image id="id-map-selection-btn__winner" src="file://{images}/icons/ui/vote_check.svg" texturewidth="50" textureheight="50" />
+			</Panel>	
+		</snippet>
+	</snippets>
+
+
+	<CSGOEndOfMatchVotingPanel class="eom-voting" useglobalcontext="true">
+		<Panel id="id-map-selection-container">
+			<Label id="id-map-selection-container__directive" class="eom-skillgroup__info-label" text="#eom-vote-for-next-map" />
+			<Panel id="id-map-selection-list" class="map-selection-list map-selection-list--vote" useglobalcontext="true" />
+		</Panel>
+	</CSGOEndOfMatchVotingPanel>
+</root>

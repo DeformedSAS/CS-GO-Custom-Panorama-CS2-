@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+        <include src="file://{resources}/styles/context_menus/context_menu_base.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_rewards.css" />
+	</styles>
+    <scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/context_menus/context_menu_rewards.js" />
+	</scripts>
+    
+    <ContextMenuCustomLayout onload="ContextMenuRewards.Init()" class="ContextMenuItem" acceptsinput="true" acceptsfocus="true">
+		<Panel class="Rewards">
+			<Image class="right-margin vertical-center" texturewidth="24" textureheight="24" src="file://{images}/icons/ui/info.svg"/>
+			<Label class="stratum-font" text="#op_more_rewards_desc"/>
+		</Panel>
+                                                                                                   
+        
+    </ContextMenuCustomLayout>
+</root>

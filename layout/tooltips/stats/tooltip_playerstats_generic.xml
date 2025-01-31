@@ -1,0 +1,27 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/stats/playerstats.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/tooltips/stats/tooltip_playerstats_generic.js" />
+		<include src="file://{resources}/scripts/stats/fakestats.js" />
+		<include src="file://{resources}/scripts/common/formattext.js" />
+	</scripts>
+	
+	<snippets>
+	</snippets>
+
+	<Panel useglobalcontext="false" ontooltiploaded="PlayerStatsGenericTooltip.Init()">
+
+		<Panel class="playerstats-tt__root playerstats-tt__root--statbutton">
+			<Label id="title" class="playerstats-tt__header" text="{s:title}" />
+			<Panel id="text" class="left-right-flow horizontal-center">
+				<Label class="" text="{s:text}" />
+			</Panel>
+
+		</Panel>
+
+	</Panel>
+</root>

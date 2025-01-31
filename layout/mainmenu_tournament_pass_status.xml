@@ -1,0 +1,32 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_tournament_pass_status.css" />
+        <include src="file://{resources}/styles/mainmenu_news.css" />
+	</styles>
+
+    <scripts>
+        <include src="file://{resources}/scripts/generated/items_event_current_generated_store.js" />
+        <include src="file://{resources}/scripts/common/formattext.js" />
+        <include src="file://{resources}/scripts/common/iteminfo.js" />
+        <include src="file://{resources}/scripts/mainmenu_tournament_pass_status.js" />
+	</scripts>
+
+	<Panel class="tournament-pass-status" >
+        <Button id="id-tournament-pass-status" class="tournament-pass-status-container">
+            <Panel class="tournament-pass-status__info">
+                <Label class="tournament-pass-status__desc" html="true" text="#CSGO_TournamentPass_stockh2021_store_desc"/>
+                <Panel class="left-right-flow">
+                    <Label id="id-tournament-pass-saletag" class="tournament-pass-status__saletag" text="#store_sale"/>
+                    <Label id="id-tournament-pass-status-header" class="tournament-pass-status__title" text="#CSGO_TournamentPass_stockh2021_store_title"/>
+                </Panel>
+            </Panel>
+            <Panel id="id-tournament-pass-status-images-row" class="tournament-pass-status__images-row">
+                <ItemImage class="tournament-pass-status__image" scaling="stretch-to-fit-x-preserve-aspect"/>
+                <ItemImage class="tournament-pass-status__image" scaling="stretch-to-fit-x-preserve-aspect"/>
+                <ItemImage class="tournament-pass-status__image" scaling="stretch-to-fit-x-preserve-aspect"/>
+            </Panel>
+            <Label id="id-tournament-pass-status-game-countdown" class="tournament-pass-status__timer hidden" html="true" text="#CSGO_TournamentPass_stockh2021_store_desc"/>
+        </Button>
+	</Panel>
+</root>

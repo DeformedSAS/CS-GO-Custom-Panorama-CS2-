@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/steaminputglyphs/steaminputaction.css" />
+		<include src="file://{resources}/styles/mainmenu_play.css" />
+		<include src="file://{resources}/styles/steaminputglyphs/steaminputglyphs.css" />
+		<include src="file://{resources}/styles/hud/hudweaponselection.css" />
+		<include src="file://{resources}/styles/hud/hudweaponpanel.css" />
+		<include src="file://{resources}/styles/hud/hudgameicons.css" />
+	</styles>
+	
+   <CCSGOSteamInputAction>   	
+		<Panel class="action-container"/>
+   </CCSGOSteamInputAction>
+</root>	

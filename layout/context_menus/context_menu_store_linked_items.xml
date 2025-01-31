@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_base.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_store_linked_items.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/context_menus/context_menu_store_linked_items.js" />
+	</scripts>
+
+	
+	<Panel class="store-linked-items" onload="StoreLinkedItems.Init();" acceptsinput="true" acceptsfocus="true">
+		<Panel id="id-store-linked-items-images" class="store-linked-items__tiles" />
+		<Panel class="store-linked-items__warning" >
+			<Image class="vertical-center" src="file://{images}/icons/ui/info.svg" texturewidth="16" textureheight="16"/> 
+			<Label id="id-store-linked-items-warning" class="store-linked-items__warning__text stratum2Font" />
+		</Panel>
+	</Panel>
+</root>

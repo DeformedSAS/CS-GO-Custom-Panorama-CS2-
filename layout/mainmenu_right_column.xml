@@ -1,0 +1,14 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/mainmenu_right_column.css" />
+	</styles>
+	<Panel class="mainmenu-right-column">
+		<Panel id="VanityControls" hittest="true">
+			<Button id="VanityPanelGoToCharacterLoadout" onactivate="$.DispatchEvent( &apos;MainMenu_OnGoToCharacterLoadoutPressed&apos; )">
+				<Image textureheight="32" texturewidth="-1" src="file://{images}/icons/ui/tune.svg" />
+			</Button>
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,41 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/context_menus/context_menu_eventsched_team.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/common/formattext.js" />
+		<include src="file://{resources}/scripts/watch_events_debug.js" />
+		<include src="file://{resources}/scripts/context_menus/context_menu_eventsched_team.js" />
+	</scripts>
+	
+	<snippets>
+
+	<snippet name="snippet-estt-player">
+		<Button class="estt-player top-bottom-flow">
+			<Image id="id-estt-player__photo" class="estt-player__photo" />
+			<Label class="estt-player__name stratum-font" text="{s:esttplayer-name}" />
+		</Button>
+	</snippet>
+
+	</snippets>
+
+
+	<Panel useglobalcontext="false" onload="EventschedTeamContextMenu.Init();" acceptsfocus="true">
+		<CSGOBlurTarget class="estt-blurbackground">
+			<Image id="id-estt-blur" class="full-width full-height" />
+		</CSGOBlurTarget>
+
+		<Panel class="top-bottom-flow estt-root">
+			<Button id="id-estt-header" class="estt-header">
+				<Image id="id-estt-header__team-logo" class="estt-header__team-logo img-shadow" src="" clampfractionalpixelpositions="false" />
+				<Label allowrawtext="true" class="stratum-font estt-header__team-name" text="{s:eventsched-tt-teamname}" />
+			</Button>
+			<Panel id="id-estt-lineup-container" class="estt-lineup left-right-flow">
+				                                                            
+			</Panel>
+		</Panel>
+
+	</Panel>
+</root>

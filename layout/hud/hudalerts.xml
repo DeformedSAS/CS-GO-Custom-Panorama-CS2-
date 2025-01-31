@@ -1,0 +1,15 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/hud/hudalerts.css" />
+	</styles>
+    <CSGOHudAlerts alertstate="AlertHidden" class="AlertHidden" hittest="false">
+        <Panel class="alert-bar-side cl-hud-wash-color additive" />
+        <Panel class="alert-bar-side horizontal-align-right cl-hud-wash-color additive" />
+        <Panel class="alert-bar-glitch cl-hud-wash-color additive" />
+        <Panel class="alert-bar-bg cl-hud-wash-color additive" />
+        <Label id="AlertText" class="additive hud-alert-no-background stratum-medium-tf" />
+    </CSGOHudAlerts>
+</root>
+

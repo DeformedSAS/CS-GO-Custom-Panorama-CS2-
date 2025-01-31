@@ -1,0 +1,36 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/watchmatchtile.css" />
+	</styles>
+	<scripts>
+		                                                                        
+	</scripts>
+
+	<Panel class="wmt-container">
+	
+		<Panel id="id-wmt__status" class="wmt__status"/>
+			<Panel class="wmt__inner-container">
+
+				<Button id="id-wmt" class="wmt-btn">
+
+					<Panel class="horizontal-align-left left-right-flow wmt__team">
+						<Panel id="id-wmt-team1-container" class="horizontal-center left-right-flow vertical-center" acceptsfocus="true">
+							                                         
+						</Panel>
+					</Panel>
+
+					<Panel id="id-wmt-vs-container" class="horizontal-center left-right-flow vertical-center"/>
+
+					<Panel class="horizontal-align-right left-right-flow wmt__team">
+						<Panel id="id-wmt-team2-container" class="horizontal-center left-right-flow vertical-center" acceptsfocus="true">
+							                                         
+						</Panel>
+					</Panel>
+
+				</Button>
+				
+		</Panel>
+
+	</Panel>
+</root>

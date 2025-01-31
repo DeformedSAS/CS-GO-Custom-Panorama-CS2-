@@ -1,0 +1,53 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_play.css" />
+		<include src="file://{resources}/styles/steaminputglyphs/steaminputglyphs.css" />
+		<include src="file://{resources}/styles/hud/hudweaponselection.css" />
+		<include src="file://{resources}/styles/hud/hudweaponpanel.css" />
+		<include src="file://{resources}/styles/hud/hudgameicons.css" />
+		<include src="file://{resources}/styles/hud/hudmoney.css" />
+	</styles>
+
+
+	                                       
+
+		           		
+		           		
+		           		
+		           		
+		            	
+		            	
+	  	               	
+	 	              	
+		           		
+		            	
+		           		
+		            	
+		          		
+		            	
+		              	
+		              	
+		              	
+		              	
+		          		
+		            	
+		              	
+		              	
+		              	
+		              	
+		                
+		                
+		                
+		               	
+
+	   
+
+
+	<CCSGOSteamInputGlyph>   	
+   		<Panel class ="glyph-container">
+     		<Image id="ButtonGlyph" class="steam-button-glyph"  texturewidth="64" textureheight="64"/>
+     		<Label id="NameOfButton" class="steam-button-name"/>
+     	</Panel>
+   	</CCSGOSteamInputGlyph>
+</root>

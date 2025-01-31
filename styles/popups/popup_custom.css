@@ -1,0 +1,28 @@
+#popupimage
+{
+    horizontal-align: center;
+}
+
+#Spinner
+{
+    horizontal-align: center;
+    visibility: collapse;
+	margin-top: 10px;
+}
+
+#Spinner.SpinnerVisible
+{
+    visibility: visible;
+}
+
+#ProgressBar
+{
+    horizontal-align: center;
+    visibility: collapse;
+	margin-top: 10px;
+}
+
+#ProgressBar.ProgressBarVisible
+{
+    visibility: visible;
+}

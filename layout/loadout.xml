@@ -1,0 +1,207 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css"/>
+		<include src="file://{resources}/styles/buymenu.css" />
+		<include src="file://{resources}/styles/loadout.css" />
+
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+		<include src="file://{resources}/scripts/loadout.js" />
+		<include src="file://{resources}/scripts/common/charwpninspect.js" />
+		<include src="file://{resources}/scripts/characterbuttons.js" />
+	</scripts>
+
+    <snippets>
+        <snippet name="Radial_SixSlot">
+            <Panel class="radial-selector">
+                <RadioButton class="radial-button w1" group="Wedge">
+                    <Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420" />
+                    <Panel id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w2" group="Wedge">
+                    <Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420" />
+                    <Panel id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w3" group="Wedge">
+                    <Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420" />
+                    <Panel id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w4" group="Wedge">
+                    <Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420" />
+                    <Panel id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w5" group="Wedge">
+                    <Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420" />
+                    <Panel id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w6" group="Wedge">
+                    <Image class="wedge" src="file://{images}/masks/wedge_select.svg" texturewidth="364" textureheight="420" />
+                    <Panel id="Contents" />
+                </RadioButton>
+            </Panel>
+        </snippet>
+        <snippet name="Radial_FourSlot">
+            <Panel class="radial-selector">
+                <RadioButton class="radial-button w1">
+                    <Image class="wedge w90" src="file://{images}/test_images/wedge90.png" />
+                    <Panel class="fourslot" id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w2">
+                    <Image class="wedge w90" src="file://{images}/test_images/wedge90.png" />
+                    <Panel class="fourslot" id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w3">
+                    <Image class="wedge w90" src="file://{images}/test_images/wedge90.png" />
+                    <Panel class="fourslot" id="Contents" />
+                </RadioButton>
+                <RadioButton class="radial-button w4">
+                    <Image class="wedge w90" src="file://{images}/test_images/wedge90.png" />
+                    <Panel class="fourslot" id="Contents" />
+                </RadioButton>
+            </Panel>
+        </snippet>
+        <snippet name="ItemWedge">
+            <Panel class="buywheel-button">
+                <Panel class="buywheel-item__textbox">
+                    <Panel class="no-flow">
+                        <ItemImage id="ItemImage" class="loadout-item__image" scaling="stretch-to-fit-y-preserve-aspect">
+                            <Label text="{s:item_name}" class="loadout-item__textbox stratum2Font" />
+                        </ItemImage>
+                        <Panel class="top-bottom-flow horizontal-center vertical-center">
+                            <Image class="loadout-shuffle_icon" src="file://{images}/icons/ui/random.svg" texturewidth="64" textureheight="64" />
+                            <Label text="#CSGO_UI_Shuffle" class="loadout-shuffle-text stratum2Font" />
+                        </Panel>
+                    </Panel>
+                </Panel>
+            </Panel>
+        </snippet>
+    </snippets>
+	<CSGOLoadout class="loadout">
+        <Panel class="content-navbar content-navbar__tabs--dark content-navbar__tabs--dark content-navbar__tabs--noflow">
+            <Panel id="LoadoutSlotSelectionRadios" class="content-navbar__tabs__center-container">
+				<RadioButton id="LoadoutPistols" onactivate="Loadout.ShowItemsForSelectedSlot()"  group="LoadoutSlots" data-slot="secondary" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Secondary"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="smg" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_SMG"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="rifle" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Rifle"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="heavy" data-wedge="true" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Heavy"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="melee" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Melee"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="clothing_hands" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_clothing"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="spray0" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Spray"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="musickit" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_MusicKit"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="flair0" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_Flair"/>
+				</RadioButton>
+
+				<RadioButton onactivate="Loadout.ShowItemsForSelectedSlot()" group="LoadoutSlots" data-slot="customplayer" class="content-navbar__tabs__btn"> 
+					<Label class="" text="#LoadoutSlot_customplayer"/>
+				</RadioButton>
+            </Panel>
+            <Panel class="horizontal-align-right vertical-center left-right-padding">
+                <Image id="LoadoutInfo" class="loadout-info" src="file://{images}/icons/ui/info.svg" texturewidth="32" textureheight="32" onmouseover="UiToolkitAPI.ShowTextTooltip( &apos;LoadoutInfo&apos;, &apos;#tooltip_loadout&apos; );" onmouseout="UiToolkitAPI.HideTextTooltip();" />
+            </Panel>
+        </Panel>
+        <Panel class="loadout-contents">
+            <Panel class="loadout-team-selector-container">
+                <Panel id="LoadoutRadialSelector" class="radial-menu-container">
+                    <CSGORadialSelector id="ItemWheel" class="item-wheel" sound_click="UIPanorama.loadout_sector_select" sound_rollover="UIPanorama.loadout_sector_scroll" />
+                    <ToggleButton id="LoadoutTeamToggle" class="radial-menu-team-logo" onactivate="Loadout.ToggleTeam();">
+                        <Image id="TeamLogo" class="" src="file://{images}/icons/ct_logo.svg" />
+                    </ToggleButton>
+                </Panel>
+				<Panel id="LoadoutSingleItem" class="loadout-single-item-container">
+		
+					<Label id="LoadoutSingleItemLabel" class="loadout-single-item-title" text=""/>
+					<Panel id="LoadoutSingleItemRarity" class="loadout-single-item-rarity"/>
+						<Panel class="full-width full-height">
+							                                                                                                                                                
+							<Image id="loadout-single-item__bg"
+									class="loadout-single-item-bg" 
+									textureheight="768"
+									texturewidth="-1"
+									src="file://{images}/backgrounds/inspect.svg"
+									scaling="stretch-to-fit-y-preserve-aspect" />
+
+							<Panel class="full-width full-height">
+								<ItemPreviewPanel id="LoadoutSingleItemModel"
+										class="loadout-single-item"
+										manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+										item="img://inventory_4295015926"
+										enable_floorshadow="true"
+										mouse_rotate="true">
+									
+								</ItemPreviewPanel>
+								                                             
+								<Panel id="id-character-buttons-container" class="popup-button-row">
+									<Frame id="id-character-buttons" src="file://{resources}/layout/characterbuttons.xml"/>
+								</Panel>
+							</Panel>
+
+
+							<Button id="LoadoutResetFlair" 
+									class="IconButton vertical-align-top horizontal-align-right" 
+									onactivate="Loadout.ResetFlair();"
+									onmouseover="UiToolkitAPI.ShowTextTooltip( 'LoadoutResetFlair', '#tooltip_unequip_flair' );"
+									onmouseout="UiToolkitAPI.HideTextTooltip();">
+								<Image src="file://{images}/icons/ui/remove.svg" />
+							</Button> 
+						</Panel>
+                </Panel>
+                <Panel id="LoadoutSelectTeam" class="loadout-team-selector">
+                    <RadioButton id="LoadoutTeamCt" onactivate="Loadout.ShowItemsForSelectedSlot();" group="LoadoutTeam" class="PopupButton" data-team="3">
+                        <Image texturewidth="42" textureheight="-1" src="file://{images}/icons/ct_logo.svg" />
+                    </RadioButton>
+                    <RadioButton id="LoadoutTeamT" onactivate="Loadout.ShowItemsForSelectedSlot();" group="LoadoutTeam" class="PopupButton" data-team="2">
+                        <Image texturewidth="42" textureheight="-1" src="file://{images}/icons/t_logo.svg" />
+                    </RadioButton>
+                </Panel>
+            </Panel>
+            <Panel class="loadout-team-selector-spacer" />
+            <Panel id="LoadoutItemListerContainer" class="loadout-item-list-container">
+                <Panel id="LoadoutEmptyLister" class="full-width full-height mainmenu-content__background-color hidden">
+                    <Panel class="left-right-flow horizontal-center vertical-center">
+                        <Image class="left-right-padding vertical-center" src="file://{images}/icons/ui/info.svg" texturewidth="32" textureheight="32" />
+                        <Label id="LoadoutEmptyListerLabel" class="loadout-empty-list-text" text="" />
+                    </Panel>
+                </Panel>
+                <Panel class="loadout-sort">
+                    <TooltipPanel id="LoadoutShuffleControls" class="left-right-flow vertical-center" tooltip="#inv_shuffle_tooltip">
+                        <ToggleButton id="LoadoutShuffleToggle" class="content-navbar__tabs__toggle-button horizontal-align-left" onactivate="Loadout.OnShuffleToggle()">
+                            <Label id="LoadoutShuffleToggleLabel" text="#shuffle_toggle_btn" />
+                        </ToggleButton>
+                        <Button id="LoadoutShuffleOptions" onactivate="Loadout.ShowShuffleContextMenu();" class="left-margin shuffle-options">
+                            <Image src="file://{images}/icons/ui/tune.svg" />
+                        </Button>
+                    </TooltipPanel>
+                    <DropDown class="content-navbar__tabs__dropdown" id="LoadoutSortDropdown" menuclass="DropDownMenu" oninputsubmit="Loadout.UpdateItemLister()" />
+                </Panel>
+                <InventoryItemList id="LoadoutItemList" hittest="true" itemheight="190px" itemwidth="192px" spacersize="0px" spacerperiod="1" item_context_menu_filter="loadout" class="loadout-item-list" />
+            </Panel>
+        </Panel>
+    </CSGOLoadout>
+</root>

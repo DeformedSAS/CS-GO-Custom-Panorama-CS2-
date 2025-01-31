@@ -1,0 +1,13 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/advertising_icon.css" />
+	</styles>
+    <Panel class="btn_advertising">
+        <Image clampfractionalpixelpositions="false" class="btn_advertising__img-pole" texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/broadcast_pole.svg" />
+        <Image clampfractionalpixelpositions="false" class="btn_advertising__img-ring" texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/broadcast_ring_inner.svg" />
+        <Image clampfractionalpixelpositions="false" class="btn_advertising__img-ring-outer" texturewidth="-1" textureheight="28" src="file://{images}/icons/ui/broadcast_ring.svg" />
+    </Panel>
+</root>
+

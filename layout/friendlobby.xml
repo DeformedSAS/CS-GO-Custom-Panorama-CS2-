@@ -1,0 +1,47 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/csgostyles.css" />
+        <include src="file://{resources}/styles/friendlobby.css" />
+    </styles>
+    <scripts />
+    <snippets>
+        <snippet name="FriendLobbyAvatarSlot">
+            <Panel class="friendlobby__slot" style="tooltip-position: bottom;">
+                <Button id="JsFriendAvatarBtn">
+                    <CSGOAvatarImage id="JsFriendAvatar" class="friendlobby-avatar__Image friendlobby-avatar__Image--Slots" />
+                </Button>
+                <Button id="JsFriendAvatarJoin" class="IconButton">
+                    <Image class="" src="file://{images}/icons/ui/plus.svg" texturewidth="36" textureheight="36" />
+                </Button>
+            </Panel>
+        </snippet>
+    </snippets>
+    <Panel class="friendlobby hidden" acceptsfocus="true">
+        <Panel class="friendlobby__row">
+            <Panel class="friendlobby__row-left">
+                <Button id="FriendLobbyCloseButton" class="IconButton hidden right-margin">
+                    <Image src="file://{images}/icons/ui/exit.svg" />
+                </Button>
+                <Label id="JsRegionLabel" class="right-margin" text="" />
+                <Image id="JsFriendLobbySkillGroup" class="friendlobby__row__icon-skillgroup" textureheight="20" texturewidth="-1" defaultsrc="" />
+                <Panel class="friendlobby__row-name">
+                    <Image id="JsFriendLobbyPrime" class="friendlobby__row__icon-prime" src="file://{images}/icons/ui/prime.svg" texturewidth="20" textureheight="20" />
+                    <Label id="JsFriendLobbyLeaderName" html="true" class="friendlobby__text fontWeight-Bold" text="" />
+                </Panel>
+            </Panel>
+        </Panel>
+        <Panel id="JsFriendLobbyAvatars" class="friendlobby__row-avatars">
+            <Button id="JsFriendLobbyLeaderBtn">
+                <CSGOAvatarImage id="JsFriendLobbyLeaderAvatar" class="friendlobby-avatar__Image" />
+            </Button>
+        </Panel>
+        <Panel class="friendlobby__row__settings friendlobby__row friendlobby__row--no-margin">
+            <Label id="JsFriendLobbySettings" class="friendlobby__text" text="" html="true" />
+        </Panel>
+        <Panel class="friendlobby__row__group friendlobby__row friendlobby__row--bottom-margin">
+            <Button id="JsFriendLobbyGroupBtn" class="text-external-Link-button">
+                <Label id="JsFriendLobbyGroupTxt" text="" />
+            </Button>
+        </Panel>
+    </Panel>
+</root>

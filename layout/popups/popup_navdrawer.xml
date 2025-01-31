@@ -1,0 +1,33 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/gamestyles.css" />
+		<include src="file://{resources}/styles/popups/popup_navdrawer.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/popups/popup_navdrawer.js" />
+	</scripts>
+
+	<PopupCustomLayout class="navdrawer Hidden" popupbackground="dim_dismiss" onload="SetupPopup()">
+		                                                                   
+		<Panel class="navdrawer__btns-container">
+			<Button class="navdrawer__btns">
+				<Image src="file://{images}/icons/ui/home.svg" onactivate="OnHomeButtonPressed();"/>
+				<Label class="" text="Home" hittest="false"/>
+			</Button>
+			<Panel class="navdrawer__seperator"/>
+			<Button class="navdrawer__btns">
+				<Image src="file://{images}/icons/ui/settings.svg" onactivate="OnSettingsButtonPressed();"/>
+				<Label class="" text="Settings" hittest="false"/>
+			</Button>
+			<Button class="navdrawer__btns">
+				<Image src="file://{images}/icons/ui/trophy.svg" />
+				<Label class="" text="Awards" hittest="false"/>
+			</Button>
+			</Panel>
+		<Button class="navdrawer__btns navdrawer__btns--bottom" onactivate="OnQuitButtonPressed();">
+			<Image src="file://{images}/icons/ui/power.svg" />
+			<Label class="" text="Quit" hittest="false"/>
+		</Button>
+	</PopupCustomLayout>
+</root>

@@ -1,0 +1,175 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/playercard.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/common/teamcolor.js" />
+		<include src="file://{resources}/scripts/common/sessionutil.js" />
+		<include src="file://{resources}/scripts/avatar.js" />
+		<include src="file://{resources}/scripts/playercard.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="PlayerCardSkillGroup">
+			<Panel class="player-card-skillgroup player-card-border hidden" >
+				<Panel class="player-card-skillgroup__icon-container">
+					<Image id="JsPlayerSkillIcon"
+							class="player-card-skillgroup__icon"
+							src="file://{images}/icons/skillgroups/skillgroup_none.svg"
+							textureheight="-1"
+							texturewidth="128"
+							scaling="stretch-to-fit-preserve-aspect"
+							style="tooltip-position: bottom;"/>
+					<Image class="player-card-nonprime__lock" textureheight='12' texturewidth='-1' src="file://{images}/icons/ui/locked.svg"/>
+				</Panel>
+				<Label id="JsPlayerSkillLabel" class="player-card__text-subtitle player-card__text-subtitle--multiline" text=""/>
+			</Panel>
+		</snippet>
+	</snippets>
+	
+	<Panel class="player-card" useglobalcontext="false">
+
+		<Panel id="JsPlayerCardSectoins" class="full-width">
+		<Panel id="JsPlayerCardBg" class="player-card-row__bg-image" blurrects="JsPlayerXp"/>
+		<Panel id="JsPlayerCardSectoins" class="player-card__sections">
+
+			<Panel id="GetPrestigeButton" class="player-card-xp-getprestigebutton hidden">
+				<Image class="player-card-xp-getprestigebutton__icon" textureheight='24' texturewidth='-1' src="file://{images}/icons/ui/bomb_arrow_segment.svg"/>
+				<TextButton id="GetPrestigeButtonClickable" html="true"
+							class=""
+							text="#SFUI_Redeem_Service_Medal"/>
+			</Panel>
+			<Panel class="full-width">
+				<Panel id="JsPlayerCardTop" class="player-card-row">
+
+					                           
+
+					<Panel id="JsPlayerCardName" class="player-card-row__name" >
+						<Label id="JsPlayerName" class="player-card__text" text=""/>
+						<Panel id="FlairCarouselAndControls" class="playercard-flair-carousel-container">
+							<Carousel id="FlairCarousel" class="playercard-flair-carousel" panels-visible="1" hittest="false">
+
+								                           
+
+							</Carousel>
+							<CarouselNav carouselid="FlairCarousel" />
+						</Panel>
+					</Panel>
+				</Panel>	
+			</Panel>
+			<Panel id="JsPlayerTeam" class="player-card-team hidden">
+				<Image class="player-card-team__icon" id="JsTeamIcon" src=""/>
+				<Panel class="player-card-team__text">
+					<Label id="JsTeamLabel" class="player-card__text-subtitle" text=""/>
+					<Label id="JsTournamentLabel" 
+								class="player-card__text-subtitle player-card__text-subtitle--light"
+								text="" />
+				</Panel>
+			</Panel>
+
+			<Panel id="JsPlayerCardPrimeUpsell" class="player-card-prime-upsell-container">
+				<Panel class="player-card-prime-upsell-row">
+					<Panel class="player-card-prime-upsell-image-container">
+						<Image class="player-card-prime-upsell-image" src="file://{images}/icons/ui/prime_disabled.png" textureheight="32" texturewidth="-1"/>
+					</Panel>
+					<TextButton class="player-card-prime-btn stratum-font" text="#elevated_status_btn_no_price" 
+								onactivate="UiToolkitAPI.HideTextTooltip(); UiToolkitAPI.ShowCustomLayoutPopup( 'prime_status', 'file://{resources}/layout/popups/popup_prime_status.xml')"/>
+				</Panel>
+				<Panel id="id-player-card-prime-upsell-xp" class="player-card-prime-upsell-row">
+					<Panel class="player-card-prime-upsell-image-container">
+						<Image class="player-card-prime-upsell-image player-card-prime-upsell-image--xp" src="file://{images}/icons/ui/prime_xp.png" textureheight="32" texturewidth="-1"/>
+					</Panel>
+					<Label class="player-card-prime-text" text="#elevated_status_player_card_xp"/>
+				</Panel>
+				<Panel id="id-player-card-prime-upsell-skillgroup" class="player-card-prime-upsell-row">
+					<Panel class="player-card-prime-upsell-image-container">
+						<Image class="player-card-prime-upsell-image player-card-prime-upsell-image--rank" src="file://{images}/icons/ui/prime_rank.png" textureheight="32" texturewidth="-1"/>
+					</Panel>
+					<Label class="player-card-prime-text" text="#elevated_status_player_card_rank"/>
+				</Panel>
+			</Panel>
+
+			<Panel id="JsPlayerXp" class="player-card-xp player-card-border"
+					onmouseover="playerCard.ShowXpTooltip();"
+					onmouseout="playerCard.HideXpTooltip();" >
+				<Panel class="player-card-xp__icon-container">
+					<Image id="JsPlayerXpIcon"
+							style="tooltip-position: bottom;"
+							class="player-card-xp__icon" src=""/>
+					<Image class="player-card-nonprime__lock" textureheight='12' texturewidth='-1' src="file://{images}/icons/ui/locked.svg"/>
+
+				</Panel>
+				<Panel class="player-card-xp__name-bar">
+					<Label id="JsPlayerRankName"
+							class="player-card__text-subtitle"
+							text="#XP_RankName_Display" />
+					<Panel class="player-card-xpbar">
+						<Panel class="player-card-xpbar__bar"/>
+						<Panel id="JsPlayerXpBarInner" class="player-card-xpbar__bar--inner"/>
+					</Panel>
+				</Panel>
+			</Panel>
+
+			<Panel id="JsPlayerCardSkillGroupContainer" class="player-card-skillgroup-container">
+				<ToggleButton id="SkillGroupExpand"
+						class="player-card-skillgroup-expand"
+						onactivate="playerCard.ShowHideAdditionalRanks();">
+						<Image src="file://{images}/icons/ui/expand.svg"/>
+				</ToggleButton>
+				<Panel id="SkillGroupContainer" class="top-bottom-flow full-width" >
+					                                
+				</Panel>
+			</Panel>
+
+			<Panel id="JsPlayerCommendations" class="player-card-commendations-container player-card-border hidden">
+				<Panel class="player-card-commendations">
+					<Panel id="JsPlayerPrime"
+							class="player-card-commendations-icon"
+							onmouseover="UiToolkitAPI.ShowTextTooltip( 'JsPlayerPrimeImg', '#tooltip_prime' );"
+							onmouseout="UiToolkitAPI.HideTextTooltip();" > 
+						<Image id="JsPlayerPrimeImg" style="tooltip-position: bottom;" src="file://{images}/icons/ui/prime.svg"/>
+						<Label id="JsCommendLabel" text=" "/>
+					</Panel>
+					<Panel	id="JsPlayerfriendly"
+							class="player-card-commendations-icon"
+							onmouseover="UiToolkitAPI.ShowTextTooltip( 'JsPlayerfriendlyImg', '#tooltip_friendly' );"
+							onmouseout="UiToolkitAPI.HideTextTooltip();" >
+						<Image id="JsPlayerfriendlyImg" style="tooltip-position: bottom;" src="file://{images}/icons/ui/smile.svg"/>
+						<Label id="JsCommendLabel" text=""/>
+					</Panel>
+					<Panel 	id="JsPlayerteaching"
+							class="player-card-commendations-icon"
+							onmouseover="UiToolkitAPI.ShowTextTooltip( 'JsPlayerteachingImg', '#tooltip_teaching' );"
+							onmouseout="UiToolkitAPI.HideTextTooltip();" >
+						<Image id="JsPlayerteachingImg" style="tooltip-position: bottom;" src="file://{images}/icons/ui/teacher.svg"/>
+						<Label id="JsCommendLabel" text=""/>
+					</Panel>
+					<Panel id="JsPlayerleader"
+							class="player-card-commendations-icon"
+							onmouseover="UiToolkitAPI.ShowTextTooltip( 'JsPlayerleaderImg', '#tooltip_leader' );"
+							onmouseout="UiToolkitAPI.HideTextTooltip();" > 
+						<Image id="JsPlayerleaderImg" style="tooltip-position: bottom;" src="file://{images}/icons/ui/leader.svg"/>
+						<Label id="JsCommendLabel" text=""/>
+					</Panel>
+					                             
+							                                      
+							                                                                                      
+							                                                   
+						                                                                                                                  
+						                                             
+					                 
+				</Panel>
+			</Panel>
+		</Panel>
+		</Panel>
+	</Panel>
+</root>
+
+			                                                       
+			                                                                         
+				                                                                      
+					                                                                                                                 
+				            
+			           

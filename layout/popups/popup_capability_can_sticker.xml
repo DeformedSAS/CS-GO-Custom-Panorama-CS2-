@@ -1,0 +1,122 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/popups/popups_shared.css" />
+		<include src="file://{resources}/styles/mainmenu.css" />
+		<include src="file://{resources}/styles/popups/popup_inventory_inspect.css" />
+		<include src="file://{resources}/styles/popups/popup_capability_can_sticker.css" />
+		<include src="file://{resources}/styles/popups/popup_capability_shared.css" />
+	</styles>
+	
+	<scripts>
+		 <include src="file://{resources}/scripts/popups/popup_capability_can_sticker.js" />
+		<include src="file://{resources}/scripts/common/iteminfo.js" />
+	</scripts>
+
+	<snippets>
+		<snippet name="ScrapeStickerBtn">
+				<Button class="popup-cansticker-scrape_btn">
+					<Image id="ScrapeStickerImage" class="popup-cansticker-pickedslot" />
+					<Panel id="ScrapingSpinner" class="ScrapeStickerSpinner Spinner hidden"/>
+				</Button>
+		</snippet>
+
+
+
+		<snippet name="snippet-top--sticker">
+			<Panel class="popup-capability__top">
+				<Label id="CanStickerTitle"  class="popup-capability__name horizontal-center" text="{s:CanStickerTitle}"/>
+				<Label id="CanStickerDesc" html="true" class="fontSize-l horizontal-center" text="{s:CanStickerDesc}"/>
+				<Panel class="left-right-flow horizontal-center top-padding">
+					<Image class="right-padding" texturewidth="24" textureheight="-1" src="file://{images}/icons/ui/info.svg" />
+					<Label id="CanStickerWarning" html="true" class="popup-capability__warning" text="{s:CanStickerWarning}"/>
+				</Panel>
+			</Panel>
+		</snippet>
+
+		<snippet name="snippet-top--patch">
+			<Panel class="popup-capability__top">
+				<Label id="CanStickerTitle"  class="popup-capability__name horizontal-center" text="{s:CanStickerTitle}"/>
+			</Panel>
+		</snippet>
+
+
+		<snippet name="snippet-info-block--sticker">
+			<Panel class="popup-capability__info-block" hittest="true">
+				<ItemImage id="StickerToAppy" class="popup-cansticker-pickedslot" />
+				<Panel id="StickersToRemove" class="left-right-flow horizontal-center">
+					                                       
+				</Panel>
+				<Panel class="left-right-flow horizontal-center">
+					<TextButton id="CanStickerContinue" 
+						class="PopupButton Positive"
+						text="#SFUI_Continue" />
+					<TextButton id="CanStickerNextPos" 
+						class="PopupButton"
+						text="#SFUI_InvUse_Pick_Sticker_slot" />
+				</Panel>
+			</Panel>
+		</snippet>
+
+		<snippet name="snippet-info-block--patch">
+			<Panel class="popup-capability__info-block patch" hittest="true">
+				<Panel class="horizontal-center left-right-flow">
+					<Panel class="top-bottom-flow vertical-center">
+						<Label id="CanStickerDesc" html="true" class="fontSize-l horizontal-center" text="{s:CanStickerDesc}"/>
+						<Panel class="left-right-flow horizontal-center top-padding">
+							<Image class="right-padding" texturewidth="24" textureheight="-1" src="file://{images}/icons/ui/info.svg" />
+							<Label id="CanStickerWarning" html="true" class="popup-capability__warning" text="{s:CanStickerWarning}"/>
+						</Panel>
+					</Panel>
+					<ItemImage id="StickerToAppy" class="popup-cansticker-pickedslot" />
+					<Panel id="StickersToRemove" class="left-right-flow horizontal-center">
+						                                       
+					</Panel>
+					<Panel class="left-right-flow horizontal-center vertical-center">
+						<TextButton id="CanStickerContinue" 
+							class="PopupButton Positive"
+							text="#SFUI_Continue" />
+						<TextButton id="CanStickerNextPos" 
+							class="PopupButton"
+							text="#SFUI_InvUse_Pick_Sticker_slot" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+
+	</snippets>
+
+	<PopupCustomLayout class="PopupPanel Capability Hidden"
+						useglobalcontext="true"
+						popupbackground="blur"
+						oncancel="CapabilityCanSticker.ClosePopUp();"
+						onload="CapabilityCanSticker.Init();">
+
+		<Panel id="CanStickerSpinner" class="Spinner vertical-center horizontal-center"/>
+
+		<Panel class="mainmenu-content__container mainmenu-content__container--inspect" hittest="true" >
+				<Panel class="full-width full-height">
+					<Panel class="popup-inspect-modelpanel" >
+						<ItemPreviewPanel id="CanStickerItemModel" class=""
+										manifest="resource/ui/econ/ItemModelPanelCharWeaponInspect.res"
+										item="img://inventory_4295015926"
+										mouse_rotate="true"
+										hittest="true">
+						</ItemPreviewPanel>
+					</Panel>
+
+					<Panel id="id-popup-capability__top"/>
+					                                                      
+
+					<Panel id="id-popup-capability__info-block" />
+					                                                      
+
+					<Frame id="PopUpInspectAsyncBar" class="hidden" src="file://{resources}/layout/popups/popup_inspect_async-bar.xml" />
+
+				</Panel>
+		</Panel>
+
+		<Panel id="CanStickerSpinner" class="popup-capability__spinner Spinner hidden"/>
+
+	</PopupCustomLayout>
+</root>

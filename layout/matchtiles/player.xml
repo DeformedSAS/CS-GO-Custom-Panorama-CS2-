@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/csgostyles.css" />
+		<include src="file://{resources}/styles/mainmenu_watch.css" />
+        <include src="file://{resources}/styles/matchtile.css" />
+	</styles>
+	<scripts>
+	</scripts>
+
+    <Panel class="MatchTile MatchTile--Collapse">
+        <Panel class="full-width full-height">
+            <Panel class="MatchTile">
+                <Panel class="MatchMap">
+                    <Image id="mapicon" class="MatchMap__Icon" texturewidth="80" textureheight="-1"/>
+                    <Label id="mapname" class="MatchInfo MatchInfo__MapName" text="Map Name"/>
+                </Panel>
+                <Panel class="MatchInfoContainer">
+                    <Panel class="left-right-flow">
+                        <Label id="score_team0" class="MatchInfo__Score"/>
+                        <Label id="vs" text="-"/>
+                        <Label id="score_team1" class="MatchInfo__Score"/>
+                    </Panel>
+                    <Label id="timestamp" class="MatchInfo"/>
+                    <Label id="outcome" class="MatchInfo MiniTrophy" html="true"/>
+                </Panel>
+            </Panel>
+            <Panel id="id-download-state" class="MiniIcon download-animation vertical-align-bottom horizontal-align-right"/>
+        </Panel>
+    </Panel>
+</root>
