@@ -36,6 +36,7 @@ https://github.com/user-attachments/assets/19e1afba-f4dc-4300-b37a-bd24c5db00d1
 - roblogez for suggestions for hud and improving general code optimisation.
 - Valve, CS2 Developer Team for making the awesome clean ui.
 - And me DeformedSAS for basically backporting the entire UI..
+- ZooL for giving me permission to use his reworked molotov. All he said was do whatever when i asked him so.. I guess it's a yes?
 
 # Installation and Requirements
 - You are required to use HLAE!
